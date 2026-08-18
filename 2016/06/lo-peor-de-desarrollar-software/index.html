@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Lo peor de desarrollar software | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/06/lo-peor-de-desarrollar-software/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4895 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4895" class="post-4895 post type-post status-publish format-standard hentry category-dev category-opinion tag-rant tag-software-development">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Lo peor de desarrollar software</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 12 junio 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/rant/" rel="tag">rant</a>, <a href="/tag/software-development/" rel="tag">software development</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Imagínate que quieres ir a comer a un restaurante.</p>
+<p>Después de buscar un poco, te decides por una arrocería que tiene una pinta estupenda. Cuando llegas, un atento camarero te trae la carta y eliges un arroz con bogavante que, según te aconseja el solícito camarero, es magnífico.</p>
+<p>&#8211; Tardará unos 10 minutos en prepararse, queremos asegurarnos de que todo está a su gusto &#8211; te advierte.</p>
+<p>Te resulta extraño porque sueles cocinar bastante arroz y sabes que tarda unos 20 minutos en estar listo, pero prefieres pensar que aquí son muy eficientes, porque la alternativa de que tengan el arroz hecho y lo vayan a recalentar te pone un poco nervioso.</p>
+<p>Cuando pasados más de 20 minutos allí no ha aparecido arroz alguno, se lo reclamas al camarero. Éste, disculpándose amablemente, te explica que ha habido algunos problemas pero que ya casi está. Empiezas a enfadarte: estaba claro que no podían preparar el arroz en 10 minutos y, una de dos, o te están engañando o no tienen ni idea de hacer arroz, pero bueno, prefieres no pensar mucho en ello y disfrutar de tu arroz cuando llegue.</p>
+<p>Y por fin llega el arroz. Con pollo.</p>
+<p>&#8211; Esto es pollo. ¿Y el arroz con bogavante que había pedido? &#8211; preguntas al camarero.</p>
+<p>&#8211; Vaya, lo siento. Tiene que haber sido un error. Le preparamos un bogavante y se lo añadimos a este arroz, así no tiene que esperar otra vez y podemos aprovechar parte del trabajo que hemos hecho ya.</p>
+<p>Respiras profundamente mientras vas asumiendo que vas a comer arroz con pollo y bogavante. No suena muy bien, pero tienes suficiente hambre como para aceptarlo.</p>
+<p>Cuando llega el bogavante, te mira con ojos desafiantes mientras avanza hacia ti chasqueando sus pinzas.</p>
+<p>&#8211; ¡Está vivo! ¿Me ha traído un bogavante vivo?</p>
+<p>&#8211; Verá, señor, vamos justos de tiempo, teníamos que haber terminado con su mesa hace un rato, pero su proyecto, digo, su comida, está resultando más complicada de lo que esperábamos y&#8230;</p>
+<p>&#8211; Quiero mi bogavante. Y, por supuesto, lo quiero cocinado.</p>
+<p>&#8211; Sí, señor, no se preocupe que esto lo solucionamos enseguida. Pondremos a nuestros cocineros certificados en bogavantes a trabajar en ello para asegurarnos de que reconducimos su proyecto, digo, comida.</p>
+<p>Ahora sí, el bogavante tiene un aspecto mucho más apropiado y, por fin, puedes empezar a comer tu arroz (ya frío) con pollo (bastante reseco) y bogavante&#8230; ¿dulce? ¿Han cocido el bogavante en agua con azúcar? ¿A qué clase de experto certificado en bogavantes se le ocurriría hacer eso?</p>
+<p>&#8211; Perdone, pero este bogavante está cocinado con azúcar. ¿Es que sus expertos no comprueban lo que están haciendo? ¿Por qué siempre me traen cosas sin sentido?</p>
+<p>&#8211; Verá, nosotros creemos en trabajar estrechamente con el cliente durante la fase de testing y control de calidad para asegurar que la comida ofrece el valor añadido esperado. Además, habíamos reservado unas determinadas horas para atenderle y esto se está alargando más de lo previsto, por lo que comprenderá que tenemos que facturarle&#8230;</p>
+<h3>La realidad del desarrollo de software</h3>
+<p>Por desgracia, así funciona la mayoría del desarrollo de software, al menos en España.</p>
+<p>Casi siempre que nos juntamos unos cuantos desarrolladores y nos quejamos de nuestro trabajo acabamos hablando de comerciales que sólo se preocupan por vender, de clientes que no saben lo que quieren (y tampoco están dispuestos a pagar un precio justo por ello) y de usuarios empeñados en «romper» nuestros preciosos sistemas.</p>
+<p>Pero sobre todas esas cosas, si echo la vista atrás, lo que más frustración me ha producido ha sido la relación con otras empresas de desarrollo o con los departamentos de desarrollo de otras empresas.</p>
+<p><strong>Pocas veces he sufrido tanto como cuando <em>yo</em> he sido el cliente de un desarrollo.</strong></p>
+<p>Y eso que, se supone, algo sé del tema y debería estar preparado. O a lo mejor es justo por eso, porque sé algo del tema y sé que hay otras formas de hacer las cosas. En cualquier caso, cuando pienso en lo que debe de sentir alguien que contrata un desarrollo de software a la típica empresa del sector, me da lástima.</p>
+<p><strong>La mayoría del software que te entregan tiene una calidad ínfima.</strong></p>
+<p>Comprendo que definir correctamente la funcionalidad de un sistema no es una tarea fácil, requiere una buena comunicación y estoy dispuesto a asumir mi culpa como cliente por no haberla expresado bien o incluso por no haber sabido lo que realmente necesitaba, pero hay cosas que claman al cielo.</p>
+<p><strong>Aplicaciones que nadie se ha molestado en probar</strong>. No digo ya probar a fondo y cubrir cada caso extraño que pueda producirse, sino simplemente ver que se ejecuta y hace algo mínimamente lógico. No puede ser que se entregue una aplicación que a duras penas funciona en el caso más simple, y que, por supuesto, en cuanto fuerzas un poco, explota por mil sitios diferentes.</p>
+<p>Los <strong>fallos de regresión</strong> están a la orden del día, y conseguir estabilizar un sistema se convierte en una auténtica labor de malabaristas; por cada cosa que se arregla se rompe otra.</p>
+<p><strong>Interfaces de usuario diseñados a patadas</strong>. No todos contamos con un excelente equipo de diseñadores para hacer interfaces de usuario atractivos y originales, pero qué menos que molestarse en mantener los controles alineados, revisar errores tipógraficos, ser consistente en los patrones de interacción. No hace falta ser un experto diseñador, con aplicar un poco de sentido común y poner algo de interés basta.</p>
+<p><strong>Usabilidad inexistente</strong>. ¿Que hay que obligar al usuario a dar 40 pasos para hacer una tarea que tiene que repetir 30 veces al día? ¿Que los mensajes de error son incomprensibles? ¿Que dejamos que el usuario destruya toda su información por no validar lo que introduce en el sistemma? Da igual, es su problema. Que aprenda a hacer las cosas bien y ser eficiente.</p>
+<p><strong>Gestión del ciclo de vida del producto nula</strong>. Lo he dicho antes: <a href="/2015/10/desarrollar-es-solo-el-principio/" target="_blank">desarrollar es sólo el principio</a> y entregar una aplicación es sólo un primer paso. Estoy cansado de que nadie haya previsto un plan para actualizarla, que no haya forma de diagnosticar errores en producción o que, ni siquiera, sea posible saber qué versión se está ejecutando en producción. </p>
+<p>Y ojo, que en ningún momento estoy hablando de la calidad del código o la metodología empleada. Como cliente, <em>me da igual la calidad del código</em>, me importa el resultado que obtengo.</p>
+<p>Me gustaría decir que estos problemas sólo se dan en determinados tipos de empresas, pero me los he encontrado trabajando con empresas grandes y con empresas pequeñas. Con empresas que tenían un organigrama tradicional, con una separación muy clara de roles entre comerciales, analistas, programadores, etc., y con empresas mucho más planas. Con empresas <em>waterfall</em> y con empresas <em>agile</em>. Con empresas desconocidas y con empresas «Business Golden Partner of the Century» del fabricante de turno. Con empresas caras y con empresas baratas.</p>
+<p>Mi experiencia es que, desde el punto de vista del cliente, el panorama a la hora de contratar un desarrollo de software es desolador. No creo que se trate de un problema técnico. Tampoco de un problema comercial o de negocio. <strong>Es una cuestión cultural</strong>.</p>
+<h3>Y, sin embargo, funciona</h3>
+<p>Lo sorprendente de todo esto es que, al final, el mundo funciona. Y funciona a base de software. ¿Cómo?</p>
+<p>Ha llegado un punto en que se asume que contratar un desarrollo de software será algo que requiera un esfuerzo enorme por parte del propio cliente para obtener un resultado final dudosamente aceptable. Como decía antes, es una cuestión cultural: <strong>hemos asumido que esto es lo que hay</strong>. Los clientes <a href="/2016/02/se-consciente-de-lo-que-sabes-y-de-lo-que-no/" target="_blank">no son conscientes de que hay otra forma de desarrollar software</a>.</p>
+<p>Así, todos esos problemas que mencionaba antes y que a mi me parecen tan graves, no los son tanto para otros clientes. Están dispuestos a asumir que tendrán que perder mucho tiempo en conseguir que el proyecto arranque. Que, es cierto, nunca funcionará como las aplicaciones «de verdad», porque, claro, es una aplicación «que nos hicieron a nosotros, y tiene sus <em>cosillas</em>«.</p>
+<p>No sé en qué punto decidimos los clientes y usuarios que no importaba que el software fallase, pero es algo que tenemos bastante interiorizado. En otros productos esperamos que el funcionamiento sea siempre perfecto y predecible. En el software aceptamos que a veces «pasan cosas».</p>
+<p>Esa idea de que es normal que el software falle la hemos llevado a la contratación de un proyecto. Si contratases a un pintor para que te pintara la casa, no permitirías que te dejara las paredes mal acabadas, con manchas y ronchones. Tampoco verías normal que la pared que habías pedido azul acabase de color rojo. He visto muchos clientes de desarrollos de software que, cansados de luchar para que la pared fuese azul, acaban quedándose con la pared roja. O verde. O lo que sea, con tal cerrar de una vez el proyecto y acabar con esa pesadilla.</p>
+<p>Esta gestión de expectativas entre empresas de desarrollo y clientes es lo que permite que el sistema siga funcionando. Sí, te he entregado un producto deficiente, pero es lo que hay. Todas las empresas somos iguales y esto funciona así. A veces me recuerda al mundo de las operadoras de telefonía. Todas te tratan mal, pero saben que pueden hacerlo porque son todas iguales y, vayas donde vayas, acabarás en la misma situación.</p>
+<p>¿Todas? No. No todas las empresas son iguales.</p>
+<p>Hay empresas que intentan cambiar esto. Que intentan actuar con profesionalidad y responsabilidad. Por desgracia, estas empresas tienen que luchar con la inercia de un mercado en el que cuesta mucho vender calidad porque, simplemente, el cliente no cree que eso exista.</p>
+<p>Por eso me frustra especialmente esta situación.</p>
+<p>Porque, además de afectarme como cliente, me afecta como desarrollador. Llega un punto en que lo podría convertirse en una ventaja competitiva (intentar hacer bien las cosas), queda anulado por el escepticismo de un cliente demasiado acostumbrado a que eso no existe.</p>
+<p>No sé cuál es la forma de cambiar esto. A mi me resultaría más agradable vivir en un mundo en el que la gente se responsabilizase de su trabajo y actuase con profesionalidad, pero hay que ser realista y asumir que los incentivos económicos son los que mandan.</p>
+<p>Mientras los clientes estén dispuestos a convivir con este tipo de desarrollos, estas empresas seguirán existiendo. Aun así, no pierdo la esperanza de que, algún día, si hay suficiente gente actuando con un poco de sentido común, alguien se dará cuenta de que se puede trabajar de otra manera, mucho más productiva y satisfactoria.</p>
+<p>Hasta entonces, siempre podré seguir escribiendo rants absurdos como éste. No solucionan nada, pero al menos ayudan a desahogarse.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/05/typescript-ahora-si/" rel="prev"><i class="icon-arrow-left"></i> TypeScript, ¿ahora sí?</a></div>		<div class="nav-next"><a href="/2016/06/ni-titulitis-ni-cunadismo/" rel="next">Ni titulitis, ni cuñadismo <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4895 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			7 comentarios en &ldquo;<span>Lo peor de desarrollar software</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3964">
+		<article id="comment-3964" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/6164cc2dd187f55bd00d3e644e59f202?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/6164cc2dd187f55bd00d3e644e59f202?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3964"><time pubdate datetime="2016-06-13T10:18:12+01:00">
+					13 junio 2016 de 10:18					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«Verá, nosotros creemos en trabajar estrechamente con el cliente&#8230;»</p>
+<p>Ja, ja, &#8230; me has matado, sí, de vender la moto saben bastante.</p>
+<p>Pero:</p>
+<p>¿»Aplicaciones que nadie se ha molestado en probar»?, ¿»fallos de regresión»?, ¿»Interfaces de usuario diseñados a patadas»?, ¿»Usabilidad inexistente»?, ¿»Gestión del ciclo de vida del producto nula»?</p>
+<p>Esa lista son síntomas, como el sabor dulzón de tu bogavante (por cierto, puedes aprovecharlo para una ensalada), el problema es la incompetencia (de quienes sea en cada caso dentro de la cadena de responsabilidades) y la hijoputez, características ambas que se aplican igualmente en otros sectores (en que también pasa todo lo que comentas).</p>
+<p>No concuerdo para nada con la referencia a la España cañí, para nada, en mi sector al menos, no veo menos chapuzas en megaempresas (USA, Alemania, Holanda, &#8230; por decir las que se supone son «éxquisitas») que en otras mucho más pequeñas españolas (que también). Mi relación con ellas son siempre conectar extremos, por lo que el único problema debería ser definir el mejor acople entre modelos de negocio pero no, te encuentras con cosas surrealistas como por ejemplo, una de éstas mega, te entrega incorrectamente codificado X mensaje ¡aleatoriamente! (hipótesis, balacean entre servicios que no funcionan igual) así, cuando repites la operación de lectura, puedes recibir «Wolfgang Schäuble» o «Wolfgang SchAnuble»; respuesta «Sí, lo sabemos, pero de momento no lo vamos a arreglar» u otras que en lugar de empaquetar en una petición con 1k cambios te envían 1k peticiones de 1 cambio :/ (migración de costes: obviamente porque a ellos les resulta más cómodo, allá tu te apañes&#8230;); otras en que tienes que replicar ¡sus operativa de negocio! para calcular información que obviamente deberían darte (imagínate un total que depende de datos y eglas internas de ellos); hay muchas&#8230;</p>
+<p>En cuanto a «Por eso me frustra», «No sé cuál es la forma de cambiar esto», &#8230; pasa, haz como que no te importa mucho y vivirás mucho mejor, realiza tu trabajo lo mejor que puedas (te dejen), piensa en la mejor estrategia dentro de tu radio de acción, olvídate sobre lo que no puedas actuar y por supuesto, desahógate cuando lo necesites xD xD xD</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3965">
+		<article id="comment-3965" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3965"><time pubdate datetime="2016-06-13T11:31:53+01:00">
+					13 junio 2016 de 11:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy de acuerdo, lo que menciono son síntomas. Trato de ponerme en el lugar del cliente, que realmente sólo ve eso, sin ser capaz de entender el origen.</p>
+<p>En cuanto a ceñirlo a España, es el mercado que conozco, pero supongo que no será una excepción y probablemente pase en todas partes.</p>
+<p>Por cierto, tengo por norma no comer cosas con exoesqueleto, así que no he probado un bogavante en mi vida, pero gracias por el consejo culinario ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3966">
+		<article id="comment-3966" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/244f36fd6d82b4fe713cb81f941bc298?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/244f36fd6d82b4fe713cb81f941bc298?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Jose Alonso</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3966"><time pubdate datetime="2016-06-15T12:31:57+01:00">
+					15 junio 2016 de 12:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«&#8230;no pierdo la esperanza de que, algún día, si hay suficiente gente actuando con un poco de sentido común, alguien se dará cuenta de que se puede trabajar de otra manera, mucho más productiva y satisfactoria..»</p>
+<p>El Principio de Peter está en tu contra: «Todo profesional asciende hasta alcanzar su máximo grado de incompetencia».</p>
+<p>Yo nunca he sido cliente de un desarrollo software (trabajo para una de esas “Business Golden Partner of the Century”, aunque también he trabajado en empresas pequeñas) pero siempre intento ponerme en el pellejo del cliente y, la conclusión a la que llego en la mayoría de los casos es siempre la misma: son unos angelitos. No sé como aguantan y se comen las aberraciones de desarrollos que se les hacen (quizás por lo que comentas, porque «saben».</p>
+<p>Yo en este aspecto veo una analogía con la política. Si estás preparado y tienes buenas intenciones, entonces tienes muy pocas posibilidades de llegar alto y poder cambiar las cosas. Además también considero que nuestro sector está corrupto. Empresas que te cobran precios desorbitados por entregarte software con retraso (siempre) y sin ninguna calidad.</p>
+<p>Lo que importa, como casi todo en esta vida, no es la calidad, sino el marketing.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3967">
+		<article id="comment-3967" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b35c02e4aa8cd4665edf47f9362c5af9?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b35c02e4aa8cd4665edf47f9362c5af9?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.flexxus.com.ar/" class="url" rel="ugc external nofollow">Emilio</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3967"><time pubdate datetime="2016-06-16T17:59:15+01:00">
+					16 junio 2016 de 17:59					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy de acuerdo con el escenario! Hay muchas formas de desarrollar Software y realmente es bastante normal que el mismo tenga fallas en su creación e implementación.  Tener un equipo de I+D y testers es lo más adecuado para el desarrollo.</p>
+<p>Yo he probado Flexxus (www.flexxus.com.ar)<br />
+ y es excelente!! </p>
+<p>Saludos </p>
+<p>Emilio Acosta</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3983">
+		<article id="comment-3983" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/3fe02bbfd7e13f9096ed7a6278ae091b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/3fe02bbfd7e13f9096ed7a6278ae091b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://linkedin/patrickmardones" class="url" rel="ugc external nofollow">Sucio Raiser</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3983"><time pubdate datetime="2016-06-24T18:49:23+01:00">
+					24 junio 2016 de 18:49					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Solo falta educarlos no mas socio</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3986">
+		<article id="comment-3986" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dfdf21d8bf74b13eba4b644354d091bd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dfdf21d8bf74b13eba4b644354d091bd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Xavi</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-3986"><time pubdate datetime="2016-07-01T22:16:10+01:00">
+					1 julio 2016 de 22:16					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola a todos,</p>
+<p>Estoy de acuerdo con lo que comentas pero también hay un tema también muy importante y creo que es uno de los puntos clave en la relación cliente-empresa en el mundo de la informática.</p>
+<p>En la actualidad existen varios puntos a tener en cuenta:<br />
+&#8211; El usuario no sabe lo que quiere, no explica lo que quiere y/o cambia constantemente los requisitos, con lo que es realmente muy complejo saber las tareas que entran en el sistema. Esto es como ir a una ciudad y pedir una paella valenciana, posiblemente cuando me la sirva le diga esto es arroz con cosas, no una paella valenciana.<br />
+&#8211; Es muy complejo estimar en coste y tiempo una tarea, con lo que los desarrolladores suelen aplicar un porcentaje para cubrir posibles derivaciones. Hay lugares donde cierto tipo de arroces no tienen precio fijo porque depende del día por ejemplo el bogabante fresco va a un precio y por tanto no se puede poner un precio al arroz del bogabante de antemano.<br />
+&#8211; El cliente intenta apretar al máximo el coste y tiempo de la aplicación con lo que junto a los puntos anteriores suele ser muy complejo ajustar el coste/tiempo al real de la aplicación. El cliente tiene prisa y quiere la paella en 10 minutos aunque sabe que la cocción del arroz son 20 min más el sofrito, &#8230;<br />
+&#8211; Los usuarios no quieren o no entienden que la programación no solo es programar, sino que que hay reuniones, elaboración del presupuesto, elaborar la documentación para que lo que entra en el sistema sea lo que el usuario quiere, &#8230; El cliente quiere pagar por los 40 minutos de hacer la paella, pero falta limpiar la paella, comprar, la seguridad social, &#8230;<br />
+&#8211; Los usuarios no quiere asumir el coste de formación para realizar su sistema. Entiendo que la formación para elaborar algo global que luego se puede reaprovechar debe correr en gran medida a cargo de la empresa que desarrolla, pero conocer como conectar con su CRM concreto y que nadie más usa, &#8230; es un coste que debe asumir sólo él. Al final el conocimiento o se paga por lo que se sabe (en muchas ocasiona hemos comentado el tema) o se paga a formación o tiempo para aprender algo.</p>
+<p>Aunque parte de estos puntos los he llevado al extremo&#8230; Todo esto hace que no se llegue a tiempo, los costes empiecen a hacer no rentable el sistema, que el cliente se mosquee, que el programador se cree que le toma el pelo&#8230; Esto se suma al tema de que mi primo me ha dicho que la aplicación me la hace en una semana y no me cobra dos gintonics.</p>
+<p>Esto se resume en que esta relación es muy compleja y aunque creo que gran parte, como comentas, es culpa de la empresa desarrolladora porque no es suficientemente profesional hay que ver todos los puntos de vista y también he sufrido clientes que me han llevado hasta la extenuación.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5918">
+		<article id="comment-5918" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2b243e0c8fbe457f35e26002f7069c6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2b243e0c8fbe457f35e26002f7069c6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Xerx</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/06/lo-peor-de-desarrollar-software/#comment-5918"><time pubdate datetime="2018-08-25T15:36:27+01:00">
+					25 agosto 2018 de 15:36					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pues si que es cierto todo. Lo más difícil para mi han sido las estimaciones y lograr leerle la mente al cliente. El último lugar donde trabaje el jefe me decía que no le importaba la calidad del software. Que lo importante era que funcionara y estuviera rápido. </p>
+<p>Soy lento programando la verdad. Pero no me gustan las cosas mal hechas. No es un queja. Se que hay muy buenos programadores que avanzan toneladas en un día. Simplemente todos somos diferentes y yo soy así, pasito a pasito. </p>
+<p>Paso tiempo validando todas las entradas y al final esto molesta el jefe porque no cree que sea necesario. Le he hablado de usar git y me creyeron loco. Y me vieron una mañana leyendo TDD y era como si estuviera leyendo la biblia del diablo. Es claro que ya no trabajo ahi. </p>
+<p>Pero si me preocupa como lograr ese equilibrio entre ser rápido y productivo y hacerlo bien. Porque no me cabe duda que hacerlo bien y con calidad es el único camino. Aunque no lo aprecien los jefes ni los clientes.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

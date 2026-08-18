@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Bingo Motivacional</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+    }
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 12px;
+    }
+    #bingo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 6px;
+      width: 100%;
+      max-width: 600px;
+    }
+    .cell {
+      border: 1px solid #333;
+      padding: 16px;
+      font-size: 1em;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s;
+      background: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .cell.marked {
+      background: #4caf50;
+      color: #fff;
+    }
+    #message {
+      margin-top: 16px;
+      font-size: 1.1em;
+      opacity: 0;
+      display: inline-block;
+      transform: translateX(0) rotate(0deg) scale(1);
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
+    #message.win {
+      animation: spectacular 2s ease-out forwards;
+    }
+    @keyframes spectacular {
+      0% {
+        opacity: 0;
+        transform: translateX(-100vw) rotate(0deg) scale(0.5);
+        color: #ff0000;
+      }
+      25% {
+        color: #0000ff;
+        transform: translateX(-25vw) rotate(90deg) scale(1.5);
+      }
+      50% {
+        opacity: 1;
+        transform: translateX(50px) rotate(180deg) scale(2);
+        color: #00ff00;
+      }
+      75% {
+        color: #ffa500;
+        transform: translateX(25vw) rotate(270deg) scale(1.5);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0) rotate(360deg) scale(1);
+        color: #4caf50;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.4em;
+      }
+      .cell {
+        padding: 8px;
+        font-size: 0.8em;
+      }
+      #message {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Bingo Motivacional</h1>
+  <div id="bingo-grid"></div>
+  <div id="message"></div>
+  <script>
+    // === Editable word list ===
+    const words = [
+      'Fortalezas personales',
+      'Si quieres, puedes',
+      'Partido a partido',
+      'Autobombo (RRSS, Libro…)',
+      'Zapatillas de deporte',
+      'Crear un plan de acción',
+      'Sinergias',
+      'Anécdota de superación',
+      'Como bien X dijo…',
+      'Foto con algún famoso',
+      'Confianza mutua',
+      'Positividad',
+      'LinkedIn',
+      'Pregunta al público',
+      'Dinámica de grupo',
+      'Jefe vs Líder',
+      'Vídeo (de YouTube)',
+      'Trabajo en Equipo',
+      '"Gracias a vosotros"',
+      'Solo conversaciones profundas',
+      'Interacción incómoda',
+      'Mentalidad de Llados',
+      'Se pasa de tiempo',
+      '"El dinero no es lo importante"',
+    ];
+    // === End editable section ===
+
+    const grid = document.getElementById('bingo-grid');
+    const messageEl = document.getElementById('message');
+    let markedCount = 0;
+
+    function initGrid() {
+      words.forEach(word => {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.textContent = word;
+        cell.addEventListener('click', () => markCell(cell));
+        grid.appendChild(cell);
+      });
+    }
+
+    function markCell(cell) {
+      if (cell.classList.contains('marked')) return;
+      cell.classList.add('marked');
+      markedCount++;
+      checkWin();
+    }
+
+    function checkWin() {
+      if (markedCount >= words.length) {
+        messageEl.textContent = '¡Bingo! Has marcado todas las palabras.';
+        messageEl.classList.remove('win');
+        void messageEl.offsetWidth;
+        messageEl.classList.add('win');
+      }
+    }
+
+    initGrid();
+  </script>
+</body>
+</html>

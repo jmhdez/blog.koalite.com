@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>BBG - Bootstrap Button Generator</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<link type="text/css" href="css/bootstrap.min.css" rel="stylesheet">
+	
+	
+	<!--[if lt IE 9]>
+		<script src="../js/html5.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="jquery.miniColors/jquery.miniColors.js"></script>
+	<link type="text/css" href="jquery.miniColors/jquery.miniColors.css" rel="stylesheet">
+	
+	<style type="text/css">
+	body {
+		background-image: url('img/tiny_grid.png');
+	}
+	.content {
+		width: 1000px;
+		margin: 0 auto;
+		background-color: rgba(255, 255, 255, .95);
+		box-shadow: 3px 0px 5px #E0E0E0, -3px 0px 5px #E0E0E0;
+	}
+	.row { 
+		margin-top: 25px;
+	}
+	.center {
+		text-align: center;
+	}
+	strong {
+		font-size: 15px;
+	}
+	</style>
+</head>
+<body id="top">
+	<div class="content">
+	
+		<div class="container">
+			<header class="page-header">
+				<div class="row">
+					<div class="span12">
+						<h1>Bootstrap Button Generator<br><small>The simplest way to generate new button styles for <a href="http://getbootstrap.com/2.3.2/index.html">Twitter's Bootstrap v2.x</a></small></h1>
+					</div>
+				</div>
+			</header>
+			
+			<section id="intro">
+				
+				<div class="row alert alert-warning">
+					Generated buttons are compatible with <strong>Bootstrap 2.x</strong>. If you are using Bootstrap 3.x, use the <a href="http://blog.koalite.com/bbg/">newer version of Bootstrap Button Generator</a>.
+				</div>
+			
+				<div class="row">
+					<div class="span12">
+						<h2>How to use BBG</h2>
+					</div>			
+				</div>
+				<div class="row">
+					<div class="span8">
+						<p>
+							It's easy. Really. Just enter the css class you want to assign to your new button style and 
+							play with the different button colors to update the live previews in the right.
+						</p>
+						<p>
+						   When you are ready, copy the code below and 
+						   add it to your page <strong>below</strong> <em>bootstrap.min.css</em> to use the button.
+						</p>
+						<p>
+							<strong>What if I need to...</strong>
+						</p>
+						<p>
+							Sorry, but this is a very simple tool to do a very simple thing: <em>generate button syles</em>.
+							If you need to customize other Boostrap aspects, take a look at the 
+							<a href="http://getbootstrap.com/2.3.2/customize.html">official customization tool</a>.
+						</p>
+					</div>
+					<div class="span4">
+						<img src="img/bootstrap_twitter.gif" alt="Bootstrap"/>
+					</div>
+				</div>
+			</section>
+			
+			<hr/>
+			
+			<section id="generator">
+				<div class="row">
+					<div class="span5">
+						<form class="form-horizontal">
+							<h2>Generate Button</h2>
+							<br/>
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label" for="class-name">Class Name:</label>
+									<div class="controls">
+										<input type="text" name="class-name" id="class-name" class="span2" value="btn-sample"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="color1">Color 1:</label>
+									<div class="controls">
+										<input type="text" name="color1" id="color1" class="color-picker span2" size="7" value="#AF4CE8"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="color2">Color 2:</label>
+									<div class="controls">
+										<input type="text" name="color2" id="color2" class="color-picker span2" size="7" value="#611BBD"/>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="text-color">Text:</label>
+									<div class="controls">
+										<input type="text" name="text-color" id="text-color" class="color-picker span2" size="7" value="#FFFFFF" />
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="disabled-text-color">Alt. Text:</label>
+									<div class="controls">
+										<input type="text" name="disabled-text-color" id="disabled-text-color" class="color-picker span2" size="7" value="#FFFFFF" />
+									</div>
+								</div>
+							</fieldset>
+						</form>
+					</div>
+					<div class="span7">
+						<h2><small>Button Previews</small></h2>
+						<br/>
+						<p>
+							<button class="btn sample btn-large">Large Button</button>
+							<button class="btn sample btn-large active">Active</button>
+							<button class="btn sample btn-large disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample">Default Button</button>
+							<button class="btn sample active">Active</button>
+							<button class="btn sample disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample btn-small">Small Button</button>
+							<button class="btn sample btn-small active">Active</button>
+							<button class="btn sample btn-small disabled">Disabled</button>
+						</p>
+						<p>
+							<button class="btn sample btn-mini">Mini Button</button>
+							<button class="btn sample btn-mini active">Active</button>
+							<button class="btn sample btn-mini disabled">Disabled</button>
+						</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="span10 offset1">
+						<form>
+							<h2><small>CSS Code</small></h2>
+							<label class="control-label" for="css-text">Add the following CSS <strong>below</strong> <em>bootstrap.min.css</em> to use this button:    <a href="#" id="select-all" class="pull-right">Select all</a></label>
+							<textarea class="input-xlarge span10" id="css-text" rows="10"></textarea>
+						</form>
+					</div>
+				</div>
+			</section>
+			
+			<footer>
+				<div class="row">
+					<div class="span12 center">
+						<hr>
+						<small>
+							By Juan M. Hernández [<a href="http://blog.koalite.com">blog.koalite.com</a>]
+						</small>
+					</div>
+				</div>
+			</footer>
+			
+		</div>
+	
+	</div>
+   
+	<script type="text/javascript">
+	$(function() {
+	
+		$('.color-picker').miniColors({
+			letterCase: 'upercase',
+			change: function(hex, rgb) {
+				refreshSample();
+			}
+		});
+		
+		$('#class-name').on('blur', function() {
+			refreshSample();
+		});
+		
+		$('#select-all').on('click', function(e) {
+			e.preventDefault();
+			$('#css-text').select();
+		});
+		
+		refreshSample();
+		
+		function refreshSample() {
+			
+			var cssTemplate = 
+".@class-name {\n\
+	color: @text-color;\n\
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);\n\
+	background-color: @color2;\n\
+	*background-color: @color2;\n\
+	background-image: -moz-linear-gradient(top, @color1, @color2);\n\
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@color1), to(@color2));\n\
+	background-image: -webkit-linear-gradient(top, @color1, @color2);\n\
+	background-image: -o-linear-gradient(top, @color1, @color2);\n\
+	background-image: linear-gradient(to bottom, @color1, @color2);\n\
+	background-repeat: repeat-x;\n\
+	border-color: @color2;\n\
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);\n\
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@color1', endColorstr='@color2', GradientType=0);\n\
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);\n\
+}\n\
+.@class-name:hover,\n\
+.@class-name:focus,\n\
+.@class-name:active,\n\
+.@class-name.active,\n\
+.@class-name.disabled,\n\
+.@class-name[disabled] {\n\
+	color: @disabled-text-color;\n\
+	background-color: @color2;\n\
+	*background-color: #003bb3;\n\
+}";
+
+			var css = cssTemplate
+				.replace(/@color1/g, $('#color1').val())
+				.replace(/@color2/g, $('#color2').val())
+				.replace(/@text-color/g, $('#text-color').val())
+				.replace(/@class-name/g, $('#class-name').val())
+				.replace(/@disabled-text-color/g, $('#disabled-text-color').val())
+				.replace();
+		
+			$('head style[data-role="custom"]').remove();
+			$('<style type="text/css" data-role="custom">').appendTo('head').html(css);
+			$('#css-text').val(css);
+			
+			$('.sample').addClass($('#class-name').val())
+		}
+	});
+	</script>
+	
+	<script type="text/javascript">//<![CDATA[
+	// Google Analytics for WordPress by Yoast v4.2.3 | http://yoast.com/wordpress/google-analytics/
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount','UA-25366517-1']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+	//]]></script>
+  </body>
+</html>

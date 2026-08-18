@@ -1,0 +1,691 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Servidor de Integración Continua, una buena inversión | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2013/05/servidor-de-integracion-continua-una-buena-inversion/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-2997 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-2997" class="post-2997 post type-post status-publish format-standard hentry category-dev tag-agile tag-continuous-integration tag-software-development">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Servidor de Integración Continua, una buena inversión</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 13 mayo 2013</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/agile/" rel="tag">agile</a>, <a href="/tag/continuous-integration/" rel="tag">continuous integration</a>, <a href="/tag/software-development/" rel="tag">software development</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Siempre he pensado que las herramientas que usamos en el desarrollo de software deben estar seleccionadas y adaptadas en función del tipo de desarrollo que realizamos, el equipo, la metodología, etc. </p>
+<p>Sin embargo, hay tres herramientas básicas que uso en todos los proyectos: un sistema de control de versiones (desde git hasta subversion), un gestor de bugs/tareas (aunque sea una hoja Excel) y un servidor de integración continua. </p>
+<p>Las dos primeras herramientas de la lista están muy extendidas y no conozco ningún equipo de desarrollo que trabaje sin ellas, pero lo del servidor de <a href="http://en.wikipedia.org/wiki/Continuous_integration" target="_blank">integración continua</a> es menos conocido y no se usa tanto.</p>
+<h3>¿Qué es la integración continua?</h3>
+<p>La integración continua es una practica ligada a la <a href="http://en.wikipedia.org/wiki/Extreme_programming" target="_blank">programación extrema</a> que consiste en automatizar el proceso de integración de código para poder realizarlo de la manera más continuada posible.</p>
+<p>Cuando llega el momento de liberar una nueva versión de una aplicación hay que realizar un proceso de integración de todos los componentes que forman parte de la aplicación. Esto implica realizar varios pasos, como obtener el código fuente, compilarlo, ejecutar los tests, etc.</p>
+<p>En muchos proyectos este es <strong>un proceso completamente manual</strong>, en el mejor de los casos documentado en forma de <em>checklist</em> en alguna parte, pero a fin de cuentas, siempre que haya pasos manuales, antes o después habrá algún error y pondremos en producción una aplicación con el número de versión incorrecto, que no ha pasado las pruebas automatizadas o que no estará correctamente etiquetada en el control de código fuente.</p>
+<p>Si queremos mejorar este proceso, <strong>el primer paso es automatizarlo</strong>. Para ello contamos con diferentes herramientas, generalmente basadas en algún tipo de <em>script de compilación</em>. En .NET se suele utilizar <a href="http://msdn.microsoft.com/en-us/library/wea2sca5%28v=vs.90%29.aspx" target="_blank">MSBuild</a>, en Javascript hay opciones como <a href="http://gruntjs.com/" target="_blank">Grunt</a>, en Ruby existe <a href="http://rake.rubyforge.org/" target="_blank">Rake</a>&#8230; Al final todas se basan en lo mismo, poder definir de una manera más o menos cómoda las tareas a ejecutar para poder lanzarlas en un único paso.</p>
+<p>Un <strong>ejemplo de script</strong> de compilación para una aplicación de escritorio podría contar con los siguientes pasos:</p>
+<ol>
+<li>Obtener la última versión del código fuente.</li>
+<li>Actualizar la información de versión en el fichero <em>AssemblyInfo.cs</em> basándose en la convención que se haya establecido (número de compilación, fecha, etc.).</li>
+<li>Ejecutar una herramienta de análisis estático como <a href="http://msdn.microsoft.com/en-us/library/bb429476%28v=vs.80%29.aspx" target="_blank">FxCop</a> o <a href="http://www.campwoodsw.com/sourcemonitor.html" target="_blank">SourceMonitor</a> para detectar defectos en el código.
+<li>Compilar los proyectos.</li>
+<li>Ejecutar las suites de tests automatizados.</li>
+<li>Generar la documentación (manuales, guías de instalación, etc.).</li>
+<li>Crear los paquetes de instalación.</li>
+<li>Etiquetar en el control de código fuente la versión del código usada para generar estos instaladores, de forma que luego podamos trazar <em>exactamente</em> qué codigo fuente se uso para generar cada versión de la aplicación.</li>
+</ol>
+<p>Preparar este script puede llevar un tiempo y no es una tarea fácil la primera vez que lo haces, pero una vez que has aprendido es bastante sencillo adaptarlo para nuevos proyectos, por lo que la inversión de tiempo se recupera rápidamente.</p>
+<h3>¿Qué aporta un servidor de integración continua a este proceso?</h3>
+<p>Una vez que contamos con este script, cada vez que queramos realizar una integración completa (potencialmente liberable) del código, podremos hacerlo en un sólo paso ejecutándolo desde cualquier equipo; entonces, ¿para qué hace falta un servidor de integración continua?</p>
+<p>El servidor de integración continua se encarga de ejecutar este script automáticamente según la programación que establezcamos, por ejemplo cada vez que se se realiza un <em>commit/checkin/push</em> al control de código fuente. </p>
+<p>Además, podemos establecer distintas configuraciones para un mismo proyecto. Por ejemplo, podemos crear una configuración que realice una compilación «rápida», ejecutando sólo los test unitarios cada vez que realizamos un <em>commit</em>, y programar una compilación «completa», que ejecuta también los tests de integración y genera los instaladores todas las noches (las típicas <em>nightly builds</em>).</p>
+<p>Realizar el proceso de integración de continuamente en un servidor tiene varias <strong>ventajas</strong>:</p>
+<p>Por una parte, <strong>evita discrepancias entre las versiones</strong> utilizadas para generar los entregables. Al realizar la compilación en el servidor se garantiza que siempre se usa la misma versión del compilador, SDKs, librerías de terceros, etc. Eso es difícil de conseguir si la compilación se realiza cada vez en equipo distintos donde podría haber distintas versiones de cosas instaladas globalmente (assemblies en el GAC, módulos node instalados con <code>npm install -g</code>, etc.), provocando cambios en el comportamiento final de la aplicación dependiendo del equipo en que se ha compilado. Este tipo de errores son complicados de diagnosticar y pueden hacerte perder mucho tiempo.</p>
+<p>Además, permite <strong>detectar rápidamente errores</strong> introducidos por cambios en el código. Aunque se supone que antes de hacer un <em>commit</em> cada desarrollador debería asegurarse de que todo funciona y ejecutar los tests en su equipo, a veces las suites de tests tardan más tiempo del que nos gustaría en ejecutarse (especialmente si tenemos tests de integración) o directamente al desarrollador se le olvida. Al hacer que el código se compile cada vez que se hace el <em>commit</em> en el servidor de integración continua, los errores se detectan en cuestión de minutos en lugar de hacerlo varios días después cuando alguien intenta liberar una nueva versión.</p>
+<p>Otra ventaja de usar un servidor de integración continua es que podemos <strong>mantener un histórico</strong> de los resultados de las compilaciones. Dependiendo de los análisis que estemos realizando sobre nuestro código, esto nos permite conocer como ha evolucionado la cobertura de código de los tests, la complejidad ciclomática media y todas esas métricas que tanto nos gustan (otra cosa es que sirvan para algo, pero eso lo dejamos para otro día).</p>
+<p>En teoría, si este proceso se lleva al extremo cada vez que se hace un <em>commit</em> al control de código fuente el servidor de integración continua sería capaz de detectar si todo es correcto y en ese caso hacer un despliegue automático. Eso es lo que se conoce como entrega continua (<em>continuous delivery o continuous deployment</em>) y hay proyectos que son capaces de hacerlo, aunque no siempre es viable (ni recomendable).</p>
+<h3>Conclusiones</h3>
+<p>Montar un servidor de integración continua puede resultar un poco complicado al principio. Hay <a href="http://en.wikipedia.org/wiki/Comparison_of_continuous_integration_software" target="_blank">muchas opciones disponibles</a>, algunas más sencillas y otras más complejas, pero donde realmente reside la complicación es en estructurar tu proyecto para que todas las tareas sean fácilmente automatizables. </p>
+<p>Aunque pueda parecer que este tipo de técnicas sólo son aplicables a equipos muy grandes que hacen aplicaciones muy complejas, no es así. Yo lo he utilizado en proyecto con un único desarrollador en los que lo único que se hacía era compilar el código y generar un instalador, y aun así merece la pena. Tener la seguridad de que lo que has compilado es lo que se debía compilar, que la versión está correctamente asignada y que el instalador lo has generado con los binarios correctos (y no con otros que compilaste dos horas atrás), te permite vivir mucho más tranquilo.</p>
+<p>Es verdad que el coste inicial es alto, pero lo bueno es que las técnicas necesarias son muy fáciles de reutilizar de un proyecto a otro, por lo que una vez que has automatizado la integración del primer proyecto, si sigues una estructura común en todos tus proyectos, el resto es cuestión de ajustar un par de rutas en los scripts de compilación y los tienes listos en minutos (literalmente).</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2013/05/open-source-en-un-mundo-microsoft/" rel="prev"><i class="icon-arrow-left"></i> Open Source en un mundo Microsoft</a></div>		<div class="nav-next"><a href="/2013/05/automatizar-la-compilacion-con-msbuild/" rel="next">Automatizar la compilación con MSBuild <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-2997 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			15 comentarios en &ldquo;<span>Servidor de Integración Continua, una buena inversión</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-1969">
+		<article id="comment-1969" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Sergio León</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1969"><time pubdate datetime="2013-05-13T17:17:32+01:00">
+					13 mayo 2013 de 17:17					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me ha encantado tu post! Entre esto y el vago recuerdo que aun tengo debido al exceso de cerveza del gusenet, me doy por enteradísimo de que es y por que debo utilizar un servidor de CI.<br />
+Muchas gracias por el detalle de escribir el post! :-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1971">
+		<article id="comment-1971" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dfdf21d8bf74b13eba4b644354d091bd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dfdf21d8bf74b13eba4b644354d091bd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://geeks.ms/blogs/xavipaper" class="url" rel="ugc external nofollow">Xavi Paper</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1971"><time pubdate datetime="2013-05-14T00:04:09+01:00">
+					14 mayo 2013 de 00:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy bueno, este es un tema muy interesante del que no hay mucha documentación&#8230; Seguiré atento por si publicas más del tema</p>
+<p>Enhorabuena, aunque creo que te explicas mejor con cerveza ;-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1972">
+		<article id="comment-1972" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b5711aedd5102b01b0787589eb670df5?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b5711aedd5102b01b0787589eb670df5?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Carlos Duque</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1972"><time pubdate datetime="2013-05-14T10:54:00+01:00">
+					14 mayo 2013 de 10:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buen post, Juanma, ya estoy mucho más convencido de utilizar un servidor de CI :D.<br />
+Ahora a ver si consigo que me dejen montar uno en mi empresa, aunque sea para los proyectos que hago yo solo.<br />
+Una pregunta. Según tu opinión, para trabajar con MSBuild y para empezar a familiarizarse con el tema, de los servidores que tu conoces, ¿cuál recomendarías?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-1973">
+		<article id="comment-1973" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1973"><time pubdate datetime="2013-05-14T11:05:45+01:00">
+					14 mayo 2013 de 11:05					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Yo uso <a href="http://www.cruisecontrolnet.org/" rel="nofollow">Cruise Control .NET</a>, pero es bastante incómodo de configurar y está un poco anticuado, aunque también es verdad que una vez que lo tienes configurado funciona bien y no da guerra.</p>
+<p>Una buena alternativa parece TeamCity de Jetbrains, pero no te puede decir mucho sobre él, sólo que tiene buena pinta.</p>
+<p>En el Team Foundation Server creo que también hay un servidor de integración, pero me imagino que será bastante complejo, como todo el TFS.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1982">
+		<article id="comment-1982" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/0acbf330e31f1d7ef8fe5226a4e1e267?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/0acbf330e31f1d7ef8fe5226a4e1e267?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://clinkerhq.com" class="url" rel="ugc external nofollow">Manuel Jesús Recena Soto</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1982"><time pubdate datetime="2013-05-22T14:38:47+01:00">
+					22 mayo 2013 de 14:38					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola,</p>
+<p>Buen post. Si hay alguien interesado en obtener más información, quizás os interese leer este post que escribió José Manuel Beas:<br />
+<a href="http://blog.clinkerhq.com/hosted-continuous-integration-comparative/" rel="nofollow ugc">http://blog.clinkerhq.com/hosted-continuous-integration-comparative/</a></p>
+<p>Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-1983">
+		<article id="comment-1983" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-1983"><time pubdate datetime="2013-05-22T19:17:23+01:00">
+					22 mayo 2013 de 19:17					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por la aportación, muy interesante.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2821">
+		<article id="comment-2821" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e550780c6b61a92815b59fd478b2319a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e550780c6b61a92815b59fd478b2319a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.mookiefumi.com" class="url" rel="ugc external nofollow">Miguel Ángel Martín Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-2821"><time pubdate datetime="2014-02-28T23:26:21+01:00">
+					28 febrero 2014 de 23:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Yo finalmente he apostado por Jenkins. Aunque hay alguna pega con el plugin de TFS y las credenciales, lo he privado también contra un repositorio en BitBucket y va bien.</p>
+<p>Como últimamente tengo un par de dudas:<br />
+¿Que sueles utilizar para recoger bugs?<br />
+¿Que sueles utilizar para recoger nuevos requisitos?</p>
+<p>Por último y lo que menos entiendo es el tema de la numeración de versiones. Espero sacar algo de tiempo y entenderlo algo mejor.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-2822">
+		<article id="comment-2822" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-2822"><time pubdate datetime="2014-03-01T10:51:56+01:00">
+					1 marzo 2014 de 10:51					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Para bugs y requisitos uso YouTrack de Jetbrains. Es muy fácil de montar y, aunque puedes personalizar un montón de cosas, la configuración por defecto es bastante útil.</p>
+<p>Eso sí, no lo tengo enlazado con nada. Se pueden montar cosas más automáticas para que, por ejemplo, cuando haces un commit al control de versiones, si pones un texto determinado, te cierre la tarea en el YouTrack, pero no uso nada de eso, entre otras cosas porque mi configuración es un poco especial (una misma tarea puede referirse a varias aplicaciones distintas en repositorios o ramas distintas) y no es fácilmente automatizable.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2931">
+		<article id="comment-2931" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/256506a9078afeaf026655924497deb6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/256506a9078afeaf026655924497deb6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://xurxodeveloper.blogspot.com" class="url" rel="ugc external nofollow">Jorge Sánchez Fernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-2931"><time pubdate datetime="2014-05-12T21:33:25+01:00">
+					12 mayo 2014 de 21:33					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma</p>
+<p>Me interesa bastante el tema de integración continua, en mi trabajo hacemos todo esto de forma manual y me gustaría empezar a automatizarlo.</p>
+<p>¿Que recursos me recomiendas para profundizar en el tema?</p>
+<p>Muchas gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-2933">
+		<article id="comment-2933" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-2933"><time pubdate datetime="2014-05-13T11:19:12+01:00">
+					13 mayo 2014 de 11:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Jorge,</p>
+<p>Mi consejo es que intentes montar algo sencillo en un entorno de pruebas para perderle el miedo y ver si te interesa dedicarle tiempo o no.</p>
+<p>Lo primero sería montar el script de compilación (por ejemplo, con MSBuild: <a href="/2013/05/automatizar-la-compilacion-con-msbuild/" rel="ugc">https://blog.koalite.com/2013/05/automatizar-la-compilacion-con-msbuild/</a>) y luego puedes pasar a usar algún servidor de integración (seguramente el más fácil sea TeamCity, aunque no lo conozco mucho).</p>
+<p>En cuanto a recursos como tal, me temo que no conozco ningún sitio «de referencia», pero seguro que buscando por internet encuentras infinidad de posts. </p>
+<p>Lo bueno de empezar haciendo una prueba es que irás viendo problemas concretos y eso te guiará por donde debes ir profundizando, porque éste es un tema muy abierto y es fácil acabar perdiéndose en mil detalles.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2936">
+		<article id="comment-2936" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/256506a9078afeaf026655924497deb6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/256506a9078afeaf026655924497deb6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://xurxodeveloper.blogspot.com" class="url" rel="ugc external nofollow">Jorge Sánchez Fernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-2936"><time pubdate datetime="2014-05-13T22:14:40+01:00">
+					13 mayo 2014 de 22:14					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Ok Muchas gracias Juanma</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://helloit.es/2015/05/integracion-continua-vs-continuous-delivery-vs-continuous-deployment/" class="url" rel="ugc external nofollow">Integración Continua vs Continuous Delivery vs Continuous Deployment | Hello, IT.</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4763">
+		<article id="comment-4763" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2bca5ba93665944b3c2acd7874be669a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bca5ba93665944b3c2acd7874be669a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Joan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-4763"><time pubdate datetime="2017-08-07T11:28:57+01:00">
+					7 agosto 2017 de 11:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola, </p>
+<p>¿A día de hoy (2017) cómo ves empezar con la integración continua con el TFS, habrá mejorado el tema? El código lo tengo en C# y desarrollado de en VS 2017 pero las pruebas end-to-end las tengo en PyUnit, además debería lanzar unos inserts en una base de datos Oracle. ¿Dónde puedo encontrar información que me ayude a empezar con esto? He visto que para utilizar frameworks como Nunit o Jasmine hay Adaptadores, pero no he visto nada para PyUnit.</p>
+<p>Gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4764">
+		<article id="comment-4764" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-4764"><time pubdate datetime="2017-08-07T12:29:37+01:00">
+					7 agosto 2017 de 12:29					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Joan,</p>
+<p>No conozco mucho TFS, pero me da la impresión de que es una solución que te ata demasiado a las herramientas de Microsoft.</p>
+<p>Yo te recomendaría que montaras tu script de compilación con lo que más te guste (msbuild, poweshell, rake, da igual) y luego eso lo lances desde cualquier sitio (Ya sea un jenkins, un teamcity, etc.)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4765">
+		<article id="comment-4765" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2bca5ba93665944b3c2acd7874be669a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2bca5ba93665944b3c2acd7874be669a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Joan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/#comment-4765"><time pubdate datetime="2017-08-07T12:54:20+01:00">
+					7 agosto 2017 de 12:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Ok, gracias por tu respuesta.</p>
+<p>Saludos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

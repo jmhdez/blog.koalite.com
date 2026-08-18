@@ -1,0 +1,1138 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Tutorial node.js + express + jquery (I): Creando la aplicación  | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-481 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-481" class="post-481 post type-post status-publish format-standard hentry category-dev tag-express tag-javascript tag-jquery tag-nodejs tag-tutorial">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Tutorial node.js + express + jquery (I): Creando la aplicación</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 3 noviembre 2011</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/express/" rel="tag">express</a>, <a href="/tag/javascript/" rel="tag">javascript</a>, <a href="/tag/jquery/" rel="tag">jquery</a>, <a href="/tag/nodejs/" rel="tag">nodejs</a>, <a href="/tag/tutorial/" rel="tag">tutorial</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p><em><strong>Actualización (octubre 2015)</strong>: Este tutorial está actualizado a la versión de express 3.0.0rc3. Si intentas seguirlo con versiones anteriores o posteriores, puede que tengas que ajustar algunas cosas. Para tener información detallada sobre versiones actualizadas de node.js y express, te recomiendo que le eches un vistazo a <strong><a href="http://www.amazon.es/gp/product/1617292427/ref=as_li_tf_tl?ie=UTF8&#038;camp=3626&#038;creative=24790&#038;creativeASIN=1617292427&#038;linkCode=as2&#038;tag=koalite-21" target="_blank">Express in Action: Node applications with Express and its companion tools</a><img decoding="async" src="http://ir-es.amazon-adsystem.com/e/ir?t=koalite-21&#038;l=as2&#038;o=30&#038;a=1617292427" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></strong>, donde se explica de una forma bastante amena cómo crear aplicaciones web usando Node.js y Express.</em></p>
+<p>He decidido hacer un pequeño tutorial sobre cómo montar una aplicación con <a href="http://nodejs.org" target="_blank">node.js</a> usando <a href="http://expressjs.com/"  target="_blank">Express</a> como <em>web framework</em> y <a href="http://jquery.org"  target="_blank">jQuery</a> en el lado cliente para realizar peticiones <a href="http://es.wikipedia.org/wiki/AJAX" target="_blank">AJAX</a>. Al principio iba a escribir un único post, pero estaba quedando demasiado largo, por lo que he decidido partirlo en varios:</p>
+<ul>
+<li><a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/" title="Tutorial node.js + express + jquery (I): Creando la aplicación" target="_blank">Tutorial node.js + express + jquery (I): Creando la aplicación</a>.
+</li>
+<li><a href="/2011/11/tutorial-node-js-express-jquery-ii-generando-vistas-con-jade/" title="Tutorial node.js + express + jquery (II): Generando vistas con Jade" target="_blank">Tutorial node.js + express + jquery (II): Generando vistas con Jade</a>.
+</li>
+<li><a href="/2011/11/tutorial-node-js-express-jquery-iii-usando-jquery/" title="Tutorial node.js + express + jquery (III): Usando jQuery" target="_blank">Tutorial node.js + express + jquery (III): Usando jQuery</a>.
+</li>
+<li><a href="/2011/11/tutorial-node-js-express-jquery-iv-conclusiones-y-proximos-pasos/" title="Tutorial node.js + express + jquery (IV): Conclusiones y próximos pasos" target="_blank">Tutorial node.js + express + jquery (IV): Conclusiones y próximos pasos</a>.
+</li>
+<li>Puedes <a href="https://github.com/jmhdez/Nodejs-Sample" target="_blank">descargar el código fuente</a> de GitHub.
+</li>
+</ul>
+<p>Mi objetivo con este tutorial es poner en claro lo que he aprendido últimamente y ayudar un poco a aquellos que, como yo, estén empezando con esto. Tened en cuenta que esto es sólo un ejemplo sencillo de cómo enganchar distintas liberías para hacer una aplicación, pero no pretende ser ningún momento un catálogo de buenas prácticas. Habrá muchas cosas que se queden en el aire y muchos puntos que puedan ser mejorados, pero lo que intentaré es que lo que hagamos sirva como toma de contacto para luego poder preocuparnos por el resto y conseguir sobrevivir al cambiante mundo de javascript.</p>
+<div class="image">
+<a href="http://kipple.koalite.com/#!surviving-javascript.gif-A104862201?department=1&amp;productType=6&amp;color=F7EF00&amp;appearance=7&amp;view=1"><img decoding="async" src="/wp-content/uploads/I-Survived-Javascript-e1451297418629.png" alt="Camiseta I Survived Javascript" width="800" class="size-full wp-image-4619" srcset="/wp-content/uploads/I-Survived-Javascript-e1451297418629.png 800w, /wp-content/uploads/I-Survived-Javascript-e1451297418629-300x152.png 300w" sizes="(max-width: 800px) 100vw, 800px" /></a><br />
+<small>Camiseta original de <a href="http://kipple.koalite.com" target="_blank">Koalite&#8217;s Kipple</a></small>
+</div>
+<h3>Instalando lo que necesitamos</h3>
+<p>Lo primero es <a href="/2011/09/instalando-node-js-en-ubuntu/" title="Instalando node.js en Ubuntu" target="_blank">instalar node.js</a>, pero supongo que si estás leyendo esto problablemente ya lo tengas instalado. Gracias a <em>npm</em>, el gestor de paquetes de node.js, la instalación del resto de cosas resulta bastante sencilla:</p>
+<p>Una vez que tengamos creada una carpeta para nuestra aplicación, deberemos entrar en ella y ejecutar los siguientes comandos:</p>
+<pre class="brush:bash">
+npm install express
+npm install jade
+npm install underscore
+npm install nodemon -g
+</pre>
+<p>Con esto, habremos instalado los siguientes paquetes:</p>
+<ul>
+<li><strong>express</strong>: <a href="http://expressjs.com/" target="_blank">Express</a> es un framework para desarrollar aplicaciones web sobre node.js. Está inspirado en <a href="http://www.sinatrarb.com/" target="_blank">Sinatra</a> y además de ser muy fácil de manejar, es bastante potente. Para los que venimos de .net, sería el equivalente a instalarnos ASP.NET MVC3 (realmente más bien sería como instalar <a href="http://elegantcode.com/2010/11/28/introducing-nancy-a-lightweight-web-framework-inspired-by-sinatra/">Nancy</a>, pero poca gente conoce ese framework).</li>
+<li><strong>jade</strong>: <a href="http://jade-lang.com/" target="_blank">Jade</a> es un motor de plantillas que permite generar html con una sintaxis compacta. Está basado en <a href="http://haml-lang.com/" target="_blank">haml</a>. En terminología .net, esto será el <em>View Engine</em> de nuestra aplicación; vamos, el equivalente a <a href="http://en.wikipedia.org/wiki/Microsoft_ASP.NET_Razor_View_Engine" target="_blank">Razor</a>.</li>
+<li><strong>underscore</strong>: <a href="http://documentcloud.github.com/underscore/" target="_blank">Underscore</a> es una librería con utilidades para javascript que ayuda bastante a la hora de realizar programación funcional. No es vital para el ejemplo, pero permite usar construcciones al estilo LINQ y me resulta cómodo contar con ellas.</li>
+<li><strong>nodemon</strong>: <a href="https://github.com/remy/nodemon" target="_blank">nodemon</a> no es una librería, sino una herramienta. Se encarga de monitorizar el código de la aplicación y, si cambia, reiniciar node.js. Así nos evitamos tener que estar continuamente tecleando <code>Ctrl+C, node app.js</code> cada vez que cambiamos algo. Por comodidad la hemos instalado de forma global, pasando el parámetro <code>-g</code> a <code>npm</code> para que esté accesible en el path.</li>
+</ul>
+<h3>Creando el esqueleto de la aplicación</h3>
+<p>Ahora que tenemos instalado todo lo que necesitamos (de momento), podemos crear el esqueleto de nuestra aplicación. Podríamos montarlo «a mano», pero Express incluye una pequeña herramienta que nos ayuda a hacer la configuración inicial. Desde la raíz de la aplicación ejecutaremos:</p>
+<pre class="brush:bash">
+./node_modules/express/bin/express
+destination is not empty, continue? y
+
+   create : .
+   create : ./package.json
+   create : ./app.js
+   create : ./public
+   create : ./public/javascripts
+   create : ./public/stylesheets
+   create : ./public/stylesheets/style.css
+   create : ./public/images
+   create : ./routes
+   create : ./routes/index.js
+   create : ./views
+   create : ./views/layout.jade
+   create : ./views/index.jade
+
+   install dependencies:
+       $ cd . && npm install
+   run the app:
+       $ node app
+
+</pre>
+<p>Esto creará los ficheros que indica arriba con una aplicación lista para funcionar. Por seguir con mi comparativa para la gente de .net, esto es el equivalente a hacer <code>File -&gt; New Project -&gt; ASPNET MVC</code> en el Visual Studio. Aunque nos avisa de que hagamos un <code>npm install</code> para instalar las dependencias, en nuestro caso no es necesario porque ya las hemos instalado antes. </p>
+<p>Ahora mismo podríamos ejecutar ya nuestra aplicación con <code>nodemon app.js</code> y acceder a ella en la dirección <code>http://localhost:3000</code>.</p>
+<p>Como ya he dicho en otras ocasiones, creo que <a href="/2011/08/%c2%bfhacen-los-frameworks-tontos-a-los-desarrolladores/" title="¿Hacen los frameworks tontos a los desarrolladores?" target="_blank">es importante entender lo que uno está haciendo</a>, así que vamos a ver qué cosas nos ha generado express. Empecemos analizando el fichero <code>app.js</code>.</p>
+<pre class="brush:javascript">
+var express = require('express')
+  , routes = require('./routes')
+  , http = require('http')
+  , path = require('path');
+
+var app = express();</pre>
+<p>En esta parte, se están definiendo los módulos que necesitamos, en este caso <code>express</code>, <code>routes</code>, <code>http</code> y <code>path</code>. El caso de <code>routes</code> es un poco especial, porque lo que estamos referenciando es una carpeta. Cuando referenciamos una carpeta, se busca el fichero <code>index.js</code> y se carga. Si no se encuentra, se genera un error. Una vez que tenemos cargados los módulos, creamos un servidor de express invocando la función que exporta el módulo <code>express</code>.</p>
+<p>A continuación viene la parte de configuración del servidor:</p>
+<pre class="brush:javascript">
+app.configure(function(){
+  app.set('port', process.env.PORT || 3000);
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.methodOverride());
+  app.use(app.router);
+  app.use(express.static(path.join(__dirname, 'public')));
+});
+
+app.configure('development', function(){
+  app.use(express.errorHandler());
+});
+</pre>
+<p>Este fragmento de código se encarga de establecer la configuración de nuestra aplicación. A la hora de configurar una aplicación express podemos jugar con dos tipos de cosas:</p>
+<ul>
+<li><strong>Settings</strong>, que son parámetros de configuración y se establecen con el método <code>app.set(settingName, value)</code>. En este caso estamos indicando que las vistas se almacenan en la carpeta <code>./views</code> y que el formato es <code>jade</code>.</li>
+<li><strong>Middlewares</strong>, que son «módulos» que podemos añadir a nuestra aplicación para dotarla de más funcionalidad. Para añadirlos se usa el método <code>app.use(middleware)</code>. En este caso están añadidos:
+<ul>
+<li><strong>bodyParser</strong>: facilita el acceso al cuerpo de las peticiones (<code>requests</code>), tanto si son <code>post</code>s de formularios, como si son <code>json</code>. Con este middleware, podemos escribir cosas como <code>request.body.personName</code>.</li>
+<li><strong>methodOverride</strong>: permite utilizar <code>&lt;input type="hidden"&gt;</code> para modificar el <a href="http://expressjs.com/guide.html#http-methods" target="_blank">método HTTP</a> de la petición. De momento esto no lo vamos a utilizar mucho.</li>
+<li><strong>router</strong>: se encarga de gestionar las rutas. Remotamente parecido al <a href="http://msdn.microsoft.com/en-us/library/cc668201.aspx">routing de ASP.NET</a>.</li>
+<li><strong>static</strong>: este middleware permite servir contenido estático, por ejemplo, hojas de estilo, imágenes, scripts de cliente, etc. En este caso le estamos diciendo que todo lo que esté en la carpeta <code>./public</code> se sirva como contenido estático.</li>
+</ul>
+</li>
+</ul>
+<p>Por último, se está definiendo configuración personalizada para dos entornos, <code>development</code>y <code>production</code>. Para activar un entorno u otro se puede usar la variable de entorno <code>$NODE_ENV</code>, por ejemplo <code>$ NODE_ENV=production node app.js</code>.</p>
+<p>Las últimas líneas del fichero están dedicadas a la creación de rutas y al arranque del servidor:</p>
+<pre class="brush:javascript">
+app.get('/', routes.index);
+
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+</pre>
+<p>Este es un punto importante porque vemos cómo se configura lo que sería el equivalente a los <em>controllers</em> de ASPNET MVC. Lo que hacemos es asignar a cada ruta una función que se encargará de gestionarla. En este caso, con <code>app.get('/', routes.index)</code> estamos configurando que, cuando se acceda a la raíz de la aplicación, se ejecute el método index definido en el objeto routes, que, si recordáis, habíamos importado al principio del archivo.</p>
+<h3>Próximamente&#8230;</h3>
+<p>Con esto hemos analizado la estructura de la aplicación. En el próximo post de esta serie veremos cómo se crean las vistas utilizando <strong>jade</strong> y cómo se añade la lógica para generar esas vistas (lo que serían los <a href="http://msdn.microsoft.com/en-us/library/dd410269.aspx" target="_blank">action methods</a> en una aplicación ASPNET MVC).</p>
+<p>Siguiente capítulo: <a href="/2011/11/tutorial-node-js-express-jquery-ii-generando-vistas-con-jade/" title="Tutorial node.js + express + jquery (II): Generando vistas con Jade">crear vistas con Jade</a>.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2011/10/estrategias-dinamicas-en-c/" rel="prev"><i class="icon-arrow-left"></i> Estrategias dinámicas en C#</a></div>		<div class="nav-next"><a href="/2011/11/tutorial-node-js-express-jquery-ii-generando-vistas-con-jade/" rel="next">Tutorial node.js + express + jquery (II): Generando vistas con Jade <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-481 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			36 comentarios en &ldquo;<span>Tutorial node.js + express + jquery (I): Creando la aplicación</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-39">
+		<article id="comment-39" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/3d76bb2845529627732771b96b907290?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/3d76bb2845529627732771b96b907290?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">abraham</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-39"><time pubdate datetime="2011-11-07T03:19:22+01:00">
+					7 noviembre 2011 de 03:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me intereso mucho tutorial, ya que apenas estoy intentado hacer aplicaciones más complejas con nodejs, integrando el patron mvc, gracias y espero en su momento aportar algo al blog.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-40">
+		<article id="comment-40" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-40"><time pubdate datetime="2011-11-07T08:19:21+01:00">
+					7 noviembre 2011 de 08:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>A lo mejor este tutorial se te queda un poco corto, pero si te puede servir de algo, genial.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="/2011/11/tutorial-node-js-express-jquery-ii-generando-vistas-con-jade/" class="url" rel="ugc">Tutorial node.js + express + jquery (II): Generando vistas con Jade &laquo; Koalite&#039;s blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="/2011/11/tutorial-node-js-express-jquery-iii-usando-jquery/" class="url" rel="ugc">Tutorial node.js + express + jquery (III): Usando jQuery &laquo; Koalite&#039;s blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="/2011/12/mas-sobre-el-tutorial-node-js-express-jquery/" class="url" rel="ugc">Más sobre el tutorial node.js + express + jquery &laquo; Koalite&#039;s blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.nodehispano.com/2012/01/express-el-framework-web-para-nodejs/" class="url" rel="ugc external nofollow">Express &#8211; El framework web para #nodejs | Node.js Hispano</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.scoop.it/t/javascript-js/p/1616183653/tutorial-node-js-express-jquery-i-creando-la-aplicacion-koalite-s-blog" class="url" rel="ugc external nofollow">Tutorial node.js + express + jquery (I): Creando la aplicaci&oacute;n &laquo; Koalite's blog | javascript.js | Scoop.it</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://codigo-source.net/?p=18" class="url" rel="ugc external nofollow">Links interesantes semana: (1) Codigo-Source</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1006">
+		<article id="comment-1006" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/9c34a34db4acab37f0dfd5551a4b95cd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/9c34a34db4acab37f0dfd5551a4b95cd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://none" class="url" rel="ugc external nofollow">Toni M.L.</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1006"><time pubdate datetime="2012-06-27T13:46:51+01:00">
+					27 junio 2012 de 13:46					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Una pregunta que no me queda nada clara, si yo genero el esqueleto de la app con Express en un directorio cualquiera y me pone eso de <strong>var express = require(&#8216;express&#8217;)</strong> en el app.js : Donde va a buscar exactamente el modulo «Express»? por que a mi me da error de que no encuentra dicho modulo&#8230;</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1008">
+		<article id="comment-1008" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/9c34a34db4acab37f0dfd5551a4b95cd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/9c34a34db4acab37f0dfd5551a4b95cd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://none" class="url" rel="ugc external nofollow">Toni M.L.</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1008"><time pubdate datetime="2012-06-27T14:23:45+01:00">
+					27 junio 2012 de 14:23					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me contesto a mi mismo: la carpeta de modulos tiene que estar en el directorio de la aplicacion, por eso Express dice que hagas eso de npm install, para bajarse las dependencias, esto hay que hacerlo para cada proyecto que creemos y no unas sola vez como yo pensaba.<br />
+En el ejemplo no queda claro por que el autor esta metiendo node, modulos y aplicacion todo en el mismo directorio y por eso a el le funciona.</p>
+<p>Gracias de todos modos y muy buen tutorial para despertar el gusanillo con esto de NodeJs, muchas gracias por el esfuerzo y enhorabuena por el blog, se ha convertido en una referencia para mi, siendo desarrollador de .net como soy.</p>
+<p>Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1010">
+		<article id="comment-1010" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1010"><time pubdate datetime="2012-06-27T14:42:10+01:00">
+					27 junio 2012 de 14:42					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Toni,</p>
+<p>No me has dado ni tiempo a contestarte :-) </p>
+<p>Tu explicación es correcta, cuando instalas paquetes con npm puedes elegir si es una instalación local o global. Si es local, sólo afecta a la carpeta donde se ha instalado. En el tutorial todo se instala de forma global, excepto nodemon.</p>
+<p>Para instalarlo globalmente, puedes usar el parámetro -g, como en <strong>npm install nodemon -g</strong> y el módulo quedará disponible para todas las aplicaciones.</p>
+<p>Lo que no sé es cómo afectará a las instalaciones globales el tema de versiones. Es decir, no sé si puedes tener instaladas las versiones A, B, y C de express, cada una con sus dependencias, o si la última sobreescribe a las anteriores.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1189">
+		<article id="comment-1189" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ricky</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1189"><time pubdate datetime="2012-07-19T05:45:19+01:00">
+					19 julio 2012 de 05:45					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola, hago lo que dices al principio y no me funciona. Para ser mas exacto cuando quiero «crear el esqueleto de la aplicacion» ejecuto la linea: ./node_modules/express/bin/express -t jade pero mi consola me dice (ubuntu) «bash: ./node_modules/express/bin/express: No existe el archivo o el directorio» porque puede darse ese caso????</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1190">
+		<article id="comment-1190" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1190"><time pubdate datetime="2012-07-19T08:06:51+01:00">
+					19 julio 2012 de 08:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Ricky, </p>
+<p>Tienes que instalar express ejecutando <i>npm install express</i> en la carpeta en la que vas a crear la aplicación. ¿Lo has hecho así? Si es así debería aparecer cuando ejecutas <i>ls ./node_modules.</i></p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1220">
+		<article id="comment-1220" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ricky</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1220"><time pubdate datetime="2012-07-21T00:22:00+01:00">
+					21 julio 2012 de 00:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma, gracias por tu respuesta.<br />
+Hice lo que está en el tutorial, te escribo los pasos que realizé (quizás me equivoqué en algo ya que soy nuevo en ubuntu);<br />
+1. creé la carpeta de mi aplicacion con mkdir carpeta<br />
+2. ejecuté los siguientes comandos precedidos de «sudo»<br />
+&#8211; npm install express<br />
+&#8211; npm install jade<br />
+&#8211; npm install underscore<br />
+&#8211; npm install nodemon -g<br />
+3. Hice ls en la carpeta de mi aplicacion y aparece vacía,,,,</p>
+<p>Qué me falta o que estoy haciendo mal?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1228">
+		<article id="comment-1228" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ricky</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1228"><time pubdate datetime="2012-07-21T17:28:56+01:00">
+					21 julio 2012 de 17:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Otra cosa, antes de encontrar este post tuyo, yo ya habia instalado express de modo global&#8230; mira, cuando voy a mi carpeta raiz /home/ricky y ejecuto la orden que me acabas de dar: ls ./node_modules ahi si me muestra la siguiente estructura:<br />
+express<br />
+jade<br />
+mysql<br />
+socket.io<br />
+stylus<br />
+underscore</p>
+<p>Si puedes echarme un cable te lo agradecería mucho. Saludos a todos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-1229">
+		<article id="comment-1229" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1229"><time pubdate datetime="2012-07-21T18:00:18+01:00">
+					21 julio 2012 de 18:00					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Ricky, si tienes los módulos instalados globalmente, no tienes que indicar la ruta al ejecutarlos porque deberían estar en el path. Por ejemplo, en lugar de poner:</p>
+<p><strong>./node_modules/express/bin/express -t jade</strong></p>
+<p>Deberías poner:</p>
+<p><strong>express -t jade</strong></p>
+<p>De todas formas, me da la impresión de que estás ejecutando los comandos <em>fuera</em> de la carpeta de la aplicación. La secuencia de comandos debería ser algo así como:</p>
+<p>mkdir myapp<br />
+cd myapp<br />
+npm install express<br />
+npm install lo-que-sea<br />
+./node_modules/express/bin/express -t jade</p>
+<p>Fíjate que tanto los npm install como el ./node_modules/express/bin/express se ejecutan <em>en</em> la carpeta que va a contener la aplicación.</p>
+<p>Un saludo, </p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1234">
+		<article id="comment-1234" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/87ac75add64ffd1b2e7ed0f82c19238e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ricky</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1234"><time pubdate datetime="2012-07-22T19:22:13+01:00">
+					22 julio 2012 de 19:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma, gracias por tu respuesta, en realidad si, estoy dentro de la carpeta de aplicacion&#8230;. la verdad no se que pasa con mi express ya que cuando quiero ejecutar la orden que me mencionas, me dice que no se reconoce la opción -t &#8230; me he metido a la documentacion de Express y no he podido encontrar nada, busque en google y nada&#8230; la verdad no tengo idea que puede estar sucediendo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-1402">
+		<article id="comment-1402" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1402"><time pubdate datetime="2012-08-13T11:45:34+01:00">
+					13 agosto 2012 de 11:45					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Ops, la opción «-t» ya no existe en las versiones nuevas de express. He actualizado el artículo para evitar la confusión. </p>
+<p>Antes, esa opción indicaba el <em>ViewEngine</em> a utilizar, que por defecto es <em>jade</em>, por lo que realmente no es necesaria.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1560">
+		<article id="comment-1560" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f55314b52a85a632945f684ae0a72546?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f55314b52a85a632945f684ae0a72546?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://none" class="url" rel="ugc external nofollow">Lionel</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1560"><time pubdate datetime="2012-10-16T11:37:22+01:00">
+					16 octubre 2012 de 11:37					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En Ubuntu, el tema de la variable NODE_ENV sería   «export NODE_ENV=production; node app» :D</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1568">
+		<article id="comment-1568" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f3b45dc582706ac3e2df7b4a06dca8bc?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f3b45dc582706ac3e2df7b4a06dca8bc?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">ru</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1568"><time pubdate datetime="2012-10-21T11:46:04+01:00">
+					21 octubre 2012 de 11:46					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Creo que hay una pequeña errata: has puesto npn en lugar de npm.</p>
+<p>Deberías cambiar:<br />
+npn install express<br />
+npn install jade<br />
+npm install underscore<br />
+npn install nodemon -g</p>
+<p>por</p>
+<p>npm install express<br />
+npm install jade<br />
+npm install underscore<br />
+npm install nodemon -g</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1569">
+		<article id="comment-1569" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1569"><time pubdate datetime="2012-10-21T12:06:31+01:00">
+					21 octubre 2012 de 12:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Corregido, gracias por avisar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.scoop.it/t/nodejs-code/p/3345890312/tutorial-node-js-express-jquery-i" class="url" rel="ugc external nofollow">Tutorial node.js + express + jquery (I) | Nodejs-code | Scoop.it</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1631">
+		<article id="comment-1631" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b178faf507b61576427da4253f4056d6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b178faf507b61576427da4253f4056d6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Angeles</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1631"><time pubdate datetime="2012-11-23T18:28:42+01:00">
+					23 noviembre 2012 de 18:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola, tengo un problema con nodemon, estoy trabajando con webmatrix 2 y por este medio he creado un sitio express, luego instalé nodemon por consola como haces tu:</p>
+<p>npm install nodemon -g</p>
+<p>y al hacer cambios en mi aplicación no se reinicia el servidor y no se ven los cambios que realizo en mi página. Es el webmatrix que de alguna manera impide su ejecución o que es?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1632">
+		<article id="comment-1632" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1632"><time pubdate datetime="2012-11-25T10:28:23+01:00">
+					25 noviembre 2012 de 10:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No he usado webmatrix, pero no creo que impida la ejecución de nodemon. ¿Lo estás ejecutando en la ruta adecuada, es decir, en la raíz de tu sitio web?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1878">
+		<article id="comment-1878" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/922c28df08285101afdd32d7be4d9f06?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/922c28df08285101afdd32d7be4d9f06?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.protox.com.mx/" class="url" rel="ugc external nofollow">Diseño Web</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-1878"><time pubdate datetime="2013-03-21T22:58:58+01:00">
+					21 marzo 2013 de 22:58					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Excelente! Muchas Gracias. Saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2722">
+		<article id="comment-2722" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/8056dab76bc53c2426daf898f5701f8b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/8056dab76bc53c2426daf898f5701f8b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Luis Arias</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-2722"><time pubdate datetime="2014-01-24T08:34:41+01:00">
+					24 enero 2014 de 08:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Wow que claro esta el tuto, ni la documentacion de express es tan clara, también tengo el libro de Express Web Application Development de PACKT llevo 30 páginas leídas y no esta claro como hacer un simple hola mundo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-2723">
+		<article id="comment-2723" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-2723"><time pubdate datetime="2014-01-24T08:55:01+01:00">
+					24 enero 2014 de 08:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>¡Gracias! Me alegro de que te haya resultado útil.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2772">
+		<article id="comment-2772" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/5e7f63d61c65223258ce135af2451580?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/5e7f63d61c65223258ce135af2451580?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Alberth</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-2772"><time pubdate datetime="2014-02-04T23:02:18+01:00">
+					4 febrero 2014 de 23:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>se puede crear el esqueleto para la aplicacion con algun comando de express para trabajar en windows???</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-2773">
+		<article id="comment-2773" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-2773"><time pubdate datetime="2014-02-05T09:10:57+01:00">
+					5 febrero 2014 de 09:10					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Alberth, puedes crearlo como se indica en el post, ejecutando el siguiente comando desde la carpeta donde has ido instalando los paquetes:</p>
+<p><code>.\node_modules\express\bin\express</code></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3015">
+		<article id="comment-3015" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/71d2e2023d5a882bae41ad5bb19ff7cf?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/71d2e2023d5a882bae41ad5bb19ff7cf?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josemiguel</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3015"><time pubdate datetime="2014-09-10T12:28:39+01:00">
+					10 septiembre 2014 de 12:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Para windows al menos a mi ese comando (.\node_modules\express\bin\express) no me funciona y tengo los paquetes instalados en la carpeta como indicas en el tutorial, hay que realizar alguna accion antes me dice que el comando . no es reconocido como comando interno o externo.</p>
+<p>Muchas gracias por el blog lo veo muy util.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3016">
+		<article id="comment-3016" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3016"><time pubdate datetime="2014-09-10T12:34:58+01:00">
+					10 septiembre 2014 de 12:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>josemiguel, en windows puedes tener problemas dependiendo de la versión de node/npm que estés utilizando (el tutorial usa una versión muuuuy antigua).</p>
+<p>Puedes probar a ejecutarlo con:</p>
+<p><code>.\node_modules\.bin\express</code>.</p>
+<p>Eso debería funcionar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3060">
+		<article id="comment-3060" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/900beb52bf8bb098be2647d1a878aa08?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/900beb52bf8bb098be2647d1a878aa08?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Claudio</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3060"><time pubdate datetime="2014-11-04T04:33:23+01:00">
+					4 noviembre 2014 de 04:33					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>gracias por el tuto, oye no se me instalan las dependencias<br />
+«dont forget to install dependencies:<br />
+   $ cd . &amp;&amp; npm install»<br />
+porq sera?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3064">
+		<article id="comment-3064" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3064"><time pubdate datetime="2014-11-05T08:19:29+01:00">
+					5 noviembre 2014 de 08:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pues es bastante raro, Claudio. Si ejecutas npm install, ¿pone algo en pantalla? ¿Se crea la carpeta node_modules?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3076">
+		<article id="comment-3076" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/c7647be72d552ae9499c6eb27a4cce3a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/c7647be72d552ae9499c6eb27a4cce3a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ruben</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3076"><time pubdate datetime="2014-11-14T23:22:19+01:00">
+					14 noviembre 2014 de 23:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Antes de Creando el esqueleto de la aplicación hay que intalar:<br />
+(Creando el esqueleto de la aplicación)</p>
+<p>El último paso dentro de el directorio donde quereis que se ejecute ejecutar:<br />
+hay que instalar:<br />
+$ npm install -g express-generator</p>
+<p>y ahora en la carpeta donde quereis vuestro esqueleto<br />
+$ express<br />
+y despues, para instalar las dependencias<br />
+$npm install</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3077">
+		<article id="comment-3077" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/c7647be72d552ae9499c6eb27a4cce3a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/c7647be72d552ae9499c6eb27a4cce3a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ruben</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3077"><time pubdate datetime="2014-11-14T23:24:55+01:00">
+					14 noviembre 2014 de 23:24					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>mi ultimo comentario no me explique bien, al copiar y pegar, así que lo pongo de nuevo:</p>
+<p>Antes de Creando el esqueleto de la aplicación hay que instalar:<br />
+$ npm install -g express-generator</p>
+<p>y ahora en la carpeta donde quereis vuestro esqueleto<br />
+$ express<br />
+y despues, para instalar las dependencias<br />
+$npm install</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3992">
+		<article id="comment-3992" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d80c6ca21f73c00aed8df3a3aa1ef9aa?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d80c6ca21f73c00aed8df3a3aa1ef9aa?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">hugo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/tutorial-node-js-express-jquery-i-creando-la-aplicacion/#comment-3992"><time pubdate datetime="2016-07-08T08:03:24+01:00">
+					8 julio 2016 de 08:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Ruben tu aclaración funciona perfecto, Gracias</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

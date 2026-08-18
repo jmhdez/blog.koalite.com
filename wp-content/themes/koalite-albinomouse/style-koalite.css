@@ -1,0 +1,264 @@
+﻿/* Estilo específico para blog.koalite.com */
+
+/* Workaround para bug https://code.google.com/p/chromium/issues/detail?id=320754 */
+body {
+	font-size: 1.6em;
+}
+
+p {
+	margin-bottom: 1.5em;
+}
+
+/* Títulos */
+h1, h2, h3, h4, h5, h6 {
+	letter-spacing: inherit;
+}
+
+/* citas */
+
+blockquote {
+	font-size: 1em;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	font-style: normal;
+	line-height: 1.6em;
+}
+
+blockquote p {
+	z-index: 0;
+}
+
+/* código */
+code {
+	font-size: 17px;
+}
+
+.syntaxhighlighter {
+	margin-bottom: 1.7em !important;
+}
+
+
+
+/* enlaces en el cuerpo de los posts. Al usar Oxygen no se ven si no se destacan un poco  */
+.entry-content a {
+	border-bottom: 1px dotted;
+}
+
+/* Fuera iconos de los posts */
+span.format-standard:before { 
+	content: none; 
+}
+
+span.format-standard {
+	margin: 0
+}
+
+/* estilo para bloques de imágenes con leyenda */
+.entry-content .image a {
+	border-bottom: 0;
+}
+
+.entry-content .image small {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+.entry-content .image small a {
+	border-bottom: 1px dotted;
+}
+
+/* Estilo para centrar texto */
+.center-text {
+	text-align: center;
+}
+
+/* Cabecera más clásica */
+.site-title {
+	float: none;	
+	font-size: 3em;
+	font-weight: 800;
+	margin: .2em 0 0 0;
+}
+
+h2.site-description {
+	float: none;
+	background-color: transparent;
+	float: none;
+	font-size: 1.5em;
+	font-weight: 600;
+	color: #5c5b5a;
+	max-width: inherit;
+	padding: 0;
+	margin: 0 0 1.5em 0;
+	letter-spacing: inherit;
+	text-shadow: rgba(255, 255, 255, 0.8) 1px 1px;
+}
+
+h2.site-description:after {
+	border: none;
+}
+
+header .container {
+	background-image: url('img/logo.png');
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+/* Botones del menú de navegación */
+.menu-item {
+	padding-left: .5em;
+	padding-right: .5em;
+}
+
+.home #menu-header > li:nth-of-type(1) { /* elimina el botón de inicio en la página de inicio */
+	display: none;
+}
+
+/* Enlaces de "Seguir leyendo" cuando aparece el resumen de un post */
+.more-link {
+	line-height: 1.2em;
+	padding-left: .6em;
+	padding-right: .6em;
+}
+
+/* Formato de páginas que no son posts (intro, all-posts, archive, etc.) */
+/* TODO: Cambiar la clase .intro por .static o algo similar */
+
+.intro h1.search-page, .intro h1.archive-header {
+	/* espacio entre frase buscada/categoría/etiqueta y resultados */
+	margin-bottom: 2em;
+}
+
+.intro .entry-header {
+	margin-bottom: 1.2em;
+}
+
+.intro h2 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.intro h2 small {
+	font-size: 60%;
+}
+
+.intro h3 {
+	font-size: 1.2em;
+	font-weight: 600;
+	margin-top: 0;
+}
+
+.intro section:after {
+	display: table;
+	content: "";
+	clear: both;
+}
+
+.intro section {
+	margin-bottom: 3em;
+}
+
+.intro-tags .tag-cloud {
+	line-height: 1.5em;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	text-align: justify;
+}
+
+.intro-tags .tag-cloud a {
+	margin-right: 1em;
+}
+
+.intro .post-list {
+  list-style: none;
+  margin-left: 0;
+}
+
+/* Cabecera que se colapsa */
+
+@media only screen and (min-width: 768px) {
+
+	.collapse-header .site-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 10;
+		background-color: #EDEEEE;
+	}
+
+	.collapse-header #masthead .container {
+		padding: 0.5em 0;		
+	}
+
+	.collapse-header .title-group {
+		display: none;
+	}
+
+	.collapse-header #page {
+		padding-top: 200px;
+	}
+}
+
+/* Iconos sociales de Jamie Social */
+.martiniboy_social_list {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+/* Checkbox de plugin antispam */
+#cl_check_23a {
+	margin-bottom: 0.3em;
+	margin-top: 1em;
+}
+
+/* Caja de búsqueda */
+@media only screen and (min-width: 591px) {
+	#s {
+		width: 200px;
+	}
+
+	#header-searchform {
+		float: right;
+		clear: none;
+		width: 200px;
+	}
+}
+
+/* Ajustes para distintos anchos */
+
+.container {
+	max-width: 700px;
+}
+
+.sidebar-off #content {
+	width: 100%;
+}
+
+article.post {
+	font-size: 17px;
+}
+
+@media only screen and (max-width: 590px) {
+	#masthead .container {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.container {
+		margin-left: 5%;
+		margin-right: 5%;
+		width: 90%;
+	}
+
+	.sidebar-off #content,
+	.site-image-attachment,
+	.site-error,
+	.site-page-full-width {
+		width: 100%;
+	}
+}
+

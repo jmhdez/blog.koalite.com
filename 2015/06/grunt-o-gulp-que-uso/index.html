@@ -1,0 +1,552 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Grunt o Gulp: ¿qué uso? | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2015/06/grunt-o-gulp-que-uso/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4215 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4215" class="post-4215 post type-post status-publish format-standard hentry category-dev tag-grunt tag-gulp tag-javacript">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Grunt o Gulp: ¿qué uso?</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 1 junio 2015</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/grunt/" rel="tag">grunt</a>, <a href="/tag/gulp/" rel="tag">gulp</a>, <a href="/tag/javacript/" rel="tag">javacript</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p><img decoding="async" src="/wp-content/uploads/grunt-vs-gulp-3.png" alt="grunt-vs-gulp-3" width="848" class="aligncenter size-full wp-image-4228" srcset="/wp-content/uploads/grunt-vs-gulp-3.png 848w, /wp-content/uploads/grunt-vs-gulp-3-300x133.png 300w" sizes="(max-width: 848px) 100vw, 848px" /></p>
+<p>Cualquiera que haya desarrollado algo medianamente complejo (tampoco mucho) usando Javascript conocerá <a href="/2013/10/desarrolla-en-javascript-mas-comodamente-usando-grunt/" target="_blank">herramientas de «compilación» como grunt</a> con las cuales podemos automatizar procesos como la validación de sintaxis, la concatenación de ficheros, la minificación, la ejecución de tests, etc.</p>
+<p>A principios del 2014, una alternativa a <a href="http://gruntjs.com/" target="_blank">grunt</a> empezó a tomar peso dentro de la comunidad de Javascript, donde como todos sabéis, si algo tiene más de 24 horas ya está obsoleto y es necesario reemplazarlo inmediatamente. Esa alternativa es <a href="http://gulpjs.com/" target="_blank">gulp</a>, un sistema de compilación basado en streams <del>maravilloso y que nos permite hacer cosas nunca vistas</del>.</p>
+<h3>¿Qué aporta Gulp?</h3>
+<p>La idea fundamental detrás de gulp es el uso de streams para procesar la información. En lugar de estar leyendo archivos de disco, procesándolos, generando archivos intermedios, volviéndolos a leer y procesándolos con otra herramienta, en gulp <strong>los archivos se convierten en streams, se van procesando en memoria y se almacenan en disco al final</strong>, lo que debería suponer una mejora en rendimiento al evitar parte de la entrada/salida.</p>
+<p>Además, esto hace que la arquitectura de los plugins se simplifique, puesto que básicamente un plugin de gulp es únicamente una función que recibe un stream, lo transforma, y devuelve otro stream. Eso ha dado lugar a un ecosistema lleno de plugins muy simples, enfocados a realizar una tarea muy concreta y hacerla bien. ¿Os suena? Sí, es la típica <a href="http://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well" target="_blank">filosofía unix</a>.</p>
+<p>Junto a los streams, otro factor que define la forma de trabajar con gulp es el uso de <strong>código frente a configuración</strong>. Mientra que en grunt se utiliza la configuración a través del método <code>grunt.initConfig</code> para definir de una forma más o menos declarativa lo que hará cada plugin, en gulp esto se hace explícitamente a través de código, como veremos más adelante.</p>
+<p>Por último, en lugar de ejecutar las tareas de forma secuencial como hace por defecto grunt, gulp utiliza un sistema de <strong>orquestación de tareas</strong> basado en dependencias. Esto nos permite definir cada tarea indicando de qué otras tareas depende, y gulp es capaz de ejecutar todo el conjunto de tareas que le digamos con el <strong>máximo grado de paralelismo</strong> posible. Esta gestión de dependencias entre tareas es muy típica en la mayoría de sistemas de compilación, <a href="/2013/05/automatizar-la-compilacion-con-msbuild/" title="Automatizar la compilación con MSBuild" target="_blank">como veíamos hace tiempo con MSBuild</a>.</p>
+<h3>Un ejemplo con Gulp, Browserify y ReactJS</h3>
+<p>Para ver un ejemplo completo (aunque simple) de gulp, vamos a reescribir el sistema de compilación que usamos para ver <a href="/2014/09/como-utilizar-reactjs-con-browserify/" title="Cómo utilizar ReactJS con Browserify" target="_blank">cómo trabajar con grunt, browserify y reactjs</a>. </p>
+<p>Lo primero que necesitamos es instalar unas cuantas dependencias:</p>
+<pre>
+npm install --save-dev gulp
+npm install --save-dev vinyl-source-stream
+npm install --save-dev browserify
+npm install --save-dev reactify
+</pre>
+<p>De todos ellos, el más extraño es <a href="https://github.com/hughsk/vinyl-source-stream" target="_blank">vinyl-source-stream</a>, que forma parte de un conjunto de utilidades que nos permiten convertir entre distintos formatos de streams (más sobre eso luego) y manejarlos como una especie de «sistema de archivos virtual».</p>
+<p>Teniendo esto instalado, podemos crear nuestro script de compilación, <code>gulpfile.js</code>:</p>
+<pre class="brush:javascript">
+/*global require */
+
+var gulp = require('gulp'),
+    source = require('vinyl-source-stream'),
+    browserify = require('browserify'),
+    reactify = require('reactify');
+
+gulp.task('browserify', function() {
+
+    var bundle = browserify({entries: './lib/index.js' })
+                    .transform(reactify)
+                    .bundle();
+
+    return bundle
+            .pipe(source('app.js'))
+            .pipe(gulp.dest('./dist/)'));
+});
+
+gulp.task('watch', ['browserify'], function() {
+    gulp.watch('./lib/**/*.js', ['browserify'])
+});
+
+gulp.task('default', ['browserify']);
+gulp.task('dev', ['watch']);
+</pre>
+<p>Vemos que podemos definir tareas con <code>gulp.task</code>, que recibe el nombre de la tarea, un array con los nombres de las tareas de las que depende (opcional) y una función con la implementación de la tarea (también opcional).</p>
+<p>La primera tarea, <code>browserify</code> se encarga de generar el javascript unificado listo para utilizar en el browser, y como véis se define mediante código ejecutable, en lugar de mediante un objeto de configuración como haríamos en grunt.</p>
+<p>La segunda tarea, <code>watch</code>, se encarga de monitorizar cambios en lo ficheros originales para lanzar la tarea <code>browserify</code>. Para que antes de ejecutarse esta tarea se ejecute <code>browserify</code>, la incluimos como dependencia en la definición de <code>watch</code> con el array <code>['browserify']</code>.</p>
+<p>Por último, definimos dos tareas basadas en las otras, <code>default</code> y <code>dev</code>, que nos simplifiquen el lanzamiento de las opciones más habituales. </p>
+<p>Es importante tener en cuenta que <strong>las dependencias sólo indican eso, dependencia, no orden de ejecución</strong>. Si hiciésemos que fuese <code>dev</code> quien lanza el primer <code>browserify</code> antes del <code>watch</code>, podríamos tener algo así:</p>
+<pre class="brush:javascript">
+gulp.task('browserify', function() {...});
+gulp.task('watch', function() {...});
+
+gulp.task('dev', ['browserify', 'watch']);
+</pre>
+<p>El problema de este código es que, al no haber una dependencia entre <code>watch</code> y <code>browserify</code>, al ejecutar <code>dev</code> se ejecutarán <em>ambas tareas en paralelo</em>, que no exactamente lo que queremos (queremos que se ejecute primero una vez <code>browserify</code> entero, luego ya que empiece el <code>watch</code>).</p>
+<p>Si lo comparáis con <a href="https://github.com/jmhdez/reactjs-playground/blob/master/Gruntfile.js" target="_blank">el script original que teníamos de grunt</a>, éste es algo más corto (~25 LOC vs ~35 LOC) y, según gustos, tal vez algo más fácil de seguir. Tenéis el <strong><a href="https://github.com/jmhdez/reactjs-playground/tree/gulp" target="_blank">código completo en mi cuenta de github</a></strong> para comparar uno y otro.</p>
+<h3>Streams, Vinyl Streams, y Buffers</h3>
+<p>Hemos pasado de puntillas sobre el código de la tarea <code>browserify</code> porque merece echarle un vistazo con detenimiento.</p>
+<p>En esa tarea estamos usando directamente el módulo de <code>browserify</code> normal (no es un plugin específico de gulp) y generar el <em>bundle</em> con nuestros ficheros. </p>
+<p>Este bundle es un <a href="https://nodejs.org/api/stream.html" target="_blank">stream <em>de node.js</em></a>, pero gulp trabaja con <a href="https://github.com/hughsk/vinyl-source-stream" target="_blank">streams de vinyl</a>, por lo que necesitamos convertirlo a un stream de vinyl, el sistema de archivos virtual del que hablábamos antes. Para eso podemos usar un <code>pipe</code> con <code>source('app.js')</code>, que se encargará de encapsular el stream de node.js en un pseudo-fichero de vinyl con nombre &#8216;app.js&#8217;. </p>
+<p>Una vez que hemos pasado a streams del mundo gulp, podemos pasarlo por <code>gulp.dest('./build/')</code> que guardará el stream en la carpeta indicada. Aquí termina el proceso, pero en realidad <code>gulp.dest</code> devuelve el stream original, por lo que podríamos seguir haciendo cosas con él, por ejemplo minificarlo y guardarlo con otro nombre en otra carpeta.</p>
+<p>Si todo esto te ha parecido un lío entre un tipo de stream y otro, tienes razón. A veces resulta muy confuso saber qué tipo de stream tienes en cada momento y si necesitas convertirlo a una cosa u otra. </p>
+<p>Para acabar de arreglarlo, existen otros plugins (como <a href="https://github.com/terinjokes/gulp-uglify" target="_blank">gulp-uglify</a>) que trabajan con otra estructura de datos diferente, los Buffers, que se pueden generar con <a href="https://github.com/hughsk/vinyl-buffer" target="_blank">vinyl-buffer</a>.</p>
+<h3>Entonces, ¿Grunt o Gulp?</h3>
+<p>Si nos basamos en popularidad, todavía gana grunt, aunque gulp le está recortando terreno rápido y probablemente en menos de un año le iguale o le supere, siempre que no aparezca otro sistema que se coma a estos dos, que hablando de javascript todo es posible.</p>
+<div class="image">
+<a href="http://kipple.koalite.com/#!surviving-javascript.gif-A104862201?department=1&amp;productType=6&amp;color=F7EF00&amp;appearance=7&amp;view=1"><img decoding="async" src="/wp-content/uploads/I-Survived-Javascript-e1451297418629.png" alt="Camiseta I Survived Javascript" width="800" class="size-full wp-image-4619" srcset="/wp-content/uploads/I-Survived-Javascript-e1451297418629.png 800w, /wp-content/uploads/I-Survived-Javascript-e1451297418629-300x152.png 300w" sizes="(max-width: 800px) 100vw, 800px" /></a><br />
+<small>Camiseta original de <a href="http://kipple.koalite.com" target="_blank">Koalite&#8217;s Kipple</a></small><br />
+
+</div>
+<p>El uso de código (gulp) o configuración (grunt) para definir las tareas, es un poco cuestión de gustos. A mi hay tareas que me resulta más natural definir usando código, y otras que me parece más sencillo gestionar mediante configuración. Lo cierto es que en grunt siempre has podido definir tareas basadas en funciones, por lo que técnicamente podrías pasar de la configuración y hacerlo todo a partir de <code>grunt.registerTask('myTask', function() {...})</code>. En ese sentido, quizá grunt esa más flexible porque puedes manejarte con las dos opciones (aunque una sea más idiomática que otra).</p>
+<p>Con los streams de gulp resulta cómodo manejar el proceso de información a través de <em>pipes</em>, y si estás acostumbrado a programación funcional (o aunque sea a LINQ), la idea de ir transformando la entrada paulatinamente es natural y agradable. Eso sí, como veíamos antes puede resultar complicado saber qué tipo de stream tienes en cada momento y a qué tienes que convertirlo para enlazarlo con la siguiente operación. </p>
+<p>Una ventaja del uso de los streams es que muchas veces puedes ahorrarte el usar un plugin, y puedes recurrir directamente al paquete original, lo que evita tener plugins desactualizados con respecto a los paquetes que encapsulan. Esto podrías hacerlo en grunt, pero es algo que en el ecosistema de gulp es más habitual.</p>
+<p>El sistema de dependencias entre tareas de gulp me gusta. Es algo a lo que estaba acostumbrado de MSBuild, y me gusta poder recuperarlo. Aunque a veces parezca más fácil definir la ejecución de forma imperativa (primero haz esto, luego haz esto y termina con esto), cuando tienes un script con muchos puntos de entrada (el del servidor de integración, el de desarrollo, el de tirar los tests&#8230;) viene bien poder definir las dependencias entre tareas y que el sistema decida automáticamente qué tiene que ejecutar para llegar a donde tú quieres.</p>
+<p>Si a estas alturas te sientes un poco estafado porque no te he dicho claramente que elijas grunt o gulp, lamento decepcionarte, pero no es mi estilo. En realidad no creo que ninguno sea mucho mejor que el otro, y cada uno tiene cosas que me gustan más y cosas que me gustan menos, como he ido contando en el post. </p>
+<p>Si vas a empezar un nuevo proyecto elige el que más te apetezca y pruébalo. Si tienes un proyecto que ya esta usando el que sea, no creo que merezca la pena cambiarlo al otro a menos que tengas un motivo muy concreto para hacerlo.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2015/05/manejo-de-matrices-en-clojure-con-core-matrix/" rel="prev"><i class="icon-arrow-left"></i> Manejo de matrices en clojure con core.matrix</a></div>		<div class="nav-next"><a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/" rel="next">Alternativas al uso de ObjectMother y Builders en los tests <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4215 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			5 comentarios en &ldquo;<span>Grunt o Gulp: ¿qué uso?</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3385">
+		<article id="comment-3385" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/af0867d01164b9597269350b2cdd7592?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/af0867d01164b9597269350b2cdd7592?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="https://jsjutsu.com/" class="url" rel="ugc external nofollow">Emilio</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/grunt-o-gulp-que-uso/#comment-3385"><time pubdate datetime="2015-06-04T16:19:12+01:00">
+					4 junio 2015 de 16:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juan. Mi más sincera enhorabuena por tu blog. Lo descubrí hace poquito y me está encantando :)</p>
+<p>En cuanto al tema del post, mi experiencia es que Grunt lo recomendaría para gente que no está acostumbrada a Node y los streams. Con Grunt controlas las dependencias mejor y creo que, al menos de momento, tiene más comunidad y plugins detrás. </p>
+<p>Por otra parte Gulp es más rápido y en mi opinión más legible, pero en cuanto tienes unas cuantas dependencias en cascada se sigue peor.</p>
+<p>Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3386">
+		<article id="comment-3386" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/grunt-o-gulp-que-uso/#comment-3386"><time pubdate datetime="2015-06-04T16:52:20+01:00">
+					4 junio 2015 de 16:52					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Emilio, </p>
+<p>Muchas gracias por aportar tu opinión y tu experiencia de primera mano.</p>
+<p>Sobre el tema de velocidad, ¿has medido la mejora? </p>
+<p>En un proyecto con el que estuve probando en el que se procesan un par de megas de javascript con broserify, jsx-transform y uglify, la diferencia era pequeña (1.90s Grunt vs 1.68s Gulp). Sí, es un 20%, pero sobre unos tiempos donde tampoco se nota mucho. </p>
+<p>Supongo que dependerá del proyecto, pero por el tipo de procesos que yo suelo hacer, en los que no hay resultados intermedios en disco, me da la impresión de que no voy a notar gran mejora (y mira que me gustaría).</p>
+<p>Un saludo, </p>
+<p>Juanma</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3387">
+		<article id="comment-3387" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/af0867d01164b9597269350b2cdd7592?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/af0867d01164b9597269350b2cdd7592?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="https://jsjutsu.com/" class="url" rel="ugc external nofollow">Emilio</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/grunt-o-gulp-que-uso/#comment-3387"><time pubdate datetime="2015-06-04T19:06:27+01:00">
+					4 junio 2015 de 19:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pues no me he tomado el tiempo de medirlo, pero al mencionarlo tú me ha dado la curiosidad y he hecho una pequeña prueba, compilando un buen montón de ficheros en Stylus, y este ha sido el resultado:</p>
+<p>/tmp/prueba<br />
+▶ grunt<br />
+Running «stylus:compile» (stylus) task<br />
+&gt;&gt; 1 file created.</p>
+<p>Done, without errors.</p>
+<p>Execution Time (2015-06-04 18:06:00 UTC)<br />
+loading tasks    90ms  ▇▇▇▇▇▇▇▇▇ 19%<br />
+stylus:compile  391ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 81%<br />
+Total 483ms</p>
+<p>/tmp/prueba<br />
+▶ gulp<br />
+[20:06:03] Using gulpfile /tmp/prueba/Gulpfile.js<br />
+[20:06:03] Starting &#8216;default&#8217;&#8230;<br />
+[20:06:03] Finished &#8216;default&#8217; after 8.57 ms</p>
+<p>Después, buscando un poco he encontrado este post <a href="http://jaysoo.ca/2014/01/27/gruntjs-vs-gulpjs/" rel="nofollow ugc">http://jaysoo.ca/2014/01/27/gruntjs-vs-gulpjs/</a> que parece que corrobora mi impresión.</p>
+<p>De todas formas, es lo que tu dices. En un proceso pequeño te da igual que tarde un segundo más o uno menos. En un proceso de más envergadura la cosa cambia.</p>
+<p>Un saludo :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3388">
+		<article id="comment-3388" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/grunt-o-gulp-que-uso/#comment-3388"><time pubdate datetime="2015-06-04T19:22:03+01:00">
+					4 junio 2015 de 19:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por hacer la prueba :-)</p>
+<p>Donde yo creo que sí se puede notar más la mejora de rendimiento es en el paralelismo que introduce gulp. Si tienes que pasar los css por less, el javascript por browserify y ejecutar los tests, puedes hacerlo todo a la vez y seguramente sí que se note más mejora.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3955">
+		<article id="comment-3955" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ed14f258162d00490c280c0b32ca6c45?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ed14f258162d00490c280c0b32ca6c45?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://drouiz.com/" class="url" rel="ugc external nofollow">Smart</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/grunt-o-gulp-que-uso/#comment-3955"><time pubdate datetime="2016-06-04T16:23:48+01:00">
+					4 junio 2016 de 16:23					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muchas gracias por este post, estoy empezando con JavaScript y la verdad que me ha servido de mucho.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

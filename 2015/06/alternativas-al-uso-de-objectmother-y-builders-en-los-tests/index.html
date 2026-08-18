@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Alternativas al uso de ObjectMother y Builders en los tests | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4239 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4239" class="post-4239 post type-post status-publish format-standard hentry category-dev tag-tdd tag-testing">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Alternativas al uso de ObjectMother y Builders en los tests</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 15 junio 2015</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/tdd/" rel="tag">tdd</a>, <a href="/tag/testing/" rel="tag">testing</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Cuando estamos escribiendo tests automatizados, excepto en los casos más sencillos, es habitual que para testear el componente que queremos testear, necesitemos utilizar otros objetos, ya sea para construir el objeto que estamos testeando o como parámetros de los métodos que vamos a testear.</p>
+<p>Si estamos siguiendo los principios canónicos de diseño orientado a objetos, huyendo de la <a href="http://c2.com/cgi/wiki?PrimitiveObsession" target="_blank">obsesión por los tipos primitivos</a>, encapsulando datos y comportamiento, <a href="/2014/01/diseno-por-contrato/" title="Diseño por Contrato" target="_blank">manteniendo invariantes</a> y demás, es probable que construir estos otros objetos y ponerlos en el estado que necesitamos resulte algo más laborioso de lo que nos gustaría.</p>
+<p>Esto presenta dos inconvenientes fundamentales:</p>
+<ul>
+<li>Se produce un <strong>acoplamiento entre el test y APIs de las dependencias</strong> que, en principio, no deberían importarnos mucho. Si para el test necesitamos tener un «cliente preferente», la forma de construir un cliente preferente no debería ser importante. Al introducir este acomplamiento tenemos tests más frágiles y más costosos de mantener.</li>
+<li>Hay un <strong>pérdida de legibilidad</strong>, puesto que tenemos que intoducir más ruido en el test para configurar las dependencias y eso hace que sea más complicado ver qué es lo que realmente queremos testear y dificulta resaltar qué aspectos son los imporantes para el test y qué aspecto son accesorios.</li>
+</ul>
+<p>Para resolver esto existen varias técnicas, algunas de las cuales ya hemos visto por aquí.</p>
+<h3>ObjectMother</h3>
+<p>Una opción es utilizar un ObjectMother, que es una clase encargada de proporcionarnos instancias de las clases que usamos con frecuencia. No voy a entrar en mucho detalle, tenéis más información en <a href="/2012/08/como-no-escribir-tests-unitarios-dependiendo-de-otros-constructores/" title="Cómo NO escribir tests unitarios: Dependiendo de otros constructores" target="_blank">el post que escribí sobre ObjectMother</a>, pero la ventaja es que nos ahorra depender de los constructores de otros objetos.</p>
+<p>La principal limitación de este patrón es que si necesitamos construir objetos con diversas características (un cliente de Madrid, otro de Segovia, uno preferente, otro que haya excedido el riesgo, etc.), la clase que hace de ObjectMother empieza a ser un lío y acabamos acoplando unos tests a otros indirectamente a través del ObjectMother.</p>
+<p>Aunque cada vez uso menos esta técnica, sigue resultando útil para datos muy estáticos que no cambian mucho. Los típicos «datos maestros» entre los que podemos incluir un par de países, un par de formas de pago, etc. </p>
+<h3>Builder</h3>
+<p>Para los casos en que el ObjectMother se queda corto, se pueden <a href="/2012/09/como-no-escribir-tests-unitarios-dependiendo-de-apis-no-testeadas/" title="Cómo NO escribir tests unitarios: Dependiendo de APIs no testeadas" target="_blank">utilizar builders para no depender de las APIs testeadas</a>. Con los Builders podemos construir objetos y ponerlos en estado que necesitamos sin necesidad de depender del API concreta del objeto, omitiendo además aquellos detalles que no son relevantes para el test y generando tests más legibles, como veíamos en este <a href="/2014/01/aplicando-el-patron-builder-para-escribir-tests-unitarios/" title="Aplicando el patrón builder para escribir tests unitarios" target="_blank">ejemplo de test usando builders</a>.</p>
+<p>Los builders son una solución bastante buena, pero tienen sus problemas. Para empezar, son costosos de escribir. Para que sean realmente cómodos de usar hay que diseñarlos con cuidado, pueden requerir bastante código y eso ralentiza la escritura de los tests. Esto lleva a intentar construir builders genéricos que podamos reutilizar en varios tests con la idea de amortizarlos, pero eso es un arma de doble filo, porque llega un momento en que el builder tiene tantas opciones que se hace casi tan complejo como el API del objeto que estamos construyendo, y la legibilidad del test (recuerda, uno de los objetivos de introducir el builder) se resiente.</p>
+<p>Normalmente utilizo builder genéricos para construir objetos que se necesitan en muchos tests diferentes y cuyos requisitos de construcción son similares de unos tests a otros. Por ejemplo, puedo tener 800 tests que necesitan construir productos con distinto nombre, precio o tipo de impuesto, pero poco más, por lo que el builder acaba con un API relativamente simple y se amortiza. Si tengo requisitos muy concretos, utilizo builders internos a la clase de test, optimizados para ese caso de uso concreto. Eso me permite simplificar al máximo el API del builder e incrementar mucho la legibilidad de los tests, pero el esfuerzo es mayor, por lo que sólo uso esta opción cuando son test que me interesa mucho mantener legibles.</p>
+<h3>Creation Methods</h3>
+<p>La alternativa que más utilizo actualmente para construir objetos en los tests son los <a href="http://www.industriallogic.com/xp/refactoring/constructorCreation.html" target="_blank">métodos de creación</a>. La idea es encapsular la creación y configuración de objetos auxiliares en un método <em>dentro de la propia clase de test</em>.</p>
+<p>Por ejemplo, si estamos testeando un filtro sobre productos en base a la categoría a la que pertenecen y el nombre del producto, esos son los únicos datos que nos interesan y podríamos tener un método así:</p>
+<pre class="brush:csharp">
+private Product Product(string category, string name)
+{
+  var category = new Category(category);
+  var tax = ObjectMother.Tax1;
+  var product = new Product(name, tax);
+  product.Category = category;
+  return product;
+}
+
+[Test]
+public void Filters_Products_By_Full_Text_Search()
+{
+  var products = new[]
+  {
+    Product("Ropa", "Camiseta"),
+	Product("Ropa", "Pantalón"),
+	Product("Menaje", "Copa"),
+  };
+
+  var result = products.Filter("opa");
+  Assert.That(result.Length, Is.Equalto(3));
+}
+</pre>
+<p>En el ejemplo se ve además cómo esta técnica interactúa con otra de las expuestas anteriormente, el ObjectMother, para acceder a datos estáticos (un tipo de impuesto predeterminado), que no nos interesa lo más mínimo para el test.</p>
+<p>Este sistema es mucho más rápido de implementar que un builder y nos da la flexibilidad de diseñar el API del método exactamente cómo la necesitamos para los tests que vamos a escribir.</p>
+<p>Como contrapartida, no conseguimos aislar tanto los tests de las APIs necesarias para construir y configurar los objetos. Si tenemos 80 clases de tests que construyen productos y cambiamos el constructor de producto, tendremos que cambiarlo en 80 sitios. Es una mejora con respecto a tener que cambiarlo en los 800 tests que usan productos, pero sigue siendo peor que cambiarlo sólo en el builder o en el ObjectMother.</p>
+<p>Además, si tenemos muchas variantes de objetos a construir en una misma clase de test, necesitaremos crear muchos métodos, que no siempre son fáciles de nombrar (<code>AddInvoice</code>, <code>AddInvoiceWithPreferredCustomer</code>, <code>AddInvoiceWithPreferredCustomerFromMadrid</code>, etc.), o utilizar muchos parámetros en nuestros métodos de creación.</p>
+<p>Si vamos por la vía de usar muchos parámetros, tendremos el problema de perder legibilidad en el test cuando tengamos varios parámetros del mismo tipo:</p>
+<pre class="brush:csharp">
+private Invoice Invoice(string customer, decimal customerDiscount, string product, decimal quantity, decimal price,  decimal shippingCost) { ... }
+
+[Test]
+public void Some_Invoice_Test()
+{
+  // ¿Qué es cada parámetro? ¿La cantidad es 1 o 4? ¿Y el precio?
+  var invoice = Invoice("Paco", 0.1m, "Paraguas", 1m, 4m, 2.5m);
+  ...
+}
+</pre>
+<p>Cuando tenemos varios parámetros con el mismo tipo es difícil saber qué es cada parámetro por el contexto (aunque a veces el contexto ayuda, como «Paco» y «Paraguas», es fácil distinguir el cliente del producto).</p>
+<p>A veces para solventar esto se introduce un parameter object para agrupar los parámetros y poder ponerles nombre. Esto incluso permite aplicar el patrón builder al parameter object para no tener que indicar todos los parámetros si no son necesarios:</p>
+<pre class="brush:csharp">
+[Test]
+public void Some_Invoice_Test()
+{
+  var invoice = Invoice(
+    Customer("Paco").Discount(0.1m),
+	Product("Paraguas").Price(4),
+	1m,
+	2.5m);
+	
+  // ...
+}
+</pre>
+<p>Los builders pueden ser genéricos o específicos a la clase de tests, dependiendo del escenario pero la idea es similar. Si usamos esta técnica podemos repartir la lógica entre el método y el builder, lo que nos ayuda a mantener los builders más genéricos y reutilizables, y dejar las cosas «muy especiales» para los métodos específicos de una clase de tests. Lo malo es que seguimos teniendo que implementar y mantener los builders.</p>
+<p>No es mi técnica preferida porque me parece que lleva bastante trabajo, pero a veces es una buena salida y la suelo emplear de vez en cuando.</p>
+<p>En lugar de builders, podemos construir el parameter object mediante propiedades. Hay que escribir un poco más y no es igual de potente, pero nos ahorra algo de código:</p>
+<pre class="brush:csharp">
+private class CustomerInfo
+{
+  public CustomerInfo()
+  {
+    Name = "";
+	Discount = 0;
+  }
+
+  public string Name { get;set; }
+  public decimal Discount {get; set; }
+}
+
+[Test]
+public void Some_Invoice_Test()
+{
+  var invoice = Invoice(
+    new CustomerInfo { Name = "Paco" },
+	new ProductInfo { Price = 4 },
+	1m,
+	2.5m);
+	
+  // ...
+}
+</pre>
+<p>Usando objetos y propiedades podemos jugar con el constructor para definir valores por defecto y así en cada test sólo necesitamos hacer explícitas las propiedades que importan, al estilo de lo que haríamos con el builder. La verdad es que es una opción que no uso casi nunca porque me parece que obliga a escribir demasiado al invocar el creation method, especialmente por tener que incluir el nombre del parameter object (el <code>new CustomerInfo</code>) y lo encuentro poco legible.</p>
+<p>Si vamos un paso más allá, podemos hacer esto mismo sin ningún parameter object, utilizando argumentos con nombre y valores por defecto en el método original:</p>
+<pre class="brush:csharp">
+private Invoice Invoice(
+  string customer = "", decimal customerDiscount = 0,
+  string product = "",  decimal quantity = 1, decimal price = 1,
+  decimal shippingCost = 0) { ... }
+
+[Test]
+public void Some_Invoice_Test()
+{
+  var invoice = Invoice(
+  	  customer: "Paco", customerDiscount: 0.1m,
+	  product: "Paraguas", quantity: 1, price: 4,
+	  shippingCost: 2.5m);
+  ...
+}
+</pre>
+<p>Esta técnica nos permite identificar claramente el rol de cada parámetro gracias a su nombre y, gracias a los valores por defecto, podemos omitir aquellos parámetros que no son relevantes para el test. Hay quien se pone nervioso cuando el creation method empieza a acumular muchos parámetros, y es cierto que puede ser un problema, pero al final es un problema que tienes acotado en un punto (ese método), por lo que es relativamente manejable.</p>
+<p>Una limitación importante es que C# es muy restrictivo en los valores por defecto que se pueden usar para los argumentos de un método, y hay ocasiones en que esta técnica se nos queda corta justo por eso. Podemos recurrir al estilo tradicional de tener distintas sobrecargas, pero no es igual de flexible.</p>
+<p>Últimamente estoy utilizando más esta técnica, aunque todavía es pronto para decidir cuánto me gusta.</p>
+<h3>Conclusión</h3>
+<p>Al escribir tests es muy importante que sean fáciles de mantener y que se pueda confiar en ellos. Para eso es crítico que sean fáciles de entender y que cuando fallen sea porque lo que están testeando ha dejado de funcionar, no porque se ha producido un cambio en otra área de la aplicación.</p>
+<p>Para conseguir esto es útil independizar los tests de la construcción y preparación de los objetos «auxiliares» (prefiero evitar el término dependencia) que necesitamos en el test.</p>
+<p>Existen muchas técnicas, entre ellas las que hemos visto en este post. Todas tienen valor en distintos contextos, pero si tuviera que resumir mi estrategia actual sería algo así:</p>
+<p>Usa ObjectMother para datos maestros (países, formas de pago, impuestos, roles, usuarios, etc.). En generl, para cualquier cosa que casi nunca importa en el test pero que necesitas para construir los objetos o realizar las operaciones.</p>
+<p>Si puedes apañarte con métodos de creación, hazlo. Es lo más rápido de implementar y a veces es también lo más legible. Lo idea es usar métodos de creación sin nada más, pero si no queda más remedio, añade parámetros con nombre o builders para construir parameter objects.</p>
+<p>Cuando veas que estás construyendo el mismo tipo de objeto en muchos tests, refactoriza  a un builder para aislarte de cambios en su API. Tus métodos de creación pueden llamar a ese builder si hace falta y te ahorrarás problemas a medio plazo.</p>
+<p>Como siempre, nada de esto está escrito en piedra. Comprende lo que te ofrecen los distintos tipos de soluciones, analiza tu caso y diseña tu propia estrategia.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2015/06/grunt-o-gulp-que-uso/" rel="prev"><i class="icon-arrow-left"></i> Grunt o Gulp: ¿qué uso?</a></div>		<div class="nav-next"><a href="/2015/06/liebres-tortugas-y-zorros/" rel="next">Liebres, tortugas y zorros <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4239 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			7 comentarios en &ldquo;<span>Alternativas al uso de ObjectMother y Builders en los tests</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3398">
+		<article id="comment-3398" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/932a8aae0d29262e7ba8198bd1c6cd61?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/932a8aae0d29262e7ba8198bd1c6cd61?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Juan Lladó</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-3398"><time pubdate datetime="2015-06-16T06:26:30+01:00">
+					16 junio 2015 de 06:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>¡Enhorabuena por el post!</p>
+<p>Después de un tiempo yo también he llegado a un estrategia similar a la que tú usas. </p>
+<p>Lo único que a veces me da problemas es cuando tengo que construir un objeto bastante grande/complejo (ej: objetos que contienen listas, respuestas de un WS) que se hace muy tedioso. Aunque, algunas veces suele ser un olor y el problema está en que estoy violando SRP.</p>
+<p>¿Te has encontrado con ese problema?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3399">
+		<article id="comment-3399" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-3399"><time pubdate datetime="2015-06-16T08:03:04+01:00">
+					16 junio 2015 de 08:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias Juan,</p>
+<p>Sí, ese caso se puede/suele dar. A veces (no tantas, la verdad) es indicativo de un exceso de responsabilidad, pero generalmente es que, simplemente, la estructura de datos es compleja; por ejemplo, una factura. Puedes simplificarla agrupando partes en otros objetos y evitar así primitive obession (información del cliente, información del producto, datos de entrega, etc.), pero al final para construir el objeto necesitas construir cada parte.</p>
+<p>Una ventaja de partirlo en trozos es que para cada trozo puedes utilizar la técnica más apropiada, y a lo mejor para construir el objeto factura acabas mezclando un ObjectMother (para la forma de pago), un Builder (para los productos) y un creation method (para la propia factura).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4197">
+		<article id="comment-4197" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-4197"><time pubdate datetime="2016-11-21T18:44:39+01:00">
+					21 noviembre 2016 de 18:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Como apunta el tener muchos parámetros; en los casos en que el dominio es muy grande y compartido por muchos test (ej. validar la digestión (ej. parseo) de un protocolo, testear workflow en una ui entera) empiezo por una clase generadora de casos, que crea instancias aleatoriamente en base a configuraciones (que pueden venir de línea de comandos o de un archivo de configuración, lo que me permite utilizar después los test para integración, explorar el dominio, pruebas de rendimiento, generar ejemplos para documentación a terceros, etc&#8230;). Normalmente las propias clases del modelo me sirven (caso del protocolo) o sino creo unas adhoc (caso de testear la ui). En general como los casos son generados aleatoriamente no tengo que arrastrar parámetros (si la distribución de un parámetro es relevante suelo meterla en la configuración y ya la tengo disponible para todo lo comentado). Así, mis validaciones intentan explorar todo el dominio en base a las aserciones generales. Para los casos en que no quiero parametrizar una distribución (ej. la longitud de cierto comentario de texto) añado un parámetro opcional al proceso del test básico (el test en sí sólo llama a los procesos de test) y si eso afecta a un conjunto de datos amplio (ej. un portfolio entero) entonces añado un modificador del caso base (ej. `Function`) que permite modificar «al gusto» para cada test (ej. añadiendo un comentario larguísimo). Pero éstos test no me gustan, porque definen un comportamiento puntual y si hiciera eso ¡tendría que tener miles de test que replicarían la definición funcional del sistema! (lo cual es muy difícil de gestionar). Así, yo prefiero lanzar muchos test aleatorios y que sea el propio sistema (ej. vía excepciones o Either cuando está codificado) y aserciones genéricas en los test (ej. un Portfolio activo debe tener alguna hoja). Cierto que si se produce un problema no tienes un test explícito que te lo diga, pero tienes casos generales que te llevarán fácilmente a ese problema (porque se ha producido cierta excepción o fallado cierta aserción).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-4198">
+		<article id="comment-4198" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-4198"><time pubdate datetime="2016-11-22T16:15:05+01:00">
+					22 noviembre 2016 de 16:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me parece muy interesante ese enfoque estilo property-based testing. </p>
+<p>La pega que le veo es que pierdes parte del aspecto «documental» de los tests. Es cierto que dejas documentadas propiedades que actúan como invariantes, pero a cambio no tienes un ejemplo sencillo de lo que se supone que debería pasar en un escenario concreto. De todas formas, me gusta la idea ya sea como estrategia base de testing o como complemento.</p>
+<p>¿Cómo haces para construir los generadores de entidades? Cuando tienes entidades dependientes de otras, cada una con sus invariantes, ¿los generadores los haces a mano? ¿Dejas que sea todo aleatorio y sólo alimentas tus casos de test con entidades que han pasado ciertos criterio?</p>
+<p>Te lo digo porque si haces los generadores a mano (que supongo que no), al final has movido el problema de sitio, pero si todo es aleatorio y no filtras nada, al final casi todo lo que testeas son excepciones en los límites del sistema quejándose de parámetros incorrectos, ¿no?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4199">
+		<article id="comment-4199" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-4199"><time pubdate datetime="2016-11-22T20:38:32+01:00">
+					22 noviembre 2016 de 20:38					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«La pega que le veo es que pierdes parte del aspecto “documental” de los tests. »</p>
+<p>Ya sabes mi opinión sobre TDD (y que los test sean documentación preferencial apunta a ello) sólo uso test para integración o regresión. Precisamente, evito que sean documentación haciendo que sean lo más «tontos» posible.</p>
+<p>«¿Dejas que sea todo aleatorio y sólo alimentas tus casos de test con entidades que han pasado ciertos criterio?»</p>
+<p>Normalmente creo clases generadoras (ej. «RandomPortfolio») que toman datos de una configuración general (ej. «minimumSheets=3; maximumSheets=120») que puede indicarse por línea de comandos o fichero de configuración. De esa forma puedo crear fácilmente casos (y de paso configuraciones como extremos de servicios, bases de datos, credenciales, etc&#8230;). Por ejemplo, si tenías un fallo cuando el nº de hojas eran 666 creas una configuración con «minimumSheets=maximumSheets=666» y te lanzará test aleatorios cuyo número de hojas van de 666 a 666. Si resulta que has creado un servicio web puedes crear configuraciones «ejemplo1.config», «ejemplo2.config», &#8230; y crear automáticamente una traza con esos ejemplos (en que ciertos datos como «nombre=Fé€m☂12» te da igual como se generen). O puedes crear trazas con cargas (casos) personalizados para temas de rendimiento, etc. Supongo que es parecido a los ObjectMother esos.</p>
+<p>No se si he entendido bien tu dicotomía «mover de sitio» vs «instancias raras» porque es obvia e inevitable. La generación de una instancia *siempre* está acoplada a la implementación (obvio) y sólo en la medida que la implementación lo permita su generación estará desacoplada del test. Precisamente cuanto menos acoplada esté (menos necesita saber el test «del negocio»), menos falta hará el propio test (porque tu implementación estará representando fielmente los casos válidos de instancia).</p>
+<p>Es decir, sólo si has codificado totalmente (normalmente en el sistema de tipos, por ejemplo refinando `Integer` a `NaturalNumber` a `PersonAge`) la correctitud (invariantes) de tu modelo, te puedes ir al extremo de testear «instancias raras». En este caso (para mi utópico en un entorno empresarial), ya sólo debes conectar esas instancias autogeneradas con tus procesos empresariales y «voilá» esperar si hay algún fallo o no (o verificar algún invariante muy general no considerado en tu implementación). QuickCheck en estado puro.</p>
+<p>Con frecuencia (ej. en Haskell) no es posible/deserable tal definición y es por ello que también hace falta crear esos generadores (que creo dices es «mover de sitio») escribiendo `instance Random X where` e inevitablemente acoplados.</p>
+<p>A mi este esquema me resulta muy práctico porque no sólo lo uso como test y porque el acople es «próximo» al ideal de quickcheck en el que mis test tienen la forma `successResult(doReadPortfolio(doUpdatePortfolio(doCreatePortfolio())))` en que defino los procesos empresariales que definen «cosas» que ocurren «normalmente» pero en un gran (o pequeño) número de casos.</p>
+<p>Como decía, evito hacer test como `failResult(doUpdatePortfolio(doCreatePortfolio(), p =&gt; p.name = randomName(1000,2000)))` donde en el workflow normal he indicado explícitamente que debe fallar si el nombre tiene entre 1000 y 2000 caracteres. No es lo ideal claro, lo ideal es hacerlos (ej. se te puede escapar un caso que produzca cierto overflow, etc.), pero repito que prefiero hacer test «tontos» orientados a integración y como los de éste último ejemplo sólo para regresión.</p>
+<p>No se si me he ido por las ramas.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4200">
+		<article id="comment-4200" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-4200"><time pubdate datetime="2016-11-22T21:00:32+01:00">
+					22 noviembre 2016 de 21:00					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«su generación estará desacoplada del test»<br />
+su generación estará desacoplada en el test (el test estará desacoplado de)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4201">
+		<article id="comment-4201" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/#comment-4201"><time pubdate datetime="2016-11-22T21:32:23+01:00">
+					22 noviembre 2016 de 21:32					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No te has ido por las ramas, al contrario. Muchas gracias por tomarte la molestia de explicarlo, llevaba tiempo dándole vueltas a usar este tipo de tests para ciertas partes de un dominio y me has dado mucho que pensar :-)</p>
+<p>En cuanto a lo de la documentación, no lo decía tanto por la parte de TDD (que tampoco suelo usar), sino porque a veces es más fácil entender un ejemplo concreto que aprehender un conjunto de reglas generales. Es verdad que el ejemplo concreto es más (mal)interpretable, pero suele ser práctico para comunicarse con otros humanos.</p>
+<p>Lo dicho, muchas gracias por la explicación!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

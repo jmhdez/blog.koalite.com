@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	ReactJS: un enfoque diferente | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2014/09/reactjs-un-enfoque-diferente/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-3828 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-3828" class="post-3828 post type-post status-publish format-standard hentry category-dev tag-javascript tag-reactjs">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">ReactJS: un enfoque diferente</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 8 septiembre 2014</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/javascript/" rel="tag">javascript</a>, <a href="/tag/reactjs/" rel="tag">reactjs</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>En los últimos años el auge de las aplicaciones basadas en HTML5 y Javascript ha sido imparable, y si a este lo unimos que Javascript no ofrece un conjunto de librerías estándar que dicte una forma canónica de hacer las cosas (como sí ocurre en otras plataformas como .NET o Java), es natural que este auge haya venido acompañado de la aparición de muchas librerías y frameworks para desarrollar este tipo de aplicaciones.</p>
+<p><img fetchpriority="high" decoding="async" src="/wp-content/uploads/logo-reactjs.png" alt="logo-reactjs" width="600" height="167" class="aligncenter size-full wp-image-3829" srcset="/wp-content/uploads/logo-reactjs.png 600w, /wp-content/uploads/logo-reactjs-300x83.png 300w" sizes="(max-width: 600px) 100vw, 600px" /></p>
+<p><a href="http://facebook.github.io/react/index.html" target="_blank">ReactJS</a> es otra librería más diseñada para ayudarnos a desarrollar aplicaciones <abbr title="Single Page Applications">SPA</abbr>, con una fuerte carga de interactividad en el cliente gracias al uso de Javascript. Ha sido desarrollada por Facebook y está publicada como Open Source con una licencia Apache 2.0. </p>
+<p>Lo interesante de ReactJS es que aporta un enfoque distinto al que podemos ver en otras herramientas como <a href="/tag/knockoutjs/" target="_blank">KnockoutJS</a> o <a href="/tag/angularjs" target="_blank">AngularJS</a> de las que ya hemos hablado por aquí en alguna ocasión.</p>
+<p><strong>OJO:</strong> este es un post de contar cosas, no de <a href="/2012/06/nos-gusta-demasiado-la-pornografia/" target="_blank">ver código</a>. Si estás buscando eso, te sugiero que consultes la <a href="http://facebook.github.io/react/docs/getting-started.html" target="_blank">documentación de ReactJS</a> o busques algún tutorial. Si quieres comprender mejor la filosofía que hay detrás de ReactJS, tal vez este post pueda ayudarte.</p>
+<h3>Una cuestión de alcance</h3>
+<p>Lo primero que debemos saber de ReactJS es que se trata de una librería para desarrollar interfaces de usuario. No estamos hablando de un framework todo incluido como <a href="https://angularjs.org/" target="_blank">AngularJS</a>, <a href="http://durandaljs.com/" target="_blank">Durandal </a>o <a href="http://emberjs.com/" target="_blank">Ember</a>, sino más bien de algo similar a <a href="http://knockoutjs.com/" target="_blank">KnockoutJS</a>, al menos en cuanto a alcance.</p>
+<p>ReactJS nos permitirá desarrollar el interfaz de usuario de una aplicación web, la <strong>V</strong> en un patrón MVC o MVVM, pero no incluye cosas como routing, acceso a servicios rest, inyección de dependencias, sistema de módulos, etc. A cambio, tampoco nos impone muchas restricciones sobre la forma de usarla, por lo que podemos mezclarla con otras librerías para conseguir el resto de funcionalidades.</p>
+<p>Es bastante frecuente ver ReactJS usado en combinación con otras librerías. Hay quien ha integrado <a href="http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/" target="_blank">AngularJS y ReactJS</a> (por motivos que ya veremos más adelante), y es habitual ver soluciones basadas en <a href="http://picodotdev.github.io/blog-bitix/2014/04/ejemplo-lista-de-tareas-con-backbone-y-react/" target="_blank">ReactJS y Backbone</a>, una mezcla especialmente interesante puesto que Backbone aporta todo lo que le falta a ReactJS y no tiene un sistema de vistas propio.</p>
+<p>El problema que trata de resolver ReactJS, al igual que todas estas librerías (o partes de estos frameworks), es el de construir un interfaz de usuario rico que permita mostrar en pantalla información sobre un modelo e interactuar con él. Esto es algo que puede complicarse rápidamente cuando tenemos mucha información a mostrar sobre distintos controles y necesitamos mantener sincronizada la información mostrada con el estado de los controles cada vez que se produce algún cambio.</p>
+<h3>La corriente general</h3>
+<p>Si pensamos en los frameworks y librerías más utilizados, AngularJS, Ember, Knockout, Durandal, etc., todos tratan de resolver el problema aplicando el patrón <a href="http://en.wikipedia.org/wiki/Model_View_ViewModel" target="_blank">Model-View-ViewModel</a> y un sistema de databinding bidireccional que se encargue de sincronizar automáticamente la vista y el viewmodel. Para ello suelen contar con algún mecanismo para definir declarativamente esos bindings y ahorrarnos mucho código. </p>
+<p>El problema de este enfoque es que resulta muy difícil saber de antemano las implicaciones que tiene cada cambio. Al responder a una acción del usuario se provocan cambios en el modelo, que se propagan a distintos «controles» cuyo valores pueden cambiar, provocando nuevos cambios en el modelo y así sucesivamente, convirtiéndose en la fiesta loca de los rebotes:</p>
+<p><img decoding="async" src="/wp-content/uploads/mvvm-info-flow.png" alt="Flujo de información MVVM" width="510" height="390" class="aligncenter size-full wp-image-3840" srcset="/wp-content/uploads/mvvm-info-flow.png 510w, /wp-content/uploads/mvvm-info-flow-300x229.png 300w" sizes="(max-width: 510px) 100vw, 510px" /></p>
+<p>Cualquiera que haya trabajado con AngularJS se habrá encontrado alguna vez con el error <a href="http://stackoverflow.com/questions/17116114/how-to-troubleshoot-angular-10-digest-iterations-reached-error" target="_blank">«10 $digest() iterations reached»</a> que indica que los rebotes entre modelo e interfaz de usuario no consiguen estabilizarse.</p>
+<p>Este comportamiento hace que sea más complicado razonar sobre el flujo de información dentro de la aplicación y predecir el orden en que se acabarán ejecutando las cosas.</p>
+<h3>El enfoque alternativo</h3>
+<p>El planteamiento que realiza ReactJS es completamente distinto. ReactJS utiliza un sistema de <strong>databinding unidireccional</strong>, en el cual los controles son generados a partir de la información del modelo, pero la actualización del modelo se realiza de forma explícita. </p>
+<p>Para montar este sistema, cada componente (control) de ReactJS cuenta con un método <code>render</code> que es el responsable de generar el HTML correspondiente al componente. Durante este proceso de generación, es posible enganchar manejadores de eventos a los elementos HTML para detectar cambios y actuar sobre el modelo. Cuando se producen cambios que afectan al estado interno del componente, éste se vuelve a renderizar <em>por completo</em>, no sólo aquellas partes el componente que han cambiado.</p>
+<p>A simple vista, esto puede parecer sumamente ineficiente, pero aquí entra en juego una de las características de ReactJS que además lo convierte en una librería extremadamente eficiente: el <strong>Virtual DOM</strong>.</p>
+<p>En lugar de generar directamente elementos HTML y modificar el DOM, que es una operación muy lenta, los componentes de ReactJS generan (renderizan) un modelo del DOM en memoria. Una vez generado el Virtual DOM completo, ReactJS se encarga de buscar las diferencias entre el DOM real y el virtual y realizar únicamente las modificaciones necesarias sobre el DOM real. </p>
+<p>Esto implica un mayor consumo de memoria porque hay que mantener el Virtual DOM, pero generalmente no suele ser un problema y la mejora de rendimiento lo compensa. De hecho hay casos en los que compensa <a href="http://www.williambrownstreet.net/blog/2014/04/faster-angularjs-rendering-angularjs-and-reactjs/" target="_blank">integrar este modelo con otros frameworks como AngularJS</a> por la mejora de rendimiento que se consigue.</p>
+<p>Para acabar de cuadrarlo todo, ReactJS mantiene una distinción muy clara entre dos tipos de información, las <em>propiedades</em> (<code>props</code>) del componente y el <em>estado</em> (<code>state</code>) del componente.</p>
+<p>Las <strong>propiedades del componente</strong> están formadas por información que es inmutable para el componente. Esta información se recibe a través del objeto <code>props</code> en el momento de construir el componente y el componente puede asumir que no será modificada en ningún momento durante su ciclo de vida. </p>
+<p>Se trata de información que el componente no «posee», por lo que será otro componente el responsable de modificarla. Cuando esa modificación se produzca, el dueño de la información reconstruirá nuevamente todo su Virtual DOM asociado, incluyendo sus componentes hijos que serán creados desde cero con la nueva información. Es por ello que podemos asumir que durante el ciclo de vida de un componente, es decir, desde que se crea hasta que se destruye, esta información es inmutable.</p>
+<p>El <strong>estado del componente</strong> se almacena en la propiedad <code>state</code> y está formado por aquella información que sí es gestionada y modificada directamente por el componente. Cada vez que se realiza un cambio en el estado del componente como respuesta a una acción del usuario (o a algún otro factor externo), ReactJS se encarga de renderizar nuevamente el componente por completo. Puesto que un componente puede contener otros componentes, en el proceso de renderizado se volverán a crear estos componentes hijos con la nueva información. Es posible (y habitual) que el estado mutable de un componente sean propiedades inmutables de sus componentes hijos.</p>
+<p>En el siguiente esquema podemos ver cómo se genera la jerarquía la componentes y cómo se propaga la información de unos a otros:</p>
+<p><img decoding="async" src="/wp-content/uploads/react-info-flow.png" alt="Flujo de información reactjs" width="520" height="410" class="aligncenter size-full wp-image-3842" srcset="/wp-content/uploads/react-info-flow.png 520w, /wp-content/uploads/react-info-flow-300x236.png 300w" sizes="(max-width: 520px) 100vw, 520px" /></p>
+<p>La información siempre fluye de componentes padres a componentes hijos, un componente hijo no puede modificar directamente el estado de un componente padre. Esto hace que sea más fácil razonar sobre el comportamiento general de la aplicación y las implicaciones de cada cambio realizado sobre el modelo y sobre el DOM. </p>
+<p>Hay muchas situaciones en las que tenemos que notificar cambios en un componente hacia su padre. Para esos casos la solución es simple: incluir dentro de las propiedades inmutables que recibe el hijo al ser creado una función callback del padre que será invocada en el momento oportuno. De esta forma tratamos todo de forma homogénea y la función callback no es más que otro elemento más de las propiedades inmutables que recibe el componente al ser creado. Esto además nos ahorra recurrir a otro tipo de mecanismos, como eventos, con los cuales es más complicado seguir el flujo de ejecución.</p>
+<p>A priori esta distintición entre estado mutable e inmutable puede parecer confusa, pero si lo piensas un poco es bastante más clara que otros sistemas como el <a href="https://docs.angularjs.org/guide/directive" target="_blank">anidamiento/aislamiento/copia de <code>$scopes</code></a> que hace AngularJS para solucionar el mismo problema.</p>
+<h3>Conclusiones</h3>
+<p>Como decía antes no soy ningún experto en ReactJS, así que no veas estas conclusiones como una verdad absoluta, sino como mi opinión personal <em>en este momento</em> sobre esta librería.</p>
+<p>El alcance limitado de ReactJS puede ser un punto a favor o en contra, dependiendo de lo que estés buscando. Cuando empecé a analizar AngularJS ya avisaba de que <a href="/2013/06/angularjs-lo-bueno-y-lo-malo/" target="_blank">si hacías una aplicación con AngularJS, te casabas con AngularJS</a>, y un tiempo después eso <a href="/2014/06/angularjs-gracias-por-los-servicios-prestados/" target="_blank">se acabó convirtiendo en un problema</a>. </p>
+<p>Sin embargo, si no quieres tener que buscar componentes por separado e integrarlos tú mismo, recurrir a soluciones tipo «todo incluido» puede ser una buena salida, aunque hay que valorar los riesgos de ambas opciones (que los tienen).</p>
+<p>En mi opinión, utilizar librerías específicas para cada responsabilidad de la aplicación es una buena estrategia a medio plazo, ya que permite cambiarlas por separado en caso de ser necesario y evita que acabes acoplando todo tu código a la filosofía de una librería concreta. </p>
+<p>Esto es algo muy natural en plataformas como .NET, donde el acceso a datos te lo proporciona una librería, la capa de presentación otra, la inyección de dependencias otra, y así sucesivamente, pero en Javascript parece que hay una tendencia mayor a buscar la solución todo incluido.</p>
+<p>El enfoque que tiene ReactJS para la gestión de la información en la vista me parece muy atractivo. Durante mucho tiempo utilicé un enfoque similar en aplicaciones de escritorio aplicando variaciones del patrón MVP (Model-View-Presenter) y siempre me resultó más fácil de seguir que el código basando en eventos y rebotes del patrón MVVM, aunque no cabe duda de que en esto hay un componente personal importante.</p>
+<p>Además, con el tiempo he ido apreciando cada vez más el valor de la inmutabilidad y lo mucho que ayuda a razonar sobre un sistema, por lo que la separación que hace ReactJS entre lo que podemos considerar inmutable y lo que podemos considerar mutable en cada contexto (componente) me parece un acierto.</p>
+<p>En próximos posts seguramente profundizaré un poco más en ReactJS y lleguemos a ver algo de código, pero como siempre, <a href="/2011/08/%c2%bfhacen-los-frameworks-tontos-a-los-desarrolladores/" title="¿Hacen los frameworks tontos a los desarrolladores?" target="_blank">prefiero sentar las bases</a> antes en empezar a trastear.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2014/09/no-subestimes-el-poder-de-un-log/" rel="prev"><i class="icon-arrow-left"></i> No subestimes el poder de un log</a></div>		<div class="nav-next"><a href="/2014/09/crear-un-componente-con-reactjs/" rel="next">Crear un componente con ReactJS <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-3828 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			10 comentarios en &ldquo;<span>ReactJS: un enfoque diferente</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3135">
+		<article id="comment-3135" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/bc4c0c79052cf171628e217f1e54fd8b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/bc4c0c79052cf171628e217f1e54fd8b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://elavefenix.net" class="url" rel="ugc external nofollow">Marino Posadas</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3135"><time pubdate datetime="2014-12-31T13:19:04+01:00">
+					31 diciembre 2014 de 13:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juan María</p>
+<p>Hace muchos años, uno de mis profesores en Penn State Univ. me comentó que -incluso en la OOP- se deberían distinguir entre propiedades mutables e inmutables. Y que la forma «canónica», ideal si quieres, de diseñar una clase, sería que todas las propiedades inmutables quedaran totalmente resueltas en la llamada al constructor. También distinguía entre propiedades dependientes (de otras) e independientes, sugiriendo que las dependientes fueran siempre de solo lectura o modificables como consecuencia de un cambio en su dependencia. Incluso escribí un pequeño artículo sobre el tema, que después puse en español para explicarlo en mis clases sobre .NET.</p>
+<p>Por eso me ha gustado este enfoque. Enhorabuena por tu blog, y felices fiestas.<br />
+Marino</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3136">
+		<article id="comment-3136" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3136"><time pubdate datetime="2014-12-31T14:23:19+01:00">
+					31 diciembre 2014 de 14:23					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Marino, </p>
+<p>Gracias por el comentario, coincido bastante con esa visión. Por cierto, ¿El artículo que escribiste está disponible en algún sitio? Suena interesante.</p>
+<p>Con respecto a OOP e inmutabilidad, yo creo que el problema es que los lenguajes más populares, por defecto, fomentan que todo sea mutable.</p>
+<p>Eso hace que haya que seguir «convenciones» o «reglas» como las que describes para mantener un mínimo de coherencia en el código.</p>
+<p>En lenguajes funcionales se hace (a mi parecer) un tratamiento más sensato del tema.</p>
+<p>O bien todo es inmutable, como en el caso de Haskell y demás lenguajes puros, o bien por defecto las «variables» son inmutables y hay que declararlas explícitamente como mutables, como en el caso de Ocaml y F#, o el lenguaje cuenta con primitivas específicas para tratar la mutabilidad de forma segura, como es el caso de Clojure con sus atoms, refs y STM.</p>
+<p>Un saludo, </p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3230">
+		<article id="comment-3230" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7b63a14ea57fbfeacce405f5051b6da6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7b63a14ea57fbfeacce405f5051b6da6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Boris Matos</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3230"><time pubdate datetime="2015-02-27T05:21:44+01:00">
+					27 febrero 2015 de 05:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Que increíble encontrar info sobre React.js en español!, gracias por el post, muy interesante. Yo también haré mi propia contribución a la comunidad en español creando un blog exclusivo para hablar sobre React.js :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3231">
+		<article id="comment-3231" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3231"><time pubdate datetime="2015-02-27T07:25:21+01:00">
+					27 febrero 2015 de 07:25					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias Boris, cuando tengas el blog avísame :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3259">
+		<article id="comment-3259" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e33cd24fee218de663c6bc94d092a763?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e33cd24fee218de663c6bc94d092a763?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://caroguerrero.com" class="url" rel="ugc external nofollow">Carolina Guerrero</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3259"><time pubdate datetime="2015-03-23T08:11:01+01:00">
+					23 marzo 2015 de 08:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Genial :D Marino, ¿podrías compartir el post?, me parece interesante lo que planteo tu profesor; En cuanto a ti Juamma, de nuevo gracias por compartir tus conocimiento, y concuerdo contigo sobre AngularJS.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3592">
+		<article id="comment-3592" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/3c98271b272453eead227414fc0da135?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/3c98271b272453eead227414fc0da135?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">daigual</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3592"><time pubdate datetime="2015-10-31T16:37:46+01:00">
+					31 octubre 2015 de 16:37					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy bueno, me sirvió para entender en que se está usando esta librería. Personalmente AngujarJS la encuentro molesta e inútil, todo lo que hace se puede hacer por acceso directo al DOM usando los cssClass, id, data-name etc etc. Es una librería bastante molesta e inútil que usan otras librerías y que de no ser por eso ni la mencionaba. ReacJS parece más interesante, aunque las tareas que realiza nuevamente parecen reemplazables. Si voy a almacenar en memoria elementos del DOM para acelerar la visualización, no necesito otra librería que consuma recursos de memoria y tiempo de proceso, me bastaría con tener una variable de acceso global con atributos de tipo estático para almacenar los elementos del DOM a los que estoy frecuentemente haciendo acceso con sus correspondientes propiedades y funciones necesarias, encapsular la lógica en AngularJS innecesario sin considerar los dolores de cabeza para seguir los cambios de estado, usar ReacJS parece más lógico, pero si hará algo que ya puedo hacer con usar un template de clase o una variable global que haga la orquestación con funciones, etc&#8230; , no se que.</p>
+<p>Respecto al amigo que estudio en el Penn State y que saca a colación el dato para comenzar a opinar le diré que su profesor deberá volver a estudiar, porque en OOP se puede declarar la inmutabilidad de un objeto indicando que es static, const, o lisa y llanamente no incluyendo la funcion «set» o declarandola «private», «internal», «protected»&#8230; etc etc&#8230; segun el lenguaje&#8230; pero declarar elementos de memoria inmutable no tiene mucho sentido, ya que la memoria se hizo para ser modificada y son las etiquetas de accesibilidad las que se usan para declarar la inmutabilidad&#8230; pero aun asi, en los lenguajes funcionales se tiene la «inmutabilidad» por defecto en algunos casos, en otros se declara, pero para ser francos, con las máquinas actuales, la diferencia entre el tiempo de binding en memoria, entre una variable inmutable y una que mutable, es casi despreciable&#8230; solo aplicable a enormes sistemas, con gran cantidad de usuarios y donde, las palabras «const» y «static» hacen en resumen la misma tarea.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3682">
+		<article id="comment-3682" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/22b4216e1235fff6daa409b3d2dea94e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/22b4216e1235fff6daa409b3d2dea94e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.magiainfantilmadrid.es/" class="url" rel="ugc external nofollow">Tonio Velayos</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3682"><time pubdate datetime="2015-11-27T09:08:16+01:00">
+					27 noviembre 2015 de 09:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Bravo por tu artículo, me ha encantado.<br />
+Además de ser mago trabajo como desarrollador (me llaman consultor, pero no es verdad, soy demasiado friki para que me lo consideren)<br />
+Yo no soy puritano en prácticamente nada, debe ser por mi naturaleza. Y aunque no profundizo en cada materia intento ponerle un poco de cordura a lo que hago. He estado haciendo pequeños desarrollos en un banco con AngularJS dentro de SharePoint y mis compañeros y yo hemos acabado odiándolo (bueno, no tanto) Al final me pasé a Backbone y estoy muy contento, prefiero tener el dominio de todo lo que ocurre y aún siendo mago, prefiero que las cosas no ocurran «mágicamente» Lo más seguro use ReactJS y se lo añada a BackboneJS.<br />
+Lo dicho, gracias por tu blog y tu trabajo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3887">
+		<article id="comment-3887" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ec474b4442e4de3eaa3400a7fd710c5d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ec474b4442e4de3eaa3400a7fd710c5d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">elias</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-3887"><time pubdate datetime="2016-04-23T23:57:39+01:00">
+					23 abril 2016 de 23:57					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buen post</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4039">
+		<article id="comment-4039" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b755fa44030c47a4f1c1365f82561ad3?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b755fa44030c47a4f1c1365f82561ad3?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Diego</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-4039"><time pubdate datetime="2016-08-08T03:07:56+01:00">
+					8 agosto 2016 de 03:07					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola, me gustaria tener claro cuanto pesa react.js en el cliente</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-4040">
+		<article id="comment-4040" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/09/reactjs-un-enfoque-diferente/#comment-4040"><time pubdate datetime="2016-08-08T10:29:33+01:00">
+					8 agosto 2016 de 10:29					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Haciendo una búsqueda rápida en google puedes encontrar comparativas como ésta <a href="https://gist.github.com/Restuta/cda69e50a853aa64912d" rel="nofollow ugc">https://gist.github.com/Restuta/cda69e50a853aa64912d</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

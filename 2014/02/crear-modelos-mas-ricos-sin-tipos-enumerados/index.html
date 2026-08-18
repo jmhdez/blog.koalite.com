@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Crear modelos más ricos sin tipos enumerados | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-3558 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-3558" class="post-3558 post type-post status-publish format-standard hentry category-dev tag-c tag-ddd tag-design-patterns tag-software-development">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Crear modelos más ricos sin tipos enumerados</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 3 febrero 2014</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/c/" rel="tag">c#</a>, <a href="/tag/ddd/" rel="tag">ddd</a>, <a href="/tag/design-patterns/" rel="tag">design patterns</a>, <a href="/tag/software-development/" rel="tag">software development</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Por un cúmulo de casualidades llevo unos cuantos días hablando en el Mundo Real&trade; sobre <a href="/2013/04/diseno-de-modelos/" title="Diseño de Modelos" target="_blank">diseño de modelos</a> con distintas personas y una pregunta recurrente es cómo hacer que el modelo, y sobre todo las entidades, «ganen peso» dentro de la aplicación y encapsulen más lógica en lugar de repartirla en servicios varios. </p>
+<p>Si esto es una buena idea o no, es otro tema, pero sí es cierto que encapsular la lógica en un modelo basado en objetos «inteligentes» tiene algunas ventajas, como que puede ayudar a <a href="/2012/09/como-no-escribir-tests-unitarios-verificando-interacciones/" target="_blank">escribir tests más claros</a> o dar lugar a un código más compacto y fácil de consumir.</p>
+<p>Miguel Ángel Martín, <a href="https://twitter.com/MookieFumi" target="_blank">MookieFumi en Twitter</a>, está escribiendo una serie de post recordando conceptos básicos de C# y en uno de ellos habla sobre <a href="http://mookiefumi.com/2014/01/30/enums-en-c-atributo-flags/" target="_blank">tipos enumerados</a>, y me parece un buen sitio por el que podemos empezar a añadir lógica a nuestro modelo.</p>
+<h3>Tipos enumerados</h3>
+<p>Los tipos enumerados se utilizan para representar conjuntos discretos, generalmente pequeños, de valores. Son muy útiles cuando tenemos que distinguir entre unos cuantos casos para clasificar objetos, por ejemplo, podríamos tener un tipo enumerado para representar distintas forma de pago en una tienda online:</p>
+<pre class="brush:csharp">
+public enum PaymentMethod
+{
+  CreditCard,
+  PayPal,
+  BankTransfer
+}
+</pre>
+<p>La principal limitación que tienen los tipos enumerados en C# es que no podemos añadirles más información, y mucho menos, lógica. En el fondo no son más que una forma de encapsular un valor de tipo <code>int</code> o <code>byte</code> y restringirlo a una serie de valores (bueno, al menos en parte porque en C# se pueden hacer <a href="http://mookiefumi.com/blog/2014/01/30/enums-en-c-atributo-flags/#comment-3" target="_blank">cosas un poco raras</a> con ellos).</p>
+<p>Es muy frecuente que, donde tengamos un tipo enumerado, en algún momento acabe apareciendo un <code>switch</code> en otra clase para realizar un proceso de forma distinta en función del valor:</p>
+<pre class="brush:csharp">
+public decimal GetMaxAmountToPayWith(PaymentMethod method)
+{
+  switch (method)
+  {
+    case PaymentMethod.CreditCard:
+      return 1000m;
+    case PaymentMethod.PayPal:
+      return 100m;
+    case PaymentMethod.BankTransfer:
+      return 10000m;
+    default:
+      throw new ArgumentOutOfRangeException("method");
+  }
+}
+</pre>
+<p>Estamos separando la lógica, <code>GetMaxAmountAmountToPayWith</code>, de los datos, <code>PaymentMethod</code>, algo que podríamos considerar una mala práctica dentro del paradigma de programación orientada a objetos (en otros paradigmas, como la programación funcional, seguramente ésta fuese la forma más natural de hacerlo).</p>
+<h3>Clases</h3>
+<p>Una forma de evitar esto es refactorizar nuestro tipo enumerado a una clase:</p>
+<pre class="brush:csharp">
+public sealed class PaymentMethod
+{
+  public static readonly PaymentMethod CreditCard = new PaymentMethod("Tarjeta de Crédito", 1000m);
+  public static readonly PaymentMethod PayPal = new PaymentMethod("PayPal", 100m);
+  public static readonly PaymentMethod BankTransfer = new PaymentMethod("Transferencia Bancaria", 10000m);
+
+  private readonly string name;
+  private readonly decimal maxAmount;
+
+  private PaymentMethod(string name, decimal maxAmount)
+  {
+    this.name = name;
+    this.maxAmount = maxAmount;
+  }
+
+  public string Name { get { return name; } }
+  public decimal MaxAmount { get { return maxAmount; } }
+}
+</pre>
+<p>Lo que tenemos es una clase con un constructor privado, por lo que no se pueden crear nuevas instancias desde fuera de la clase, que expone a través de atributos estáticos de sólo lectura los valores permitidos. De esta forma, el código que teníamos antes con el <code>switch</code> desaparece y para obtener la cantidad máxima que se puede pagar con una forma de pago determinada podemos escribir el siguiente código:</p>
+<pre class="brush:csharp">
+var maxAmount = PaymentMethod.CreditCard.MaxAmount;
+</pre>
+<p><strong>Es fundamental que los objetos que usamos sean inmutables</strong>, ya que sólo existirá una instancia de <code>PaymentMethod</code> que represente cada valor en toda la aplicación, por lo que será compartida por todos aquellos objetos que la necesiten y no debería poder modificada por ninguno de ellos.</p>
+<h3>Polimorfismo</h3>
+<p>En el ejemplo anterior realmente lo único que hacíamos era añadir más información al tipo enumerado, pero esta técnica podemos usarla para añadir también comportamiento.</p>
+<p>Imaginemos que tenemos el siguiente código para procesar un pago a través de un <code>IPaymentGateway</code> que es capaz de tratar con servicios externos para hacer el cargo en la tarjeta, contactar con PayPal o lo que sea necesario:</p>
+<pre class="brush:csharp">
+public void ProcessPayment(PaymentMethod method, decimal amount)
+{
+  if (method.MaxAmount &lt; amount)
+    throw new InvalidOperationException(string.Format("No se puede pagar tanto dinero con {0}", method.Name));
+
+  if (method == PaymentMethod.CreditCard)
+    paymentGateway.HandleCreditCardPayment(amount);
+  else if (method == PaymentMethod.PayPal)
+    paymentGateway.HandlePayPalPayment(amount);
+  else if (method == PaymentMethod.BankTransfer)
+    paymentGateway.HandleBankTransferPayment(amount);
+}
+</pre>
+<p>Nuevamente estamos alejando la lógica de los datos. Con el código que escribimos antes, podríamos traspasar el método <code>ProcessPayment</code> a la clase <code>PaymentMethod</code>, pero seguiríamos teniendo un <code>if</code> bastante feo y alguien podría sentirse mal por estar violando el <a href="http://en.wikipedia.org/wiki/Open/closed_principle" target="_blank">Open/Closed Principle</a>, ya que si añadimos nuevas formas de pago tenemos que andar tocando el método <code>ProcessPayment</code>. </p>
+<p>Para mejorar esto, existe una herramienta básica en programación orientada a objetos: <em>el polimorfismo</em>. Podemos cambiar nuestra clase <code>PaymentMethod</code> para usar distintas clases para representar cada forma de pago:</p>
+<pre class="brush:csharp">
+public abstract class PaymentMethod
+{
+  public static readonly PaymentMethod CreditCard = new CreditCard();
+  public static readonly PaymentMethod PayPal = new PayPal();
+  public static readonly PaymentMethod BankTransfer = new BankTransfer();
+
+  private readonly string name;
+  private readonly decimal maxAmount;
+
+  protected PaymentMethod(string name, decimal maxAmount)
+  {
+    this.name = name;
+    this.maxAmount = maxAmount;
+  }
+
+  public string Name { get { return name; } }
+  public decimal MaxAmount { get { return maxAmount; } }
+  
+  public void ProcessPayment(IPaymentGateway gateway, decimal amount)
+  {
+    if (maxAmount &lt; amount)
+      throw new InvalidOperationException(string.Format("No se puede pagar tanto dinero con {0}", name));
+      
+    HandleValidPayment(gateway, amount);
+  }
+  
+  protected abstract void HandleValidPayment(IPaymentGateway gateway, decimal amount);
+  
+  private class CreditCard : PaymentMethod
+  {
+    public CreditCard() : base("Tarjeta de Crédito", 1000m) {}
+    
+    public override void HandleValidPayment(IPaymentGateway gateway, decimal amount)
+    {
+      gateway.HandleCreditCardPayment(amount);
+    }
+  }
+  
+  private class PayPal : PaymentMethod
+  {
+    public PayPal() : base("PayPal", 100m) {}
+    
+    public override void HandleValidPayment(IPaymentGateway gateway, decimal amount)
+    {
+      gateway.HandlePayPalPayment(amount);
+    }
+  }
+  
+  private class BankTransfer : PaymentMethod
+  {
+    public BankTransfer() : base("Transferencia Bancaria", 1000m) {}
+    
+    public override void HandleValidPayment(IPaymentGateway gateway, decimal amount)
+    {
+      gateway.HandleBankTransferPayment(amount);
+    }
+  }
+}
+</pre>
+<p>Ahora tenemos clases privadas para representar cada forma de pago y en cada una de ellas se redefine la forma de gestionar un pago válido. Por el camino, podemos ver otras dos técnicas que a veces resultan útiles, el uso de <a href="/2011/10/openclosed-principle-method-template-strategy-y-otras-alternativas/" target="_blank">patrón <a href="http://en.wikipedia.org/wiki/Template_method_pattern" target="_blank">Template Method</a> (del que no soy gran fan, por cierto), para no repetir la validación de que el importe se puede pagar con la forma de pago, y una especie de <a href="http://en.wikipedia.org/wiki/Double_dispatch" target="_blank">double dispatch</a> para interactuar con el servicio <code>IPaymentGateway</code> desde un <code>ValueObject</code>.</p>
+<h3>Persistencia</h3>
+<p>Una preocupación muy frecuente cuando se pasa a este tipo de diseños es qué va a ocurrir con la persistencia. Lo que antes era un <code>enum</code> que mi ORM y mi base de datos se tragaban sin problemas, ahora se ha convertido en una jerarquía de clases privadas actuando como constantes.</p>
+<p>En NHibernate es muy fácil resolver el problema usando un <a href="http://nhforge.org/blogs/nhibernate/archive/2009/10/15/mapping-different-types-iusertype.aspx" target="_blank">IUserType</a>, y supongo que cualquier ORM medianamente decente ofrecerá algún punto de extensión parecido para resolver este caso (por ejemplo, <a href="http://www.llblgen.com/documentation/3.0/SDK/gui_implementingtypeconverter.htm" target="_blank">LLBLGen se basa en TypeConverters</a>).</p>
+<p>De todas formas, siempre se pueden aplicar <a href="http://lucidcoding.blogspot.com.es/2013/12/shortcomings-of-entity-framework.html" target="_blank">soluciones «imaginativas»</a> (o sea, <em>ñapas</em>) para resolverlo si tu ORM es muy limitado, pero voy a intentar salvaguardar mi imagen no poniéndolas aquí.</p>
+<h3>Conclusión</h3>
+<p>Lo que hemos visto en este post podríamos considerarlo como una forma de evitar un antipatrón que se conoce como <a href="http://c2.com/cgi/wiki?PrimitiveObsession" target="_blank">primitive obsession</a>. Hemos cambiando un tipo que era poco más que un entero, por una clase (o un conjunto de clases) que nos permite encapsular datos y comportamiento.</p>
+<p>Si esto merece la pena o no es algo que deberás considerar en cada caso. El código inicial con el enumerado y los <code>switch</code> es bastante más simple que el código final, pero también es menos flexible y puede ser más complicado de mantener a la larga.</p>
+<p>Mi consejo en esto es, como casi siempre, aplicar <abbr title="You Aren't Gonna Need It, No lo vas a necesitar">YAGNI</abbr>, empezar con el tipo enumerado y refactorizar hacia el diseño más elaborado cuando empieza a ser necesario. </p>
+<p>Lo importante es saber que existe la posibilidad y cómo podemos llegar a tener un modelo más inteligente, más completo, más sencillo de testear y más fácil de mantener.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2014/01/diseno-por-contrato/" rel="prev"><i class="icon-arrow-left"></i> Diseño por Contrato</a></div>		<div class="nav-next"><a href="/2014/02/crear-modelos-mas-ricos-quitando-logica-de-los-servicios/" rel="next">Crear modelos más ricos quitando lógica de los servicios <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-3558 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			13 comentarios en &ldquo;<span>Crear modelos más ricos sin tipos enumerados</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-2764">
+		<article id="comment-2764" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e550780c6b61a92815b59fd478b2319a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e550780c6b61a92815b59fd478b2319a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Miguel Ángel Martín Hernández</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2764"><time pubdate datetime="2014-02-03T08:26:24+01:00">
+					3 febrero 2014 de 08:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juanma, buen post y excelente código.<br />
+Gracias por compartirlo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2765">
+		<article id="comment-2765" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://jose-juan.computer-mind.com" class="url" rel="ugc external nofollow">josejuan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2765"><time pubdate datetime="2014-02-03T12:09:01+01:00">
+					3 febrero 2014 de 12:09					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Una pequeña observación casi sin importancia: la versión enum/switch es *mucho* más flexible que PaymentMethod; el motivo es que el primero no impone ninguna estructura a funcionalidades futuras (incluyendo modificaciones), mientras que el segundo sí.</p>
+<p>Es el precio por tener un modelo que los humanos podamos comprender y manejar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2766">
+		<article id="comment-2766" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2766"><time pubdate datetime="2014-02-03T13:39:59+01:00">
+					3 febrero 2014 de 13:39					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Entiendo el argumento, pero no sé si realmente podemos considerar flexible algo que los humanos no podamos comprender y manejar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2767">
+		<article id="comment-2767" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://jose-juan.computer-mind.com" class="url" rel="ugc external nofollow">josejuan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2767"><time pubdate datetime="2014-02-03T14:31:24+01:00">
+					3 febrero 2014 de 14:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No me he explicado con claridad, has asumido que ese otro «algo» no lo podemos comprender ni manejar.</p>
+<p>Yo todo lo que he dicho, es que usando OOP (para comprenderlo y manejarlo) pagas un precio, no que no puedas comprender ni manejar soluciones basadas en enum/switch.</p>
+<p>De echo, a mi me atraen más ese otro tipo de soluciones.</p>
+<p>&#8212;&#8211;<br />
+«Es el precio por tener un modelo que los humanos podamos comprender y manejar.» == «Es el precio de usar OOP.»</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2768">
+		<article id="comment-2768" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2768"><time pubdate datetime="2014-02-03T16:35:52+01:00">
+					3 febrero 2014 de 16:35					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy de acuerdo en que aplicando OOP pagas un precio (lo digo al final del post) y que hay otras formas de modelar esto (también lo menciono en el post), pero creo que la flexibilidad no sólo consiste en «imponer menos cosas».</p>
+<p>Para mi la flexibilidad debe permitirme adaptar el software nuevos requisitos, y a veces tener menos restricciones no hace que sea más fácil hacer esos cambios. </p>
+<p>Conozco algunos (y no miro a nadie) que piensan que el software desarrollado con lenguajes de tipado estático, por ejemplo, qué se yo&#8230; Haskell, acaba siendo más fácil de evolucionar que el software desarrollado con lenguajes dinámicos como, por decir algo&#8230; Javascript. </p>
+<p>En ese escenario la implementación basada en Haskell sería más restrictiva (impone tipos), pero puede que esas restricciones hagan que sea más fácil razonar sobre el programa y permitan adaptarlo mejor a nuevos requisitos.</p>
+<p>En cualquier caso, son temas interesantes para tratar y divagar un rato (rigidez de implementación y su impacto en la evolución del diseño -algo así como «menos es mas»-, y diseño de modelos OOP vs FP).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2769">
+		<article id="comment-2769" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b1ae228e6f91535a8f5c7047646100d8?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b1ae228e6f91535a8f5c7047646100d8?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://jose-juan.computer-mind.com" class="url" rel="ugc external nofollow">josejuan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2769"><time pubdate datetime="2014-02-03T18:32:48+01:00">
+					3 febrero 2014 de 18:32					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juan, confundes las cosas, en concreto, ser más/menos estricto con ser más/menos flexible, más que nada que es obvio que javascript (y todos los «vale todo») son más flexibles (dudo que yo haya dicho tal cosa, de ser así, me rectifico ahora mismo).</p>
+<p>Pero ahí no he entrado yo que conste, únicamente enum/switch es más flexible (precisamente por ser menos estricto&#8230;).</p>
+<p>¿Ves?, al final parece que nunca estamos de acuerdo porque sencillamente destaca ese 1% del que no :P</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2770">
+		<article id="comment-2770" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2770"><time pubdate datetime="2014-02-03T20:33:56+01:00">
+					3 febrero 2014 de 20:33					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Mira, en ese punto estoy de acuerdo: seguramente estemos más de acuerdo de lo que queremos dar a entender.</p>
+<p>Aun así, no veo tan clara la implicación «menos estricto es más flexible». La jerarquía de clases (que tiene el claro inconveniente de ser bastante más compleja a priori), puedes seguir manejándola como un switch (bueno, con un if/else if/else&#8230;) pero <em>además</em> puedes aprovechar el polimorfismo para añadir comportamiento sin tocar código que ya existe.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2771">
+		<article id="comment-2771" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://jose-juan.computer-mind.com" class="url" rel="ugc external nofollow">josejuan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-2771"><time pubdate datetime="2014-02-04T10:02:51+01:00">
+					4 febrero 2014 de 10:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«no veo tan clara la implicación “menos estricto es más flexible”»</p>
+<p>supongamos un sistema A, si creas otro B tomando A pero añadiendo una restricción (no nula) cualquiera, es obvio que B es estrictamente menos flexible que A (más que nada que A puede hacer todo lo que B pero además aquello en lo que B está restringido).</p>
+<p>Tu estructura de clases añade el código que resuelve el problema concreto (exactamente igual que e/s), pero además está añadiendo una estructura abstracta que clasifica ese código, esa estructura adicional, restringe acciones posteriores en el código (justificas el polimorfismo buscando un ejemplo ¡que entra dentro de tu restricción! y eso es tautología :) ).</p>
+<p>Si ahora vamos a lo práctico, tu argumento es que, como te sientes cómodo con esa estructura y muy incómodo con otras, *para ti*, te da más «»»»flexibilidad»»»» la versión restringida, ¡pero eso *no es* más flexible!, es otra cosa (¿»productividad subjetiva»?).</p>
+<p>En cuanto a la definición de flexible, creo que las acepciones 3 y 4 de la rae lo dejan claro (<a href="http://lema.rae.es/drae/?val=flexible" rel="nofollow ugc">http://lema.rae.es/drae/?val=flexible</a>):</p>
+<p>«Que no se sujeta a normas estrictas, a dogmas o a trabas.»<br />
+«Susceptible de cambios o variaciones según las circunstancias o necesidades.»</p>
+<p>Que a ti te resulte más cómodo refactorizar todo un árbol de clases antes que buscar «el par» de sitios donde tocar en un código spaguetti (por poner un ejemplo visual) no quiere decir que venga otro señor (ej. un Haskeller :P ) y él sí sepa donde «tocar».</p>
+<p>Por tanto, eliminando cualquier elemento subjetivo, creo que queda claro que la versión enum/sw es *más* flexible.</p>
+<p>Pero repito, mi comentario inicial venía a decir que en un sentido OOP estaba de acuerdo en todo, pero que en mi opinión era incorrecto (y peligroso) pensar que esa solución es más flexible.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3273">
+		<article id="comment-3273" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7a37aee74e21b874070c721b51a523fd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7a37aee74e21b874070c721b51a523fd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.ecobille.com" class="url" rel="ugc external nofollow">Edgar Ricárdez</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-3273"><time pubdate datetime="2015-04-06T23:38:15+01:00">
+					6 abril 2015 de 23:38					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Buen post y código.</p>
+<p>Saludos</p>
+<p>El link en el que haces referencia para: <strong>«(bueno, al menos en parte porque en C# se pueden hacer cosas un poco raras con ellos)»</strong>, no funciona.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3275">
+		<article id="comment-3275" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-3275"><time pubdate datetime="2015-04-07T06:41:21+01:00">
+					7 abril 2015 de 06:41					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias, Edgar. Ya he corregido el enlace.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4863">
+		<article id="comment-4863" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/58537e3204023b610b78807e525730f0?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/58537e3204023b610b78807e525730f0?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="https://twitter.com/leomicheloni" class="url" rel="ugc external nofollow">Leonardo</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-4863"><time pubdate datetime="2017-09-18T12:04:13+01:00">
+					18 septiembre 2017 de 12:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma,<br />
+ Coincido con casi todo, agregaría algo importante y es que en caso de devolver tipos primitivos en ocasiones movemos cierta información al lugar incorrecto, por ejemplo si una utilidad que hace POST remoto devuelve true o false quien consuma ese objeto tiene que ocuparse de resolver el mensaje de error o «mejorar» la respuesta, es un ejemplo burdo pero creo que es claro.<br />
+ Además crear tipos propios nos permite (como vos decís) que esos mismos tipos sepan operar sobre sus datos, por ejemplo con el método de POST que dije anteriormente, si le paso un objeto «PostParams» en lugar de un string, PostParams puede saber cómo convertirse en un json, un form data o lo que sea dependiendo del caso de uso y podemos testearlo independientemente.<br />
+Una cosa adicional es que toda esa lógica la podemos ir agregando o mejorando sin necesidad de alterar el método POST.<br />
+ Una última cosita, donde decís «seguiríamos teniendo un if bastante feo y alguien podría sentirse mal por estar violando el Open/Closed Principle» debería ser el principio de sustitución de Liskov el que estaríamos violando.<br />
+ Un saludo. Leonardo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5212">
+		<article id="comment-5212" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/8699fe5a019549e6b02425e6fa45ad69?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/8699fe5a019549e6b02425e6fa45ad69?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Luis Diego Flores</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-5212"><time pubdate datetime="2018-02-28T12:15:39+01:00">
+					28 febrero 2018 de 12:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma,<br />
+este será mi primer comentario publico con respecto a ser «critico constructivo» con código ajeno, espero no ofender y que se me entienda lo que quiero transmitir.<br />
+Me choca ver el codigo de<br />
+public static readonly PaymentMethod CreditCard = new CreditCard();<br />
+public static readonly PaymentMethod PayPal = new PayPal();<br />
+public static readonly PaymentMethod BankTransfer = new BankTransfer();<br />
+Cuando luego creas clases privadas con el naming identico a los nombre de las propiedades estáticas públicas, yo si que soy partidario de los tipos enumeradores porque creo que nos da mucha versatilidad a la hora de añadir nuevos conceptos y sobretodo creo que aporta gran valor para el open closed principle, yo creo honestamente que el patron estrategy iria de coña en el problema que intentas solventar<br />
+Espero poder haberme explicado bien y genial blog<br />
+Un saludo<br />
+Luis</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-5213">
+		<article id="comment-5213" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2014/02/crear-modelos-mas-ricos-sin-tipos-enumerados/#comment-5213"><time pubdate datetime="2018-02-28T15:25:12+01:00">
+					28 febrero 2018 de 15:25					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Luis,</p>
+<p>No te preocupes, que toda crítica constructiva es bienvenida :-)</p>
+<p>Sobre tener propiedades estáticas con el mismo nombre que clases privadas, bueno, es cuestión de gusto. Hay a quien tampoco le convence que la clase base, PaymentMethod, conozca las clases hijas a través de esas propiedades y prefiere separarlo, teniendo en algún sitio un PaymentRegistry o similar que es el que contiene las referencias a las distintas implementaciones.</p>
+<p>En cuanto al patrón strategy, el diseño propuesto no deja de ser una versión de ese patrón. Si lo ves desde el punto de vista de la clase que consume los PaymentMethod, estos son estrategias que se le inyectan en algún punto determinado para hacer algo.</p>
+<p>Un saludo y gracias por tu aportación.</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

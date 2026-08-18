@@ -1,0 +1,103 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>wizard</title> 
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	
+	<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="js/knockout-2.0.0.js"></script>
+	
+	<script type="text/javascript">
+	$(document).bind("mobileinit", function(){
+		// Disable transition because of awkward flicker in android
+		$.mobile.defaultPageTransition = 'none';
+	});
+	</script>
+  
+  	<link rel="stylesheet" href="css/jquery.mobile-1.0.min.css" />
+	<script type="text/javascript" src="js/jquery.mobile-1.0.min.js"></script>
+	
+	<script type="text/javascript" src="js/ko.custom-bindings.js"></script>
+	<link rel="stylesheet" href="css/ko.custom-bindings.css" />
+	
+	<script type="text/javascript" src="js/ViewModel.js"></script>
+	
+	<script type="text/javascript">
+	$(function(){
+		var viewModel = new MainViewModel();
+		ko.applyBindings(viewModel);
+	});
+	</script>
+	
+</head> 
+<body> 
+
+<div data-role="page" id="home">
+	<div data-role="header">
+		<h1>W.I.Z.A.R&D</h1>
+		<a href="#" data-role="button" data-icon="add" class="add-new-note ui-btn-right" data-bind="jqmChangePage: '#addNew'">Añadir</a>
+	</div>
+
+	<div data-role="content">
+		<ul data-role="listview" data-bind="foreach: weapons">
+			<li>
+				<a href="#" data-bind="{ text: name, click: $parent.edit, jqmChangePage: '#edit' }"></a>
+				<a href="#" data-bind="{ click: $parent.remove }" data-role="button" data-icon="delete" data-theme="d"></a>
+			</li>
+		</ul>
+		
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<h3>Peso Total: <span data-bind="text: totalWeight"></span> kgs.</h3>
+	</div>
+</div>
+
+<div data-role="page" id="edit" data-bind="jqmWith: selectedWeapon">
+	<div data-role="header">
+		<!-- El data-theme "a" es necesario porque si no acaba poniéndolo en "c" (no sé porqué) -->
+		<a href="#" data-rel="back" data-role="button" data-icon="back" data-theme="a">Back</a>
+		<h1 data-bind="text: name"></h1>
+	</div>
+
+	<div data-role="content">
+		<div data-role="fieldcontain">
+			<div>
+				<label for="weight">Peso</label>
+				<input type="number" id="weight" data-bind="value: weight"/>
+			</div>
+			<div>
+				<label for="ammoType">Munición</label>
+				<select id="ammoType" data-bind="options: ammoTypes, value: ammoType"></select>
+			</div>
+			<div>
+				<label for="closeCombatRating">Efectividad cuerpo a cuerpo</label>
+				<div id="closeCombatRating" data-bind="starRating: closeCombatRating"></div>
+			</div>
+			<div>
+				<label for="rangeRating">Efectividad a distancia</label>
+				<div id="rangeRating" data-bind="starRating: rangeRating"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-role="dialog" id="addNew" data-bind="jqmWith: newWeapon">
+	<div data-role="header">
+		<h1>Añadir Arma</h1>
+	</div>
+
+	<div data-role="content">
+		<label for="newWeaponName">Nombre:</label>
+		<input type="text" name="newWeaponName" data-bind="value: name"></input>
+	
+		<fieldset class="ui-grid-a">
+			<div class="ui-block-a"><a href="#" data-rel="back" data-role="button" data-bind="click: clear">Cancelar</a></div>
+			<div class="ui-block-b"><a href="#" data-rel="back" data-role="button" data-theme="b" data-bind="click: add">Aceptar</a></div>
+		</fieldset>
+		
+	</div>
+</div>
+
+</body>
+</html>

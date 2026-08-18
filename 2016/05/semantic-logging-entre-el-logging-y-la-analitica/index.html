@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Semantic logging: entre el logging y la analítica | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/05/semantic-logging-entre-el-logging-y-la-analitica/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4846 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4846" class="post-4846 post type-post status-publish format-standard hentry category-dev tag-logging tag-semantic-logging tag-software-development">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Semantic logging: entre el logging y la analítica</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 16 mayo 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/logging/" rel="tag">logging</a>, <a href="/tag/semantic-logging/" rel="tag">semantic logging</a>, <a href="/tag/software-development/" rel="tag">software development</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Una de las primeras cosas que aprendí cuando empecé a dedicarme profesionalmente a programar era que iba a necesitar una forma de diagnosticar errores, porque como tuviera que basarme en lo que me decían los usuarios (o en lo que yo intuía), lo llevaba claro.</p>
+<p>Ello me llevó a poner siempre mucho cuidado en <a href="/2014/09/no-subestimes-el-poder-de-un-log/" target="_blank">generar un buen log como primera herramienta de diagnóstico</a>, y es algo que está entre <a href="/2015/10/desarrollar-es-solo-el-principio/" target="_blank">las cosas que considero imprescindibles si desarrollas una aplicación</a>.</p>
+<p>Reconozco que siento predilección por los sistemas de logging simples, especialmente los ficheros de texto. La facilidad de acceder a ellos, de gestionarlos, de consultarlos y de compartirlos me resulta muy atractiva, pero sé que no escalan bien cuando tienes un volumen de información muy grande, por lo que no siempre pueden ser la única opción.</p>
+<p>Además, no toda la información interesante de una aplicación es del mismo tipo. Por una parte, está bien saber qué está pasando (o qué ha pasado) para diagnosticar errores, pero también es útil poder auditar las operaciones individuales, obtener estadísticas de uso, de rendimiento, etc.</p>
+<p>Entre todo este tipo de información, aparece lo que se conoce como <em>semantic logging</em>, a medio camino entre el log convencional puramente textual y una herramienta con más capacidades analíticas.</p>
+<h3>Un log estructurado</h3>
+<p>El logging semántico consiste en dotar de una mayor estructura a los eventos registrados en nuestro log. Ni más, ni menos. No es algo especialmente novedoso y hay muchos sistemas que ya hacían cosas similares, pero ya sabéis lo mucho que nos gusta ponerles nombres <em>molones</em> a las cosas para que parezcan más importantes.</p>
+<p>En realidad, cualquier evento de un log ya tiene una cierta estructura. Como mínimo, suelen tener una fecha y hora de generación, un nivel de severidad y un mensaje, aunque es frecuente, especialmente si se utilizan sistemas como <a href="https://logging.apache.org/log4net/" target="_blank">log4net</a> o <a href="http://nlog-project.org/" target="_blank">NLog</a>, que podamos acceder a más información como el nombre de log o la hebra en la que se generó el evento.</p>
+<p>El problema es que la parte realmente importante del evento, lo que ha pasado, no es más que una cadena de texto, por lo que poder tratarla de forma automatizada para explotar la información que contiene no es una tarea fácil. Al utilizar logging semántico intentamos resolver este problema haciendo que los eventos contengan, de forma estructurada, la información relevante para cada evento.</p>
+<p>Por ejemplo, si tenemos un evento que representa <em>el usuario &#8216;Paco&#8217; ha aplicado el cupón de descuento &#8216;OFER25&#8217;</em>, en un log semántico el evento llevaría asociada información parecida a ésta:</p>
+<pre class="brush:javascript">
+{
+  severity: "INFO",
+  timestamp: "2016-05-15T10:01:41",
+  message: "El usuario 'Paco' aplicó el descuento 'OFER25'",
+  action: "APPLY_DISCOUNT_CODE",
+  user: "Paco",
+  offerCode: "OFER25"
+}
+</pre>
+<p>En lugar de limitarnos a almacenar un mensaje, añadimos información suficiente sobre el evento para tratarlo posteriormente. Así, podríamos obtener todos los descuentos aplicados por un usuario, o comparar las horas en que se aplican descuentos, etc.</p>
+<p>Va un paso más allá del log tradicional cuyo objetivo principal es el diagnóstico, y aporta características propias de herramientas analíticas.</p>
+<p>Aunque el evento del ejemplo esté representado en JSON, el concepto de log semántico es independiente de la representación elegida para los eventos y de la forma en que los almacenemos. Igual que pasa con sistemas de log tradicionales, que permiten almacenar el log en un fichero de texto, en un syslog o en una base de datos, cuando usamos un sistema de log semántico podemos optar por el sistema de almacenamiento que mejor se ajuste al uso que vayamos a darle después a la información.</p>
+<p>Lo malo, claro, es que generar un log de estas características requiere más trabajo que ir escupiendo líneas de texto a un fichero.</p>
+<p>Para empezar, si queremos que la información almacenada sea útil, deberíamos dedicar algo de tiempo a pensar qué queremos hacer con ella y qué datos debería incluir cada evento de log. Necesitamos algo de planificación a priori.</p>
+<p>Además, generar cada evento de log implica un esfuerzo mayor y, dependiendo del lenguaje de programación que estemos utilizando, puede ser más o menos incómodo. En lenguajes con tipado estático y mal soporte para estructuras de datos dinámicas (como Java), podemos necesitar mucho código para generar los eventos. Podemos crear clases concretas para representar cada evento (al estilo de lo que haríamos con <a href="/2014/02/desacoplar-modelos-con-eventos-de-dominio/" target="_blank">eventos de dominio</a>), pero el coste de desarrollo es aún mayor, y habría que ver si realmente compensa.</p>
+<h3>Simplificando el proceso con Serilog</h3>
+<p><a href="http://serilog.net/" target="_blank">Serilog</a> es una librería para .NET que permite generar eventos con información estructurada de una forma muy simple y cómoda. La idea es sencilla: aprovechar el mensaje que escribiríamos en cualquier log de texto para extraer la información relevante en base al formato. Algo así:</p>
+<pre class="brush:csharp">
+log.Information(
+   "El usuario {user} ha aplicado el cupón de descuento {offerCode}", 
+   user.Name, 
+   offer.Code);
+</pre>
+<p>Serilog utiliza una pequeña DSL similar a las <a href="https://msdn.microsoft.com/es-es/library/dn961160.aspx" target="_blank">cadenas interpoladas de C# 6</a> para obtener la información estructurada que se guardará junto al mensaje. En este caso, incluirá en el evento una propiedad <code>user</code> ligada al primer parámetro, <code>user.Name</code>, y otra propiedad <code>offerCode</code> asociada al segundo parámetro, <code>offer.Code</code>.</p>
+<p>El enlace entre parámetros y propiedades no se basa en el nombre, sino en la posición de los argumentos, y existen varias maneras de elegir cómo se formateará la información. Dependiendo del tipo de valor podemos utilizar su método <code>ToString()</code>, serializarlo, etc.</p>
+<p>Una vez generados los eventos serán enviados a los loggers que hayamos creado que, por supuesto, pueden ser jerarquizados, pueden añadir nuevas propiedades a los eventos que reciben, pueden filtrarlas&#8230; en fin, todo lo que esperarías de un sistema de logging.</p>
+<p>Al igual que ocurre con los sistemas de logs más «tradicionales», la forma de persistir la información es completamente ortogonal al sistema de logging, por lo que podemos asociar distintos destinos (<em>sinks</em>, en terminología de Serilog) a cada logger en función de nuestras necesidades.</p>
+<p>No voy a entrar en detalles sobre cómo se utiliza Serilog porque <a href="https://github.com/serilog/serilog/wiki" target="_blank">su documentación es muy completa</a>, y si estás familiarizado con cualquier libería de logging, todos los conceptos te resultarán muy familiares. </p>
+<p>Lo que me ha parecido muy interesante de esta librería es lo fácil que resulta añadir información estructurada a los eventos del log sin tener que hacer un esfuerzo adicional muy grande. </p>
+<p>Puede que no sea la opción más potente, pero es un buen paso intermedio hasta que estés seguro de que realmente puedes explotar esa información adicional y sacarle un rendimiento que compense el esfuerzo de generarla y almacenarla.</p>
+<h3>Conclusiones</h3>
+<p>Me ha pasado varias veces y es extremadamente frustrante. Falla un aplicación, hablas con el desarrollador y te dice que no tiene ni idea de lo que puede ser. Te ofreces a enviarle el log y te mira asombrado, él no usa de eso. Le preguntas que cómo puede diagnosticar el problema y pone cara de «a mi qué me cuentas, sólo tengo el mensaje de error y no es muy aclarativo».</p>
+<p>Como experiencia de cliente es nefasta, pero es que para el desarrollador tampoco es una situación agradable. Cuando hay un problema, lo mejor es tener herramientas para solucionarlo, y poder contar con un histórico de lo que ha pasado en la aplicación es fundamental (por no decir indispensable).</p>
+<p>Si además utilizas un sistema de logging estructurado, puedes aprovecharlo para comprender mejor el uso real de tu aplicación, lo que te ayudará a decidir en qué partes debes hacer más o menos esfuerzo a la hora de desarrollar nuevas funcionalidades, corregir problemas, o incluso enfocar las acciones comerciales y de marketing.</p>
+<p>Dar el salto de guardar el <em>stacktrace</em> de las excepciones a tener un sistema de análisis no siempre es fácil, y menos si quieres realmente sacarle partido a ese sistema de análisis (almacenar datos es mucho más sencillo que convertir esos datos en información accionable), pero en ocasiones merece la pena.</p>
+<p>Librerías como Serilog son una manera de mejorar la información que obtenemos de nuestras aplicaciones sin que nos cueste demasiado. Si prefieres <a href="/2012/11/la-ultima-linea-de-soporte-es-el-programador/" target="blank">dormir tranquilo cuando haya problemas</a> y además disfrutas con el porno de estadísticas, tal vez merezca la pena que te plantees su uso.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/05/los-microservicios-no-son-para-mi/" rel="prev"><i class="icon-arrow-left"></i> Los microservicios no son para mí</a></div>		<div class="nav-next"><a href="/2016/05/resolviendo-el-acertijo-de-einstein/" rel="next">Resolviendo el acertijo de Einstein <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4846 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			17 comentarios en &ldquo;<span>Semantic logging: entre el logging y la analítica</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3925">
+		<article id="comment-3925" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">JJ</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3925"><time pubdate datetime="2016-05-16T16:03:01+01:00">
+					16 mayo 2016 de 16:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola, muy interesante el post, aunque la última línea&#8230;. ¿Seguro que querías decir eso sobre las estadísticas? Muchas gracias por la info y un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3926">
+		<article id="comment-3926" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3926"><time pubdate datetime="2016-05-16T17:02:21+01:00">
+					16 mayo 2016 de 17:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias, JJ. Si te refieres al «porno de estadísticas», es intencionado. Lo decía porque a algunos (sé que no soy el único) nos encanta entretenernos con gráficas, porcentajes y cosas así de una forma puramente recreativa.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3928">
+		<article id="comment-3928" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3928"><time pubdate datetime="2016-05-16T19:18:17+01:00">
+					16 mayo 2016 de 19:18					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma,</p>
+<p>Gracias por el artículo.</p>
+<p>Venía a comentar mi actual experiencia con los logs. Nosotros para el análisis de los logs utilizamos Logstash, de Elastic Search, para parsear el contenido de los logs a lo largo del tiempo y mostrar la información con Kibana en forma de gráficas.</p>
+<p>Por un lado nos sirve, como bien dices, para desfogar con el porno estadístico, y por otro lado también muchas vece para hacernos una idea del estado de salud del sistema a lo largo de días o incluso casi en tiempo real. Incluso se puede monitorizar eventos directamente desde otros sistemas como por ejemplo RabbitMQ.</p>
+<p>No conocía esta forma de gestionar y tratar la información de los archivos de log y la verdad me pareció útil y curiosa :)</p>
+<p>Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3929">
+		<article id="comment-3929" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3929"><time pubdate datetime="2016-05-16T19:55:29+01:00">
+					16 mayo 2016 de 19:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Luis, </p>
+<p>Logstash+kibana tienen buena pinta para la parte de análisis, ¿qué usáis para generar la información que mandáis a logstash?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3932">
+		<article id="comment-3932" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3932"><time pubdate datetime="2016-05-17T13:17:35+01:00">
+					17 mayo 2016 de 13:17					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola,</p>
+<p>Si no tengo mal entendido el funcionamiento (seguro que no porque con 6 meses que llevo ya podria ser consultor de Elastic Search), Logstash lee directamente los archivos de log de las aplicaciones, y es del propio contenido de donde saca la información.</p>
+<p>Por un lado se pueden configurar filtros para Logstash sobre el texto de los mensajes, y luego por otro sitio en Kibana se pueden configurar de manera «gráfica» una especie de queries tipo «buscame la palabra EntityNotFound y pintame las coincidencias de rojo».</p>
+<p>Pero vamos, en definitiva tratamos directamente los archivos de log y esa información va a parar a Elastic Search (previamente filtrada) y de ahí tira Kibana.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3933">
+		<article id="comment-3933" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3933"><time pubdate datetime="2016-05-17T13:55:24+01:00">
+					17 mayo 2016 de 13:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Para generar los ficheros de log, ¿usáis log4net? ¿NLog? ¿Cómo hacéis para luego el contenido sea medianamente indexable por ES?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3934">
+		<article id="comment-3934" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3934"><time pubdate datetime="2016-05-17T14:20:54+01:00">
+					17 mayo 2016 de 14:20					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Sí, efectivamente de momento usamos Log4Net para los logs. </p>
+<p>Entiendo que para que los datos sean más o menos coherentes para ES es importante configurar bien los «filter» y quizás los «codec».</p>
+<p>Para la parte de codecs utilizamos «multilines»:</p>
+<p><a href="https://www.elastic.co/guide/en/logstash/current/plugins-codecs-multiline.html" rel="nofollow ugc">https://www.elastic.co/guide/en/logstash/current/plugins-codecs-multiline.html</a></p>
+<p>Para la parte de filtros utilizamos «grok»:</p>
+<p><a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html" rel="nofollow ugc">https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html</a></p>
+<p>Aquí info sobre la estructura del archivo de configuración:</p>
+<p><a href="https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html" rel="nofollow ugc">https://www.elastic.co/guide/en/logstash/current/configuration-file-structure.html</a></p>
+<p>No se si con esta info contesto a la duda :P</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3935">
+		<article id="comment-3935" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/c60578a88581aab904a95d7b5ddf8756?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/c60578a88581aab904a95d7b5ddf8756?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3935"><time pubdate datetime="2016-05-19T09:28:58+01:00">
+					19 mayo 2016 de 09:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me encanta la sencillez de uso de Serilog. Buen post Juanma, como siempre ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3948">
+		<article id="comment-3948" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7a37aee74e21b874070c721b51a523fd?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7a37aee74e21b874070c721b51a523fd?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edgar</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3948"><time pubdate datetime="2016-06-02T18:09:41+01:00">
+					2 junio 2016 de 18:09					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buen post y seguro escribirás algo sobre Elmah. ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3949">
+		<article id="comment-3949" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Sergio</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3949"><time pubdate datetime="2016-06-03T08:20:45+01:00">
+					3 junio 2016 de 08:20					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma,<br />
+En tu opinión ¿Cuál sería la forma más adecuada de desactivar o cambiar el nivel de logging de Serilog en un sistema en producción? Está claro que se hace con LoggingLevelSwitch, el «cómo» no es problema, el problema es recuperar dinámicamente el nivel sin incurrir en un coste excesivo.<br />
+Con log4net es tan sencillo como cargar la configuración con log4net.Config.XmlConfigurator.ConfigureAndWatch y entonces cualquier cambio en el fichero .config de turno será automáticamente tenido en cuenta (yo personalmente muevo el .config a un log4net.xml y así cuando quiero cambiar algo del logging no implica un cambio en el Web.config y su correspondiente reinicio de la aplicación). Sin embargo, ¿Qué debería hacer con Serilog? ¿Guardar este valor en un fichero o bd y en cada petición preguntar por él? Esto no lo veo, sería un super-coste, aquí algo me he perdido&#8230;<br />
+Otra pregunta que me asalta es ¿Realmente es una buena práctica desactivar/activar el logging en producción? Quizás el logging no es sólo para cuando las cosas van mal (entonces voy y lo activo), sino que simplemente «siempre» está registrando eventos (vayan bien o mal las cosas). Quizás el problema es ese ¿Por que querría desactivar el logging? Aunque cambiar el nivel sí lo veo una práctica razonable.<br />
+Otra duda (y con esta termino) es que, ya sé que log4net es viejuno, pero me gusta mucho la idea de la jerarquía de loggers, la herencia entre ellos y el poder desactivar y configurar su nivel por separado. Entiendo que Serilog no tiene nada de esto y lo que te vende es que   te crees varios loggers en vez de usar el estático ¿cierto?<br />
+Para acabar, no pretendo que mi comentario sea un «log4net vs Serilog», es simplemente que en el proceso de evaluación me surgen estas dudas y las comparto amablemente contigo y por ello te doy las gracias por adelantado :)<br />
+Un saludo y muchas gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3950">
+		<article id="comment-3950" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3950"><time pubdate datetime="2016-06-03T09:03:30+01:00">
+					3 junio 2016 de 09:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Sergio,</p>
+<p>Lo primero, decirte que yo uso también log4net, no serilog. Descubrí Serilog hace poco y no voy a sacarle rendimiento suficiente como para entretenerme en cambiar los cerca de 1000 usos de log4net que tengo en las aplicaciones más grandes que mantengo.</p>
+<p>Con esto quiero decirte que no puedo ayudarte con el API concreta de Serilog y no estoy seguro de la forma recomendada de activar/desactivar el logging o cambiar el nivel de logging.</p>
+<p>Lo que sí puedo es darte de una idea global sobre cómo podrías hacerlo y sobre lo que considero razonable o no.</p>
+<p>La parte de activar o desactivar el log no la acabo de ver. Es normal poder cambiar el nivel de detalle, incluso de forma independiente para cada logger, pero nunca suelo desactivarlo del todo. Siempre hay cosas que quiero tener, aunque sea errores fatales con su StackTrace.</p>
+<p>Lo de cambiar el nivel de logging «per request» ¿qué sentido tiene? Si usas el LoggingLevelSwitch, podrías hacer algo parecido a lo que hace log4net: puedes tener un fichero de configuración con el nivel de log, hacer un Watch sobre el fichero y, cuando cambie, volver a parsearlo y cambiar el nivel. No veo la necesidad de hacerlo para cada petición.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3952">
+		<article id="comment-3952" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Sergio</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3952"><time pubdate datetime="2016-06-03T09:50:50+01:00">
+					3 junio 2016 de 09:50					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias Juanma<br />
+Para el watch entiendo que te refieres a FileSystemWatcher, no? La verdad es que lo tenía tan asociado a Windows Forms (desktop, en general) que no lo había ni sopesado en ASP.NET, efectivamente por request no tiene ningún sentido.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3953">
+		<article id="comment-3953" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3953"><time pubdate datetime="2016-06-03T10:14:45+01:00">
+					3 junio 2016 de 10:14					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Sí, me refería al FileSystemWatcher de toda la vida. Sólo un aviso: no es muy fiable y a veces no se entera de los cambios. </p>
+<p>Yo lo que suelo hacer es mezclarlo con un Timer (de System.Timers o de System.Threading). Reviso cada X tiempo el fichero, donde X es un valor asumible (por ejemplo, me da igual perder 3ms cada 30 segundos en eso), y uso el FileSystemWatcher como forma de activar el proceso sin esperar a que salte el timer.  </p>
+<p>Así, en el caso peor si hay algún problema tardaré 30 segundos (por ejemplo) en tener los cambios aplicados, aunque el FileSystemWatcher no se enterase.</p>
+<p>Por cierto, sería recomendable que lo primero que haga tu código al cambiar el nivel de detalle del log sea logearlo para que sepas que ha funcionado el cambio ;-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3954">
+		<article id="comment-3954" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2d83f7b890c4154690e031f016e08c16?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Sergio</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3954"><time pubdate datetime="2016-06-03T11:19:49+01:00">
+					3 junio 2016 de 11:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias Juanma, probaré con eso para verlo funcionar, aunque de momento me quedaré con log4net. Siguientes proyectos, claro está, usaré Serilog, acabáramos!! :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3980">
+		<article id="comment-3980" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/64436402452f3b4ac0d56197e0cb3981?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/64436402452f3b4ac0d56197e0cb3981?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">pregunton</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3980"><time pubdate datetime="2016-06-22T18:49:42+01:00">
+					22 junio 2016 de 18:49					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hay una versión mejorada del FileSystemWatcher para evitar esos problemas:</p>
+<p><a href="https://petermeinl.wordpress.com/2015/05/18/tamed-filesystemwatcher/" rel="nofollow ugc">https://petermeinl.wordpress.com/2015/05/18/tamed-filesystemwatcher/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3981">
+		<article id="comment-3981" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/3c85d57b9cfc3c3043442254bbb9c329?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/3c85d57b9cfc3c3043442254bbb9c329?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">miriam</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3981"><time pubdate datetime="2016-06-22T19:39:59+01:00">
+					22 junio 2016 de 19:39					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buenos los comentarios.</p>
+<p>Luis, entiendo que también se podría instalar  Logstash, Kibana and ElasticSearch en Windows Server 2012 + IIS ? Otra cosa sea la configuración de Logstash + ElastisSearch.</p>
+<p>Logstash + ElastisSearch se basan en Java según creo.</p>
+<p>Supongo que con log4net generas los logs en ficheros, que de alguna forma hay que comunicar o pasar los logs a Logstash, no sé ahora si vía comando o con algún API.</p>
+<p>Muchas gracias</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3982">
+		<article id="comment-3982" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/64436402452f3b4ac0d56197e0cb3981?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/64436402452f3b4ac0d56197e0cb3981?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">carlos</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/#comment-3982"><time pubdate datetime="2016-06-23T16:12:49+01:00">
+					23 junio 2016 de 16:12					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Yo creo que Luis va orientado a esto: ELK stack + Serilog</p>
+<p><a href="http://thomasvestergaard.com/blog/elasticsearch/measure-performance-with-serilog-elasticsearch-and-kibana/" rel="nofollow ugc">http://thomasvestergaard.com/blog/elasticsearch/measure-performance-with-serilog-elasticsearch-and-kibana/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

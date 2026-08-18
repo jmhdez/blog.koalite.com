@@ -1,0 +1,847 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Lo mínimo a entender sobre transacciones | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2018/04/lo-minimo-a-entender-sobre-transacciones/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-5524 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-5524" class="post-5524 post type-post status-publish format-standard hentry category-dev tag-db">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Lo mínimo a entender sobre transacciones</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 23 abril 2018</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/db/" rel="tag">db</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Cualquiera que se dedice a esto de desarrollar software conoce el concepto de transacción. O al menos eso quiero pensar. Otra cosa es ya hasta qué punto seamos conscientes de lo que <em>realmente</em> implica utilizar una transacción, cuándo y por qué debe usarse, los distintos tipos que existen, etc.</p>
+<p>Como siempre, no pretendo entrar en detalles demasiado complejos sobre el maravilloso mundo de las transacciones, entre otras cosas porque tampoco soy un experto en la materia, pero sí me gustaría dar algunas ideas generales sobre el tema.</p>
+<h3>La transacción como unidad</h3>
+<p>Una de las características más conocidas de las transacciones es su atomicidad. Entenderlas como un todo o nada. Es el clásico ejemplo de la transferencia entre cuentas bancarias: si decremento el saldo de una cuenta, tiene que incrementarse en otra; la operación no puede quedar a medias porque desaparecería dinero (o aparecería, según el orden en que hagas las operaciones). Para muchos ésta es <em>la esencia</em> de una transacción.</p>
+<p>Esto se corresponde con la <strong>A</strong> de <a href="https://en.wikipedia.org/wiki/ACID#Atomicity" target="_blank">ACID</a> y era algo que ofrecen prácticamente todas las bases de datos relacionales. Con las llegada de las bases de datos NoSQL y sus <em>tradeoffs</em> para ganar escalabilidad, rendimiento y esas cosas tan necesarias para algunos, esto ya no está tan garantizado.</p>
+<p>Si bien la atomicidad de la transacción es una característica básica y fundamental de la misma, no podemos limitarnos a pensar en las transacciones desde ese punto de vista. Necesitamos tener en cuenta también la corrección de lo que estamos haciendo y, eso nos lleva a pensar en la interrelación entre transacciones que se ejecutan de forma concurrente.</p>
+<h3>Los problemas de la concurrencia</h3>
+<p>Es muy raro (cada vez más) que una aplicación no ejecute de forma concurrente operaciones sobre una base de datos. No hace falta que la aplicación soporte usuarios concurrentes, incluso siendo una aplicación «monousuario», es frecuente que además de las operaciones iniciadas por el usuario se ejecuten procesos en segundo plano que también toquen la base de datos (y <a href="/2017/10/usar-o-no-usar-una-base-de-datos/" target="_blank">no usar una base de datos tampoco resuelve el problema</a>).</p>
+<p>Al llegar a estos escenarios hay que empezar a pensar qué cosas nos pueden ocurrir cuando dos transacciones se ejecutan a la vez y qué pasa con los datos que están siendo modificados mientras se ejecuta una transacción. Esto puede dar lugar a tres problemas fundamentales:</p>
+<p><strong>Lecturas sucias</strong></p>
+<p>Las <strong>lecturas sucias</strong> se producen cuando una transacción puede leer datos que están siendo escritos por otra transacción antes de que ésta realice el <code>commit</code>. Un ejemplo de esto sería cuando la transacción 1 modifica un registro en la tabla <code>Customer</code>, la transacción 2 lo lee con las modificaciones, y luego la transacción 1 hacer un <code>rollback</code>, descartando las modificaciones. En ese caso, la transacción 2 habrá estado operando en base a unos datos que realmente no son válidos.</p>
+<p><strong>Lecturas no repetibles</strong></p>
+<p>Podríamos solucionar el problema de las lecturas sucias haciendo que las modificaciones realizadas por una transacción no sean visibles al resto hasta que se realice el <code>commit</code>.</p>
+<p>Aun así, podríamos encontrarnos con otro problema: el de las <strong>lecturas no repetibles</strong>, que se producen cuando una transacción modifica datos que han sido leídos por otra. Por ejemplo, si la transacción 1 lee el registro <code>Customer {Id = 1, Name = 'Paco'}</code>, la transacción 2 modifica ese registro y realiza el <code>commit</code>, y la transacción 1 lo vuelve a leer, los datos que obtendrá son diferentes de los que obtuvo al principio.</p>
+<p><strong>Lecturas fantasma</strong></p>
+<p>Nuevamente esto tiene solución si hacemos que una transacción no pueda modificar datos que hayan sido leídos por otra, pero todavía nos quedaría otro problema por resolver: las <strong>lecturas fantasma</strong>.</p>
+<p>Una lectura fantasma se produce cuando una transacción lanza una misma consulta dos veces y obtiene distinto conjunto de resultados. Si en las lecturas no repetibles podían cambiar los valores obtenidos para una fila, en una lectura fantasma podrían aparecer o desaparecer filas. El ejemplo sería si la transacción 1 consulta los clientes de Madrid y obtiene 10 filas, a continuación la transacción 2 inserta un nuevo cliente también de Madrid y hace su <code>commit</code>, y la transacción 1 vuelve a consultar clientes de Madrid obteniendo 11 filas.</p>
+<p>Para solucionar esto no nos basta con proteger los datos ya leídos por cada transacción (como hacíamos para evitar las lecturas no repetibles), sino que necesitamos proteger los datos que potencialmente podrían afectar a nuevas consultas de una transacción (lo que muchas veces implica controlar tablas completas y no sólo filas individuales).</p>
+<h3>Aislamiento de transacciones</h3>
+<p>Las bases de datos ofrecen lo que se conoce como <strong>niveles de aislamiento</strong> para poder definir el tipo de garantías que esperamos durante la ejecución de una transacción. Se configuran a nivel de transacción (cada transacción puede tener un nivel de aislamiento distinto), y con ellos podemos controlar cuáles de los problemas estamos dispuestos a evitar, y cuáles podemos asumir. Cada base de datos puede implementar estos niveles de aislamiento de diferente forma, por lo que las características que vamos a ver pueden variar (especialmente en cuanto al coste a pagar por usar cada nivel), pero en general suelen ser bastante parecidas.</p>
+<p><strong>Read uncommitted</strong></p>
+<p>No hay ninguna garantía. Las transacciones no están aisladas unas de otras, por lo que se pueden producir todos los problemas que hemos visto anteriormente. </p>
+<p><strong>Read committed</strong></p>
+<p>Se garantiza que sólo se leen datos escritos por transacciones que hayan realizado su <code>commit</code>. De esta forma evitamos lecturas sucias. Claro, que esto no es gratis. Para conseguirlo, si intentamos leer un registro que ha sido modificado por otra transacción, nos quedaremos bloqueados hasta que esa transacción termine, ya sea con un <code>commit</code> o con un <code>rollback</code>.</p>
+<p>Todavía se pueden producir lecturas no repetibles y lecturas fantasmas, porque no se evita que otra transacción modifique datos que hemos leído.</p>
+<p><strong>Repeatable read</strong></p>
+<p>Además de las garantías de <em>Read committed</em>, asegura que cada vez que leamos un registro nos devolverá siempre la misma información. Es decir, evitamos lecturas sucias y lecturas no repetibles. El precio a pagar por este aumento de garantías, además del que teníamos en <em>Read committed</em>, es que cuando una transacción lee un registro, el registro queda bloqueado para el resto de transacciones que intenten modificarlo, por lo que tendrán que esperar a que acabe la primera transacción antes de poder hacerlo.</p>
+<p>Aun así, seguimos sin protegernos de lecturas fantasmas, ya que el bloqueo se realiza a nivel de registro, y podría ocurrir que otra transacción añada registros a una tabla que hemos leído.</p>
+<p><strong>Serializable</strong></p>
+<p>El máximo nivel de aislamiento (al menos de <a href="https://www.ibm.com/developerworks/data/zones/informix/library/techarticle/db_isolevels-pdf.pdf" target="_blank">los definidos en SQL-92</a>). Nos garantiza que no se produce ninguno de los problemas descritos anteriormente, es decir, no tendremos lecturas sucias, nuestras lecturas serán repetibles, y no habrá lecturas fantasmas. Para lograrlo esta vez el precio que pagamos es mayor, y además de los bloqueos que padecemos e inducimos con los niveles anteriores, necesitamos bloquear los rangos de registros que estamos leyendo. En el peor de los casos, eso implicaría bloquear enteras las tablas leídas por la transacción para evitar que otras puedan insertar nuevos registros.</p>
+<p>Existen otros niveles de aislamiento pero son menos habituales. Si alguien tiene curiosidad (es un tema entretenido), puede leer un poco sobre <a href="https://vladmihalcea.com/how-does-mvcc-multi-version-concurrency-control-work/" target="_blank">control de concurrencia multiversión</a> y aislamiento basado en instantáneas como alternativa eficiente para mantener la serializabilidad transaccional.</p>
+<h3>Transacciones en el mundo real</h3>
+<p>Todo esto puede parecer que está muy bien como culturilla general, pero que si no eres DBA te da más o menos lo mismo. Total, si estás desarrollando un API Web que usa un (micro)ORM para acceder a la base de datos, el mundo de las transacciones queda muy lejos y lo único que ves es por ahí una llamada a <code>dbContext.SaveChangesAsync</code> o similar. Lamentablemente, <a href="/2017/10/tu-modelo-puede-ignorar-la-persistencia-tu-no/" target="_blank">es posible que tu framework o tu modelo pueda ignorar la persistencia, pero tú no</a>.</p>
+<p>A la hora de <a href="/2015/03/como-elegir-aggregate-roots/" target="_blank">definir agregados de dominio</a> (o lo que sea que uses para encapsular operaciones contra tus datos) necesitas pensar en las garantías que le vas a pedir a la base de datos y en los problemas de concurrencia que puedes encontrar.</p>
+<p>Por poner un ejemplo muy básico, suponte que tienes una clase <code>Order</code> que representa un pedido y contiene <code>OrderLine</code>s con las líneas. Al persistir en base de datos (vía ORM o manual), probablemente tengas dos tablas, <code>Orders</code> y <code>OrderLines</code>, y probablemente en la tabla <code>Orders</code> haya información que se calcule a partir de sus líneas, por ejemplo el total del pedido.</p>
+<p>Con una visión alegre y despreocupada del mundo transaccional podrías pensar que con usar una transacción que garantice la atomicidad, es decir, que si se guardan las líneas se guarda la cabecera, ya tienes todo resuelto, pero no es así. El nivel de aislamiento por defecto de transacciones suele ser <em>Read committed</em>, y no es suficiente en este escenario si dos usuarios modifican a la vez un pedido.</p>
+<p>Imagina que dos transacciones, T1 y T2, intentan agregar a la vez una línea a un mismo pedido:</p>
+<ol>
+<li>T1: Carga el pedido, añade la línea L1 en memoria y se dispone a guardar.</li>
+<li>T2: Carga el pedido (sin ver la línea añadida por T1 porque no hay sido <em>committed</em>), añade otra línea L2 y se dispone a guardar.</li>
+<li>T1: Inserta la línea L1 en la tabla <code>OrderLines</code>.</li>
+<li>T2: Inserta la línea L2 en la tabla <code>OrderLines</code>.</li>
+<li>T1: Actualiza el pedido en la tabla <code>Order</code>, incluyendo en el total del pedido el importe de la línea L1, pero no el de la línea L2, ya que no sabe nada de ella.</li>
+<li>T2: Actualiza el pedido en la tabla <code>Order</code>, incluyendo en el total sólo su línea.
+</ol>
+<p>¿Ves el problema? En la base de datos el pedido contendrá las dos líneas (L1 y L2), pero su total no incluirá el importe de ambas, sólo el de L2 porque cuando T2 actualizó la base de datos no sabía nada de L1 y no la incluyó en el cálculo del total.</p>
+<p>Éste es un caso muy simple, pero nos obliga a pensar en las garantías con que ejecutamos cada transacción. Podríamos aumentar el nivel de aislamiento, que en este caso sería necesario que fuera <em>Serializable</em>, o buscar alternativas como hacer un bloqueo a nivel de registro o utilizar <a href="https://ayende.com/blog/3946/nhibernate-mapping-concurrency" target="_blank">técnicas de concurrencia optimista</a>, pero lo que está claro es que no debemos ignorar el problema.</p>
+<p>Todas estas opciones tienen sus inconvenientes (lo digo por si estabas pensando que la solución era usar siempre el máximo nivel de aislamiento) y hay que buscar un equilibrio entre alcanzar la solución correcta, tener el código lo más simple posible, y mantener un rendimiento razonable evitando bloqueos e interbloqueos. Lo siento, pero la concurrencia siempre es complicada.</p>
+<p>Quizá se pueda pensar que esto es un problema de las bases de datos relacionales porque obligan a guardar información en varias tablas y por eso hay que gestionar inconsistencias, pero el mundo de las bases de datos NoSQL también <a href="https://aphyr.com/tags/jepsen" target="_blank">tiene su cuota de problemas</a> de los que hay que ser consciente.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2018/04/programar-no-es-desarrollar/" rel="prev"><i class="icon-arrow-left"></i> Programar no es desarrollar</a></div>		<div class="nav-next"><a href="/2018/05/ingenieros-o-artesanos/" rel="next">Ingenieros o artesanos <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-5524 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			18 comentarios en &ldquo;<span>Lo mínimo a entender sobre transacciones</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-5405">
+		<article id="comment-5405" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5405"><time pubdate datetime="2018-04-23T12:11:56+01:00">
+					23 abril 2018 de 12:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>El 90% de los problemas de rendimiento (incluyendo interbloqueos) que me reportan tiene que ver con el «descuido» de lo que comentas (pura ignorancia realmente). Desafortunadamente, normalmente no pueden aplicarse soluciones locales (sí hacks que son pan para hoy) pues el problema es estructural. Ésto debería hacer ver la importancia de tu último post.<br />
+En realidad, algo de mimo, pensar antes de actuar y REFACTORIZAR como haga falta permite encontrar soluciones sencillas y muy efectivad, pero claro&#8230;&#8230;&#8230;..</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5406">
+		<article id="comment-5406" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5406"><time pubdate datetime="2018-04-23T12:31:13+01:00">
+					23 abril 2018 de 12:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Por tocar un poco la moral, el caso que comentas es cierto, pero en este caso lo primero es no guardar el total en la tabla order :P.<br />
+Volviendo al tema, es como ignorar el tema de la concurrencia «por que las probabilidades de que vaya mal son bajisimas, es imposible que&#8230;». Oir esa frase, que la he oido en persona, es como ver al Balrog: «amigo, date la vuelta y corre»</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-5407">
+		<article id="comment-5407" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5407"><time pubdate datetime="2018-04-23T12:36:58+01:00">
+					23 abril 2018 de 12:36					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p><em>«Por tocar un poco la moral, el caso que comentas es cierto, pero en este caso lo primero es no guardar el total en la tabla order :P.»</em></p>
+<p>Sí, el ejemplo es discutible y desnormalizar información tiene sus pegas. Pero guardar ese total depende mucho del rendimiento que necesites luego (por ejemplo para informes) y de si es fácil (o siquiera viable) recalcularlo a partir de la información que hay en base de datos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5408">
+		<article id="comment-5408" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5408"><time pubdate datetime="2018-04-23T13:19:29+01:00">
+					23 abril 2018 de 13:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pero en ese caso, los triggers son una buena ayuda para no fiarse de que el programador se acuerde o que haga modificaciones en dos tablas con un simple read_commited.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-5409">
+		<article id="comment-5409" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5409"><time pubdate datetime="2018-04-23T13:21:10+01:00">
+					23 abril 2018 de 13:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Tienes razón. Si puedes llevarte toda la lógica a la base de datos utilizar un trigger es mejor solución.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5410">
+		<article id="comment-5410" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5410"><time pubdate datetime="2018-04-23T15:25:04+01:00">
+					23 abril 2018 de 15:25					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>El ejemplo depende mucho de muchas cosas, la solución mas simple tal como la estáis «mirando» es que el total sea un campo calculado o una vista cacheada o un backend específico para informes (pensar en OLAP xej). Pero realmente el ejemplo trabaja con muchas transacciones cuando sólo hay una (por eso a mi me gustan los procs alm). En escenarios mas complejos (de concurrencia) se pueden firmar las filas (para conocer la relación causal) o prebloqueat una entidad dispersa (el pedido), etc&#8230; ya digo que depende mucho, pero en el caso habitual, define un proc alm que desacople negocio con las restricciones en el backen (como la del total) y listo, para eso se inventaron las bbdd relacionales.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5415">
+		<article id="comment-5415" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5415"><time pubdate datetime="2018-04-24T09:38:27+01:00">
+					24 abril 2018 de 09:38					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En todo el tiempo que llevo trabajando con bases de datos he tenido que refrescar este tema de las transacciones en tres ocasiones, la última fue hace poco, hará un par de meses.</p>
+<p>Donde yo veo el problema es que la gente al desarrollar elige un nivel de aislamiento para todas las transacciones de la aplicación. Eso es un gran error, para cada operación de base de datos se debe tener en cuenta la concurrencia y elegir el nivel de aislamiento necesario para la operación a realizar.</p>
+<p>Si no me equivoco, los bloqueos en la base de datos se realizan igual para todas las transacciones elijamos el nivel de aislamiento que elijamos. El nivel de aislamiento va a determinar que bloqueos se tendrán en cuenta por nuestra transacción. De modo que aunque T1 tenga isolation level Serializable, si T2 tiene nivel read uncommited, T2 no tendrá en cuenta los bloqueos de T1.</p>
+<p>Igual al contrario, si T1 tiene nivel read uncommited y T2 tiene Serializable, T2 quedará bloqueado hasta que T1 termine aunque T1 sea read uncommited.</p>
+<p>Por último está el tema de «tan solo voy a leer de la base de datos, ¿inicio transacción?» Si una operación no inicia transacción no hay bloqueos, por lo tanto en otra operación con transacción T usando Serializable, T no encontrará bloqueos y podrá leer los datos leidos en la primera operación.</p>
+<p>No quiero decir con esto que siempre haya que iniciar transacción, pero si debemos saber en cada momento que es lo que queremos y usar las transacciones para ello.</p>
+<p>Por favor corregidme si me equivoco y así asiento este tema, por que algunas veces me entran dudas.</p>
+<p>Saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5417">
+		<article id="comment-5417" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5417"><time pubdate datetime="2018-04-24T11:54:22+01:00">
+					24 abril 2018 de 11:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«los bloqueos en la base de datos se realizan igual para todas las transacciones elijamos el nivel de aislamiento que elijamos»</p>
+<p>no creo o hay que concretar de qué hablamos</p>
+<p>«nosotros» especificamos las transacciones y el motor decide que bloqueos hacen falta (afortunadamente). En una misma transacción puedes intentar leer en ciertos registros, bloquear otros, cierta tabla entera, etc.</p>
+<p>De hecho uno de los problemas más recurrentes son propagar transacciones a nivel de aplicación (algo que siempre he visto horripilante) donde el motor de base de datos ya no puede determinar las relaciones entre ellas y es común terminar con interbloqueos (ej. si la app abre dos transacciones, etc.).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5418">
+		<article id="comment-5418" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5418"><time pubdate datetime="2018-04-24T12:02:04+01:00">
+					24 abril 2018 de 12:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Como yo lo entiendo una cosa es el bloqueo y otra es que debido a tu nivel de aislamiento ese bloqueo te afecte.</p>
+<p>Si tu abres una transacción T1 serializable y actualizas una fila, existe un bloqueo sobre esa fila.<br />
+Si abres una transacción T2 serializable he intentas leer la fila actualizada, no podrás hasta que T1 termine. Por lo tanto hay un bloqueo en esa fila que minivel de aislamiento respeta.</p>
+<p>Si abres una transacción T3 read uncommitable, puedes leer la fila actualizada por T1. El bloqueo no te afecta por tu nivel de aislamiento.</p>
+<p>¿No es así?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5423">
+		<article id="comment-5423" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5423"><time pubdate datetime="2018-04-24T21:22:16+01:00">
+					24 abril 2018 de 21:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Mmm sí así es, pero entonces es obvio que a cualquier transacción le van a afectar los bloqueos (un bloqueo de lectura es un bloqueo de lectura y un bloqueo de escritura es un bloqueo de escritura y uno de registro es de registro&#8230; ), por eso lo interpreté al revés, no todas las transacciones producen el mismo tipo de bloqueos, porque para mí lo importante es entender que bloqueos va a producir tu transacción (la verdad, no recuerdo preocuparme por dónde se bloqueará). Pero sí, creo que hablamos más o menos de lo mismo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5426">
+		<article id="comment-5426" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5426"><time pubdate datetime="2018-04-25T07:21:36+01:00">
+					25 abril 2018 de 07:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><blockquote cite=""><p>porque para mí lo importante es entender que bloqueos va a producir tu transacción</p></blockquote>
+<p>Sin embargo, los bloqueos no dependen de la transacción inicial, si no del nivel de aislamiento de la segunda. Tu puedes pensar que tu transacción va a bloquear unos datos, sin embargo si finalmente hay bloqueo o no va a depender del nivel de aislamiento de la siguiente transacción que vaya a trabajar con los datos que tu bloqueas.</p>
+<p>De las 3 veces que me he estado mirando este tema, esta última vez este tema fue el que más me llamó la atención. Porque pensé que había que tenerlo muy en cuenta, y le daba una vuelta a todo.</p>
+<p>Lo mismo estoy equivocado, me gustaría leer comentarios de más gente para corroborarlo.</p>
+<p>Saludos,</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5427">
+		<article id="comment-5427" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5427"><time pubdate datetime="2018-04-25T20:51:02+01:00">
+					25 abril 2018 de 20:51					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No se si yo soy «más gente» :P pero un bloqueo es un bloqueo y aunque solo tengas una transacción, esa transacción solicita dicho bloqueo, lo tendrá, esperará, etc. según como esté el tema, pero si es la primera, lo adquirirá seguro, en general como digo, tú deberías poder saber qué va a bloquear tu consulta.</p>
+<p>Por ejemplo en postgresql, si lanzas:</p>
+<p>wsb=# create table foo (x int);<br />
+CREATE TABLE<br />
+wsb=# insert into foo(x) values(2);<br />
+INSERT 0 1<br />
+wsb=# begin transaction;<br />
+BEGIN<br />
+wsb=# delete from foo where x = 2;<br />
+DELETE 1<br />
+wsb=# </p>
+<p>Esta transacción no cerrada ha bloqueado el registro, otra cosa es que no haya otras transacciones bloqueadas, pero que esta transacción es dueña y señora de ese registro está claro. Podemos ver los bloqueos generados así:</p>
+<p>wsb=# SELECT locktype, page, tuple FROM pg_locks WHERE relation::regclass = &#8216;foo&#8217;::regclass;<br />
+ locktype | page | tuple<br />
+&#8212;&#8212;&#8212;-+&#8212;&#8212;+&#8212;&#8212;-<br />
+ relation |      |<br />
+(1 row)<br />
+wsb=#</p>
+<p>Ahora si otra transacción intenta modificar ese registro se verá bloqueada (bloqueada por el bloqueo ¡que ya existía!) por ejemplo:</p>
+<p>wsb=# begin transaction;<br />
+BEGIN<br />
+wsb=# update foo set x = 3 where x = 2;<br />
+(esperando&#8230;&#8230;)</p>
+<p>Podemos ver ahora el bloqueo original de la transacción, la petición de bloqueo de la segunda transacción y el bloqueo efectivo de la 2 por la 1:</p>
+<p>wsb=# SELECT locktype, page, tuple FROM pg_locks WHERE relation::regclass = &#8216;foo&#8217;::regclass;<br />
+ locktype | page | tuple<br />
+&#8212;&#8212;&#8212;-+&#8212;&#8212;+&#8212;&#8212;-<br />
+ relation |      |<br />
+ relation |      |<br />
+ tuple    |    0 |     1<br />
+(3 rows)<br />
+wsb=# </p>
+<p>Lo que le pase a la 2ª transacción dependerá lógicamente de lo que termine haciendo la 1ª (borre o no el registro, cree otro registro coincidente, rollbackee, etc.)</p>
+<p>Petición de bloqueo, bloqueo efectivo, transacción bloqueada, &#8230; es posible que con tanto «bloqueo» haya confusión a que nos referimos, pero que dada una consulta debes poder identificar qué va a bloquear tu consulta me parece imprescindible.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5431">
+		<article id="comment-5431" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5431"><time pubdate datetime="2018-04-26T12:21:43+01:00">
+					26 abril 2018 de 12:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>JoseJuan</p>
+<p>He abierto dos ventanas de SSMS sobre una base de datos SQL Server, en la primera he hecho esto:</p>
+<p>create table foo (x int);<br />
+insert into foo(x) values(2);<br />
+begin tran t1;<br />
+delete from foo where x = 2;</p>
+<p>Lo he dejado así, y ahora en la otra ventana hago esto:</p>
+<p>set transaction isolation level READ UNCOMMITTED<br />
+select * from foo where x = 2</p>
+<p>Y me ha devuelto la tabla vacía. Luego he hecho esto:<br />
+set transaction isolation level READ COMMITTED<br />
+select * from foo where x = 2</p>
+<p>Y entonces se ha quedado bloqueado a la espera de que termine la otra transacción.</p>
+<p>A eso es a lo que me refiero, con que el bloqueo existe, pero depende del nivel de aislamiento de la otra operación que se tenga en cuenta el bloqueo o no.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5432">
+		<article id="comment-5432" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5432"><time pubdate datetime="2018-04-26T12:26:11+01:00">
+					26 abril 2018 de 12:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Si que estoy equivocado &#8230;<br />
+He hecho otra prueba.</p>
+<p>Ventana1:<br />
+set transaction isolation level SERIALIZABLE<br />
+begin tran t1<br />
+select * from foo where x = 2</p>
+<p>Ventana2:<br />
+set transaction isolation level READ UNCOMMITTED<br />
+begin tran t1<br />
+update foo set x = 3 where x = 2</p>
+<p>Y la segunda ventana se me ha quedado bloqueada &#8230; no es como yo pensaba.</p>
+<p>Tengo que darle más vueltas :D</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5433">
+		<article id="comment-5433" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5433"><time pubdate datetime="2018-04-26T21:06:30+01:00">
+					26 abril 2018 de 21:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>«pero depende del nivel de aislamiento de la otra operación que se tenga en cuenta el bloqueo o no»</p>
+<p>mmm me parece que confundes los bloqueos de los *objetos* de la base de datos (que son los importantes para mi) con los bloqueos de las *transacciones* (que son los que tienes que evitar o al menos conocer cómo se comportarán) con la *estrategia* a la hora de bloquear dichas transacciones para asegurar integridad (los niveles de aislamiento)</p>
+<p>pero igual estoy bloqueado xD</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5435">
+		<article id="comment-5435" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros Moreno</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5435"><time pubdate datetime="2018-04-27T13:04:29+01:00">
+					27 abril 2018 de 13:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Está claro que tengo que mirarmelo bien otra vez, pero ahora no tengo tiempo&#8230; Lástima, pero volveré! XD</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5465">
+		<article id="comment-5465" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/91a1ca408de4fc31c3561c908cc6ccc9?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/91a1ca408de4fc31c3561c908cc6ccc9?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="https://www.ingenieroperales.com" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5465"><time pubdate datetime="2018-05-03T00:30:27+01:00">
+					3 mayo 2018 de 00:30					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Realmente esto de las transacciones nunca me ha traído problemas, con la excepción de que se me olvide poner readOnly en el @Transactional, normalmente siempre manejo todo con un ORM, en mi caso Hiberante y trato de apegarme a JPA y JTA, lo cual me ayuda bastante para organizar el código y llevar una vida despreocupada, pero creo que comenzare a investigar mas sobre este tema.</p>
+<p>Normalmente soy bastante respetuoso del ACID, lo ultimo que quisiera es tener un bloqueos incontrolables por un requerimiento que dije que si se podía, cuando realmente trae mas problemas que valor al negocio, todo forma parte de encontrar el equilibrio.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-5560">
+		<article id="comment-5560" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/77813417d378392a2372aad8ed5fe4cf?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/77813417d378392a2372aad8ed5fe4cf?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">carlos</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2018/04/lo-minimo-a-entender-sobre-transacciones/#comment-5560"><time pubdate datetime="2018-05-23T11:55:03+01:00">
+					23 mayo 2018 de 11:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En mi aplicación legacy ocurre, en una parte del código que no tenemos transacciones (ni TransactionScope), y sólo tenemos UPDATEs para guardar datos:</p>
+<p>      cmd.CommandText = query<br />
+      cmd.ExecuteNonQuery()</p>
+<p>En esa parte del código aparece el error: La transacción (id. de proceso 105) quedó en interbloqueo en bloqueo recursos con otro proceso y fue elegida como sujeto del interbloqueo. Ejecute de nuevo la transacción.</p>
+<p>Lo que no sabemos es si hay alguna transacción en otras partes del código.</p>
+<p>«Supone que tienes la tabla T1 con la fila F1, y una transacción que tiene bloqueada la fila (ej: por un update), y aparece una segunda transacción que solicita un bloqueo sobre la misma fila, en este caso el motor la pone en espera hasta que finalice la primera transacción y después le asigna el bloqueo a la segunda, esto es algo normal que se da constantemente, no genera errores aunque en casos excesivos afecta el rendimiento, esto lo puedes ver en el contador Lock Wait Time del Performance Monitor de Windows. </p>
+<p>Un interbloqueo es diferente, si tienes la tabla T1 con la fila F1, la tabla T2 con la fila F1, una transacción TX1 que tiene bloqueada la fila T1.F1 y además solicita un bloqueo sobre la fila T2.F1, al mismo tiempo, tienes otra transacción TX2 con un bloqueo sobre la fila T2.F1 que solicita un bloqueo sobre la fila T1.F1, es aquí donde se produce un interbloqueo o deadlock ya que las dos transacciones están en espera de que se liberen las filas solicitadas y las filas no se liberan porque las transacciones no terminan. Como solución, el motor elige una transacción (generalmente la última en empezar) y la termina con un rollback. Esto es lo que ves en el log «La transacción (Id. de proceso 78) quedo en interbloqueo&#8230; y fue elegida como sujeto del interbloqueo».</p>
+<p>En general los deadlock se producen por:</p>
+<p>1. Errores de diseño, sea en procesos T-SQL batch, procedures, triggers, gestión de transacciones o modelo ER. Si este es el caso, tendrás deadlocks muy seguido, y como ya comentaron, deberás identificar que lo genera, el SQL Server Profiler puede ser muy útil, más info en <a href="http://msdn.microsoft.com/en-us/library/ms188246.aspx" rel="nofollow ugc">http://msdn.microsoft.com/en-us/library/ms188246.aspx</a> y <a href="http://msdn.microsoft.com/en-us/library/ms178104.aspx" rel="nofollow ugc">http://msdn.microsoft.com/en-us/library/ms178104.aspx</a></p>
+<p>2. Concurrencia, es muy poco probable que sea por una alta concurrencia de usuarios, pero posible. Si este es el caso, rara vez tendrás un deadlock, podrías analizar el problema, pero teniendo en cuenta que el motor resuelve los deadlock con consistencia, puede ser mas práctico ignorar el error y volver a ejecutar el proceso. »</p>
+<p>Hacen falta guías buenas de «troubleshooting» como <a href="https://es.slideshare.net/SolidQ/troubleshooting-de-bloqueos-2016" rel="nofollow ugc">https://es.slideshare.net/SolidQ/troubleshooting-de-bloqueos-2016</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

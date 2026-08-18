@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Sobre checked exceptions y manejo de excepciones | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-5687 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-5687" class="post-5687 post type-post status-publish format-standard hentry category-dev tag-exceptions tag-java">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Sobre checked exceptions y manejo de excepciones</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 17 junio 2019</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/exceptions/" rel="tag">exceptions</a>, <a href="/tag/java/" rel="tag">java</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Hace unos días <a href="https://twitter.com/Montyclt/status/1139495157173227520" target="_blank">me «retaba» Iván en Twitter a escribir un post sobre las checked exceptions de Java</a>, y lo cierto es que me parece un tema entretenido para escribir algo más que un par de tweets, así que aquí va mi opinión.</p>
+<h3>Checked exceptions en Java</h3>
+<p>Desde la perspectiva de un sistema de tipos estático esto de las checked exceptions parece una buena idea: hace más expresiva la declaración del método y permite hacer más validaciones en tiempo de compilación.</p>
+<p>Todo acorde con lo que uno esperaría de un sistema de tipos así. Si quieres flexibilidad vete a JavaScript y disfruta de su <del>anarquía</del> libertad, ¿no?</p>
+<p>Sin embargo, <em>para mi</em>, <a href="/2017/05/12-horas-con-java-15-anos-despues/" target="_blank">que no soy ningún experto en Java</a>, resultan incómodas. Quizá sea la sintaxis de Java, quizá sea el abuso de excepciones para situaciones que no son nada excepcionales, como que falle <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String)" target="_blank">una conversión de <code>string</code> a <code>int</code></a>.</p>
+<p>Si a eso le unes que existe un tipo mágico de excepciones que no se chequean (las que derivan de <code>RuntimeException</code>), pues te queda una mezcla un poco rara: por una parte me obligas a declarar y capturar excepciones con una sintaxis poco amigable, y por otra dejas una la puerta abierta a lanzar excepciones no chequeadas que hacen que nunca pueda estar seguro de si un método va a lanzar o no una excepción, por lo que esa presunta seguridad de tipos de queda en eso: presunta.</p>
+<h3>Excepciones como gestión de errores</h3>
+<p>En mi opinión, si una función puede no completar la operación que se supone que debe hacer es mejor codificarlo en el propio tipo devuelto por la función. Siguiendo con el ejemplo de convertir un <code>string</code> en un <code>int</code>, dado que es algo que puede fallar, me parece más razonable tener una función cuyo resultado indique si la conversión se pudo realizar o no y, en caso de que se realizase, el entero obtenido, en lugar de lanzar una excepción si el <code>string</code> no tiene un formato válido.</p>
+<p>Si asumimos que la función puede fallar, podemos codificar el fallo en el tipo de retorno y convertir lo que sería una <a href="https://en.wikipedia.org/wiki/Partial_function" target="_blank">función parcial</a> en una <a href="https://en.wikipedia.org/wiki/Partial_function#Total_function" target="_blank">función total</a>. En muchos lenguajes (como muchos funcionales) esto se representaría con un tipo <a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Either.html" target="_blank">Either</a> o <a href="http://hackage.haskell.org/package/base-4.12.0.0/docs/Data-Maybe.html" target="_blank">Maybe</a> (si te da igual el motivo del fallo) y sería lo más normal del mundo.</p>
+<p>Cuando unes ese diseño con un lenguaje que permite utilizar pattern matching para el análisis de resultados, o incluso algo como el <a href="https://en.m.wikibooks.org/wiki/Haskell/do_notation" target="_blank">do notation de Haskell</a>, que suena muy exótico en pero en C# puedes simular con el <code>select/from</code> y seguro que en Java tienes alguna alternativa para hacer algo similar, la cosa se vuelve bastante cómoda y gestionar los errores de forma normal en lugar de como algo excepcional se convierte en rutinario.</p>
+<h3>Subiendo el nivel semántico de la excepción</h3>
+<p>Volviendo al <a href="https://twitter.com/Montyclt/status/1139495157173227520" target="_blank">hilo de Iván</a>, él plantea:</p>
+<blockquote><p>
+Los argumentos que he escuchado en su contra son principalmente dos, el primero es que exponen detalles de implementación en la interfaz (la firma del método).</p></blockquote>
+<blockquote><p>
+El segundo motivo en su contra es que si se modifica ese método y cambia su implementación de forma que pueda lanzar nuevas excepciones, es necesario actualizar todos sus usos añadiendo los correspondientes try.</p></blockquote>
+<p>Ciertamente son argumentos habituales en contra de las checked exceptions, y la respuesta de Iván a esos argumentos es más que razonable:</p>
+<blockquote><p>
+Tras darle vueltas y pensar en ello, para mi ninguno de los dos argumentos son válidos. Imagina una interfaz llamada <code>Mailer</code> que pueda tener diferentes implementaciones según como se quiera enviar un mensaje. Típico servicio registrado en un contenedor.</p></blockquote>
+<blockquote><p>
+El método sería <code>Future SendEmail(EmailAddress address, EmailContent content) throws EmailException</code></p></blockquote>
+<blockquote><p>
+Bajo mi punto de vista, la interfaz debe de exponer esta excepción, y si ocurre algún tipo de excepción en alguna de sus implementaciones, relanzarla como <code>EmailException</code>.</p></blockquote>
+<blockquote><p>
+De esta forma, me aseguro que la excepción siempre será <code>EmailException</code> y no otra. Imagina que estoy escribiendo una implementación que hace una llamada HTTP. Si <code>HttpClient</code> tiene <code>HttpBadCodeResponseException</code> como checked, me obligo a capturarla y relanzarla como <code>EmailException</code> de forma que no se me olvide hacer ningún catch y <code>SendEmail</code> lance un <code>IOException</code> o <code>HttpBadResponseException</code>, que SÍ que expondrían detalles de implementación.</p></blockquote>
+<blockquote><p>
+A la hora de utilizar el servicio, sólo tendría que capturar <code>EmailException</code> en vez de <code>Exception</code> por si en alguna implementación se me ha olvidado capturar la excepción que produce y me encuentro con un <code>FileNotFoundException</code> o algo similar.</p></blockquote>
+<p>Básicamente la idea es aumentar el nivel semántico del error. Si tienes un método/función que envía un email, el resultado puede ser que lo ha enviado con éxito o que ha fallado, y si es así, el motivo real (fallo en la respuesta HTTP, fallo en el formato de la dirección del destinatario, etc.) puede considerarse algo secundario que quedará encapsulado en un <code>EmailException</code>.</p>
+<p>Visto así tiene mucho sentido y es mucho más informativo encontrarte con un <code>EmailException</code> que con un <code>HttpBadResponseException</code>, pero lo cierto es que a efectos prácticos soluciona el problema a medias.</p>
+<p>Es cierto que evita el carácter «vírico» de las checked excepctions, y si una nueva implementación del servicio puede encontrarse con otro tipo de problema los consumidores del servicio <code>Mailer</code> no tienen que preocuparse por ella puesto que quedará encapsulada en una <code>EmailException</code>. Esto funciona muy bien si <em>desde el principio</em> ya hemos decicido que el método <code>SendEmail</code> puede lanzar una excepción.</p>
+<p>Pero, ¿qué ocurre cuando al diseñar nuestro interfaz decidimos no incluir ninguna excepción porque en las implementaciones iniciales no vemos ningún caso problemático? Básicamente, hemos vuelto al punto de partida. Cuando encontramos la primera implementación que puede lanzar excepciones, debemos encapsularlas en una excepción (con mayor valor semático, eso sí), y eso nos obliga a cambiar todas las implementaciones el interfaces <code>Mailer</code> y todos los consumidores del interfaces.</p>
+<p>Una opción sería hacer que, especulativamente, todos y cada uno de los métodos de nuestros interfaces lanzasen una excepción con valor semántico asociado al interfaz; pero, sinceramente, empezar a añadir posible excepciones por si acaso en el futuro alguna implementación del interfaz la lanza no me parece muy práctico.</p>
+<p>Y, ojo, esto no es algo que se solucione con la alternativa más «funcional» que comentaba antes de utilizar un tipo <code>Either</code> o similar para representar el resultado de la operación. Estás en las mismas, o bien introduces desde el principio el tipo <code>Either</code> como valor de retorno de todas tus funciones «por si acaso» en un futuro alguna puede fallar, o en el momento en que lo introduzcas te va a tocar modificar el código que ya existe.</p>
+<h3>Conclusión</h3>
+<p>Admito que aquí hay la cosa va por barrios.</p>
+<p>En cierto modo, me recuerda a la típica discusión de lenguajes dinámicos y estáticos. Yo me siento más cómodo con lenguajes estáticos y nunca me ha supueto un freno tener que lidiar con tipos, más bien al contrario, pero es cierto que la excepciones chequeadas, que podrían verse como un paso más hacia la comprobación estática de errores, me han supuesto fricción adicional a la hora de desarrollar.</p>
+<p>En realidad, ni siquiera estoy convencido de que las excepciones sean una buena idea como mecanismo de gestión de errores frente al uso de <a href="https://gobyexample.com/errors" target="_blank">valores de retorno al estilo go</a>, pero sin entrar a debatir eso, sí tengo claro que deberían representar cosas excepcionales y que, en general, se tienden a usar en situaciones que tienen poco de excepcional.</p>
+<p>Habitualmente intento <strong>no</strong> gestionar excepciones en el lugar en que se producen a menos que esté tratando con una librería que las lance por casi cualquier motivo y pueda hacer algo para recuperarme del error o al menos convertirlas a algo con mayor valor semántico (cosa que, sinceramente, ocurre menos veces de las que me gustaría).</p>
+<p>Desde mi punto de vista, una excepción debería representar algo excepcional y, por tanto, algo que de lo que la aplicación no tiene muchas formas de recuperarse. Por ello, tiendo a gestionar las excepciones en la «frontera» de las aplicaciones (controladores de un API Web, manejadores globales de excepciones), y muchas veces me limito a dejar que muera el proceso (ya sea la petición concreta a un API o incluso la aplicación entera) y <a href="/2014/09/no-subestimes-el-poder-de-un-log/" target="_blank">logear la información</a> para evitar en problemas futuros.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2019/05/no-corrijas-ese-bug/" rel="prev"><i class="icon-arrow-left"></i> No corrijas ese bug</a></div>		<div class="nav-next"><a href="/2025/12/sobre-velocidad-y-coste-de-desarrollo/" rel="next">Sobre velocidad y coste de desarrollo <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-5687 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			5 comentarios en &ldquo;<span>Sobre checked exceptions y manejo de excepciones</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-6544">
+		<article id="comment-6544" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Ivan Montilla</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/#comment-6544"><time pubdate datetime="2019-06-17T11:14:54+01:00">
+					17 junio 2019 de 11:14					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma.</p>
+<p>Primero de todo, muchas gracias por escribir el post.</p>
+<p>Yo tampoco soy un experto en Java, y mi experiencia en Java no va más allá del ámbito educativo. Actualmente trabajo en entornos .NET Core y C#.</p>
+<p>Voy por partes:</p>
+<p>&#8211; El método parseInt de la clase String puede lanzar una RuntimeException si el string tiene un formato inválido (véase, que el string no es un número). En este caso, me parece correcto que sea una RuntimeException, pues con simplemente comprobar previamente que el string es válido, nos aseguramos que la excepción nunca se lanzará, y por ende, no es necesario capturarla. En este aspecto, para hacer dicha comprobación me gustan mucho los métodos TryParse de .NET</p>
+<p>&#8211; Yo entiendo que RuntimeException es un tipo de excepción que no debería de ocurrir nunca (y por ende, no se debe de capturar), ya que es responsabilidad del programador asegurarse de que no se produzcan. Cosas como llamar a un método de una referencia nula, querer convertir a entero un string que contiene letras, o aserciones del diseño por contrato (<a href="/2014/01/diseno-por-contrato/" rel="ugc">https://blog.koalite.com/2014/01/diseno-por-contrato/</a>) podrían ser ejemplos de RuntimeExceptions.</p>
+<p>&#8211; También entiendo entonces, que una excepción normal (checked) son aquellas que escapan fuera del control del programador. Un fichero que no existe, un servidor que no responde o unas credenciales de acceso incorrectas, serían ejemplos de excepciones que siempre deberían de ser manejadas. Como usuario quiero que la aplicación me diga que mi contraseña está mal o que hay problemas de conexión con el servidor, en vez de que se muera sin darme un motivo.</p>
+<p>&#8211; Estoy deacuerdo contigo en que añadir excepciones «por si acaso», puede llegar a ser un coñazo, pero personalmente, no me parece tan grave. Las excepciones a añadir deben de tener un valor semántico que indique cual es el error, y esto me parece lógico que forme parte de la definición de la interfaz. Me explico, volviendo al caso de Mailer, los posibles errores que pueden ocurrir sería dirección de correo inválida, contenido de correo mal formado y otros errores relacionados con la implementación. Bajo este punto de vista, y antes de conocer la implementación, yo ya declaro InvalidEmailAddressException, InvalidEmailContentException y EmailException. Que la implementación en concreto lance todas ellas o sólo unas pocas, ya es otro tema. Una correcta implementación debería de lanzar cada uno de ellos en los casos que corresponda.</p>
+<p>&#8211; Para finalizar, al final del post dices que no sueles tratar las excepciones en el lugar que se producen, si no en la «frontera». Aquí estoy completamente deacuerdo contigo, pero en la frontera de la aplicación yo tengo una interfaz (e.g. he inyectado IMailer en el constructor del controlador) y desconozco por completo que implementación se está utilizando, es por ello que me gustaría que las excepciones fueran lo más semanticamente posibles con la interfaz. Quiero que IMailer me lance un InvalidEmailAddressException o un EmailException que podría capturar para mostrar al usuario un mensaje «Dirección de correo inválida» o «Ha fallado al enviar el correo». Si me lanza un HttpException o un IOException, no sabría que hacer con ellas. ¿Captura Exception por si acaso viene una de estas? ¿Y qué mensaje de error le muestro al usuario? En este sentido, contar con un mecanismo de comprobación de excepciones en tiempo de compilación, me aseguraría que sí o sí, en la frontera siempre me voy a topar con una excepción semánticamente correcta.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-6545">
+		<article id="comment-6545" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Ivan Montilla</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/#comment-6545"><time pubdate datetime="2019-06-17T11:19:45+01:00">
+					17 junio 2019 de 11:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Y hablando de excepciones, a modo de chiste y siguendo con la temática de excepciones, añado que en la primera línea del post se ha lanzado una OrtographicException.</p>
+<p>«Me retaba *a* escribir».</p>
+<p>Un saludo Juanma</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-6546">
+		<article id="comment-6546" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/#comment-6546"><time pubdate datetime="2019-06-17T11:27:51+01:00">
+					17 junio 2019 de 11:27					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Anda en que temas te metes :).<br />
+Empezando por las pegas que originaron la cuestión, lo de que «exponen detalles de implementación en la interfaz» no tiene sentido por que la declaración de las excepciones es parte de la firma del método, del contrato/interfaz así que no es un detalle de implementación. Sería como decir que el declarar el tipo de retorno es exponer detalles de implementación. Precisamente declarar ese tipo de cosas es el motivo de tener la firma del método.</p>
+<p>Respecto al segundo, pues igual que si cambias el metodo de retorno se modifica la firma del método y toca recompilar, pues las excepciones que se lanzan también son parte de la firma del método y pasa lo mismo. Tu puedes añadir otras excepciones que sean subclases de las declaradas, pero no añadir nuevas, igual que el tipo de retorno.</p>
+<p>A mi personalmente las excepciones me gustan como mecanismo de control para situaciones «excepcionales», y me gustaron ya en otros lenguajes que las tienen como Ada o PL/SQL, pero el problema principal que tienen es la poca consistencia y mal uso que han hecho de ellas en las clases core de Java, y con esos ejemplos pues la gente normalmente las usa igual de mal o peor.</p>
+<p>Las típicas quejas que suelo oir de que «te obligan a tratar&#8230;»: falso, declaras un throws y listo, la tratas al nivel que quieras. «No sirven para nada por que total no vas a poder hacer nada&#8230;»: falso. A veces puedes hacer algo, por que es un valor opcional y te lo han pasado mal y puedes avisar e ignorarlo, a veces no por que sin fichero de configuración es mejor no arrancar. Pero te da la opción de que TU escojas que hacer.<br />
+Parte del problema es que a la gente le gusta programar para los mundos de Yupi donde nunca pasa nada y tener que tratar todos los casos de error que se podrían dar «es una plasta» y se vive más feliz si se programa solo para el caso perfecto donde todo esta en su sitio y los parametros son todos del tipo y formato correctos, y si pasa algo «que pete todo, total que más da si no se puede hacer nada».</p>
+<p>Eso sí, repitiendo que otra gran parte del problema, IMHO, es que el propio JDK no es consistente en cuanto a que declara como checked exception (Problemas «esperables» dentro de una ejecución) y<br />
+runtime exception (cosas que no estaban previstas).</p>
+<p>A mi personalmente, lo de añadir el error dentro del tipo de retorno sigue sin gustarme ya que para mi, contamina el flujo del programa sin errores con comprobaciones continuas de si el retorno fue error&#8230; o eso o lo vas ignorando, que para el caso, peor.</p>
+<p>Es cuestión de gustos, pero a mi declarar un catch que espero que no llegue nunca a ejecutarse o añadir un throws en un metodo donde no quiero tratar un problema por que me falta contexto para hacerlo, no me ha supuesto nunca ningún trauma. </p>
+<p>Pero vamos, popular, popular, mi opinión no parece ser ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-6548">
+		<article id="comment-6548" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ff8813d7da84108fa4d094eefcf6891b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ivan Montilla</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/#comment-6548"><time pubdate datetime="2019-06-17T20:04:56+01:00">
+					17 junio 2019 de 20:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola GreenEyed, muchas gracias por comentar.</p>
+<p>Estoy de acuerdo contigo en todo lo que expresas, salvo en que las excepciones se utilicen mal en JDK, pero lo cierto es que como tampoco tengo mucha experiencia con Java, pues no tengo opinión sobre ello. El argumento en su contra de que expone detalles de implementación lo saqué de este post <a href="https://phauer.com/2015/checked-exceptions-are-evil/" rel="nofollow ugc">https://phauer.com/2015/checked-exceptions-are-evil/</a></p>
+<p>Llegados a este punto, tal como expresé en Twitter, mi problema por lo que quise buscar opinión (gracias Juanma por escribir en tu blog sobre ello) fue cuando escribiendo en C# la implementación de un servicio, no supe si había encapsulado todas las posibles excepciones en el tipo de excepción más alto nivel relacionado con la interfaz. En ese momento recordé el mecanismo de Java para evitar eso.</p>
+<p>Un saludo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-6549">
+		<article id="comment-6549" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2019/06/sobre-checked-exceptions-y-manejo-de-excepciones/#comment-6549"><time pubdate datetime="2019-06-17T20:40:47+01:00">
+					17 junio 2019 de 20:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Ivan,<br />
+Lo de que expone detalles de implementación lo había leido en alguna otra parte, pero vamos, como ya comento es cuestión de considerarlo igual que el tipo de retorno. El ejemplo que comentan en el enlace tiene bastante poco sentido. A quien se le ocurriría en una interfaz declarar como excepcion a lanzar algo que solo lanza una sola de las posibles implementaciones&#8230; Si tenemos que extraer conclusiones del mal uso, mal vamos. Lo mismo podiamos decir que como en la interfaz podriamos declarar que getUsers devuelve CustomUserImplementation entonces declarar el tipo de retorno es malo&#8230;</p>
+<p>No puedo comentar sobre C# por que lo he usado muy poco, pero si puedo certificar que el decidir cuando es runtime y cuando es checked dentro del JDK, sobretodo en las clases antiguas, dependía un poco del equipo responsable y no habia un criterio claro. Admitido por los mismos de Sun (les pregunte a la cara cuando todavía era Sun :) )</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

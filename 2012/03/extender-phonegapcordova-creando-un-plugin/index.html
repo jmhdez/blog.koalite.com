@@ -1,0 +1,857 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Extender PhoneGap/Cordova creando un plugin | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2012/03/extender-phonegapcordova-creando-un-plugin/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-1334 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-1334" class="post-1334 post type-post status-publish format-standard hentry category-dev tag-android tag-cordova tag-javascript tag-mobile tag-phonegap">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Extender PhoneGap/Cordova creando un plugin</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 15 marzo 2012</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/android/" rel="tag">android</a>, <a href="/tag/cordova/" rel="tag">cordova</a>, <a href="/tag/javascript/" rel="tag">javascript</a>, <a href="/tag/mobile/" rel="tag">mobile</a>, <a href="/tag/phonegap/" rel="tag">phonegap</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Después de <a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/" title="Empaquetar aplicaciones HTML5 con PhoneGap/Cordova" target="_blank">jugar un rato con Cordova (antiguo PhoneGap)</a>, una de las cosas que más me ha gustado es <strong>lo fácil que es saltar del mundo HTML</strong> al mundo nativo utilizando los plugins que incluye Cordova o incluso creando tus propios plugins.</p>
+<h3>Arquitectura de PhoneGap/Cordova</h3>
+<p><strong>OJO</strong>: Todo lo que voy a contar está basado en la versión para Android de Cordova. Supongo que, en líneas generales, será similar en el resto de versiones (iOS, BlackBerry, etc.).</p>
+<p>La <strong>arquitectura global</strong> de Cordova es algo así:</p>
+<div id="attachment_1335" style="width: 448px" class="wp-caption aligncenter"><img fetchpriority="high" decoding="async" aria-describedby="caption-attachment-1335" src="/wp-content/uploads/plugin-cordova.png" alt="Arquitectura de PhoneGap/Cordova" title="Arquitectura de PhoneGap/Cordova" width="438" height="296" class="size-full wp-image-1335" srcset="/wp-content/uploads/plugin-cordova.png 438w, /wp-content/uploads/plugin-cordova-300x202.png 300w" sizes="(max-width: 438px) 100vw, 438px" /><p id="caption-attachment-1335" class="wp-caption-text">Arquitectura de PhoneGap/Cordova</p></div>
+<p>Tenemos por una parte el mundo HTML y por otra el mundo nativo, cada uno con sus componentes. <strong>La única vía de comunicación entre ambos mundos es a través de <a href="http://phonegap.com/" target="_blank">Cordova</a></strong>. Cordova tiene 2 partes, una Javascript que reside en el mundo HTML y otra en Java (en el caso de Android) que reside en el mundo nativo. </p>
+<p>Toda la funcionalidad existente en Cordova (GPS, acelerómetro, lista de contactos, &#8230;) está implementada como un plugin, con su parte Javascript y su parte nativa. </p>
+<p>Podemos usar el mismo sistema que los plugins de Cordova para añadir nuevas funcionalidades. Para eso necesitaremos:</p>
+<ul>
+<li>Crear la parte Javascript del plugin, que será el interface disponible para nuestra aplicación web.</li>
+<li>Crear la parte nativa del plugin, que será invocada desde el código Javascript y contendrá la implementación de la funcionalidad.</li>
+</ul>
+<p>Vamos a ver un ejemplo sencillo, creando un plugin que nos permita iniciar desde la página web la navegación a un destino usando <a href="http://www.google.com/intl/es_ALL/mobile/navigation/" target="_blank">Google Navigation</a> o la aplicación que tenga el usuario registrado para ello.</p>
+<h3>Creando el interface en Javascript</h3>
+<p>El código que se necesita para crear el plugin en Javascript es el siguiente:</p>
+<pre class="brush:javascript">
+var GoTo = function() {
+};
+
+GoTo.prototype.location = function(address, successCallback, failureCallback) {
+    return PhoneGap.exec(
+            successCallback,
+            failureCallback,
+            'GoTo',      // Nombre con el que está registrado el plugin Java
+            'location',  // Acción invocada
+            [address]);  
+};
+
+cordova.addConstructor(function() {
+    cordova.addPlugin("goTo", new GoTo());
+});
+</pre>
+<p>Sólo hay que crear <strong>un objeto con los métodos que queremos exponer</strong>, en este caso tenemos un objeto <code>GoTo</code> que expone un único método <code>location</code> que podremos invocar indicando la dirección a la queremos navegar y dos <em>callbacks</em> que serán invocadas de forma asíncrona cuando se complete la invocación, una para el caso de que todo funcione, <code>successCallback</code>, y otra por si hay algún problema, <code>failureCallback</code>.</p>
+<p>La implementación del método usa <code>PhoneGap</code> para lanzar, a través de Cordova, la invocación de la parte nativa del plugin. Para pasar parámetros hacia la parte nativa usaremos un array que será serializado como JSON.</p>
+<p>Por último, debemos añadir a cordova el plugin, lo que hacemos con el último fragmento de código:</p>
+<pre class="brush:javascript">
+cordova.addConstructor(function() {
+    cordova.addPlugin("goTo", new GoTo());
+});
+</pre>
+<p>Con esto se añade una propiedad <code>goTo</code> al objeto <code>plugins</code> y podremos usarlo fácilmente desde Javascript:</p>
+<pre class="brush:javascript">
+plugins.goTo.location("Plaza Mayor, Madrid, España");
+</pre>
+<h3>Implementando la parte nativa</h3>
+<p>Para implementar la parte nativa habrá que usar el lenguaje nativo del dispositivo. En el caso de Android, esto implica escribir una clase Java, que en nuestro ejemplo tendrá el siguiente aspecto:</p>
+<pre class="brush:java">
+public class GoToPlugin extends Plugin {
+	@Override
+	public PluginResult execute(String action, JSONArray data, String callbackId) {
+		
+		try {
+			Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("google.navigation:q=" + data.getString(0))); 
+			this.ctx.startActivity(i);		
+			return new PluginResult(Status.OK);
+		}
+		catch (Exception e) {
+			System.err.println(e.getStackTrace());
+			return new PluginResult(Status.ERROR);
+		}
+	}
+}
+</pre>
+<p>Olvidemos por un momento la pésima gestión de errores del ejemplo y centrémonos en el plugin. <strong>La parte nativa de un plugin es una clase que extiende <code>Plugin</code></strong> en cuyo método <code>execute</code> debemos implementar la funcionalidad del plugin. </p>
+<p>Los parámetros de <code>execute</code> incluyen:</p>
+<ul>
+<li>La acción a realizar. En este caso sólo tenemos una, <code>location</code>, pero podríamos tener varias y en el <code>execute</code> realizar distintas acciones en función del valor del parámetro.</li>
+<li>Los parámetros de la acción, que recibimos encapsulados en un array JSON. En nuestro caso el array tiene un único elemento que es un <code>String</code> con la dirección a la que queremos dirigirnos.</li>
+<li>El id de las callback asociadas a la invocación. En este ejemplo no lo utilizamos.</li>
+</ul>
+<p>La implementación de la funcionalidad no tiene mucha historia si has programado algo para Android. Únicamente estamos definiendo un <code>Intent</code> para indicar que queremos navegar a una ubicación y dejamos al sistema que inicie ese <code>Intent</code>, con lo que buscará la aplicación asociada y la activará.</p>
+<p>Para registrar el plugin en Cordova es necesario modificar el fichero <code>/res/xml/plugins.xml</code> del proyecto de Eclipse y añadir nuestro plugin:</p>
+<pre class="brush:xml">
+&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;plugins&gt;
+    ...
+    &lt;plugin name="GoTo" value="koalite.cordova.GoToPlugin"/&gt;
+&lt;/plugins&gt;
+</pre>
+<p>Es importante recordar que el nombre asignado al plugin en el fichero <code>plugins.xml</code> es el nombre que debemos usar luego desde Javascript al usar el método <code>PhoneGap.exec(...)</code>. </p>
+<h3>Conclusiones</h3>
+<p>Cuando se desarrollan aplicaciones sobre plataformas no nativas <strong>es fundamental tener algún mecanismo para poder ejecutar código nativo</strong> y acceder a funcionalidades que no estén cubiertas por el framework que estás utilizando. Creedme, he padecido mucho con <abbr title="Microsoft .NET Compact Framework">.NETCF</abbr> y sé de lo que hablo. Llega un momento en que <a href="http://msdn.microsoft.com/en-us/library/aa446536.aspx" target="_blank">Platform Invoke</a> se convierte en uno de tus mejores amigos.</p>
+<p>En Cordova la creación de plugins para salir del mundo HTML+JS+CSS y <strong>llegar hasta el dispositivo físico es francamente sencillo</strong> y está muy bien resuelto, lo que da mucha tranquilidad. No hay nada peor que saber que la plataforma para la que estás desarrollando soporta algo pero tu lenguaje no, y con el sistema de plugins de Cordova es sencillo remediar esa situación cuando se presenta.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/" rel="prev"><i class="icon-arrow-left"></i> Empaquetar aplicaciones HTML5 con PhoneGap/Cordova</a></div>		<div class="nav-next"><a href="/2012/03/seguimiento-de-una-aplicacion-de-escritorio-con-google-analytics/" rel="next">Seguimiento de una aplicación de escritorio con Google Analytics <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-1334 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			20 comentarios en &ldquo;<span>Extender PhoneGap/Cordova creando un plugin</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="post pingback">
+		<p>Pingback: <a href="/2012/03/weinre-firebug-para-moviles/" class="url" rel="ugc">weinre: el Firebug para móviles &laquo; Koalite&#039;s blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-958">
+		<article id="comment-958" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7178c1a2bdde66265379426377748d9a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7178c1a2bdde66265379426377748d9a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Susana</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-958"><time pubdate datetime="2012-06-22T00:17:55+01:00">
+					22 junio 2012 de 00:17					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buen tutorial!, soy newbie en esto y lo + dificil es la clase en Java. Serias tan amable de indicar cuales son los «import» de la clase? o bien dar un ejemplo completo? ya que en la clase Java da muchos errores<br />
+Muchas gracias</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-962">
+		<article id="comment-962" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-962"><time pubdate datetime="2012-06-22T08:03:39+01:00">
+					22 junio 2012 de 08:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Susana,</p>
+<p>Te he dejado el código completo de la clase en este gist: <a href="https://gist.github.com/2970895" rel="nofollow ugc">https://gist.github.com/2970895</a></p>
+<p>De todas formas, los imports que necesitas son estos:</p>
+<p>import org.apache.cordova.api.Plugin;<br />
+import org.apache.cordova.api.PluginResult;<br />
+import org.apache.cordova.api.PluginResult.Status;<br />
+import org.json.JSONArray;<br />
+import android.content.Intent;<br />
+import android.net.Uri;</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-965">
+		<article id="comment-965" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7178c1a2bdde66265379426377748d9a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7178c1a2bdde66265379426377748d9a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Susana</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-965"><time pubdate datetime="2012-06-22T20:27:06+01:00">
+					22 junio 2012 de 20:27					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>muchas gracias Juanma por responder tan rapidamente! y muy amable</p>
+<p>saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1510">
+		<article id="comment-1510" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/5e7f5a117bb37f9c14a9531b470bbcfc?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/5e7f5a117bb37f9c14a9531b470bbcfc?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edu</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1510"><time pubdate datetime="2012-09-12T22:50:54+01:00">
+					12 septiembre 2012 de 22:50					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me parece francamente bueno el tutorial.<br />
+Estoy empezando con phonegap, y estaba intentando hacer un pequeño juego, para aprender mas que nada, ya se que es mas optimo utilizar lenguaje nativo para los juegos, pero me apetece experimentar con html5,<br />
+el problema que encuentro es que no puedo pulsar dos elementos a la vez, por ejemplo mover hacia la izquierda y disparar, es decir no soporta multitouch, tu sabrías, ¿ podrías orientarme si es posible hacer un plugin para dar soporte a multitouch desde phonegap?<br />
+Igual estoy pidiendo demasiado, muchas gracias de antemano Juanma, y felicidades por este tutorial tan bueno.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1512">
+		<article id="comment-1512" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1512"><time pubdate datetime="2012-09-13T08:18:44+01:00">
+					13 septiembre 2012 de 08:18					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pues la verdad es que no sé si se puede hacer desde HTML5, pero no creo que un plugin sea la solución. El código del plugin se invoca <em>desde</em> la parte HTML/JS, por lo que no veo como podría ayudarte a soportar multitouch.</p>
+<p>Me da la sensación de que es algo que depende del más del browser que de otra cosa, como dicen en este enlace <a href="http://stackoverflow.com/questions/8924152/multitouch-in-mobile-browsers" rel="nofollow ugc">http://stackoverflow.com/questions/8924152/multitouch-in-mobile-browsers</a>.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1536">
+		<article id="comment-1536" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/5e7f5a117bb37f9c14a9531b470bbcfc?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/5e7f5a117bb37f9c14a9531b470bbcfc?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edu</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1536"><time pubdate datetime="2012-09-28T15:11:05+01:00">
+					28 septiembre 2012 de 15:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma, perdona por tardar tando en contestar, no me llego al correo el aviso de que me habias contestado.<br />
+Solo agradecerte tu aportación.<br />
+Sigue asi, que se agradecen mucho estos tutoriales.<br />
+Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1640">
+		<article id="comment-1640" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2f9a24481b8d0cd3b84aedf7a670af67?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2f9a24481b8d0cd3b84aedf7a670af67?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Alex</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1640"><time pubdate datetime="2012-12-03T12:40:48+01:00">
+					3 diciembre 2012 de 12:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola. Fantástico artículo. Me queda la duda de saber en qué archivos contretos y de qué forma se ubica el código que indicas. Si me pudieras pasar el proyecto en Eclipse me seria de gran utilidad o indicarme en qué archivo colocas cada sección. No logro realizar, mediante un botón por ejemplo, la ejecución del plugin. Gracias. Saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1813">
+		<article id="comment-1813" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/118d8cebc8b204e351a8ba344bf013e1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/118d8cebc8b204e351a8ba344bf013e1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Skatu</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1813"><time pubdate datetime="2013-02-12T14:02:55+01:00">
+					12 febrero 2013 de 14:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola. Este artículo me ha sido de mucha utilidad. Gracias a el he realizado un plugin que inicia una clase &#8216;service&#8217; el cual pone en marcha dos servidores sockets, una TCP y otro UDP. Relacionado con este artículo tengo un problema. Cuando los servidores reciben un mensaje necesito enviar un mensaje al código escrito en JavaScript para para que modifique ‘algo’ en el interface gráfico. He buscado por internet y no he encontrado la solución. Lo único que se me ha ocurrido es (para salir del paso) crear una función en JavaScript que se ejecute periódicamente y reciba los mensajes del CallbackContext. Pero esto puede ser algo pesado para la aplicación. ¿Existe alguna manera de enviar un mensaje desde el código nativo a JavaScritp?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1814">
+		<article id="comment-1814" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1814"><time pubdate datetime="2013-02-13T09:08:40+01:00">
+					13 febrero 2013 de 09:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Skatu,</p>
+<p>Hacer polling desde JS es una opción, pero más que un problema de carga para la aplicación, lo veo un problema para el consumo de batería, sobre todo si quieres que el UI responda en tiempo «casi real» al mensaje que recibe el servicio porque te obliga a estar consultando continuamente.</p>
+<p>Podrías basarte en lo que hacen plugins oficiales, como el BatteryListener, cuyo código puedes ver aquí: <a href="https://github.com/apache/cordova-android/blob/master/framework/src/org/apache/cordova/BatteryListener.java" rel="nofollow ugc">https://github.com/apache/cordova-android/blob/master/framework/src/org/apache/cordova/BatteryListener.java</a></p>
+<p>Básicamente, la idea es devolver al principio un PluginResult.Status.NO_RESULT e indicar que queremos mantener las callbacks vivas:</p>
+<pre>
+PluginResult pluginResult = new PluginResult(PluginResult.Status.NO_RESULT);
+pluginResult.setKeepCallback(true);
+callbackContext.sendPluginResult(pluginResult);
+return true;
+</pre>
+<p>Así, cuando queramos notificar de algo podemos seguir usando el callbackcontext para enviar nuevos resultados:</p>
+<pre>
+PluginResult result = new PluginResult(PluginResult.Status.OK, info);
+result.setKeepCallback(keepCallback);
+callbackContext.sendPluginResult(result);
+</pre>
+<p>Espero que te sirva.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1845">
+		<article id="comment-1845" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e1fe7463c7f3041378cefb521af7602d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e1fe7463c7f3041378cefb521af7602d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Pedro</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1845"><time pubdate datetime="2013-03-06T18:14:17+01:00">
+					6 marzo 2013 de 18:14					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Perdona lo he leído pero no me termina de quedar claro, en mi caso quiero implementar una fundación para silenciar el móvil y otra para saber el modo en el que está, en nativo sería con el audio mánager pero me falta la parte de conectarlo como plugin</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1848">
+		<article id="comment-1848" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-1848"><time pubdate datetime="2013-03-07T10:18:12+01:00">
+					7 marzo 2013 de 10:18					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>PhoneGap incluye un plugin parecido, que controla la reproducción de ficheros de audio. Puedes echarle un vistazo y ver cómo está hecho: <a href="https://github.com/apache/cordova-android/blob/master/framework/src/org/apache/cordova/AudioHandler.java" target="_blank" rel="nofollow">AudioHandler</a>.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2050">
+		<article id="comment-2050" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2df4a2a487bf0350663dba10f75fcbdf?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2df4a2a487bf0350663dba10f75fcbdf?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">ricardo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-2050"><time pubdate datetime="2013-08-09T00:43:51+01:00">
+					9 agosto 2013 de 00:43					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy bueno el tuto, sin embargo soy nuevo en esto de java, uso phonegap con jquery mobile, necesito realizar una función que mande a imprimir un ticket por bluetooth. podrías indicarme lo que debo estudiar para poder hacerlo, es decir, por donde empezar y que utilizar para poder hacer un plugin. Gracias de antemano, saludos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2051">
+		<article id="comment-2051" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-2051"><time pubdate datetime="2013-08-09T10:11:59+01:00">
+					9 agosto 2013 de 10:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Supongo que necesitarás un plugin que te permita enviar datos a través de una conexión Bluetooth, posiblemente emulando un puerto serie.</p>
+<p>A través de esa conexión podrías enviarle a la impresora lo que tiene que imprimir. El formato de impresión depende del modelo de impresora, pero las de tickets suelen ser compatibles con Esc/Pos.</p>
+<p>Yo empezaría por buscar algo ya hecho sobre phonegap para acceder a un dispositivo Bluetooth, y a partir de ahí empezaría a jugar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2560">
+		<article id="comment-2560" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/834c0a9b9d32819ab2b72c202c346651?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/834c0a9b9d32819ab2b72c202c346651?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">tavo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-2560"><time pubdate datetime="2013-09-30T22:33:36+01:00">
+					30 septiembre 2013 de 22:33					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>que tal, tengo  una  duda en cuestion de agregar en el plugin de cordova el  siguiente codigo<br />
+cordova.addConstructor(function() {<br />
+    cordova.addPlugin(«goTo», new GoTo());<br />
+});</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2561">
+		<article id="comment-2561" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juan María Hernández</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-2561"><time pubdate datetime="2013-10-01T08:15:30+01:00">
+					1 octubre 2013 de 08:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola tavo, ¿cuál es la duda exactamente?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3107">
+		<article id="comment-3107" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/9ed8f926ebe307804e50c5a9355fdbf3?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/9ed8f926ebe307804e50c5a9355fdbf3?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-3107"><time pubdate datetime="2014-11-25T22:45:34+01:00">
+					25 noviembre 2014 de 22:45					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>hola, necesito usar bluetooth para mi aplicacion simplemente lectura de un scanner lector de barras, no se por donde empezar lo quiero hacer con phonegap o cordova lo que se mas proximo para hacer, esto ya lo hice en java ahora quiero hacerlo en phonegap o cordova, alguna idea sera bienvenida, gracias de antemano</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3108">
+		<article id="comment-3108" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-3108"><time pubdate datetime="2014-11-25T23:00:06+01:00">
+					25 noviembre 2014 de 23:00					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Lo más sencillo es buscar un lector de código de barras que emule teclado. Así te ahorras tener que tratarlo explícitamente, y es como si te llegasen pulsiones de tecla.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3472">
+		<article id="comment-3472" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/092b9ad895c346fd63665efc599a5ba2?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/092b9ad895c346fd63665efc599a5ba2?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Abraham</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-3472"><time pubdate datetime="2015-08-25T15:06:19+01:00">
+					25 agosto 2015 de 15:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En caso de que tengas uno, o varios archivos layout.xml que componga la interfaz gráfica de tu activity, toolbars, actionbars, estilos, drawables etc como registras ese tipo de archivos y dependencias para que los reconozca el plugin?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3473">
+		<article id="comment-3473" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/extender-phonegapcordova-creando-un-plugin/#comment-3473"><time pubdate datetime="2015-08-25T16:34:47+01:00">
+					25 agosto 2015 de 16:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Abraham, </p>
+<p>Nunca me he encontrado con ese caso (un plugin que muestre UI) pero debería ser igual que en cualquier otro proyecto de android. A fin de cuentas, con Cordova es lo que tienes, un proyecto estándar de android que, por defecto, arranca un activity con un webview.</p>
+<p>Saludos</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

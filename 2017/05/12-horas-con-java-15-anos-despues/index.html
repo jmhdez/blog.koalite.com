@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	12 horas con Java, 15 años después | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2017/05/12-horas-con-java-15-anos-despues/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-5251 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-5251" class="post-5251 post type-post status-publish format-standard hentry category-dev category-opinion tag-net tag-java">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">12 horas con Java, 15 años después</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 29 mayo 2017</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/net/" rel="tag">.net</a>, <a href="/tag/java/" rel="tag">java</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>No recuerdo cuándo fue la última vez que utilicé Java de verdad. Tal vez en 2002 o 2003. Desde entonces no había vuelto a escribir código Java más allá de alguna prueba rápida con Android. Durante este tiempo sí que he estado (relativamente) pendiente de la evolución del lenguaje, sobre todo porque la JVM es una plataforma que me parece más que interesante a la que <a href="/2015/01/adios-net-hola-java/" target="_blank">sigo planteándome migrar</a>.</p>
+<p>Recientemente he tenido la oportunidad de trabajar con código Java de una aplicación real, y aunque no han sido más que unas horas, me ha permitido hacerme una (muy ligera) idea de lo que podría ser trabajar con él.</p>
+<p>Éste no deja de ser un post muy personal con la experiencia de alguien acostumbrado a programar en C#, Javascript y TypeScript que vuelve a tocar Java 15 años después, pero tal vez a alguien más le resulte interesante estas primeras impresiones tras tanto tiempo desconectado.</p>
+<h3>El entorno</h3>
+<p>Lo primero que me ha sorprendido gratamente es la agilidad del entorno en general. Sonará raro, seguro, pero viniendo de Visual Studio que es cada vez más mastodóntico y lento, y recordando el Eclipse de hace 15 años, la sensación al utilizar IntelliJ es que todo funciona bastante más rápido de lo que me esperaba. También es cierto que no he estado trabajando con un proyecto grande y seguramente eso se note mucho.</p>
+<p>Me hubiera gustado utilizar emacs, pero un lenguaje tan <em>verbose</em> como Java parece más apropiado para un IDE y toda la parafernalia añadida (intellisense, refactoring automático), y las soluciones que he encontrado para emacs son un poco exóticas (como tener que ejecutar Eclipse en segundo plano para usar <a href="https://www.emacswiki.org/emacs/EmacsEclim" target="_blank">eclim</a>).</p>
+<p>Utilizar IntelliJ también contribuye a que la experiencia me resulte mucho más familiar. Como usuario habitual de Resharper (y con los atajos de teclado de IntelliJ IDEA), la mayoría de las acciones salen de forma natural. Además, tiene algunos detalles que me han gustado especialmente, como mostrar <em>inline</em> el nombre del parámetro de un método cuando recibe valores constantes. Este detalle, que puede parecer una tontería, ayuda cuando no tienes parámetros con nombre y utilizas  <a href="/2015/06/alternativas-al-uso-de-objectmother-y-builders-en-los-tests/" target="_blank">métodos con muchos parámetros para construir datos de test</a>:</p>
+<p><img decoding="async" src="/wp-content/uploads/asserts.png" alt="IntelliJ" width="469" class="aligncenter size-full wp-image-5254" srcset="/wp-content/uploads/asserts.png 469w, /wp-content/uploads/asserts-300x42.png 300w" sizes="(max-width: 469px) 100vw, 469px" /></p>
+<p>La gestión de ficheros de código basada en carpetas en lugar de en soluciones me gusta. O eso creo. En parte coincido con <a href="https://twitter.com/eiximenis" target="_blank">Eduard Tomàs</a> en que <a href="https://geeks.ms/etomas/2017/05/15/la-solucin-en-visual-studio-de-solucin-nada-solo-problemas/">la solución de Visual Studio</a> no soluciona nada, y en ese sentido me gusta la simplicidad de las carpetas. Por otra parte, eso obliga a crear un montón de carpetas para gestionar los <del>espacios de nombres</del> paquetes, y eso me gusta menos. Al hilo de eso, tampoco me gusta no poder tener varias clases (públicas) en un mismo fichero, o partir una clase en varios ficheros cuando trabajas con <a href="/2016/07/resistiendo-el-hedor-de-las-clases-grandes/" target="_blank">clases grandes como las que a veces me gusta usar</a>.</p>
+<p>Por la compilación a través de maven he podido pasar de puntillas. Afortunadamente es un proyecto que ya me han dado montado con unos scripts de compilación estupendos y no he tenido que pegarme con ella. Viendo el <code>pom.xml</code> no parece demasiado terrible para alguien que <a href="/2013/05/automatizar-la-compilacion-con-msbuild/">ha disfrutado de las maravillas de MSBuild</a>.</p>
+<h3>El código</h3>
+<p>En cuanto al código como tal, algunas cosas que recordaba como incómodas me lo siguen pareciendo.</p>
+<p>El lenguaje es <em>verbose</em>. Mucho, para los tiempos que corren. </p>
+<p>No tener propiedades, ni inicializadores de tipo, ni parámetros opcionales, no poder utilizar expresiones para el cuerpo de los métodos, no poder declarar las variables como <code>var/let/const</code> y dejar que el compilador infiera el tipo&#8230; Son cosas que hacen que haya que escribir y leer mucho código. En la parte de escribir ayuda el IDE, que hace casi todo sólo, pero al leer hay mucho ruido.</p>
+<p>Incluso en APIs más modernas, como los <code>streams</code>, sigue siendo necesario escribir de más (o yo no sé usarlas bien, que es también es probable). Basta comparar estos dos ejemplos en Java y C#:</p>
+<pre class="brush:java">
+public List&lt;string&gt; idsToString(Person ...persons) {
+	return Arrays.asList(persons).stream()
+              .map(x -&gt; Integer.toString(x.id()))
+              .collect(Collectors.toList());
+}
+</pre>
+<pre class="brush:csharp">
+public IEnumerable&lt;string&gt; IdsToString(params Person[] persons) {
+	return persons.Select(x => x.Id.ToString());
+}
+</pre>
+<p><strong>Actualización</strong>: Como<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4652" target="_blank">bien indica Javier Neira</a>, este código se puede escribir <a href="https://gist.github.com/jneira/bf75d507be0a3005dc37f24052cdba68#file-prueba-java-L27" target="_blank">de forma más corta y concisa</a>.</p>
+<p>En C# me ahorro el tener que convertir los parámetros de la función variádica a nada, puedo usar las extensiones de <code>IEnumerable</code> directamente sobre el array. En el caso de Java, necesito envolver el array con un <code>Arrays.asList</code> y luego utilizar <code>stream()</code>. En Java además necesito el método estático <code>Integer.toString()</code> y utilizar luego un <code>Collector</code> para obtener el resultado, mientras que en C# me evito ambas cosas.</p>
+<p>Parte de estos inconvenientes vienen de lo que, para mi, es otra de las cosas incómodas de Java: la separación entre tipos primitivos y objetos. </p>
+<p>En C# el sistema de tipos está unificado, y mediante la distinción entre clases y estructuras se crea una jerarquía de tipos completa que incluye tanto tipos básicos (int, long, double) como objetos, por lo que la forma de manejar unos y otros es más homogénea. En Java, la separación es rígida e implica más restricciones sobre cómo podemos manejarlos. Una ventaja de enfoque de Java es que evita que hagamos <em>boxing/unboxing</em> inadvertidamente, algo que podría conllevar problemas de rendimiento pero que, sinceramente, no es algo que te pase todos los días.</p>
+<p>Esta separación de tipos básicos y objetos tiene otra implicación, y es que obliga a clonar APIs para simplificar su uso. Por ejemplo, al trabajar con <code>streams</code> encontramos un <code>map</code> para convertir de un objeto a otro, pero también un <code>mapToInt</code>, <code>mapToLong</code> y <code>mapToDouble</code> para trabajar fácilmente con esos tipos básicos sin tener que envolverlos en <code>Integer</code>, <code>Long</code> o <code>Double</code>. Quizá también se haga para poder aplicar alguna optimización necesaria por no tener los tipos genéricos reificados, pero eso ya se me escapa.</p>
+<p>Hay ocasiones en las que echo de menos poder redefinir operadores. Al menos para <code>String</code>. El <code>==</code>, concretamente. Era uno de los fallos que más cometía al programar en Java años atrás, y me temo que lo sigo haciendo: comparar <code>Strings</code> por referencia en lugar de por valor. La verdad es que no se me ocurre en qué escenario querría comparar <code>Strings</code> por referencia y no por valor.</p>
+<p>Pero sin duda, lo que más incómodo me resulta son las <em>checked exceptions</em>. Si ya en C# me gusta poco utilizar async/await o restricciones sobre genéricos por <a href="http://journal.stuffwithstuff.com/2015/02/01/what-color-is-your-function/" target="_blank">la viralidad que tienen</a>, lo de las <em>checked exceptions</em> me parece infernal. </p>
+<p>Aquí estoy convencido de que tengo parte de culpa, porque a priori la idea de que las excepciones formen parte de la signatura del método tiene cierto sentido. A fin de cuentas, ayuda a documentar y a comprobar estáticamente que los errores se gestionan. Pero en la práctica, hay muchas ocasiones en las que la única salida que veo es capturar una excepción y relanzarla como <code>RuntimeException</code> para satisfacer al compilador y dejar que todo explote en tiempo de ejecución (que es lo mejor que puedo hacer la mayoría de las veces).</p>
+<p>A la hora de navegar por el código, una cosa que me resulta confusa es que no se siga la convención de llamar a los interfaces <em>ICosa</em>. Entiendo los argumentos a favor, como que así puedes convertir un interfaz a una clase sin necesidad de renombrar, o que al cliente debería darle igual si lo que recibe es un interfaz o una clase, pero al estar acostumbrado a C#, se me hace raro. Cuestión de habituarse, supongo.</p>
+<h3>El ecosistema</h3>
+<p>Con respecto a las librerías con las que me he topado, tampoco he profundizado en ellas lo suficiente como para tener una opinión clara.</p>
+<p><a href="http://junit.org/junit4/" target="_blank">jUnit</a> en los tests me resulta muy familiar (llevo 10 años usando NUnit). <a href="http://www.sql2o.org/" target="_blank">sql2o</a> es un Micro ORM fácil de manejar que te evita el horrible API de JDBC (que es tan poco amigable como ADO.NET, pero encima con las <em>checked exceptions</em>).</p>
+<p>Me ha gustado lo poco que he visto de <a href="https://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a>. Recordaba el Spring original, con sus toneladas de XML, y <a href="http://springframework.net/" target="_blank">el port para .NET</a>, y aunque nunca llegué a utilizarlos, siempre me parecieron algo de lo que huir. Sin embargo Spring Boot tiene un aspecto más manejable. Entre lo más atractivo, la posibilidad de generar un <code>jar</code> autocontenido con el servidor embebido, y poder meter dentro un servidor web, un servidor ftp o lo que necesites, sin tener que depender de servicios externos. Imagino que habrá escenarios en los que sea mejor desplegar sobre un servidor externo, pero esta opción es cómoda y sencilla.</p>
+<h3>Conclusión</h3>
+<p>Soy plenamente consciente de que esta comparación es totalmente injusta y superficial. Conozco mucho mejor .NET que Java, y eso hace que esté más acostumbrado y todo me resulte más sencillo y familiar en esa plataforma. Además, seguro que muchas de las cosas que me parecen incómodas de Java se podrían resolver limpiamente conociendo mejor las herramientas y las posibilidades que ofrece el lenguaje (y algunas, como la inferencia de tipos, creo que están planificadas para Java 9).</p>
+<p>Pese a lo que pueda parecer, la experiencia ha sido agradable. Si tuviera que vivir programando en Java, creo que sobreviviría sin sufrir demasiado. Las herramientas son potentes, las librerías están bien y la plataforma es, posiblemente, la más estable que existe hoy en día. </p>
+<p>Si acabara dando el salto a la JVM, ¿usaría Java? Intentaría evitarlo. Trataría de buscar otro lenguaje un poco menos <em>verbose</em> y con más opciones para salirte de la programación orientada a objetos «pura» (pura de Java/C#, claro). ¿Scala? Tal vez, aunque lo que he oído del rendimiento del compilador me tira un poco para atrás. ¿Clojure? ¿Frege? Muy divertidos, pero problemáticos a la hora de formar un equipo. ¿Kotlin? Quizá sería una opción. No es un lenguaje que me atraiga especialmente, al igual que no me atraía TypeScript, pero podría ser una alternativa práctica.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2017/05/soluciones-habitacionales-para-aplicaciones-multitenant/" rel="prev"><i class="icon-arrow-left"></i> Soluciones habitacionales para aplicaciones multitenant</a></div>		<div class="nav-next"><a href="/2017/06/optimiza-pero-cuidado-con-los-microbenchmarks/" rel="next">Optimiza, pero cuidado con los microbenchmarks <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-5251 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			13 comentarios en &ldquo;<span>12 horas con Java, 15 años después</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-4652">
+		<article id="comment-4652" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">jneira</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4652"><time pubdate datetime="2017-05-29T10:21:50+01:00">
+					29 mayo 2017 de 10:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Mmm java sí que hace autoboxing (con sus eventuales desagradables sorpresas) pero solo en los parametros de entrada o en la salida de los metodos.<br />
+El ejemplo puede quedar un poco mas corto, usando alguna utilidad de las clases Stream y Collector e imports estaticos:<br />
+<a href="https://gist.github.com/jneira/bf75d507be0a3005dc37f24052cdba68" rel="nofollow ugc">https://gist.github.com/jneira/bf75d507be0a3005dc37f24052cdba68</a></p>
+<p>Pero la idea es devolver streams «all way down» hasta el consumidor de los datos (que hara un foreach o lo convertira en una lista en memoria) y separar claramente las operaciones que consumen los datos de aquellas que añaden transformaciones sobre los mismos. ¿Es buena idea? Bueno, como todo, depende del contexto</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-4653">
+		<article id="comment-4653" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4653"><time pubdate datetime="2017-05-29T10:40:18+01:00">
+					29 mayo 2017 de 10:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>¡Gracias! No sabía lo del autoboxing y usando los métodos de utilidad queda más corto, tienes razón.</p>
+<p>Lo de devolver Streams está bien, pero en ese caso concreto necesitaba materializar a un List<string> porque es lo que me pedía el API. </p>
+<p>Estoy de acuerdo es que lo de pasar Streams por todas partes puede ser buena o mala idea dependiendo del caso (en C# pasa igual con IEnumerable).</string></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4655">
+		<article id="comment-4655" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">jneira</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4655"><time pubdate datetime="2017-05-29T11:00:06+01:00">
+					29 mayo 2017 de 11:00					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p><cite><br />
+Estoy de acuerdo es que lo de pasar Streams por todas partes puede ser buena o mala idea dependiendo del caso (en C# pasa igual con IEnumerable).<br />
+</cite><br />
+No conozco demasiado el core de c# pero un IEnumerable puede ser una colleccion lazy o eager (como ArrayList), ¿no? Y por el tipo devuelto no sabes en un momento dado si la colleccion esta en memoria o no (tienes que mirar el codigo).<br />
+En java han separado la colleccion lazy (Stream) de las previas y no las han unificado en una interfaz comun, con lo que es explicito en todo momento que tienes entre manos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-4656">
+		<article id="comment-4656" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4656"><time pubdate datetime="2017-05-29T11:06:24+01:00">
+					29 mayo 2017 de 11:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Cierto, separarlo ayuda por lo menos a saber qué esperar (aunque entiendo que podrías llegar a implementar un stream eager). </p>
+<p>Yo lo decía también por la parte de side-effects. Nada te garantiza que en el map no estés haciendo algo que mute estado global o que requiera IO, y recorrer dos veces un stream puede ser muy emocionante.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4657">
+		<article id="comment-4657" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4657"><time pubdate datetime="2017-05-29T11:41:01+01:00">
+					29 mayo 2017 de 11:41					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>IntelliJ, de lo mejor, la versión free es más que suficiente.</p>
+<p>Maven, bastante bien, notablemente mejor (por fácil de usar) que msbuild.</p>
+<p>«var/let/const», la inferencia en Java y C# las veo similares, aquí C# te deja poner «var» pero no puede inferir el tipo a la derecha, en Java sí. Para unas cosas es mejor lo primero y para otras lo segundo. Pocos lenguajes disfrutan de la inferencia de Haskell :)</p>
+<p>Verbosity, tiene cosas mejorables pero en general no está mal, la importación de estáticos y referencias a métodos ayuda bastante. Un poco más corto aún es: `Stream.of(persons).map(x -&gt; Integer.toString(x.id())).collect(toList())` pero se echa en falta la composición de funciones y algunas inferencias (ej. Integer::toString debería ser válido y no lo es). Aun así, efectivamente extender los tipos como en C# molaría.</p>
+<p>«checked exceptions» puedes crear tus propias unchecked para que no sean explícitas y «dejar que todo explote en tiempo de ejecución», para las checked prefiero usar mónadas (ej. `Optional` aunque prefiero `Either`).</p>
+<p>«Junit» bueno. «Spring» para proyecto bueno, para producto malo.</p>
+<p>Hay otras cosillas como la cagada de no poder definir qué es público y privado a nivel de módulo y tener que tener todo en el mismo namespace (carpeta). Veremos como lo dejan en Java 9 que no lo tengo claro.</p>
+<p>@jneira, «Pero la idea es devolver streams», el problema de C# de que ya esté materializado se producirá cuando se estén efectuando acciones laterales (no puras) que no se volverán a hacer, en Java eso no te pasará pero sí algo similar si no tienes cuidado en el orden de las ejecuciones con similares acciones impuras (obteniendo efectos inesperados). No tengo claro que esa pequeña ventaja de Java compense tanto `mapToObj`.</p>
+<p>Por otro lado, creo que hay una ruptura notable entre Java =8 (si bien en Java 7 ya se veía venir). Muchos programadores cómodos en Java =8, a mi sin duda me gusta ese giro funcional, pero a la gente le echa para atrás.</p>
+<p>¿Se puede reemplazar C#/.Net por Java? sin duda y más visto la carnicería que están haciendo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4658">
+		<article id="comment-4658" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dd6c24a0bc5c0a59a456aa8b08a78b6a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">josejuan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4658"><time pubdate datetime="2017-05-29T11:43:11+01:00">
+					29 mayo 2017 de 11:43					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>(«creo que hay una ruptura notable entre Java menor o igual que 7 y Java mayor o igual que 8»)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4659">
+		<article id="comment-4659" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4659"><time pubdate datetime="2017-05-29T12:22:36+01:00">
+					29 mayo 2017 de 12:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Java sí hace autoboxing y NO SOLO en los parámetros de entrada y salida de los métodos.<br />
+//// Totalmente valido en medio de un método<br />
+Integer object = new Integer(7);<br />
+int primitive = object;</p>
+<p>Aunque no sea una solución del lenguaje, Lombok ayuda bastante en cuanto a «verborreicidad».<br />
+En cuanto a las excepciones&#8230; bueno yo sigo pensando que en el propio JDK se usan mal en muchos sitios, admitido por ellos mismos, y que tampoco hay para tanto y prefiero hacerlo conscientemente. Aunque sí es cierto que los dos factores son una mala combinación.</p>
+<p>Con todo lo que dices&#8230; yo ahora mismo le estoy echando un ojo a Kotlin, parametros por nombre, unchecked exceptions, control de valores null, inferencia de tipos&#8230; y el soporte del IDE es bueno, aunque mejorable. Los creadores son los mismos que del IntelliJ así que&#8230;</p>
+<p>Ahora mismo estoy convirtiendo una aplicación real en Spring Boot a Kotlin y el 90% ha sido cambiar sintaxis. Todavía le queda pero parece que hay plan.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4663">
+		<article id="comment-4663" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="https://www.ingenieroperales.com" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4663"><time pubdate datetime="2017-05-31T22:08:54+01:00">
+					31 mayo 2017 de 22:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Siempre prefiero JPA , creo que nunca utilice JDBC a pelo,  es algo demaciado muy al fondo en el core y siempre estube bien arropado por Hibernate, mi ORM preferido.</p>
+<p>En algun momento comence a aprender MEAN, pienso que javascript es el futuro, pero la capa de persistencia con Java es muy comoda y repetitiva, en nodejs el ORM que veo que va agarrando ritmo es waterline (<a href="https://github.com/balderdashy/waterline" rel="nofollow ugc">https://github.com/balderdashy/waterline</a>) pero aun esta años luz de hibernate y JPA, espero se mueva mas rapido y hagan su «JPA» algo como NPA (Nodejs Persistence API).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4664">
+		<article id="comment-4664" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4664"><time pubdate datetime="2017-06-01T05:44:02+01:00">
+					1 junio 2017 de 05:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias! No conocía esterlina, parece curioso.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4678">
+		<article id="comment-4678" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edwin</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4678"><time pubdate datetime="2017-06-07T01:25:01+01:00">
+					7 junio 2017 de 01:25					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Ojala migre a la jvm y adopte Scala como lenguaje.<br />
+Seria un gusto escuchar sus comentarios e impresiones con este lenguaje. Muchas veces me he planteado aprenderlo, pero me gustaría escuchar el concepto de alguien que emite tanta mesura y sensatez en sus buenos aportes, como lo hace usted en cada post.<br />
+Se le ha criticado a Scala que es demasiado ruidoso al intentar integrar muchas de las buenas abstracciones funcionales dentro de un modelo orientado a objetos. Sera esto cierto ?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4679">
+		<article id="comment-4679" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4679"><time pubdate datetime="2017-06-07T07:44:09+01:00">
+					7 junio 2017 de 07:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias Edwin. Lo que comentas es otra de las cosas de Scala que no me acaba de gustar. Parece como si hubieran intentado meter demasiadas cosas en el lenguaje y queda todo un poco inconexo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4680">
+		<article id="comment-4680" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-4680"><time pubdate datetime="2017-06-07T08:09:01+01:00">
+					7 junio 2017 de 08:09					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>La última del propio creador del lenguaje es añadir los espacios significativos para sustituir las llaves&#8230; pero que sea opcional.</p>
+<p>Da la impresión que en vez de hacer un buen martillo, están intentando hacer una mega-navaja-suiza con desde un martillo neumático a un microscopio y que le sirve y guste a todo el mundo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5188">
+		<article id="comment-5188" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/23e8f1bbf087cc8e76d29959d9bee6b6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/23e8f1bbf087cc8e76d29959d9bee6b6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">LuigiMX</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2017/05/12-horas-con-java-15-anos-despues/#comment-5188"><time pubdate datetime="2018-02-21T00:57:39+01:00">
+					21 febrero 2018 de 00:57					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No es por conocer mas c# que java, es que c# es mejor que java en muchos aspectos.</p>
+<p>Desde mi punto de vista (ojo, muy personal), con .net core no veo necesario cambiar a java, y si se quiere programación funcional, f# cubre muy bien ese aspecto.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

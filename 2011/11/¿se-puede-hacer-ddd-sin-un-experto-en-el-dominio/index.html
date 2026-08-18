@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	¿Se puede hacer DDD sin un experto en el dominio? | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-606 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-606" class="post-606 post type-post status-publish format-standard hentry category-opinion tag-ddd tag-rant">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">¿Se puede hacer DDD sin un experto en el dominio?</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 21 noviembre 2011</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/ddd/" rel="tag">ddd</a>, <a href="/tag/rant/" rel="tag">rant</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p><abbr title="Too Long, Didn't Read, Paso de leermelo que es muy largo"><strong>TL;DR</strong></abbr>: es difícil, pero aunque no tengas un experto a mano, hay partes del proceso que siguen siendo útiles.</p>
+<p>La mayoría de <a href="http://geeks.ms/blogs/omarvr/archive/2011/11/14/ddd-1-introducci-243-n-a-un-esquema-gen-233-rico.aspx" target="_blank">artículos sobre DDD</a> que leo últimamente, y especialmente en blogs en español, <strong>se centran en los detalles de implementación</strong>, que no dejan de ser algo anecdótico. Parece que el objetivo de DDD es estructurar nuestro código en <em>Entities</em>, <em>ValueObjects</em>, <em>Repositories</em>, <em>Factories</em>, etc. Nos centramos en ver cómo ha de ser la estructura de proyectos de Visual Studio, y parece que cuantos más proyectos diferentes tenga, mejor. Como mucho, si somos <em>Advanced Power Certified Architects &trade;</em>, podemos hablar un poco de <em>Bounded Contexts</em> o incluso de <em>Shared Kernels</em>.</p>
+<p>Sin embago, lo más importante de DDD, su esencia, sólo se menciona de pasada (si hay suerte). Si DDD es Domain Driven Design, es decir, Diseño Dirigido por el Dominio, parece claro que lo más importante de todo, <strong>lo que dirige nuestro desarrollo, es el dominio</strong>, que podríamos definir como el ámbito para el cual estamos desarrollando la aplicación.</p>
+<h3>¿Por qué necesitamos un experto en el dominio?</h3>
+<p>En general nosotros, <strong>el equipo de desarrollo, no conocemos mucho de este ámbito</strong>, sobre todo al principio. Necesitamos alguien que nos enseñe lo que es el dominio. Alguien que discuta con nosotros, que nos explique lo que sabe, los problemas a los que se enfrenta y la forma en que los resuelve.</p>
+<div id="attachment_611" style="width: 253px" class="wp-caption alignright"><a href="http://xkcd.com/977/" target="_blank"><img fetchpriority="high" decoding="async" aria-describedby="caption-attachment-611" src="/wp-content/uploads/map-projections-small.png" alt="Distintos Modelos de Dominio de Mapas, por XKCD" title="Distintos modelos de un mismo dominio: la cartografía" width="243" height="300" class="size-full wp-image-611" /></a><p id="caption-attachment-611" class="wp-caption-text">Distintos modelos de un mismo dominio: la cartografía (XKCD.com)</p></div>
+<p>Una parte fundamental de <strong>nuestra labor será crear un modelo</strong> que nos permita manipular fácilmente ese dominio en nuestra aplicación, pero no es sencillo elegir ese modelo. Habrá muchos modelos posibles y cada uno tendrá sus ventajas, pero tendremos que decidir cuál es el que mejor se ajusta a los problemas que tenemos que resolver.</p>
+<p>La persona que nos tiene que ayudar a conseguirlo es el experto en el dominio. Es quien realmente conoce la realidad y es quien nos puede ayudar a validar los modelos que vamos creando. <strong>El experto en el dominio desempeña un rol fundamental</strong> en el desarrollo de la aplicación.</p>
+<h3>¿Se puede hacer algo sin él?</h3>
+<p>Por desgracia, hay ocasiones en que tenemos que afrontar un proyecto y no podemos contar con un experto en el dominio para guiarnos. ¿Debemos descartar entonces el uso de DDD? Lo más probable es que sí, pero hay partes del proceso que siguen siendo útiles. Además, si se trata de un proyecto de largo recorrido, como puede ser un producto estándar (en lugar de un desarrollo a medida para un cliente concreto), puede ser interesante que nosotros mismos <strong>nos acabemos convirtiendo en expertos en el dominio</strong>. </p>
+<p>Es necesario tener en cuenta que convertirse en experto en cualquier cosa no es fácil y requiere una inversión de esfuerzo y tiempo considerable. No obstante, si estamos desarrollando un producto estándar realmente no nos queda más remedio que asumir ese rol. </p>
+<p>Podremos contar con la ayuda de algunos usuarios y su siempre importante opinión, pero rápidamente nos daremos cuenta de que cada potencial usuario de la aplicación tiene su propia idea de como deben ser las cosas, por lo que al final será labor nuestra unificar sus ideas y buscar una solución que sea útil y cómoda al mayor número posible de usuarios. Para poder llegar a eso, es necesario un cierto conocimiento del dominio. </p>
+<p><strong>OJO</strong>: Cuando hablo de nosotros me refiero al equipo encargado del proyecto, incluyendo la gente de desarrollo, el <em>product manager</em>, el <em>product owner</em>, el analista que pasaba por allí, el arquitecto enamorado del UML, los consultores de 500€/hora y la señora de la limpieza. No pretendo decir que todo sea responsabilidad de los que desarrollamos.</p>
+<p>Si en lugar de un producto estándar estamos en un proyecto de poco tiempo de duración, que no se espera que evolucione demasiado en el tiempo y cuya lógica de negocio no es completa, directamente no importa si hay experto en el dominio o no. No uses DDD, pero por muchas <a href="http://shishkin.wordpress.com/2008/10/10/when-to-use-domain-driven-design/" target="_blank">otras razones</a>.</p>
+<p>De todas formas, hay partes de <strong>DDD como proceso</strong> que son útiles y que se pueden aplicar incluso aunque tengamos que ponernos nosotros en el papel de expertos sin serlo realmente.</p>
+<p>La idea de <strong>crear un <a href="http://domaindrivendesign.org/node/132" target="_blank">lenguaje ubicuo</a></strong> que nos ayude a modelar la realidad y, lo que es más importante, a dialogar sobre ella de una forma precisa, es muy útil, aunque sólo sea para la comunicación interna del equipo. Además esto nos ayuda a ponernos en la piel del usuario, intentar entender cómo piensa, a qué problemas se enfrenta y cómo resolverlos. De esta forma podremos resolver lo que realmente preocupa al usuario y crearemos un modelo pensado para resolver esos problemas y no otros.</p>
+<p>También resulta útil intentar <strong>crear un modelo de dominio rico</strong>, siguiendo los patrones típicos de DDD (<em>Entities</em>, <em>Repositories</em>, &#8230;), tratando de encapsular toda la lógica posible en las entidades, aislando las partes externas al sistema mediante interfaces e <a href="http://en.wikipedia.org/wiki/Dependency_inversion_principle" target="_blank">inversión de dependencia</a> y creando <a href="http://thinkddd.com/glossary/anti-corruption-layer/" target="_blank">capas anticorrupción</a> para protegernos en los puntos de integración. Con ello conseguiremos también una aplicación más sencilla de testear con test unitarios.</p>
+<div id="attachment_617" style="width: 278px" class="wp-caption alignright"><a href="http://microsoftnlayerapp.codeplex.com/" target="_blank"><img decoding="async" aria-describedby="caption-attachment-617" src="/wp-content/uploads/bad-ddd.jpg" alt="Arquitectura DDD" title="¿hace falta esto para DDD?" width="268" height="200" class="size-full wp-image-617" /></a><p id="caption-attachment-617" class="wp-caption-text">¿Es necesario esto para hacer DDD? Lee los comentarios...</p></div>
+<p>En el fondo, muchas de esas cosas <strong>no son más que buenas prácticas genéricas de todo desarrollo de software</strong> y, en concreto, de programación orientada a objetos.</p>
+<p>Lo que no tiene sentido es lanzarse ciegamente una y otra vez a seguir ejemplos de arquitecturas complejas que no tienen nada que ver realmente con DDD. </p>
+<p><strong>DDD es un proceso, no una arquitectura</strong>. </p>
+<p><strong>Actualización (24/11/2011):</strong> No os perdáis en los comentarios las explicaciones de Unai y César sobre el ejemplo de Domain Oriented N-Layer App de Microsoft.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2011/11/tutorial-node-js-express-jquery-iv-conclusiones-y-proximos-pasos/" rel="prev"><i class="icon-arrow-left"></i> Tutorial node.js + express + jquery (IV): Conclusiones y próximos pasos</a></div>		<div class="nav-next"><a href="/2011/11/modificar-una-clase-en-javascript-eliminar-los-markers-de-google-maps/" rel="next">Modificar una clase en Javascript: Eliminar los markers de Google Maps <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-606 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			30 comentarios en &ldquo;<span>¿Se puede hacer DDD sin un experto en el dominio?</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-61">
+		<article id="comment-61" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://geeks.ms/blogs/unai" class="url" rel="ugc external nofollow">Unai</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-61"><time pubdate datetime="2011-11-21T18:05:56+01:00">
+					21 noviembre 2011 de 18:05					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juanma, totalmente de acuerdo con tu apreciación con respecto al experto del dominio y demás consideraciones acerca de su importancia con respecto a DDD.<br />
+No obstante, no estoy de acuerdo es tu señalamiento a Microsoft NLayer. Permíteme señalarte nuestro scope «.NET 4.0 wave technologies implementing typical DDD patterns»&#8230;.</p>
+<p>Efectivamente, un ejemplo de arquitectura no es DDD, pero no es menos cierto que hay un GAP despues de saber que es DDD para implementarlo, y ahí entra este ejemplo. Por lo tanto, tu apreciación es injusta porque intentas argumentar que eso se vende como DDD cuando en realidad no es asi&#8230;</p>
+<p>Un saludo<br />
+Unai</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-62">
+		<article id="comment-62" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-62"><time pubdate datetime="2011-11-21T22:41:37+01:00">
+					21 noviembre 2011 de 22:41					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por el comentario, Unai.</p>
+<p>El mayor problema que le veo a NLayer es que la gente no lee lo que habéis escrito (donde dejáis muy claro el ámbito del ejemplo), sino que se va directamente al código.</p>
+<p>Al ver el código, me parece que la arquitectura que tenéis es más N-Layer que DDD. Sinceramente, me recuerda más a las Petshops de cuando salió .NET que a otros ejemplos de arquitectura DDD, que suelen ser más <a href="http://jeffreypalermo.com/blog/the-onion-architecture-part-1/" rel="nofollow">onion</a> o <a href="http://alistair.cockburn.us/Hexagonal+architecture" rel="nofollow">hexagonal</a>.</p>
+<p>De todas formas, reconozco el merito de introducir esos conceptos en la comunidad de desarrollo de .net. No es nada fácil y creo que en ese sentido vuestra labor es muy de agradecer.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-63">
+		<article id="comment-63" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://geeks.ms/blogs/unai" class="url" rel="ugc external nofollow">Unai</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-63"><time pubdate datetime="2011-11-21T22:59:12+01:00">
+					21 noviembre 2011 de 22:59					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juanma, te agradezco la puntualización. De todas formas en NLayer está muchos de los patrones de DDD, por lo tanto yo no la veo Petshops etc. Otra cosa, lógicamente es el proceso, definir el modelo, tu bc, el lenguaje ubicuo, el experto del dominio etc&#8230;. pero repito lo de mi primer comentario, sirve, para lo que es, para cubrir el gap de implementación con tecnología microsoft</p>
+<p>Unai</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-65">
+		<article id="comment-65" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-65"><time pubdate datetime="2011-11-22T10:28:56+01:00">
+					22 noviembre 2011 de 10:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Es cierto que aparecen varios patrones: tenéis repositorios, entidades, value objects, especificaciones, y eso lo veo genial (aunque discrepe con parte de la implementación). Entiendo que esa parte ayuda a cubrir el gap el del que hablas.</p>
+<p>Por otra parte, el diagrama de capas que hay en la página principal me parece demasiado «enterprisey», muy complejo y con tecnologías metidas un poco «con calzador» (¿WWF? ¿WIF? ¿de verdad?). </p>
+<p>Al final hay gente con la que he hablado de vuestro ejemplo que en lugar de quedarse con la parte buena (la implementación de patrones), se queda con la parte compleja y empiezan a montar capas y capas de abstracciones que no aportan nada, sólo porque está en un ejemplo «de Microsoft». </p>
+<p>Sé que eso no lo podéis evitar y por eso quería aportar mi opinión al respecto, para dejar claro que esto no va de montar arquitecturas.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-67">
+		<article id="comment-67" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://geeks.ms/blogs/unai" class="url" rel="ugc external nofollow">Unai</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-67"><time pubdate datetime="2011-11-22T11:07:51+01:00">
+					22 noviembre 2011 de 11:07					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juanma, toda la razón.. efectivamente no lo podemos evitar, nosotros aportamos algo a la comunidad con un propósito claro ( e hicimos enfasis en el todo lo que hemos podido ) a partir de ahí, las interpretaciones y demás no podemos vigilarlas ni castrarlas porque no llegamos a todo. Como dices esto no va de montar arquitecturas y te agradezco las apreciaciones. Acuérdate de que para un martillo todo son clavos, con esto, y con otras tantas cosas de comunidad, tecnologías, frameworks etc&#8230;</p>
+<p>Te escribiré un correo para discutir que cosas «no te terminan de convencer» de la implementación, los comentarios no me parece la via más simple&#8230;</p>
+<p>Unai</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-68">
+		<article id="comment-68" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-68"><time pubdate datetime="2011-11-22T11:20:11+01:00">
+					22 noviembre 2011 de 11:20					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juan María,<br />
+Soy César de la Torre, de Microsoft, responsable del proyecto &#8216;Domain Oriented NLayered Architecture&#8217;. Quería hacer este comentario por tu referencia directa a nuestro trabajo.<br />
+Primeramente, decir, que estoy totalmente de acuerdo, DDD es mucho mas que patrones y Arquitectura, es una forma de afrontar el proyecto y la parte fundamental es el Modelado del Dominio. Pero eso lo hemos dicho innumerables veces en nuestra guía y también en la Home-Page de Codeplex done decimos «DDD is much more than this!» y explicamos por qué. Si se quiere saber qué es DDD, para eso tenemos desde hace años el libro de Eric Evans y otra literatura.<br />
+Sin embargo, cuando comenzamos este proyecto, precisamente lo que no había practicamente eran ejemplos y guía de implementación de patrones DDD, y eso UNICAMENTE es lo que quisimos hacer, llenar ese hueco de implementación de patrones.<br />
+Una anecdota que quiero contar, relacionado con la frase que dices de que nuestro proyecto no tiene NADA que ver con DDD&#8230;<br />
+Hace 2 semanas, a traves de IASA-Spain, hicimos una conferencia DDD y unos Workshops, con el propio ERIC EVANS y con UDI DAHAN. Después de un Workshop, hablando con Eric Evans de nuestra Guía de Arquitectura y patrones que haces referencia, le dijimos precisamente que le habíamos llamado «Domain Oriented» porque no cubrimos todo DDD, solo la parte de patrones e implementación en .NET, y me dijo: «Da igual, son patrones DDD y podríais e incluso deberíais haberle llamado Patrones DDD. No pasa nada!, es una parte complementaria con todo lo que yo explico.».<br />
+En definitiva, creo que deberíamos aclarar las cosas y ayudar de forma constructiva todo lo relacionado con DDD, mas que tachar de incorrecto el trabajo de los demas sin resaltar las cosas positivas, no crees? :-)<br />
+En cualquier caso, recalcar que estamos completamente de acuerdo, DDD no es mucho mas que implementación de patrones, pero al final, la gente que lee el libro de Eric Evans , llega un momento que dice, ok, pero ¿Como implemento este patrón en .NET?, y eso fué simplemente lo que que´ríamos hacer&#8230; :-)</p>
+<p>Gracias!<br />
+César.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-69">
+		<article id="comment-69" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-69"><time pubdate datetime="2011-11-22T11:34:58+01:00">
+					22 noviembre 2011 de 11:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola César,</p>
+<p>Yo creo que si has visto los comentarios que he intercambiado con Unai te habrás dado cuenta de que en realidad estamos de acuerdo en casi todo :-)</p>
+<p>De todas formas, de lo que hablo en el post es de:</p>
+<blockquote><p>arquitecturas complejas que no tienen nada que ver realmente con DDD</p></blockquote>
+<p>Y eso lo mantengo. De hecho lo que pongo en mi post es una imagen de eso, de la arquitectura. Como proyecto, repito lo que le he dicho a Unai, creo que cubre aspectos de DDD de una manera que puede resultar útil.</p>
+<p>En otro orden de cosas, enhorabuena por la conferencia del IASA, os quedó estupendamente.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-70">
+		<article id="comment-70" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-70"><time pubdate datetime="2011-11-22T19:13:48+01:00">
+					22 noviembre 2011 de 19:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Bueno, la Arquitectura que proponemos como punto de partida es simplemente la implementación de Capas propuestas por ERIC EVANS en una NLayered Architecture.<br />
+&#8211; Presentation Layer<br />
+&#8211; Application Layer<br />
+&#8211; Domain Layer<br />
+&#8211; Infrastructure Layer &amp; Data Persistence Layer<br />
+No hemos inventado algo nuevo-complejo, es la Arquitectura de Capas propuesta por ERIC EVANS en su libro DDD, pero traducido a tecnologías .NET, no hemos &#8216;reinventado la rueda&#8217; desde un punto de vista de Arquitectura. :-)<br />
+Cesar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-71">
+		<article id="comment-71" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-71"><time pubdate datetime="2011-11-22T22:12:55+01:00">
+					22 noviembre 2011 de 22:12					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>César, es verdad que Evans habla de todas esas capas, pero tal y como yo lo entiendo, no obliga a que cada capa hable sólo con la capa inmediatamente inferior, sino con cualquiera de las capas que tiene por debajo. </p>
+<p>Para mi esa es una diferencia importante entre una arquitectura DDD y la clásica arquitectura de N-capas. En el diagrama que aparece al principio del capítulo «Layered architecture» (<a href="http://ajlopez.wordpress.com/2008/09/12/layered-architecture-in-domain-driven-design/" rel="nofollow ugc">http://ajlopez.wordpress.com/2008/09/12/layered-architecture-in-domain-driven-design/</a>) se ve claramente que UI puede saltarse Application Layer para acceder a Domain, o Application saltarse Domain para acceder a Infrastructure. </p>
+<p>A mi es una de las cosas que me gustó de esa arquitectura, porque evitaba tener clases que no aportaban nada y sólo estaban ahí por rellenar el hueco entre capas y pasar la llamada de una capa a otra. Esto era algo muy frecuente en aplicaciones de 3 capas (como el ejemplo del Petshop), en las que para no acceder desde la capa de UI a la capa de DAL se pasaba por un BLL que muchas veces lo único que hacía era redirigir llamadas.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-73">
+		<article id="comment-73" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">pierre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-73"><time pubdate datetime="2011-11-24T11:53:32+01:00">
+					24 noviembre 2011 de 11:53					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Creo que la diferencia fundamental, es que en una arquitectura N-Layer-Clasica, la capa de dominio depende de la capa de infraestructura, mientras que en una arquitectura NLayer-DDD el dominio no depende de ninguna capa, lo que nos permite aislarnos de la infraestructura y centrarnos en el desarrollo del dominio de una forma mas agil y sin «contaminaciones».</p>
+<p>La guía no trata de explicar DDD, para esto está el libro de Eric Evans, sin embargo si trata de ilustrar cómo conseguir el aislamiento del domininio mediante el uso de tecnicas de IoC y el uso de un ORM  cómo Entity Framework 4.1.</p>
+<p>Sin embargo, si que creo que es importante que se haga más enfásis en que no es un libro de DDD para evitar malentendido. Por otro lado pienso que sería mas efectivo ilustrar los conceptos del Libro con un ejemplo de dominio mas complejo ( por ejemplo algo como <a href="http://dddsamplenet.codeplex.com/" rel="nofollow ugc">http://dddsamplenet.codeplex.com/</a><br />
+pero usando EF en lugar de NHibernate )</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-74">
+		<article id="comment-74" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-74"><time pubdate datetime="2011-11-24T11:58:54+01:00">
+					24 noviembre 2011 de 11:58					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Creo que no has visto bien nuestra Arquitectura. No es una NLayered tradicional.<br />
+&#8211; 1. Una NLayered tradicional tiene dependencias desde la capas superiores a las inferiores. Nuestra Arquitectura NLayered-DDD las dependencias van al final hacia la Domain Model Layer, porque es ahí donde están las Domain Entities e incluso los Contratos/Interfaces de los Repositories, aunque la propia implementación de los Repositories (clases) estén en Infrastructure. Todo eso son importantes Direfencias propuestas en DDD.<br />
+No son simplemente dependencias &#8216;hacia las capas inferiores&#8217;. Todo esto lo explico en el libro, comparando el approach tradicional con el DDD.  </p>
+<p>&#8211; 2. En nuestra arquitectura puedes llamar a otras capas, no solamente a la inferior, por ejemplo, puedes llamar desde la capa de Application (Application Services) a la capa de Data-Persistence (Repositories) sin pasar por la Capa de Domain Model Layer. Este simple ejemplo ya no cumple lo que dices de que &#8216;siempre se obliga a que cada capa hable solo con la inmediatamente inferior&#8217;.</p>
+<p>&#8211; 3.- Cuando Eric Evans habla de Infrastructure Layer, habla de cualquier tecnología/librería/framework, no solo de acceso a datos. Y en el caso de UI, el que acceda a Infrastructure también puede ser  porque esté, por ejemplo, haciendo uso de una librería gráfica, etc. Toda la orquestación a nivel de aplicación Eric deja muy claro que debe de hacerse en la Capa de Application, y no acoplar la Capa de Presentación con lógica de orquestación de aplicación, como dices.<br />
+Aunque para casos simples de consulta, también podría llegar a hacerse, llamar a Repositories por ejemplo desde una página ASP.NET MVC. Tampoco somos &#8216;talibanes&#8217; en ese respecto. Lo importante es ser consistente en todo el desarrollo, no cada vez de una forma.</p>
+<p>Lo importante de nuestra Guía y ejemplo es la propuesta de implementación de patrones DDD en .NET, que es solamente lo que queríamos hacer (no re-definir DDD) y lo que hemos hecho (propuesta de implementación de patrones DDD en .NET) es perfectamente complementario con DDD &#8216;como un todo&#8217;. Esto es lo que me confirmó el otro día personalmente Eric Evans. Incluso me dijo que podríamos haberlo llamado «DDD Patterns» y no hace falta descafeinarlo diciendo «Domain Oriented», aunque no cubramos muchos otros aspectos de DDD &#8216;como un todo&#8217;. Sigue siendo una parte complementaria en DDD, implementación én .NET.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-75">
+		<article id="comment-75" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">pierre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-75"><time pubdate datetime="2011-11-24T13:04:21+01:00">
+					24 noviembre 2011 de 13:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Jústamente lo que quería explicar es que no es una arquitectura nlayered tradicional y sí una nlayer-DDD, ya que ilustra cómo aislar el dominio del resto de capas mediante IoC y EF.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-76">
+		<article id="comment-76" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-76"><time pubdate datetime="2011-11-24T13:11:24+01:00">
+					24 noviembre 2011 de 13:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>El ejemplo que propones me parece más DDD, pero quizá se haga un poco duro para el que parte de cero. En ese sentido entiendo el compromiso que intenta alcanzar el ejemplo de Microsoft, aunque acabe con un dominio más anémico. </p>
+<p>Sobre lo de hacer más énfasis en que no es un libro de DDD, es un poco lo que pretendía decir con las (escasas) referencias a esos proyectos en mi post. Una cosa es la arquitectura y otra es DDD.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-77">
+		<article id="comment-77" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-77"><time pubdate datetime="2011-11-24T13:15:00+01:00">
+					24 noviembre 2011 de 13:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy completamente de acuerdo en que el uso de IoC ayuda a implementar DDD y en que no es una arquitectura nlayered tradicional.</p>
+<p>De todas formas, el tema de cambiar la dirección de la dependencia no es de Evans, es de Uncle Bob y es muy anterior a DDD (es de un artículo de Mayo del 96). De hecho se puede hacer arquiectura N-capas tradicional con inversión de dependencia y eso no lo convierte en DDD (y te lo digo porque, aunque ahora me avergüenze, lo he hecho :-).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-78">
+		<article id="comment-78" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-78"><time pubdate datetime="2011-11-24T13:42:14+01:00">
+					24 noviembre 2011 de 13:42					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Otros puntos que me parece importante recalcar:</p>
+<p>1.- Dices: «De todas formas, de lo que hablo en el post es de: &#8216;Arquitecturas complejas que no tienen nada que ver realmente con DDD<br />
+&#8216; y eso lo mantengo».<br />
+Bueno, no estoy de acuerdo, no puedes decir que una arquitectura compleja no tiene nada que ver con DDD, porque la Arquitectura y el Diseño forma también parte de DDD. Si no, Eric Evans no hablaría nada de NLayered, Patrones, Capas, etc.</p>
+<p>Adicionalmente, la complejidad es algo inherente en los proyectos y arquitecturas DDD, porque un objetivo fundamental es aislar y proteger el código de la Domain Model Layer del resto de código de infraestructura y tecnologías, eso añade complejidad (por abstracciones necesarias para desacoplar elementos, etc.), así como la complejidad propia del Dominio.</p>
+<p>Curiosamente, el libro de Eric Evans se llama «Tackling Complexity in the Heart of Software». &#8211;&gt; &#8216;Complexity&#8217; y se habla también mucho de Arquitectura&#8230;, curioso que digas &#8216;Arquitecturas complejas que no tienen nada que ver realmente con DDD&#8217;&#8230;</p>
+<p>Una cosa es que dijeras &#8216;DDD es mucho mas que Arquitectura&#8217; (100% de acuerdo), y otra que &#8216;la Arquitectura no tenga nada que ver con DDD&#8217;.</p>
+<p>2.-Tanto en nuestro libro &#8216;Domain Oriented N-Layered Architecture&#8217; como en la página home de CODEPLEX decimos que DDD no es solo Arquitectura y diseño, pero que nosotros nos hemos centrado solo en eso, porque el resto ya está bien definido por los promotores originales de DDD (Eric Evans y otros). ¿Qué parte de lo que decimos no lo ves así?, mira lo que decimos:</p>
+<p><a href="http://microsoftnlayerapp.codeplex.com/" rel="nofollow ugc">http://microsoftnlayerapp.codeplex.com/</a><br />
+«DDD IS MUCH MORE THAN THIS!<br />
+&#8230;, and this is extremely important, DDD is on the other hand, much more than just a proposed Architecture and patterns. DDD is a way to build apps, a way for the team, to work in projects. According to DDD, the project’s team should work in a specific way, should have direct communication with the Domain Experts (the customer, in many cases). The team should use an ‘Ubiquitous Language’ which has to be the same language/terms used by the domain experts, etc. But, all those ways to work are not part of this Sample-App, because it is process, kind of ALM, so, if you want to really “Do DDD”, you’ll need to read Eric-Evans&#8217; book or any other DDD book where they talk about the DDD process, about the project and the team, not just the Architecture and patterns. Architecture and patterns are just a small part of DDD, but, in this case those are the points we are showing here (DDD architecture and patterns). But we want to highlight that DDD is much more than Architecture and design patterns.»</p>
+<p>y..</p>
+<p>«Reminding what DDD is and what this project is NOT covering!</p>
+<p>Domain Driven Design is much more than Architecture and Design Patterns. It implies a specific way of working for development teams and their relationship with Domain experts, a good identification of Domain Model elements (Aggregates/Entity Model, etc.) based on the Ubiquitous Language for every Model we can have, identification of Bounded-Contexts related to models, and a long etcetera related to the application life cycle that we are not covering (only very slightly in our Guidance). There were already excellent literature and knowledge about that before this project was started, coming from people like Eric Evans, Martin Fowler, Udi Dahan, Greg Young, etc.<br />
+Our guidance and sample application focuses only on about a 20% of DDD subjects, we do NOT intend to teach DDD as a whole», we are only filling a gap we saw regarding implementing most useful Domain Oriented design patterns with the latest version of .NET.»</p>
+<p>NUNCA hemos dicho que DDD sea solo Arquitectura, hemos dicho explícitamente todo lo contrario.</p>
+<p>Lo que dices, «DDD es un proceso, no una arquitectura», es en parte una frase que es una falacia, porque la Arquitectura también forma parte de DDD, pero si sería correcto decir que &#8216;DDD es mucho mas&#8217;.<br />
+La frase debería ser «DDD es un Proceso, es mucho mas que una Arquitectura», y eso es precisamente lo que hemos repetido en muchas ocasiones.</p>
+<p>Pero decir esa frase, y tachar nuestro diagrama como si no fuera parte de DDD o no tuviera nada que ver con DDD, es en lo que no estoy de acuerdo. Es un trabajo complementario a la teoróa de DDD. Cada uno de nuestros capítulos están basados en las definiciones teoricas de Eric Evans, con muchas referencias a sus definiciones lógicas y luego proponiendo implementaciones en .NET. Pero decir que no tiene nada que ver con DDD, se cae por su propio peso. El propio Eric Evans comentaba el otro día que &#8216;la implementación de patrones DDD, también forma parte de DDD&#8217;, es una parte. </p>
+<p>Quiero también agradecerte tu feedback, pero creo que es diferente un feedback para mejorar algo, constructivo, bien en tu blog o bien en el site público de CODEPLEX Open Source, a hacer referencia a ello tachando nuestro diagrama de Arquitectura, diciendo que no tiene nada que ver con DDD e incluso dando a entender que es un mal trabajo.<br />
+Lo siento, pero no estoy de acuerdo, nuestro trabajo es complementario en una parte de DDD (implementación de patrones en .NET), lo cual era un gran vacío en el momento que nosotros hicimos ese trabajo.</p>
+<p>Nunca hemos pretendido definir DDD en su globalidad, para eso está la excelente literatura de Eric Evans y otros autores, anterior a nuestro trabajo y a la que referenciamos constantemente. Ellos definieron la parte importante de DDD, el trabajo que hemos hecho es solo de patrones y arquitectura. No es lo mas importante en DDD, cierto, pero algo que al final hay que hacer e implementar y había un vacío en eso (implementación de patrones DDD en .NET) en la comunidad.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-79">
+		<article id="comment-79" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-79"><time pubdate datetime="2011-11-24T13:50:44+01:00">
+					24 noviembre 2011 de 13:50					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Por el hecho de que no abarcamos todo DDD, por eso decidimos titular al libro «Domain Oriented NLayered Architecture», sin el acrónimo DDD. Pero como comentaba antes, el propio Eric Evans me comentó que debiamos haberlo titulado con el acrónimo DDD, porque aunque no abarque todo DDD, la implementación de patrones SI forma parte de DDD. Que podría llamarse «DDD Architecture and .NET Patterns implementation».</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-80">
+		<article id="comment-80" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/837d687db28c4dd34144378356dcdc86?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">pierre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-80"><time pubdate datetime="2011-11-24T13:59:35+01:00">
+					24 noviembre 2011 de 13:59					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Por supuesto que los patrones de Dependency Injection(DI) no son exclusivos de DDD; pero digamos que para facilitar el DDD es importante que el código de dominio evolucione de forma independiente al resto de código de infraestructura ( vease: código afin a una tecnologia ) y para esto ayudan mucho estos patrones.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-81">
+		<article id="comment-81" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-81"><time pubdate datetime="2011-11-24T14:58:55+01:00">
+					24 noviembre 2011 de 14:58					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>César, creo que lo vemos de manera diferente (cosa que me parece bien y considero algo positivo) y estamos discutiendo en círculos.</p>
+<p>De todas formas, si lees los primeros comentarios entre Unai y yo, me parece que la postura es mucho más cercana de lo que pueden aparentar estos últimos comentarios.</p>
+<p>En cualquier caso, he actualizado el post para redirigir a estos comentarios y que todo el mundo pueda leer vuestra opinión porque me parece importante que así sea.</p>
+<p>Por otra parte, sobre hacer una crítica constructiva «bien en tu blog o bien en el site público de CODEPLEX Open Source», no hubiera tenido ningún problema, pero fue Unai el que me pidió tratarlo por email, me pareció buena idea, y así lo hice. Creo que estás copiado en todos esos correos, si quieres ampliar algo sobre eso estaré encantado de hablarlo. </p>
+<p>Siento que lo veas como un ataque directo al proyecto «Microsoft Spain &#8211; Domain Oriented N-Layered .NET 4.0 Sample App» porque no es esa mi intención. De hecho también enlazo otro artículo al principo del post.</p>
+<p>Lo que trato de hacer es explicar que DDD es «MUCH MORE THAN THIS», por usar vuestras palabras. Mi intención era hablar de DDD fuera del contexto de la arquitectura y la implementación, recalcar la importancia de DDD fuera del plano «puramente técnológico» y contestar a una pregunta que me he hecho muchas veces, ¿se puede hacer ddd sin un experto de dominio?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-82">
+		<article id="comment-82" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/131dd8d69b3ca5780fe7de8cfa4e1dfa?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://geeks.ms/blogs/unai" class="url" rel="ugc external nofollow">Unai</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-82"><time pubdate datetime="2011-11-24T16:14:29+01:00">
+					24 noviembre 2011 de 16:14					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En el fondo yo creo que casi todos estamos de acuerdo, aunque el matiz de tachar la foto puede que sea lo que le «mosquea» a Cesar porque puede parecer lo que no es, algo que aclaras también en los comentarios, pero a simple vista no me parece&#8230;<br />
+Sobre el feedback, efectivamente el correo me pareció buena idea, es más agil, de hecho, cuando suba algún cambio seguramente hare alguna reflexión sobr el mismo&#8230;</p>
+<p>Unai</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-83">
+		<article id="comment-83" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-83"><time pubdate datetime="2011-11-24T16:43:59+01:00">
+					24 noviembre 2011 de 16:43					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Con lo fácil que hubiera sido empezar por ahí&#8230; :-) </p>
+<p>A ver qué tal ahora.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-84">
+		<article id="comment-84" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e58f2727f49ef3410ff517abf0161683?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Cesar de la Torre</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-84"><time pubdate datetime="2011-11-25T10:54:24+01:00">
+					25 noviembre 2011 de 10:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy de acuerdo, Juanma, completamente con la frase «¿se puede hacer ddd sin un experto de dominio?», y que hace falta un experto del Dominio para hacer DDD, es mas, añadiría que hace falta siempre un modelo complejo y real así como por lo tanto, un proyecto real. Por eso, nuestra Guía de Arquitectura no cubre todo DDD, es solo una parte complementaria y por eso siempre hemos dicho que DDD es mucho mas, hace falta un proyecto real y un experto en el dominio. Nuestra iniciativa es solo para una parte que al final también tienes que hacer, la implementación de patrones.<br />
+Y si, tiene razón Unai, me mosqueaba la imagen tachada, alguien que lo leyera por encima podría entender que &#8216;se está tachando negativamente&#8217;. Por otro lado, también decir que es bueno recalcar que DDD es mucho mas que Arquitectura y patrones, nosotros lo hacemos siempre, también por eso quise traer a Eric Evans a la confenrencia DDD, para que se viera DDD en toda su extensión.<br />
+Este post, me parece bueno y acertado en su conjunto, simplemente no estaba de acuerdo con matices de &#8216;no tiene nada que ver&#8217;versus &#8216;es mucho mas que solo arquitectura y patrones&#8217;. Pero vamos, creo que en un 95% estamos de acuerdo. :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1625">
+		<article id="comment-1625" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/37325f623dcca9f4f47d06ed759061bb?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/37325f623dcca9f4f47d06ed759061bb?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">hal</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-1625"><time pubdate datetime="2012-11-20T17:29:37+01:00">
+					20 noviembre 2012 de 17:29					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy empezando con DDD y estoy de acuerdo con los 2 puntos de vista aquí propuestos, por un lado el autor del blog esta en lo cierto que la arquiectura de Microsoft es demasiado compleja para un proyecto medio, pero no tiene razón cuando comenta que es una arquitectura N-Layered ya que el dominio no depende de niguna otra capa y estaría en el corazon de una arquitectura tipo onion. De todas formas este proyecto de microsoft como ellos mismos han dicho es una guía didáctica para introducir a la gente del mundo .NET en los patrones DDD, quiero dar mi agradecimiento pq he estado estudiando el código y a partir de él he extraido una arquitectura totalmente válida para mi proyecto.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1626">
+		<article id="comment-1626" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-1626"><time pubdate datetime="2012-11-20T17:42:37+01:00">
+					20 noviembre 2012 de 17:42					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>hal,</p>
+<p>Gracias por dejar tu opinión y me alegro de que te haya sido de utilidad la arquitectura de Microsoft.</p>
+<p>En cuanto a que sea una arquitectura N-Layered, no es algo que diga yo. Es el nombre del proyecto, del libro y además lo defiende César en los comentarios más arriba. </p>
+<p>Desde mi punto de vista, determinar si una arquitectura es N-Layered es una cuestión de si tiene capas o no, no de la manera en que dependen unas capas de otras. En el caso de la arquitectura de ejemplo, esas capas existen y además de forma muy rígida (para bien o para mal, según lo quieras ver).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1976">
+		<article id="comment-1976" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2fdc225228c4eac5ff1e739be1ebbff9?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2fdc225228c4eac5ff1e739be1ebbff9?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Pedro Avila</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-1976"><time pubdate datetime="2013-05-18T18:22:15+01:00">
+					18 mayo 2013 de 18:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola a todos, respecto al comentario del post he leído toda la conversación y me hago una pregunta, los expertos del dominio acuden a los proveedores de software para que le diseñen una solución de negocio, que le permita resolver los problemas que tienen en su negocio(empresa). En que caso se puede hacer una solución de negocio sin el experto del dominio? esta es mi pregunta.<br />
+Ahora desde mi punto de vista una solución de negocio se concibe desde el diseño de la solución de negocio. En mi caso Diagrama(casos de uso, actividad y clases). En el diagrama de clases ya se obtiene las reglas de negocio y el modelo conceptual para poder desarrollar la base de datos. El mundo real se lleva al modelo conceptual y se diseña la solución.<br />
+Una ves que se tiene hecho eso recién se puede ver que tecnologías usar. Si es una arquitectura 3 capas clásico o un n-capas DDD. En mi experiencia personal e usado DDD de los amigos de Microsoft iberica y solo he usado lo que necesitaba lo utilice para un sistema de un bar y me fue muy bien y estoy agradecido con ellos por su trabajo. Las tecnologías se usan deacuerdo a la envergadura del proyecto. Ojo que para el sistema del bar solo necesitaba un tres capas clásico, pero si se usa el DDD se puede usar lo que se necesite y listo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1977">
+		<article id="comment-1977" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2fdc225228c4eac5ff1e739be1ebbff9?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2fdc225228c4eac5ff1e739be1ebbff9?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Pedro Avila</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-1977"><time pubdate datetime="2013-05-18T18:30:05+01:00">
+					18 mayo 2013 de 18:30					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>El concepto básico de capas es ordenar el código, teniendo bien claro la responsabilidad de cada capa. Presentación, ingreso de datos y devolver información, mensajes, Lógica, llamado a métodos, AccesoDatos, persistencia contra la base de datos, Entidades, mapeo a las tablas.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-2998">
+		<article id="comment-2998" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/60a1f5c87102b365e587a168a2b72827?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/60a1f5c87102b365e587a168a2b72827?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Limber</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-2998"><time pubdate datetime="2014-07-28T22:58:59+01:00">
+					28 julio 2014 de 22:58					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy, empezando en esto del dominio, pero creo que sali mas confundido que antes. Ruego porfavor ayudarme a iniciar en este tipo de arquitecturas con algunas bibliografias desde cero. Gracias de antemano</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-2999">
+		<article id="comment-2999" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-2999"><time pubdate datetime="2014-07-29T09:55:12+01:00">
+					29 julio 2014 de 09:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Limber,</p>
+<p>La bibliografía básica de este tema es «Domain-Driven Design: Tackling Complexity in the Heart of Software» de Eric Evans. Es el libro que lo empezó todo. </p>
+<p>Tienes un libro con un enfoque más práctico (aunque las prácticas que aplica pueden ser discutibles) que es «Applying Domain-Driven Design and Patterns: With Examples in C# and .NET: Using .Net» de Jimmy Nilsson.</p>
+<p>Ambos me los he leído y me parecieron útiles. Hay otro libro que no me he leído (todavía) pero que tiene buena pinta: «Implementing Domain-Driven Design» de Vaughn Vernon.</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4304">
+		<article id="comment-4304" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/091b361d15a32c8c7e45e195b6388b58?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/091b361d15a32c8c7e45e195b6388b58?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Alfonso Vargas</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-4304"><time pubdate datetime="2017-01-26T04:44:36+01:00">
+					26 enero 2017 de 04:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola qué otros blogs lees sobre DDD?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4305">
+		<article id="comment-4305" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-4305"><time pubdate datetime="2017-01-26T10:38:43+01:00">
+					26 enero 2017 de 10:38					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola,</p>
+<p>La verdad es que hace tiempo que no leo sobre el tema (supongo que pasó el hype, la gente se puso a escribir de CQRS, luego de contenedores, después de liberías de javascript y ahora de lenguajes funcionales), pero en el blog de Jimmy Bogard (<a href="https://lostechies.com/jimmybogard/author/jimmybogard/" rel="nofollow ugc">https://lostechies.com/jimmybogard/author/jimmybogard/</a>) había bastante material interesante.</p>
+<p>Un saludo,</p>
+<p>Juanma</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-6312">
+		<article id="comment-6312" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/78a945ac44eedd99d1c1aab5461196ce?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/78a945ac44eedd99d1c1aab5461196ce?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">dddborat</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2011/11/%c2%bfse-puede-hacer-ddd-sin-un-experto-en-el-dominio/#comment-6312"><time pubdate datetime="2019-03-24T23:21:41+01:00">
+					24 marzo 2019 de 23:21					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Juanma, el tiempo te dió la razón :)<br />
+Lamentable el libro negro DDD de microsoft.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

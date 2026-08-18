@@ -1,0 +1,798 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Empaquetar aplicaciones HTML5 con PhoneGap/Cordova | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-1317 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-1317" class="post-1317 post type-post status-publish format-standard hentry category-dev tag-android tag-cordova tag-javascript tag-mobile tag-phonegap">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Empaquetar aplicaciones HTML5 con PhoneGap/Cordova</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 12 marzo 2012</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/android/" rel="tag">android</a>, <a href="/tag/cordova/" rel="tag">cordova</a>, <a href="/tag/javascript/" rel="tag">javascript</a>, <a href="/tag/mobile/" rel="tag">mobile</a>, <a href="/tag/phonegap/" rel="tag">phonegap</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Llevaba tiempo queriendo probar <a href="http://phonegap.com/" target="_blank">PhoneGap</a> y resulta que para cuando tengo tiempo de echarle un vistazo ya no se llama PhoneGap, sino que ahora se llama Cordova (sí, con “V”) y está dentro la incubadora de proyectos de la <a href="http://incubator.apache.org/cordova/" target="_blank">Apache Software Fundation</a>. </p>
+<p>PhoneGap es un proyecto que sirve para convertir aplicaciones desarrolladas con HTML+Javascript+CSS en aplicaciones nativas para dispositivos móviles. Bueno, realmente es mentira. Lo que hace es <strong>empaquetar aplicaciones web dentro de una aplicación nativa</strong> (Android/iOS/BlackBerry/WP7/&#8230;) para que <em>parezca</em> que son aplicaciones nativas. </p>
+<p>Además permite <strong>acceder desde Javascript a funcionalidades del dispositivo</strong> que, generalmente, no son accesibles por cuestiones de seguridad, como puede ser la cámara, la lista de contactos, el acelerómetro, etc.</p>
+<p>Prepararlo todo para poder hacer una prueba con Android me ha llevado un rato, así que como referencia para <em>mi yo futuro</em>, aquí dejo esta miniguía de como montarlo sobre LinuxMint (supongo que los pasos serán similares con cualquier distribución basada en Ubuntu y no serán muy distintos en Windows).</p>
+<h3>Instalar Eclipse</h3>
+<p>Aunque todo esto se puede hacer sin Eclipse, ya que empezamos a jugar con Android no está de más tenerlo instalado. Para ello, lo más sencillo es bajarse <strong>Eclipse Classic</strong> desde la <a href="http://www.eclipse.org/downloads/" target="_blank">página de descargas de Eclipse</a>.</p>
+<p>La instalación es muy sencilla. Basta con descomprimir el fichero que hemos descargado. En la carpeta resultante encontremos el fichero eclipse, que es el que deberemos ejecutar para arrancar Eclipse.</p>
+<h3>Instalar Android SDK y el plugin para Eclipse</h3>
+<p>Para instalar el SDK de Android puedes seguir esta <a href="http://developer.android.com/sdk/installing.html" target="_blank">guía de instalación</a>. Hay que descargar el fichero con la versión del SDK que queramos utilizar, en mi caso usé <a href="http://developer.android.com/sdk/index.html" target="_blank">android-sdk_r16-linux.tgz</a> y descomprimirlo.</p>
+<p>Tras instalar el SDK debemos elegir <strong>para qué plataformas (versiones de Android) queremos desarrollar</strong>. Para eso ejecutamos <code>tools/android</code> y accederemos al Android SDK Manager, donde habrá que seleccionar e instalar los paquetes Andoid SDK Tools, Android SDK Platform-Tools y uno o más grupos de paquetes correspondientes a las versiones de android que vayamos a utilizar. </p>
+<p>A continuación, es necesario instalar el plugin ADT para Eclipse, cosa que podemos hacer fácilmente siguiendo <a href="http://developer.android.com/sdk/installing.html#InstallingADT" target="_blank">estos pasos</a>.</p>
+<p><strong>OJO</strong>: Si tu sistema operativo es de 64bits, tendrás que instalar las librerías de 32bits o si no Eclipse on será capaz de encontrar ciertas librerías. Para ello, desde una consola hay que ejecutar:</p>
+<pre>sudo apt-get install ia32-libs</pre>
+<h3>Instalar PhoneGap/Cordova</h3>
+<p>Ahora tienes dos opciones. Puedes usar la última versión estable de PhoneGap (1.5.0) que encontrarás ya compilada en la <a href="http://phonegap.com/" target="_blank">página de PhoneGap</a> o compilar directamente los fuentes de Cordova que encontrarás en <a href="https://github.com/callback/phonegap" target="_blank">su repositorio de github</a> (hasta que se complete la migración de PhoneGap a la incubadora de la Apache Software Fundation).</p>
+<p>Compilar desde los fuentes es mucho más emocionante y divertido, y además te da acceso a algunas herramientas adicionales para simplificar la creación de proyectos, pero también es algo más complicado, así que de momento nos vamos a quedar con la versión ya compilada. Si alguien tiene interés en saber cómo se compilan los fuentes paso a paso, que me lo diga.</p>
+<p>Siguiendo el camino fácil de descargar la versión ya compilada, nos encontraremos con un fichero comprimido que incluye las librerías de PhoneGap para todos los sistemas que soporta. Dentro de la carpeta android veremos, además de un proyecto de ejemplo y una carpeta con los ficheros de configuración de PhoneGap, los dos ficheros fundamentales de toda esta historia:</p>
+<ul>
+<li><code>cordova-1.5.0.jar</code>: Este fichero contiene la parte java de cordova que es la que nos permitirá crear la aplicación de android en la que encapsularemos la aplicación web. Entre otras cosas, tiene la implementación de las funcionalidades propias del dispositivo a las que luego podemos acceder desde el código Javascript de la aplicación web.</li>
+<li><code>cordova-1.5.0.js</code>: Es la parte javascript de cordova, donde tendremos APIs para acceder a las características propias del dispositivo.</li>
+</ul>
+<h3>Creando una aplicación</h3>
+<p>En la documentación de PhoneGap se incluye una <a href="http://phonegap.com/start#android" target="_blank">guía paso a paso</a> bastante buena de cómo hacer esto, así que no me extenderé demasiado.</p>
+<p>La idea es crear un nuevo proyecto de Android en Eclipse y luego ajustar algunas cosillas:</p>
+<ul>
+<li><strong>Añadir la librería cordova-1.5.0.jar</strong> al proyecto y referenciarla.</li>
+<li><strong>Añadir los ficheros de configuración de PhoneGap</strong> copiando a la carpeta <code>/res</code> del proyecto la carpeta <code>/xml</code> incluida en la descarga de PhoneGap en <code>./lib/android/xml</code></li>
+<li><strong>Cambiar el <code>Activity</code> principal</strong> de la aplicación (para los que venimos de .NET, podríamos asimilarlo al <code>Form</code> inicial de una aplicación WinForms) para que en lugar de ser una clase derivada de <code>Activity</code>, sea una clase derivada de <code>DroidGap</code>.</li>
+<p>DroidGap nos ofrece un <code>Activity</code>  listo para alojar una página web y actuará como “contenedor” de nuestra aplicación html. Podemos establecer la página a cargar usando el método <code>loadUrl</code>. Al final debería quedarnos algo parecido a esto:</p>
+<pre class="brush:java">
+public class SampleActivity extends DroidGap
+{
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        super.loadUrl("file:///android_asset/www/index.html");
+    }
+}
+</pre>
+<p>Si tienes suerte y no intentas hacer nada demasiado complicado, este debería ser todo el código Java que vas a ver :-)</li>
+<li><strong>Modificar el fichero <code>AndroidManifest.xml</code></strong> para declarar el <code>Activity</code> que acabamos de crear e indicar los permisos que requiere la aplicación. Si no sabes muy bien cómo hacer esto, lo más sencillo es que copies el que aparece en la <a href="http://phonegap.com/start#android" target="_blank">guía de PhoneGap</a>.</li>
+<li><strong>Añadir la página web</strong>. Todo lo que hemos hecho hasta ahora ha sido para preparar la aplicación que servirá de contenedor para la aplicación web.
+<p>Para añadir la aplicación web hay que crear la carpeta <code>/assets</code> y dentro de ella <code>/assets/www</code> en el proyecto de Eclipse. Esa carpeta, <code>/assets/www</code> será la raíz del sitio web y dentro de ella podremos colocar los ficheros html, js, css, imágenes, etc., que formen la aplicación web. Aquí podremos incluir el fichero <code>cordova-1.5.0.js</code> para poder acceder desde la página web a las APIs específicas de PhoneGap.</li>
+</ul>
+<p>Después de seguir estos pasos, ya podemos compilar el proyecto y desplegarlo sobre el emulador o sobre un teléfono físico. </p>
+<p>Para hacer cosas “avanzadas” como tocar el GPS o el acelerómetro, en la página de PhoneGap podéis encontrar información detallada sobre las <a href="http://docs.phonegap.com/en/1.5.0/index.html" target="_blank">APIs disponibles</a>.</p>
+<h3>Conclusiones</h3>
+<p>Poder encapsular aplicaciones html como si fueran aplicaciones nativas me parece una idea interesante. Es cómodo poder aplicar las mismas técnicas de desarrollo a aplicaciones para Android, iOS, WP7, etc., aunque también es cierto que tiene sus problemas. </p>
+<p>El rendimiento seguramente no sea todo lo bueno que a uno le gustaría y la experiencia de usuario está más limitada (problemas con animaciones en las transiciones de pantalla, peor soporte para multitouch), pero PhoneGap/Cordova no deja de ser una opción a tener en cuenta para cierto tipo de aplicaciones.</p>
+<p>Si quieres profundizar el tema, puedes consultar el resto de <a href="/tag/cordova/" target="_blank">entradas sobre PhoneGap/Cordova</a> que he ido escribiendo. Si eres más de libros, el libro que me más me ha gustado sobre el tema (introductorio, tampoco esperes un nivel supercomplicado de seguir), ha sido <strong><a href="http://www.amazon.es/gp/product/0134048199/ref=as_li_tf_tl?ie=UTF8&#038;camp=3626&#038;creative=24790&#038;creativeASIN=0134048199&#038;linkCode=as2&#038;tag=koalite-21" target="_blank">Apache Cordova 4 Programming</a><img decoding="async" src="http://ir-es.amazon-adsystem.com/e/ir?t=koalite-21&#038;l=as2&#038;o=30&#038;a=0134048199" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></strong>, merece la pena echarle un vistazo si quieres empezar con esto en serio.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2012/03/usa-property-injection-para-dependencias-ambientales/" rel="prev"><i class="icon-arrow-left"></i> Usa <em>property injection</em> para dependencias ambientales</a></div>		<div class="nav-next"><a href="/2012/03/extender-phonegapcordova-creando-un-plugin/" rel="next">Extender PhoneGap/Cordova creando un plugin <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-1317 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			21 comentarios en &ldquo;<span>Empaquetar aplicaciones HTML5 con PhoneGap/Cordova</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="post pingback">
+		<p>Pingback: <a href="/2012/03/weinre-firebug-para-moviles/" class="url" rel="ugc">weinre: el Firebug para móviles &laquo; Koalite&#039;s blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-694">
+		<article id="comment-694" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/5425896ad38fcd27dd2c3f7406069fa4?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/5425896ad38fcd27dd2c3f7406069fa4?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Aitor</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-694"><time pubdate datetime="2012-05-23T10:15:28+01:00">
+					23 mayo 2012 de 10:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy útil, lo he probado y funciona perfectamente. Me ha hecho falta instalar el API 8 (android 2.2, mi móvil es antiguo), pero tras unos ajustes, todo funciona. Gracias!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1503">
+		<article id="comment-1503" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/acaa5ab9eca550b7c0c0cb0a58a4e4a7?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/acaa5ab9eca550b7c0c0cb0a58a4e4a7?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">adrian</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1503"><time pubdate datetime="2012-09-07T11:34:00+01:00">
+					7 septiembre 2012 de 11:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy interesante, has probado lo mismo para disp. BlackBerry?</p>
+<p>gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1504">
+		<article id="comment-1504" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1504"><time pubdate datetime="2012-09-07T13:04:04+01:00">
+					7 septiembre 2012 de 13:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>La verdad es que no, pero según la documentación debería funcionar.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1521">
+		<article id="comment-1521" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/179dd7f39184efb2054b133f531e9b57?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/179dd7f39184efb2054b133f531e9b57?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">junior</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1521"><time pubdate datetime="2012-09-20T21:40:03+01:00">
+					20 septiembre 2012 de 21:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>muy buen muy interesante, ahora les pido una ayuda ya yo cree una aplicación web pero solo la puse a correr en el emulador quiero saber como puedo hacerla correr en mi teléfono , hay que hacer algún instalador ? como se hace ? agradecería su ayuda</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1522">
+		<article id="comment-1522" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1522"><time pubdate datetime="2012-09-21T08:57:50+01:00">
+					21 septiembre 2012 de 08:57					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Depende de la plataforma que estés usando. Si es android, en la carpeta de resultados del proyecto encontrarás un archivo con extension .apk que contiene la aplicación. Sólo necesitas copiar ese fichero a tu teléfono y luego en el teléfono ejecutarlo para instalar tu aplicación.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1523">
+		<article id="comment-1523" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/bbfc470fe090b2522e5a95c54aef05d6?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/bbfc470fe090b2522e5a95c54aef05d6?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Jose</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1523"><time pubdate datetime="2012-09-23T17:28:02+01:00">
+					23 septiembre 2012 de 17:28					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola a todos y gracias por adelantado.</p>
+<p>Mi pregunta es sencilla, he desarrollado una app en html5, cuando la cree usando el Built de Cordova, ¿qué pasará cuando gire el iPad? Puedo crear ilustraciones diferentes para sendas orientaciones, y si es así, cómo?<br />
+Estoy un poco perdido y no quiero pagarle a Adobe 400€ para crear una App.</p>
+<p>Un saludo</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1527">
+		<article id="comment-1527" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1527"><time pubdate datetime="2012-09-24T08:06:11+01:00">
+					24 septiembre 2012 de 08:06					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Cuando gires el iPad, tu aplicación Cordova girará igual que si fuese una página web y reajustará el layout al nuevo tamaño de pantalla. Si quieres mostrar distinto contenido o formato en función de la orientación, puedes recurrir a cualquiera de las técnicas que usarías en una aplicación web, como por ejemplo usar CSS con media queries o <a href="/2012/01/diseno-web-sensible-y-grids-css/" rel="nofollow">responsive design</a>.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1538">
+		<article id="comment-1538" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/179dd7f39184efb2054b133f531e9b57?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/179dd7f39184efb2054b133f531e9b57?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">junior</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1538"><time pubdate datetime="2012-10-01T16:41:28+01:00">
+					1 octubre 2012 de 16:41					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>gracias por la ayuda Juanma ahora tengo otra inquietud. la aplicación funciona de manera normal si la busco en el buscador pero si le genero el .apk y lo instalo empieza bien pero cuando quiero iniciar sesión me arroja un error como si no reconociera el código php y para hacer este llamado uso ajax, como mencione en el buscador funciona pero cuando lo instalo como aplicación nativa me arroja un error en las variables de sesión he leído y parece que tengo que tener un servidor es eso cierto ???? no funciona solo de manera local en mi red ????</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-1541">
+		<article id="comment-1541" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1541"><time pubdate datetime="2012-10-01T17:12:47+01:00">
+					1 octubre 2012 de 17:12					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No puedes ejecutar código PHP en android (bueno, al menos, no con esta técnica). La idea es que en android tienes la parte de la aplicación desarrollada con HTML+JS+CSS. Lo normal será que la parte PHP resida en un servidor externo al que accedas a través de AJAX para intercambiar datos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-1638">
+		<article id="comment-1638" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f5260c6bf028cbdcf390d1d635525f4b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f5260c6bf028cbdcf390d1d635525f4b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://ww.cloudgear.es" class="url" rel="ugc external nofollow">Carlos</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1638"><time pubdate datetime="2012-12-02T23:40:34+01:00">
+					2 diciembre 2012 de 23:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No encuentro el modo de desarrollar para aplicaciones con plataforma menor a 4.2&#8230; Cuando creo el proyecto y lo cargo con eclipse me sale la X roja y en la documentacion de la pagina de developer de android me dice que cuando pase esto escoja a ultima api disponible, pero esto me priva de desarrollar para plataforma 2.2 por ejemplo&#8230;</p>
+<p>Alguna ayuda?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-1984">
+		<article id="comment-1984" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/e630135351a330b1e157e36eed2ea489?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/e630135351a330b1e157e36eed2ea489?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Frank Dávila</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1984"><time pubdate datetime="2013-05-22T20:58:11+01:00">
+					22 mayo 2013 de 20:58					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>y se puede llevar una aplicacion de linux a android? como jdownloader, quiero tambien llevar una aplicacion de android a ubuntu sin virtualizar, que sea nativa, se puede?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-1985">
+		<article id="comment-1985" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-1985"><time pubdate datetime="2013-05-23T06:59:54+01:00">
+					23 mayo 2013 de 06:59					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Una aplicación nativa no se puede pasa directamente de Linux a android o viceversa. </p>
+<p>Si es una aplicación web, puedes empaquetarla para ejecutarla en ambos entornos, aunque lo lógico sería tener en cuenta las diferentes características de cada uno (tamaño de pantalla, tipo de interfaz -táctil VS teclado/ratón-, memoria, velocidad, etc.).</p>
+<p>También puedes usar lenguajes como C# (a través de mono/monodroid) o Java para hacer aplicaciones que compartan gran parte del código, aunque la capa de presentación tendrás que adecuarla a cada plataforma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2047">
+		<article id="comment-2047" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/76a50e083c52ff11ed5e90775387a05b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/76a50e083c52ff11ed5e90775387a05b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">David</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-2047"><time pubdate datetime="2013-08-02T14:53:20+01:00">
+					2 agosto 2013 de 14:53					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muchas gracais por esta info, está perfectamente explicado todo.</p>
+<p>Ya he empaquetado aplicaciones android usando PhoneGap/Cordova pero ahora necesito empaquetar para BlackBerry y me pregunto si el metodo de empaquetamiento es el mismo que android solo que cambiando el SDK de android por el propio SDK de BB, y el ADT de android o es mas complejo?<br />
+Gracias, un saludo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-2048">
+		<article id="comment-2048" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-2048"><time pubdate datetime="2013-08-03T11:15:32+01:00">
+					3 agosto 2013 de 11:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Pues me temo que no tengo ni idea, pero no creo que sea muy diferente al proceso con android.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-2049">
+		<article id="comment-2049" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b25bc1b7b240885051af00347235d7d1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b25bc1b7b240885051af00347235d7d1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">gabriel</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-2049"><time pubdate datetime="2013-08-03T16:53:01+01:00">
+					3 agosto 2013 de 16:53					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>que tal, buen post, oye, estoy aprendiendo a utilizar cordova para crear aplicaciones, pero no se como añadir el sdk de android  al repositorio , podrías decirme como , gracias</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3115">
+		<article id="comment-3115" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/35ab58fef8ff95b5c5fa05a1a71bc60d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/35ab58fef8ff95b5c5fa05a1a71bc60d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://pensandoenlaweb.com/" class="url" rel="ugc external nofollow">Ignacio Recinos</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-3115"><time pubdate datetime="2014-12-05T08:55:16+01:00">
+					5 diciembre 2014 de 08:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En realidad muy bueno, pero si es un poco tardado al hacer peticiones, ahora me encuentro tratando de implementar algo más nativo en android, sobre un website, saludos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3322">
+		<article id="comment-3322" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d580d2adee150f707cef6e28fd9a9f6f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d580d2adee150f707cef6e28fd9a9f6f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Coral</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-3322"><time pubdate datetime="2015-04-20T14:24:51+01:00">
+					20 abril 2015 de 14:24					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola! una pregunta que quizás resulte tonta por mi desconocimiento&#8230; ¿Se puede empaquetar una url o web responsive directamente a una app nativa, android-IOS? ¿Metiendo simplemente dicha url? algo así como para tontos?</p>
+<p>Me he paseado por PhoneGap, Telerik y otras, y veo que hay que tener cieto conocimiento pues piden html y yo lo que tengo es una url&#8230;</p>
+<p>Gracias!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3414">
+		<article id="comment-3414" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/03c2c536c75591ed96dee867088936ed?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/03c2c536c75591ed96dee867088936ed?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">luis</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-3414"><time pubdate datetime="2015-06-25T21:56:57+01:00">
+					25 junio 2015 de 21:56					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>hola, mira yo estoy haciendo aplicacion hibridas por asi llamarlas, tienen algo de codigo html que compilo en phonegap y se hace nativa y lo que es con php llamo la direccion del url y se muestra dentro del aplicativo.</p>
+<p>lo que tu quieres hacer si se puede&#8230;</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="https://mariojavier79.wordpress.com/2016/04/04/apache-cordova-vs-phonegap/" class="url" rel="ugc external nofollow">Apache Cordova vs phoneGap | Blog de Mario Javier</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5517">
+		<article id="comment-5517" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/59ebc188471900f8d957015a63cf6a45?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/59ebc188471900f8d957015a63cf6a45?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://rmakesoftware.wordpress.com" class="url" rel="ugc external nofollow">Carlos</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2012/03/empaquetar-aplicaciones-html5-con-phonegapcordova/#comment-5517"><time pubdate datetime="2018-05-15T01:59:40+01:00">
+					15 mayo 2018 de 01:59					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola fuera genial si alguien me comparte el archivo .apk generado porque no tengo pc y tengo que hacer mis aplicaciones en el teléfono.<br />
+si quieres verla descarga la: rmakesoftware.WordPress.con</p>
+<p>Yo tengo un .apk que me funciona a la perfección pero me muestra una barra horrible en cima y quisiera un apk que no la tenga y aun mejor si hubiera un indicador de spinner (solo se html CSS y javascript) gracias</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

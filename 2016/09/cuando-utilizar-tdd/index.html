@@ -1,0 +1,652 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Cuándo utilizar TDD | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/09/cuando-utilizar-tdd/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-5001 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-5001" class="post-5001 post type-post status-publish format-standard hentry category-dev category-opinion tag-software-development tag-tdd tag-testing">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Cuándo utilizar TDD</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 26 septiembre 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/software-development/" rel="tag">software development</a>, <a href="/tag/tdd/" rel="tag">tdd</a>, <a href="/tag/testing/" rel="tag">testing</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Charlaba la semana pasada en Twitter sobre TDD y, en concreto, <a href="http://xurxodev.com/triangular-en-tdd/" target="_blank">el concepto de triangulación</a> a raíz de <a href="http://www.dosideas.com/noticias/metodologias/589-los-patrones-verdes-de-tdd.html" target="_blank">este post</a> en el que se menciona lo siguiente:</p>
+<blockquote><p>
+A esta altura, ya es evidente que sería más facil escribir la implementación obvia que seguir haciendo ramas de decisión.
+</p></blockquote>
+<p>Antes esto, parece razonable <a href="https://twitter.com/gulnor/status/777542739349139457" target="_blank">preguntarse</a>:</p>
+<blockquote><p>¿Tiene sentido utilizar TDD cuando existe una implementación obvia?</p></blockquote>
+<p>Y, ojo que esto es importante, <strong>hablo de utilizar TDD, no de tener tests</strong>. Hablo de la metodología de desarrolo descrita en el <a rel="nofollow" href="https://www.amazon.es/gp/product/0321146530/ref=as_li_qf_sp_asin_tl?ie=UTF8&#038;camp=3626&#038;creative=24790&#038;creativeASIN=0321146530&#038;linkCode=as2&#038;tag=koalite-21">Test Driven Development auténtico</a><img decoding="async" src="http://ir-es.amazon-adsystem.com/e/ir?t=koalite-21&#038;l=as2&#038;o=30&#038;a=0321146530" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />. Si nos centramos en tests, ya he explicado varias veces lo que considero <a href="/2014/05/deconstruyendo-la-piramide-de-los-tests/" target="_blank">que se debe cubrir con tests</a> y <a href="/2016/02/como-testear-un-api-web/">he puesto ejemplos de cómo testear determinados escenarios</a>.</p>
+<p>En este post quiero divagar un poco sobre <strong>cuándo tiene sentido aplicar TDD</strong>.</p>
+<p><strong>OJO</strong>: Si eres un fanático convencido de TDD, probablemente no te guste el post, y me temo que basarás tu argumentación en que no sé aplicar TDD. Es posible, pero lo cierto es que lo he aplicado con relativo éxito durante el tiempo suficiente como para poder formarme una opinión al respecto. Por supuesto, puedo estar equivocado y te agradecería que me explicaras por qué.</p>
+<p>Me gustaría poder dar unas pautas universales de cuándo usar TDD y cuándo no merece la pena, pero lo cierto es que es un caso similar a <a href="/2013/07/como-elegir-un-lenguaje-de-programacion/" target="_blank">elegir un lenguaje de programación</a> e influyen tantos factores que no me siento capacitado para dar una serie de reglas categóricas sobre el tema. </p>
+<p>Lo que sí puedo hacer, y creo que puede resultar útil, es analizar distintos aspectos de TDD y comentar mi experiencia personal con ellos. Tómatelo como lo que es, una opinión y no una verdad absoluta, y si te apetece comentar cómo te ha ido a ti con esta historia, estupendo, seguro que más de uno te lo agradecemos.</p>
+<p>Por cierto, para los que no tienen ganas de leer más, <strong>no, no creo que merezca la pena aplicar TDD si existe una implementación obvia</strong>, aunque <a href="http://blog.ploeh.dk/2013/03/08/test-trivial-code/" target="_blank">haya quien lo piense</a> (y no, esta vez no ha sido Robert C. Martin, quien directamente <a href="https://8thlight.com/blog/uncle-bob/2013/03/06/ThePragmaticsOfTDD.html" target="_blank">aboga por lo contrario</a>).</p>
+<h3>TDD como herramienta de diseño</h3>
+<p>Es uno de los argumentos más utilizados por los defensores y practicantes de TDD. De hecho, para muchos la última D de TDD no es <em>development</em>, sino <em>design</em>. Ciertamente, <strong>TDD nos puede ayudar en el diseño, pero quizá no tanto</strong> como nos gustaría.</p>
+<p>Por una parte nos obliga a escribir código testeable, lo que se supone que es bueno (y es algo que ni siquiera voy a cuestionar ahora). </p>
+<p>Sin embargo, también hay que recordar que lo que nos obliga a escribir es <em>código testeable con tests unitarios</em>, y ahí entramos en problemas semánticos sobre lo <a href="/2012/02/la-unidad-de-un-test-unitario-no-es-una-clas/" target="_blank">que es un test unitario</a>. Si al final esto se va a reducir a crear un montón de <a href="http://martinfowler.com/bliki/HeaderInterface.html" target="_blank">header interfaces</a> para escribir <a href="/2012/09/como-no-escribir-tests-unitarios-verificando-interacciones/" target="_blank">tests de interacción de esos que no validan gran cosa</a>, no sé si realmente tenemos un diseño mejor o sólo <strong>estamos sobrecomplicando el diseño para poder escribir unos tests que no aportan valor</strong> y <a href="/2016/09/por-que-no-utilizo-metricas/" target="_blank">sólo sirven para que las métricas queden bonitas</a>.</p>
+<p>Por otra, <strong>es cuestionable que TDD nos lleve a diseñar un algoritmo de la mejor manera</strong>. Os recomiendo echar un vistazo a esta antiquísima discusión sobre <a href="https://news.ycombinator.com/item?id=3033446" target="_blank">diseñar un algoritmo para resolver sudokus usando TDD</a>. Merece la pena ver <a href="http://ravimohan.blogspot.com.es/2007/04/learning-from-sudoku-solvers.html" target="_blank">las dos aproximaciones, con y sin TDD</a>.</p>
+<p>En su favor, debo decir que aplicar <strong>TDD nos ayuda a diseñar el API</strong> que tendrá nuestro componente. Al escribir primero el código cliente (los tests, en este caso) nos obliga a pensar cómo queremos utilizarlo y nos guía para diseñar un API que tenga sentido. </p>
+<p>En ese sentido podríamos decir que TDD es una buena herramienta para diseñar APIs pero&#8230; La verdad es que no es necesario para eso y, a veces, directamente nos lleva a diseñar un API muy adecuada para los tests pero no necesariamente apta para el código de producción. Si queremos realmente diseñar correctamente el API de un componente, es mejor aplicar directamente diseño <em>top-down</em> y que sean los clientes <em>reales</em> de nuestro componente los que marquen el API (que luego podremos implementar o no con TDD).</p>
+<p>En definitiva, creo que nunca he sido capaz de sacarle excesivo partido a TDD como herramienta de diseño. Además, hay aspectos del diseño de un componente que son complicados que surjan naturalmente aplicando TDD, como la transaccionalidad o la eficiencia.</p>
+<h3>TDD como forma de hacer testing</h3>
+<p>Los que realmente usan TDD no suelen hacer mucho enfásis en esto y consideran los tests como un producto residual (aunque útil e importante) de la técnica. </p>
+<p>Es decir, <strong>tú no haces TDD por conseguir tests</strong>, sin por conseguir código mejor. Si eso además deja un rastro de tests que luego puede seguir usando como documentación o para que verificar que el código funciona después de futuras refactorizaciones, mejor para ti, pero insisto, no es el objetivo fundamental. Incluso hay gente que, una vez ha llegado a la solución, borra los tests, o al menos parte de ellos, porque considera que no aportan ya nada.</p>
+<p>Reconozco que al principio cuando usaba TDD lo hacía un poco con la mentalidad de olibgarme a escribir tests. Y además con muy buena cobertura. A fin de cuentas, no escribes código de producción si no hay antes un test fallando, por lo que se supone que la cobertura debería ser muy cercana al 100%.</p>
+<p>Eso me llevó a algunos problemas de lo que mencionaba antes, con muchos tests de dudoso valor y, lo que es peor, con código que había sido desarrollado siguiendo religiosamente TDD y estaba completamente testado, pero no sólo <strong>no tenía una buena implementación</strong>, sino que <strong>ni siquiera funcionaba en producción</strong> o lo hacía de forma deficiente.</p>
+<p>Aquí admito sin duda mi parte de culpa, y estoy seguro de que hay gente a la que no le pasa eso, pero la verdad es que he visto bastantes casos reales de este problema. Aplicar TDD no es sencillo, y es fácil acabar con la sensación de que para que realmente funcione TDD en el fondo hay que hacer «trampas» y saber desde el principio donde vas a llegar. Si no, puedes tener todos los tests que quieras, que luego en producción ya veremos lo que pasa.</p>
+<p>Si lo que estás buscando es conseguir tener una buena suite de tests, que cumpla con <strong>el objetivo fundamental de los tests: conseguir confianza</strong>, dudo que TDD sea la mejor forma de hacerlo.</p>
+<p>Aunque sólo seas por un problema muy básico: TDD se limita a hablar de tests unitarios y para tener una buena suite de tests hay que jugar con <a href="/2014/05/deconstruyendo-la-piramide-de-los-tests/" target="_blank">todos los tipos de tests que tienes a tu disposición</a>, incluso con <a href="/tag/approval-testing/">los tipos de tests más exóticos</a>.</p>
+<p>Diseñar <strong>una estrategia de testing requiere un enfoque más integral</strong>, pensando qué quieres conseguir, qué partes son más importantes testear, en qué partes es más fácil cometer errores, y qué tipo de tests te pueden ayudar a cubrir tus objetivos. Es eso lo que debe marcar el aspecto de una suite de tests, más que aplicar TDD o no.</p>
+<h3>TDD como herramienta de exploración</h3>
+<p>Otro de los argumentos a favor de usar TDD es que te permite explorar un problema de forma incremental hasta alcanzar una solución. La idea es que al ir construyendo los tests poquito a poquito (con <em>baby steps</em>, si quieres sonar más guay), puedes ir conociendo cada vez más cosas del problema que intentas resolvar sin tener que intentar abarcarlo todo de golpe.</p>
+<p>La verdad es que en ese sentido sí que <strong>me resulta útil TDD, especialmente cuando no tengo ni idea de cómo afrontar algo</strong>. Si no sabes por dónde empezar, empezar por algo, lo que sea, <a href="https://twitter.com/gulnor/status/777559579387453442" target="_blank">aunque luego lo borres todo</a> y empieces otra vez de cero, es mejor que nada. Empezar a escribir código suele ayudar también a tener cierta sensación de avance (aunque sea fictia) que evita la <em>parálisis por análisis</em> en la que a veces nos sumimos.</p>
+<p>Normalmente no suelo empezar por aplicar TDD y soy <a href="https://www.youtube.com/watch?v=f84n5oFoZBc" target="_blank">de los que prefiere pensar un rato antes</a>, pero hay casos en los que estoy bloqueado y aplicar TDD me permite avanzar algo. No suelo dar pasos <em>taaaaan</em> pequeños como para saltar de implementación trivial en implementación trivial, pero si me obligo a resolver facetas concretas del problema en lugar de atacarlo todo a la vez. </p>
+<p>Puede sonar raro, pero uno de los escenarios en los que <strong>suelo aplicar TDD es al escribir consultas SQL complejas</strong>. Probablemente porque para los que desarrollamos las típicas aplicaciones aburridas de línea de negocio sean una de las cosas más complicadas que llegamos a hacer, y además suelen ser muy costosas de testear a mano porque están llenas de casos extraños que no siempre son fáciles de simular.</p>
+<p>Por supuesto, TDD no es la única herramienta de exploración que existe y tampoco es la única que utilizo. Muchas veces me gusta montar un proyecto de pruebas (un <a href="https://en.wikipedia.org/wiki/Spike_(software_development)" target="_blank">spike</a> para los amantes del postureo) y empezar a jugar para investigar algo. Si el lenguaje se presta (y cada vez trato más de usar lenguajes que se presten porque me resulta muy productivo), disponer de <a href="http://garajeando.blogspot.com.es/2016/08/kata-bank-account-in-clojure-using.html" target="_blank">un buen REPL es un excelente complemento a TDD</a> como cuenta <a href="https://twitter.com/trikitrok" target="_blank">Manuel Rivero</a> en <a href="http://garajeando.blogspot.com.es/" target="_blank">su muy recomendable blog</a>.</p>
+<h3>Conclusiones</h3>
+<p>Puede sonar todo un poco negativo hacia TDD, y más viniendo de alguien que hace 4 años defendía TDD y recomendaba <a href="/2012/09/como-no-escribir-tests-unitarios-todos-a-la-vez/" target="_blank">no escribir todos los tests unitarios a la vez para seguir TDD</a>, pero lo cierto es que todo evoluciona y no es la primera (y seguro que tampoco la última) vez que escribo posts con cierto tono contradictorio. Prefiero ser sincero que dogmático.</p>
+<p>Estoy convencido de que me dejo muchos aspectos importantes de TDD y de que parte de los motivos por lo que no obtengo más beneficios de aplicarla es culpa mía, pero la realidad es que, simplificando mucho, para mi el principal punto a favor de usar TDD es la facilidad para explorar un problema en lenguajes en los que no es sencillo usar un REPL.</p>
+<p>Eso no quiere decir que no le dé valor a los tests. Al contrario. Creo que es algo a lo que cada vez le he ido dado más valor, y quizá justo por eso cada vez los he alejado más de TDD. Los tests son lo bastante importantes como para diseñarlos de forma independiente y no como un subproducto de una metodología de desarrollo.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/09/por-que-no-utilizo-metricas/" rel="prev"><i class="icon-arrow-left"></i> Por qué no utilizo métricas</a></div>		<div class="nav-next"><a href="/2016/10/la-consola-mola/" rel="next">La consola mola <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-5001 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			11 comentarios en &ldquo;<span>Cuándo utilizar TDD</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-4114">
+		<article id="comment-4114" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ae1a8eac2f02d0f4857420c9f5942942?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ae1a8eac2f02d0f4857420c9f5942942?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Aitor Suso</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4114"><time pubdate datetime="2016-09-26T07:31:24+01:00">
+					26 septiembre 2016 de 07:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gran post como siempre,<br />
+a mi la verdad es que me encanta hacer TDD, soy un poco el mas fan de la oficina. Pero tampoco me obsesiona que los otros lo hagan. Lo unico que me obsesiona es que el codigo este testeado, para evitar problemas a futuro.<br />
+Lo que mas me gusta del TDD, es que te obliga a pensar, que es algo que a veces no hacemos tanto como deberiamos. Asi que si empiezas por los tests, tienes que pensar en las situaciones que se van a dar, sino vas un poco a lo loco.</p>
+<p>Sobre el debate de diseño, si que es cierto que TDD no es lo mejor. Normalmente el codigo que sale de las primeras iteraciones es un poco a saco, basandose en el principio de que solo tenga que pasar el test y listos. Pero mucha gente olvida que el tercer paso de cada iteracion es refactorizar, y quizas es el paso mas importante.<br />
+Y al final refactorizar con tests es mucho mas facil o al menos mucho mas seguro.</p>
+<p>Pero bueno este es el debate sin fin. Si alguien con poca idea de TDD me pregunta, le recomendare que haga varias katas, para que juegue y luego decida. Pero si alguien lo ha probado y no le gusta, pues perfecto.</p>
+<p>Eso si, que no venga el tipico listo que diga que hacer tests es perder el tiempo. Que de esos hay unos cuantos, pero no se les suele ver en blogs ni en charlas, estan demasiado ocupando parcheando sus bugs.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4116">
+		<article id="comment-4116" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/0fda717d3b4f7dff4d643d9009dcc7e1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/0fda717d3b4f7dff4d643d9009dcc7e1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://github.com/ajlopez" class="url" rel="ugc external nofollow">Angel "Java" Lopez</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4116"><time pubdate datetime="2016-09-26T11:54:25+01:00">
+					26 septiembre 2016 de 11:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por el post. Debería comentarlo con más detalle, pero lo primero que comentaría es que, por lo menos en mi práctica de TDD (desde hace 8 años prácticamente diaria) no me veo obligado a escribir test unitarios. Cuando uno se quita de encima esa mochila («tengo que escribir test unitarios unitarios UNITARIOS»), sino tests que prueben lo que estoy escribiendo, pasando de rojo a verde a refactor, todo fluye de mejor forma. Y sí, para mí TDD me ayuda en el diseño: me ha permitido hasta cambiar en algún momento de diseño interno sin grandes dificultades. Y lo que siempre trato es de empujar por la simplicidad. Al escribir los pequeños usos del software en construcción, trato de encontrar la solución más simple para que el test pase a verde. Eso me ha evitado arquitecturas de astronautas, y complicaciones innecesarias. El cubrimiento de código es sólo una métrica, y no un objetivo en sí, en mi caso.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4117">
+		<article id="comment-4117" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4117"><time pubdate datetime="2016-09-26T12:09:46+01:00">
+					26 septiembre 2016 de 12:09					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por los comentarios a ambos.</p>
+<p>Hay una parte que mencionáis los dos: la facilidad para mejorar el diseño gracias a tener tests. </p>
+<p>En eso estoy totalmente de acuerdo, tener tests te permite hacer cambios con mayor seguridad y eso a su vez permite iterar hasta conseguir un diseño mejor, pero en realidad para eso necesitas tests, no hace falta usar TDD. </p>
+<p>Puedes conseguir el mismo efecto escribiendo todos los tests a posteriori. Aquí cabría argumentar si la calidad de los tests creados con TDD es mejor que la de los tests creados sin TDD, pero eso es abrir otra línea de discusión ;-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4118">
+		<article id="comment-4118" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2f05a996828bee44fa60c6d409a09294?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2f05a996828bee44fa60c6d409a09294?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.modestosanjuan.com" class="url" rel="ugc external nofollow">Modesto San Juan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4118"><time pubdate datetime="2016-09-26T15:43:58+01:00">
+					26 septiembre 2016 de 15:43					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Como nos tienes acostumbrados, gran post. Muchas gracias por tomarte tu tiempo para escribirlo, de mayor me gustaría ser como tú ;)</p>
+<p>Primero una pequeña aportación que a mi me funciona:<br />
+Lo que comentas respecto a cómo afecta al diseño, yo he notado una diferencia muy grande entre cómo afecta a mi diseño cuando uso una aproximación outside-in frente a inside-out. Personalmente me quedo con la primera la mayoría de las veces porque me aproxima lo máximo posible al consumidor de mi código desde el primer momento.</p>
+<p>Además de usar con más frecuencia outside-in, intento evitar verificar la interacción y prefiero irme más a que sean test funcionales. Cuando lo que quiero probar tiene varios colaboradores y únicamente quiero probar una parte aislada de la funcionalidad, hago un stub del colaborador, se lo inyecto y listo. Pero tampoco me tiembla el pulso por construir el colaborador en un constructor y que se ejecute ese código también. </p>
+<p>Hay veces que uso la opción mixta respecto a los colaboradores. Permito la inyección pero admito que sea nula. Si me viene a nula, la creo en el constructor, pero si me viene uso esa. Eso me facilita la vida en los tests a la vez que no me la quita en su uso habitual. Por supuesto, esto no lo hago siempre, sólo en algunos tipos de colaboradores.</p>
+<p>Y ahora la parte «rant», no contra tí, pero si contra un sector fundamentalista:<br />
+Me ha encantado cuando has mencionado precisamente el «TDD auténtico». Yo sueño usar la coletilla «de libro» y es algo que uso con frecuencia porque me cansa mucho tanto purismo. Y no me refiero en exclusiva al purismo en TDD, me lo encuentro en DDD, BDD, Agile y cualquier otra cosa que tenga un nombre y un credo que sólo entiende una forma de hacer las cosas. </p>
+<p>La respuesta habitual es «pero es que entonces no es TDD, es otra cosa distinta». No voy a entrar ahora en un debate de si lo que hago en mi casa los domingos es paella o un guiso de arroz, tengo claro que lo que no pienso hacer es tener que soltar un monólogo.</p>
+<p>Pero donde realmente le veo el fallo al fundamentalismo es cuando entramos en cosas como:<br />
+&#8211; Yo desarrollo los tests primeros con un flujo de rojo, verde y refactor, pero el refactor no lo hago siempre después de cada test y a veces me aguanto algunos tests para ver cómo voy enfocando el diseño.<br />
+&#8211; Lo que para unos es unitario para mi puede ser atómico y mi unitario abarca un poco más.<br />
+&#8211; Decir «pasos pequeños» implica una valoración respecto a lo que es pequeño o grande, puede que mi «pequeño» sea más grande que el de otros.<br />
+&#8211; Cuando decimos «hay que dejar que el diseño emerja» volvemos a meter valoraciones completamente arbitrarias. Tal vez a mi me emerge antes que a otro extraer una clase o plantear un refactor.<br />
+&#8211; Las palabras «complicado» o «complejo» también implican un juicio en el que a veces lo apropiado sería decir «no lo entiendo porque necesito aprender mas sobre X».<br />
+&#8211; Se nos llena la boca hablando de no sobrediseñar pero luego tenemos un pollo de dependencias inyectables que te cagas y terminamos usando un framework de inyección de dependencias porque nos duele cada vez que tenemos que tocar algo. Y todo porque construir cosas en el constructor de una clase está mal visto.</p>
+<p>A veces me sorprende que, en una comunidad que fomenta tanto el cambio y la adaptación, tendamos a buscar definiciones tan categóricas respecto a algunos temas.</p>
+<p>En fin, ya me he quedado a gusto&#8230; de momento ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4119">
+		<article id="comment-4119" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4119"><time pubdate datetime="2016-09-26T21:26:17+01:00">
+					26 septiembre 2016 de 21:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Por ser claro y conciso: el tdd no existe.</p>
+<p>O sea, no existe el diseño dirigido por tests. Como mucho se podria decir que puedes desarrollar un diseño previamente pensado (o asumido) apoyandote en tests. Los tests no dirigen nada de nada.</p>
+<p>Para el resto de argumentos solo hay que repetir una de las ideas claves del post, que se ha diluido en los comentarios:<br />
+* «en realidad para eso necesitas tests, no hace falta usar TDD»: y donde pone «para eso» puedes poner el 90% de los argumentos de la tdd (el otro 10 es lo del diseño)<br />
+Entrando ya en los tests (que NO, repitamos todos, que NO la tdd) tanto para apoyar el desarrollo del diseño, como para asegurar la correccion del codigo y facilitar la refactorizacion exiten alternativas a que pueden ser mas utiles que los tests aislados segun el bendito contexto: tipos, la repl, tests sinteticos o basados en propiedades y un laaaaargo etc. Incluso, oye, pueden combinarse con los tests para que sean mas utiles todavia.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4120">
+		<article id="comment-4120" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2f05a996828bee44fa60c6d409a09294?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2f05a996828bee44fa60c6d409a09294?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.modestosanjuan.com" class="url" rel="ugc external nofollow">Modesto San Juan</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4120"><time pubdate datetime="2016-09-26T21:34:52+01:00">
+					26 septiembre 2016 de 21:34					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>@jneira Sandro Mancuso tiene un post en el que habla del tema. Es un punto de vista interesante independientemente de que pueda coincidir o no con él: <a href="https://codurance.com/2015/05/12/does-tdd-lead-to-good-design/" rel="nofollow ugc">https://codurance.com/2015/05/12/does-tdd-lead-to-good-design/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4121">
+		<article id="comment-4121" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/0fda717d3b4f7dff4d643d9009dcc7e1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/0fda717d3b4f7dff4d643d9009dcc7e1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://github.com/ajlopez" class="url" rel="ugc external nofollow">Angel "Java" Lopez</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4121"><time pubdate datetime="2016-09-26T21:36:42+01:00">
+					26 septiembre 2016 de 21:36					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hay tantas cosas interesantes para comentar&#8230;</p>
+<p>Pero una al menos: yo si aplico disenio usando TDD. Muchas veces no se como lo voy a ir implementando internamente, y voy agregando implementacion interna a medida que agrego tests. Y aplicando siempre buscar la simplicidad, no complicarla, buscando pasar el test de la forma mas simple.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4122">
+		<article id="comment-4122" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/1fcf4bd1fc4aa4e4b6d46da30a0c15fe?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/1fcf4bd1fc4aa4e4b6d46da30a0c15fe?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://pjmolina.com" class="url" rel="ugc external nofollow">Pedro J. Molina</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4122"><time pubdate datetime="2016-09-27T08:36:40+01:00">
+					27 septiembre 2016 de 08:36					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Sobre diseño de software Kent Beck twitteo el 15 de Junio y no puedo estar más de acuerdo: <a href="https://twitter.com/KentBeck/status/743099387291701248" rel="nofollow">esto</a> y <a href="https://twitter.com/KentBeck/status/743101923553746944" rel="nofollow"> matizó después su intención</a>.</p>
+<p>Morajela: <i>Si estas en medio de la selva y tienes GPS y mapa&#8230; ¡usalo! Si solo tienes un machete&#8230; TDD y a desbrozar la selva con paciencia.</i></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4123">
+		<article id="comment-4123" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/932a8aae0d29262e7ba8198bd1c6cd61?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/932a8aae0d29262e7ba8198bd1c6cd61?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="https://twitter.com/jllado" class="url" rel="ugc external nofollow">Juan Lladó</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4123"><time pubdate datetime="2016-09-27T09:22:47+01:00">
+					27 septiembre 2016 de 09:22					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>¡Gran post! (como habitualmente ^^)</p>
+<p>A mí personalmente usar TDD me es es útil. De todas formas, como comenta Aitor, no me obsesiona que el resto lo usen. Siempre y cuando hagan tests :P.</p>
+<p>Volviéndome al tema de porque me es útil usarlo. Voy a poner algunos ejemplos:<br />
+&#8211; Me ayuda a pensar en el problema. Comentas que tú eres más de «pensar un rato antes». Pero creo que eso justamente es una de las partes fundamentales de TDD. El propio Kent Beck (y otros autores) en su libro, recomiendan que antes de escribir el primer test, pienses en el problema y extraigas un listado de ejemplos.</p>
+<p>&#8211; Me da seguridad a la hora de construir un algoritmo. Ejemplos:<br />
+&#8211; Hace unos meses en mi trabajo (desarrollamos un software de reservas de viajes) tuve que hacer un parte del sistema que construía, dada una seria de opciones de habitaciones, las diferentes combinaciones para una habitación, dos habitaciones, etc. Sin prácticar TDD, me hubiera sido muy complicado.<br />
+&#8211; Hace unos meses fui a corregir una parte del proyecto encargado de añadir destinos al viaje. Fallaba una casuística de añadir un destino al final del viaje. La intenté corregir, pero rompí otra casuística. Al final lo borré todo, y empecé de cero haciendo TDD y añadiendo test a test todas las casuísticas que presentaba el problema.<br />
+* Cierto es que a esos dos ejemplos también hubiera sobrevivido simplemente haciendo tests. Pero a continuación también explico porque me va mejor hacer dichos tests practicando TDD :-)</p>
+<p>&#8211; Me da más seguridad a la hora de construir los tests. Cuando tengo que refactorizar un código sin tests, previamente tengo que hacer dichos tests. Entonces cuando termino cada uno de los test, necesito cambiar algo del código para ver si el test falla. De hecho, he visto tests que realmente no funcionaban pero el que los hizo no se dio cuenta porque estaba en verde. Empezar el test en rojo, a mí me funciona mejor (de hecho, me parece más lógico).</p>
+<p>&#8211; Sobre si mis diseños son mejores con TDD. Creo que hay que intentar escuchar a los tests. Si realmente se hace difícil testear algo, quizás es que tienes un problemas de diseño. Cuando haces los tests al final, quizás ya es muy tarde para cambiar algo (a veces es mejor empezar de cero). En cambio al hacer TDD, puedes detectar los problemas mucho antes (aunque también puede pasar que a veces salga más a cuenta empezar de cero).Pero bueno, tal como comenta Modesto, los post/charlas de Sandro Mancuso sobre el tema son muy buenos. Y creo que la fase de refactoring ayuda mucho a aplicar tus conocimientos de diseño.</p>
+<p>Pero vaya, yo uso TDD cuando _creo_ que me aporta valor ^^. Y entiendo que si a otra persona no le aporta valor, pues que no lo use. Al final todos somos distintos y tenemos nuestro propio estilo. </p>
+<p>Lo que no me gusta del debate de TDD sí, TDD no. Es que al igual que a mí no me obsesiona que otra personas lo usen o no. No entiendo porque algunos que no lo usan tienen la necesidad de imponer el criterio de «Como a mi no me aporta valor TDD, pues es que realmente no sirve para nada» (creo que no es tu caso).</p>
+<p>Saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4124">
+		<article id="comment-4124" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/935a8dadc40391fb587ad9f247dd7b6e?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/935a8dadc40391fb587ad9f247dd7b6e?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Miguel</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4124"><time pubdate datetime="2016-09-27T09:31:13+01:00">
+					27 septiembre 2016 de 09:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Siempre desarrollo empezando por lo que quiero obtener («top-down» como has denominado). Esto permite que la implementación sea cómoda de consumir. El avance en el desarrollo lo realizo de forma iterativa: caso de uso, prueba y no necesariamente primero la prueba, de hecho es poco habitual que implemente la prueba en primer lugar. En mi caso he observado que crear primero pruebas suele generar código innecesario, con pruebas bastante alejadas de la implementación final.</p>
+<p>Se puede decir que aplico TDD: Test During Development.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4125">
+		<article id="comment-4125" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/7849fae2cca3d9ecd8ff1ceb4c383e7c?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/7849fae2cca3d9ecd8ff1ceb4c383e7c?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.innowhere.com" class="url" rel="ugc external nofollow">jmarranz</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/09/cuando-utilizar-tdd/#comment-4125"><time pubdate datetime="2016-09-27T15:27:57+01:00">
+					27 septiembre 2016 de 15:27					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Mi opinión sobre el tema</p>
+<p>Why Useful TDD is a Unicorn</p>
+<p><a href="https://dzone.com/articles/why-useful-tdd-is-a-unicorn?utm_content=buffer6d1b9&#038;utm_medium=social&#038;utm_source=twitter.com&#038;utm_campaign=buffer" rel="nofollow ugc">https://dzone.com/articles/why-useful-tdd-is-a-unicorn?utm_content=buffer6d1b9&#038;utm_medium=social&#038;utm_source=twitter.com&#038;utm_campaign=buffer</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

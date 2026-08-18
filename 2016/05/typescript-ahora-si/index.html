@@ -1,0 +1,669 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	TypeScript, ¿ahora sí? | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/05/typescript-ahora-si/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4883 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4883" class="post-4883 post type-post status-publish format-standard hentry category-dev tag-javascript tag-typescript">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">TypeScript, ¿ahora sí?</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 30 mayo 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/javascript/" rel="tag">javascript</a>, <a href="/tag/typescript/" rel="tag">typescript</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Hace unos tres años y medio escribí <a href="/2012/10/typescript-un-lenguaje-disenado-para-las-herramientas/">un post sobre TypeScript</a> en el que explicaba por qué su propuesta no me parecía atractiva en ese momento. Recientemente hemos tenido algo de tiempo libre en mi trabajo del Mundo Real&trade; y hemos podido dedicarnos a analizar unos cuantos lenguajes que podríamos usar en un futuro no muy lejano para desarrollar aplicaciones web. Uno de ellos ha sido TypeScript y creo que es justo, después de aquel post del 2012, dedicarle otro con mi opinión actualizada.</p>
+<p>Ya he dicho alguna vez que al <a href="/2013/07/como-elegir-un-lenguaje-de-programacion/" target="_blank">elegir un lenguaje de programación influyen factores externos al propio lenguaje</a>. Estos factores están más ligados al contexto en que se va a usar, por lo que en este post se mezclan algunas cosas más objetivas con otras bastante discutibles.</p>
+<h3>Lo bueno</h3>
+<p>TypeScript se ha convertido en bastante potente y que empieza a tener personalidad propia. La sensación que transmitía al principio de ser un intento de llevar C# al browser, aunque sigue presente, ya no es tan grande. </p>
+<p>En ello ha influido la evolución de Javascript. Como TypeScript siempre ha sido un superconjunto de Javascript, se ha ido compatibilizando con las nuevas construcciones de ECMAScript 2015. Esto facilita el paso desde Javascript «moderno» hacia TypeScript y resulta agradable.</p>
+<p>Desde siempre, la gran característica de TypeScript fueron, como no, los tipos estáticos. Incluso los lleva en el nombre. Para muchos el mero hecho de poder disponer de un sistema de tipos estáticos es suficiente, pero es que además el sistema de tipos del TypeScript actual tiene características que permiten una gran expresividad.</p>
+<p>Tenemos, por supuesto, interfaces y clases para que resulte familiar a los usuarios de C# y Java (su público objetivo, no nos olvidemos). Esto estuvo desde siempre. A día de hoy también tenemos un <a href="https://www.typescriptlang.org/docs/handbook/type-compatibility.html" target="_blank">tipado estructural</a> bastante majo (no como C#, que tiene <a href="/2016/01/curiosidades-de-c-tipado-estructural-solo-para-algunos/" target="_blank">tipado estructural para cosas muy concretas</a>, la posibilidad de utilizar <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#union-types" target="_blank">tipos suma</a> y <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types" target="_blank">tipos intersección</a> o una curiosa forma de <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html" target="_blank">extender tipos</a>.</p>
+<p>Desgraciadamente la mayoría del código que he visto en internet se limita a traducir código con un estilo muy C# a TypeScript, por lo que no parece que se le esté sacando demasiado partido a estas características. Vamos, que en general <a href="/2015/09/sistemas-de-tipos-mas-alla-de-java-y-c/" target="_blank">cuesta ir más a allá del sistema de tipos de C# o Java</a>.</p>
+<p>El <em>tooling</em> alrededor de TypeScript está razonablemente bien conseguido. Todos los editores medianamente populares tienen plugins para trabajar con él que permiten hacer las cosas básicas: comprobar sintaxis y tipos en tiempo real (o casi real), mostrar documentación, autocompletado, renombrar símbolos, ir a la definición. Se agradece, sin duda. Aunque <a href="/2014/12/herramientas-que-solucionan-y-ocultan-problemas/" target="_blank">este tipo de herramientas nos pueda llevar a escribir auténticas aberraciones</a>, también nos ayudan a ser más productivos.</p>
+<p>Al final, todas estas características hacen que sea un lenguaje muy accesible, tanto para la gente que viene de Javascript como para la gente que viene de C#/Java. Eso es un punto a favor a la hora de considerar usarlo para proyectos de larga duración, porque debería facilitar futuras incorporaciones al equipo.</p>
+<h3>Lo no tan bueno</h3>
+<p>Ha habido cosas que no me han gustado mucho, que creo que son decisiones erróneas o que me han dado un poco de miedo.</p>
+<p>Tú código no vive aislado del mundo y muchas de las librerías que vas a utilizar, o mejor dicho, que <em>yo</em> quiero utilizar, están escritas en Javascript. La interoperabilidad entre TypeScript y Javascript es magnífica, pero para poder explotar las partes buenas de TypeScript, necesitas tipos, y las librerías de Javascript que vas a utilizar no incluyen esas definiciones de tipos.</p>
+<p>Esto se resuelve con unos preciosos ficheros, las definiciones de tipos, que podemos descargar de distintos repositorios y contienen anotaciones de tipos para las APIs de la mayoría de librerías de Javascript. Si no encontramos lo que necesitamos podemos crearnos nosotros mismos nuestra definición de tipos, pero lleva su tiempo.</p>
+<p>Con esto de las definiciones de tipos he encontrado dos problemas.</p>
+<p>Uno, que aquí el ecosistema de TypeScript se parece mucho al de Javascript y cambia cada poco tiempo. Ahora la herramienta recomendada para gestionar las definiciones de tipos es <a href="https://github.com/typings/typings" target="_blank">typings</a>. Hasta hace poco, se usaba otra herramienta, <a href="http://definitelytyped.org/" target="_blank">tsd</a>, que todavía se usa para algunas cosas. Pero no os preocupéis, que en TypeScript 2, que sale este año, todo esto vuelve a cambiar y <a href="https://channel9.msdn.com/Blogs/Seth-Juarez/Anders-Hejlsberg-on-TypeScript-2" target="_blank">las definiciones de tipos se distribuirán por npm</a>. ¿A que es divertido?</p>
+<p>Dejando eso de lado, que para eso <a href="/2015/12/como-sobrevivir-a-javascript-e-incluso-disfrutar-con-el/" target="_blank">he sobrevivido a Javascript</a> unos cuantos años y estoy acostumbrado, otro problema con las definiciones de tipos es que complica gestionar las versiones de las dependencias que tienes.</p>
+<p>En Javascript, si por ejemplo usabas React, React-Router y Material UI, y querías actualizar React, tenías que esperar a que React-Router y Material UI (ambas dependientes de React) se actualizasen primero. Ahora con TypeScript, si quieres usar las definiciones de tipos no sólo tienes que esperar a que se actualicen las librerías, sino también sus definiciones de tipos correspondientes.</p>
+<p>De hecho, por lo que he visto hasta ahora las definiciones de tipos suelen ir al menos una versión por detrás de la librería correspondiente. No lo considero un factor crítico porque normalmente cuando desarrollo en Javascript las librerías se me quedan desactualizadas a los 20 minutos, pero si eres un obseso de estar a la última, tenlo en cuenta.</p>
+<p>Otra cosa que creo que es un error es la inclusión de soporte para JSX en el propio compilador. Y mira que, como usuario de React, me viene muy bien; pero creo que el lenguaje debería estar por encima de librerías concretas, y si dentro de 4 años React y sus derivados ya no están de moda, no creo que el lenguaje deba cargar con el soporte para esa sintaxis.</p>
+<p>Llegado ese caso, todas las opciones son malas: si mantienes el soporte a JSX estás asumiendo un coste de mantenimiento inútil, pero si lo quitas, haces que la gente que lo esté usando no pueda aprovechar características de versiones nuevas.</p>
+<p>Lo razonable hubiese sido que el soporte para JSX fuese a través de un plugin o similar, posiblemente aprovechando el plugin de Babel, igual que se hace en Javascript, pero a Microsoft todavía le cuesta eso de no controlar todo.</p>
+<p>Y esto nos lleva al tercer punto, el del miedo. Que TypeScript esté desarrollado por Microsoft me genera inseguridad. Hace unos años (no muchos) hubiera sido todo lo contrario y lo hubiera visto como una garantía de continuidad y calidad. En los últimos tiempos lo que me transmiten las deciciones de Microsoft es duda, y no sólo en la parte de desarrollo con cosas como .NET Core, sino también en otras áreas como sistemas operativos o movilidad.</p>
+<p>Me da la sensación de que no tienen muy claro lo que quieren hacer y, mucho menos, cómo lo quieren hacer, por lo que temo los bandazos que pueda acabar dando TypeScript si, por ejemplo, deciden dentro de 1 año que va a ser parte crítica de .NET Core y empiezan a llenarlo de cosas raras para que funcione mejor sobre él porque piensan que eso les dará puntos dentro de la comunidad node.js o veté tú a saber qué.</p>
+<p>Que Google haya decidido adoptarlo en Angular 2 ayuda un poco a recuperar la confianza. No es que Google sea un claro ejemplo de continuidad y cuidado por sus usuarios, recordad que Angular 2 empezó desarrollándose en Javascript, de ahí pasó a AtScript, y de ahí a TypeScript, pero al menos ya son dos empresas grandes que podrían acabar teniendo interés en que TypeScript siguiera funcionando dentro de unos parámetros razonables.</p>
+<h3>Otras alternativas</h3>
+<p>Durante nuestros experimentos con otros lenguajes han surgido varias alternativas que han llamado nuestra atención por un sentido u otro. Personalmente, había lenguajes que me parecían extremadamente más interesantes como (por supuesto) <a href="https://github.com/clojure/clojurescript" target="_blank">ClojureScript</a>, <a href="http://www.purescript.org/" target="_blank">PureScript</a> o <a href="http://elm-lang.org/" target="_blank">Elm</a>, pero siendo realista, apostar por un lenguaje así supone estar dispuesto a asumir que futuras incorporaciones al equipo sean mucho más complicadas, tanto técnica como económicamente. </p>
+<p>Una vez descartados los lenguajes interesantes, había dos opciones más viables.</p>
+<p><a href="http://kotlinlang.org/" target="_blank">Kotlin</a>, que es un lenguaje desarrollado por JetBrains (los creadores de IntelliJ y  ReSharper) bastante accesible pero con características modernas. Quizá con demasiadas características (a veces parece que están intentando meter soporte a todo lo que se les ocurre sea como seas), pero el factor determinante es que todavía el soporte para compilar a Javascript está en fase experimental.</p>
+<p><a href="http://flowtype.org/" target="_blank">Flow</a> realmente no es un lenguaje, sino una extensión para Javascript que permite escribir anotaciones de tipos y validarlas de forma estática. Me gustaba la idea de mantener la sintaxis y semántica de Javascript sin casi ningún cambio, pero como pasa con tantos proyectos modernos, <a href="/2015/08/a-contracorriente/" title="A contracorriente" target="_blank">no tiene soporte para desarrollar en windows</a>, y a día de hoy eso, por desgracia, sigue siendo fundamental para mi.</p>
+<h3>Conclusión</h3>
+<p>Empezaré por algo totalmente subjetivo y personal: TypeScript me parece un lenguaje aburrido. Puede que si llego a trabajar más con él y a exprimir su sistema de tipos me acabe divirtiendo (tengo ciertas esperanzas), pero a día de hoy, programar en TypeScript no me motiva mucho.</p>
+<p>Es un lenguaje práctico, que no es poco, y con una curva de aprendizaje suave. En ese sentido, resulta adecuado para proyectos que vayan a perduran en el tiempo y puedan requerir variar la composición del equipo. Debería ser fácil encontrar gente que lo conozca o pueda aprenderlo sin muchos problemas.</p>
+<p>¿Lo acabaré usando en producción? No lo sé. Es posible. También depende de cuándo decidiera usarlo. Kotlin y Flow, dos alternativas que no están maduras actualmente podrían servirme dentro de unos meses.</p>
+<p>¿Recomendaría invertir tiempo en él? Depende. Aquí mi opinión no ha variado mucho con respecto al post de hace 3 años. </p>
+<p>Si ya conoces C# o Java, aprender directamente Javascript te va a exponer a más conceptos nuevos y, además, lo vas a necesitar de todas formas si cuando trabajes con TypeScript. No lo veo como un lenguaje que merezca la pena aprender si no lo vas a usar en un proyecto real. Eso no quiere decir que sea un mal lenguaje, simplemente que me parece un lenguaje más práctico que interesante.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/05/resolviendo-el-acertijo-de-einstein/" rel="prev"><i class="icon-arrow-left"></i> Resolviendo el acertijo de Einstein</a></div>		<div class="nav-next"><a href="/2016/06/lo-peor-de-desarrollar-software/" rel="next">Lo peor de desarrollar software <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4883 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			13 comentarios en &ldquo;<span>TypeScript, ¿ahora sí?</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3945">
+		<article id="comment-3945" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://www.ingenieroperales.com/" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3945"><time pubdate datetime="2016-06-01T16:56:54+01:00">
+					1 junio 2016 de 16:56					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En conclusión TypeScript no merece la pena, lo unico que me motivaria es Angular2 pero la veo dificil, solo espero que google recapacite y quite de alguna manera TypeScript, supongo que tendra el mismo fin que CoffeScript, el problema es que las personas en el mundo de Javascript no son muy pacientes pero si creativas, entonces comeinzan a crear lenguajes y demas herramientas que terminan obsoletas a los 2 años xD.</p>
+<p>Segun google trends lo mejor es Javascript puro</p>
+<p><a href="https://www.google.com/trends/explore#q=%2Fm%2F0n50hxv%2C%20%2Fm%2F0hjc5m0%2C%20%2Fm%2F02p97&#038;cmpt=q&#038;tz=Etc%2FGMT%2B5" rel="nofollow ugc">https://www.google.com/trends/explore#q=%2Fm%2F0n50hxv%2C%20%2Fm%2F0hjc5m0%2C%20%2Fm%2F02p97&#038;cmpt=q&#038;tz=Etc%2FGMT%2B5</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3946">
+		<article id="comment-3946" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3946"><time pubdate datetime="2016-06-01T17:01:37+01:00">
+					1 junio 2016 de 17:01					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Bueno, yo no diría tanto. </p>
+<p>TypeScript tiene ventajas a la hora de desarrollar que pueden ser útiles (incluso muy útiles) en determinados casos. </p>
+<p>De hecho, no había realizado la comparativa en Google Trends, pero es curiosa. Según esa gráfica Javascript, habría caído hasta un 30% de su máximo interés (que fue en el 2004) y TypeScript estaría creciendo enormemente.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3947">
+		<article id="comment-3947" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://www.ingenieroperales.com/" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3947"><time pubdate datetime="2016-06-01T17:16:02+01:00">
+					1 junio 2016 de 17:16					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Bueno una aclaración, normalmente soy usuario de GNU/Linux y trabajo con Java entonces tengo esa rara sensación de desconfiar de Microsoft, asi que si es posible siempre trato de darle la vuelta a sus tecnologias y creo que no soy el único, también dejo un post donde se muestra como utilizar Angular 2 sin TypeScript.</p>
+<p><a href="https://carlosazaustre.es/blog/angular-2-primeros-pasos/" rel="nofollow ugc">https://carlosazaustre.es/blog/angular-2-primeros-pasos/</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3951">
+		<article id="comment-3951" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2343ab1c9cb511a363ae8c6d96290df0?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2343ab1c9cb511a363ae8c6d96290df0?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://madrov.com" class="url" rel="ugc external nofollow">Paulo</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3951"><time pubdate datetime="2016-06-03T09:11:47+01:00">
+					3 junio 2016 de 09:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Al principio me disgustó mucho la idea de adoptar typescript en mi proyecto (no fue decisión mía). Me costó trabajo adaptarme y pasé bastante tiempo tratando de integrar typescript en una base en javascript. Sin embargo, el esfuerzo ha dejado buenos resultados. Tal vez para aplicaciones medianas y pequeñas el tipado no sea algo crítico, pero cuando escribes un cliente SPA que tiene que funcionar igual que como lo hace una aplicación desktop escrita en Java o .Net, una aplicación con un volumen gigante y con muchas dependencias, ahí Typescript se convierte en un poderoso aliado (sobre todo cuando por el equipo pasan coders que nunca han programado en algo diferente a javascript).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3957">
+		<article id="comment-3957" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/0969ee58ce955aae954f9d197ae2bbfb?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/0969ee58ce955aae954f9d197ae2bbfb?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Baldomero</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3957"><time pubdate datetime="2016-06-10T10:31:56+01:00">
+					10 junio 2016 de 10:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Como no tengo Twitter te comento aquí tu «tweet» sobre el «comedoritos».</p>
+<p><a href="https://twitter.com/gulnor/status/741188018346852352" rel="nofollow ugc">https://twitter.com/gulnor/status/741188018346852352</a></p>
+<p>La respuesta procede de Forocoches. La expresión «comedoritos» es muy típica para calificar a quienes pasan muchas horas delante del ordenador y lo de «el navajazo» suele ser una coletilla muy habitual.</p>
+<p>El hilo original en FC:</p>
+<p><a href="http://www.forocoches.com/foro/showthread.php?t=4966896" rel="nofollow ugc">http://www.forocoches.com/foro/showthread.php?t=4966896</a></p>
+<p>Comentario:</p>
+<p><a href="http://www.forocoches.com/foro/showthread.php?p=230109749#post230109749" rel="nofollow ugc">http://www.forocoches.com/foro/showthread.php?p=230109749#post230109749</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3958">
+		<article id="comment-3958" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3958"><time pubdate datetime="2016-06-10T11:13:19+01:00">
+					10 junio 2016 de 11:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por la aclaración!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3959">
+		<article id="comment-3959" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/0969ee58ce955aae954f9d197ae2bbfb?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/0969ee58ce955aae954f9d197ae2bbfb?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Baldomero</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3959"><time pubdate datetime="2016-06-10T13:08:47+01:00">
+					10 junio 2016 de 13:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Un último matiz sobre el término «comedoritos». Nació por la costumbre que tienen muchos jugones de ponerse con un videojuego y a su lado algo para comer. Al final se crea un perfil de tipo gordo por la vida sedentaria frente al ordenador y por la alimentación a base de «snacks».</p>
+<p>Cuando se habla de «comedoritos» la imagen asociada es esta:</p>
+<p><a href="https://i.imgur.com/hPhBtzl.png" rel="nofollow ugc">https://i.imgur.com/hPhBtzl.png</a></p>
+<p>En Forocoches suele ser típico hacer referencia de forma irónica a esta clase de gente con frases como: «hoy&#8230; noche épica.. World of Warcraft y DORITOS».</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3969">
+		<article id="comment-3969" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/15bf5fe5dbedca0bb7dcc779f8bf8c83?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/15bf5fe5dbedca0bb7dcc779f8bf8c83?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Fabian</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3969"><time pubdate datetime="2016-06-18T05:13:22+01:00">
+					18 junio 2016 de 05:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me ha servido enormemente este Post para decidirme usar Js en lugar de TypeScript en Angular2, ya que solo por ahora lo quiero para testear el framework, me has ahorrado tiempo.<br />
+Por cierto me gustaria quizas en proximos post ver tu opinion de React y Angular2.<br />
+Muchas Gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3970">
+		<article id="comment-3970" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3970"><time pubdate datetime="2016-06-18T06:08:05+01:00">
+					18 junio 2016 de 06:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Fabián,</p>
+<p>Sobre React he escrito bastante (<a href="/tag/reactjs/" rel="ugc">https://blog.koalite.com/tag/reactjs/</a>). Me gusta y actualmente es la librería que suelo usar para el UI.</p>
+<p>Angular2 no lo conozco demasiado. He leído algo sobre él, he visto código, pero no le he dedicado mucho tiempo. La filosofía «todo incluido» no me atrae mucho.</p>
+<p>Un saludo,</p>
+<p>Juanma</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3988">
+		<article id="comment-3988" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edwin</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3988"><time pubdate datetime="2016-07-04T00:30:51+01:00">
+					4 julio 2016 de 00:30					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Saludos.<br />
+Podria TypeScript compararse al lenguaje Scala ? Es una posibilidad interesante si se utilizan las capacidades funcionales de Javascript con el tipado estatico que aporta TypeScript, sin dar tanta preponderancia a OOP.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3989">
+		<article id="comment-3989" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/4cd6061af56827b75f58994c158493b7?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Edwin</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3989"><time pubdate datetime="2016-07-04T00:39:23+01:00">
+					4 julio 2016 de 00:39					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Nuevamente Saludos.<br />
+Continuando la idea anterior, quisiera saber la opinion de ustedes sobre la posibilidad de que TypeScript termine siendo más versatil  que el propio Java o C#, llegando al nivel de Scala, es decir, incorporando los conceptos de OOP y con fuertes capacidades de implementar el paradigma funcional. De parecerles viable esta idea, TypeScript seria digno de convertirse en un lenguaje de respeto.<br />
+Gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3990">
+		<article id="comment-3990" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-3990"><time pubdate datetime="2016-07-04T06:26:57+01:00">
+					4 julio 2016 de 06:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Edwin,</p>
+<p>No conozco scala en profundidad, pero hay cosas de TypeScript que sí me han recordado a Scala, como el tipado estructural. Aún así, yo diría que el sistema de tipos de Scala es más potente que el de TypeScript (aunque insisto que no soy un gran conocedor de Scala).</p>
+<p>Un saludo,</p>
+<p>Juanma.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4074">
+		<article id="comment-4074" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/4ff17a3318df5d450d6bb8d1af5e2960?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/4ff17a3318df5d450d6bb8d1af5e2960?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Carlos</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/typescript-ahora-si/#comment-4074"><time pubdate datetime="2016-09-08T10:08:18+01:00">
+					8 septiembre 2016 de 10:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Estoy actualmente en dos proyectos en typescript y la velocidad de desarrollo a aumentado. En partes donde siempre cometía errores y el editor no me avisaba usando javascript, ahora no sucede gracias a typescript. La comodidad de usar clases, interfaces, etc con tanta facilidad hace que mi código no se vuelva tan lioso. Con Ts me he vuelto limpio programando. Cabe destacar que uso ts en el lado del servidor.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

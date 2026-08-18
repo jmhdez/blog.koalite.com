@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Las ventajas de NO usar inyección de dependencias | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4721 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4721" class="post-4721 post type-post status-publish format-standard hentry category-dev tag-dependency-injection tag-design-patterns tag-ioc">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Las ventajas de NO usar inyección de dependencias</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 15 febrero 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/dependency-injection/" rel="tag">dependency injection</a>, <a href="/tag/design-patterns/" rel="tag">design patterns</a>, <a href="/tag/ioc/" rel="tag">ioc</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>La semana pasada <a href="https://twitter.com/gulnor/status/696978164325732352" target="_blank">escribía en twitter</a>:</p>
+<blockquote><p>Acabo de escribir un constructor que hace new&#8217;s de sus dependencias. Ahí, como los antiguos. Tampoco es tan terrible.</p></blockquote>
+<p>Aparte de por <del>trollear</del> discutir un poco y aprender de la gente tan lista que conozco en twitter, realmente lo escribí porque últimamente empiezo a pensar que <strong>la inyección de dependencias está sobrevalorada</strong>, especialmente eso en lo que se ha convertido la inyección de dependencias en lenguajes como C#. Y si hablamos de los contenedores de inversión de control, aún peor.</p>
+<p>Por eso quiero escribir este post, para reflexionar un poco sobre <strong>lo que ganamos al <em>no</em> utilizar inyección de dependencias</strong>.</p>
+<p><img decoding="async" src="/wp-content/uploads/thats-not-clean-code.jpg" alt="That&#039;s not clean code" width="720" class="aligncenter size-full wp-image-4722" srcset="/wp-content/uploads/thats-not-clean-code.jpg 720w, /wp-content/uploads/thats-not-clean-code-300x162.jpg 300w" sizes="(max-width: 720px) 100vw, 720px" /></p>
+<p>Por supuesto, también perdemos cosas y tenemos que ver cómo de terribles son y si podemos hacer algo al respecto. Como siempre, vamos a intentar analizar esto de forma objetiva y ver hasta dónde llegamos.</p>
+<p>Parte de estos argumentos podrían considerarse motivados por un mal uso de la inyección de dependencias, y esto de acuerdo en ello, pero eso no quita que sean problemas frecuentes en bases de código que hacen uso de inyección de dependencias y, por tanto, los considero, cuanto menos, incentivados por ella.</p>
+<p>Doy por hecho que <a href="https://twitter.com/msanjuan/status/633939739985477632" target="_blank">todos lo tenemos claro</a>, pero obviamente todo esto depende del contexto, no hay balas de plata, tienes que pensar en la aplicación que estás desarrollando y demás <em>disclaimers</em> habituales.</p>
+<h3>Lo que ganamos: simplicidad</h3>
+<p>Todo lo que ganamos gira en torno a un mismo tema: simplicidad. La inyección de dependencias, especialmente la inyección a través de constructor, implica una mayor complejidad que se manifiesta en distintos aspectos.</p>
+<p>Por una parte, estamos obligando a los clientes de una clase a saber qué dependencias tiene para poder construirlas. Y no sólo eso. También tiene que conocer las dependencias de sus dependencias. Y las dependencias de las dependencias de sus dependencias&#8230; Creo que pilláis la idea.</p>
+<p><strong>La inyección de dependencias por contructor tiene un componente viral</strong> que hace que pronto sea complicado construir objetos en nuestra aplicación y tengamos que recurrir al uso de contenedores de inversión de control que lo hagan por nosotros. Puesto que ya hablamos de eso hace tiempo, os ahorro la discusión sobre si <a href="/2012/11/contenedores-ioc-%C2%BFbuenos-o-malos/" target="_blank">es bueno o malo usar un contenedor de inversión de control</a>, pero en este caso vamos a quedarnos con que, como poco, incrementa la complejidad de la aplicación.</p>
+<p>Además de simplificar la construcción de nuestros objetos, también estamos <strong>aumentando el encapsulamiento y la <a href="https://en.wikipedia.org/wiki/Information_hiding" target="_blank">ocultación de información</a></strong>. Al no exponer las dependencias a través del constructor, los clientes de la clase no conocen detalles de la implementación de la clase y el comportamiento queda más encapsulado en ella. Podemos entrar en una discusión semántica sobre si las depedencia se pueden considerar parte del comportamiento y/o de la información de una clase, pero creo que el argumento seguiría siendo válido aunque cambiásemos los nombres.</p>
+<p>La contraargumentación típica de esto va ligada a lo que a veces se asocia con el <a href="/2015/04/la-inversion-de-dependencias-no-es-solo-lo-que-tu-piensas/" target="_blank">principio de inversión de dependencia</a>. Hay que introducir un interface. Usa inyección de depedencias, pero haz que los clientes no dependan de la clase, sino del interface. Así los clientes no conoces las dependencias de su dependencia y todo queda encapsulado. Por supuesto, para que esto sea manejable, tenemos como antes a nuestro amigo el contenedor de inversión de control.  Para ser justos, igual que en el caso anterior, se puede evitar el contenedor y construir el grafo de objetos a mano en algún punto de la aplicación, pero lo habitual suele ser ir por la vía del contenedor.</p>
+<p>Esta evolución hacia los interfaces acaba generalmente en otro anti patrón: los <a href="http://mortoray.com/2014/08/01/the-false-abstraction-antipattern/" target="_blank">header interfaces</a>. Básicamente, acabamos con un montón de interfaces cuya implementación es única en toda la aplicación. Además, esa implementación tiene un API pública que es una copia exacta del interface. Vamos, que aportar, aporta más bien poco, excepto un poco de complejidad adicional al tener un nuevo interface que no sirve para nada, posiblemente otro fichero en disco y hacer algo más incómoda la navegación por el código.</p>
+<p>Como decía en la introducción, parte de estos argumentos no pueden achacarse directamente a la inyección de dependencias, sino al abuso, o al mal uso de la misma, pero son escenarios lo bastante frecuentes como para que nos hagan pensar sobre ellos.</p>
+<h3>Lo que parece que perdemos</h3>
+<p>Claro, cuando empezamos a utilizar la inyección de dependencias no es que nos hubiéramos vuelto idiotas: tiene sus ventajas. Y, obviamente, esas ventajas son las que perdemos si dejamos de usarlas. Vamos a ver unas cuantas de ellas y si seremos capaces de vivir sin ellas.</p>
+<p>Para muchos <em>la</em> ventaja fundamental de la inyección de dependencias es <strong>poder escribir tests unitarios</strong>. Reconozco que yo fui uno de ellos. Hace unos cuantos años, poder inyectar <em>mocks</em> (o cualquiera de sus amigos) para mi era crítico, porque era lo que me permitía escribir tests <em>unitarios</em>.</p>
+<p>Y ojo, que esa es la palabra clave, <em>unitarios</em>. Partía de la base de que los mejores tests son los unitarios, y de que los tests unitarios sólo pueden testear una clase. Con el tiempo mi opinión cambió, ya <a href="/2012/02/la-unidad-de-un-test-unitario-no-es-una-clas/" target="_blank">no creo que un test unitario sólo pueda testear una clase</a> y <a href="/2014/05/deconstruyendo-la-piramide-de-los-tests/" target="_blank">tampoco creo que los tests unitarios sean siempre la mejor opción</a>. Además, existen formas de <a href="/2013/07/refactorizando-tests-unitarios-hacia-tests-sin-dependencias/">escribir el código para poder testear la lógica sin depender de dependencias externas</a>.</p>
+<p>Aún así, si quieres escribir tests unitarios de una clase que tiene dependencias y que necesitas testear de forma independiente, siempre puedes hacerlo sin viralizar la aplicación entera con inyección de dependencias y añadir un constructor adicional a esa clase con la o las dependencias que necesitas reemplazar en el test. Algo del estilo de <a href="http://stackoverflow.com/questions/7099406/what-is-the-real-difference-between-bastard-injection-and-poor-mans-injectio" target="_blank">inyección de dependencias para pobres o bastarda</a>. Incluso puedes hacer ese constructor protegido y usarlo sólo desde una clase derivada creada exclusivamente para los tests. Si te pone nervioso tocar el código de producción sólo para poder testearlo, piensa que eso es exactamente lo que estabas haciendo cuando pasaste a usar inyección de dependencias sólo para inyectar <em>stubs</em>.</p>
+<p>En cualquier caso, para protegernos de esta eventualidad y poder hacer fácil esta refactorización a un constructor que reciba las dependencias, <strong>es recomendable instanciar las dependencias en el constructor</strong>, en lugar de repartir los <code>new</code>s por toda la clase y luego tener que perseguirlos. Así, en caso de necesitar inyectar esa dependencia, es una refactorización simple para introducir el parámetro en el constructor.</p>
+<p>Instanciar todas las dependencias en el constructor nos ayuda a mitigar otro problema: la <strong>pérdida de documentación</strong>. Cuando usamos inyección de dependencias, es fácil encontrar todas las dependencias de una clase simplemente mirando la signatura del constructor. Al instanciar todas las dependencias en el constructor conseguimos algo parecido. No es igual de descriptivo, pero resuelve el problema en cierta medida.</p>
+<p>Esto nos lleva un problema interesante que algunos mecionastéis en twitter (¡gracias!) y que realmente no es fácil resolver sin utilizar inyección de dependencias: el control del ciclo de vida de los objetos.</p>
+<p>Cuando instanciamos las dependencias dentro de una clase podemos controlar el ciclo de vida de la dependencia, pero su creación será siempre posterior a la clase que la contiene. Podemos jugar con ligarlos por completo, es decir, instanciar la dependencia en el constructor, asignarla a un atributo de la clase y dejarla ahí hasta que nuestra clase muera. También podemos utilizarla localmente en un método y dejar que muera al terminar el método. Lo que resulta más complicado es hacer que la dependencia sobreviva a nuestra clase (a no ser que la expongamos a alguien que quiera hacerse cargo de ella) y es aún más complicado compartir dependencias entre clases (a alguna hay que inyectársela).</p>
+<p>Si no usamos inyección de dependencias y tenemos que compartir dependencias entre clases la solución más habitual es recurrir a <em>singletons</em>, que dista mucho de ser la opción ideal en ese escenario.</p>
+<p>Otro argumento a favor de la inyección de dependencias es que nos permite cambiar el comportamiento de un componente sin necesidad de modificarlo, aprovechando que podemos cambiar las dependencias que le inyectamos. Éste es, sin duda, un aspecto muy importante de esta técnica y, si lo aplicamos correctamente, podemos conseguir componentes poco acoplados entre sí, reutilizables en distintos contextos sin necesidad de modificarlos, con responsabilidades bien definidas&#8230; en fin, el sueño de todo <em>clean coder</em>.</p>
+<p>¿Qué pasa cuando renunciamos a la inyección de dependencias? ¿Perdemos todo eso? En realidad sí. O no. Da igual. En realidad, la pregunta es, <strong>¿necesitamos todo eso?</strong> ¿Cuántos sistemas habéis visto en los que se aplica inyección de dependencias, posiblemente con un contenedor, y la configuración es completamente estática? ¿Cuántos sistemas conocéis en los que jamás se modifican las dependencias concretas que recibe cada componente, por mucho que se estén aisladas detrás de un interface? Yo conozco unos cuantos (y he diseñado personalmente muchos de ellos).</p>
+<p>Que sea deseable cumplir con esas características, no quiere decir que sea necesario y hay que ser consciente de implica una complejidad adicional que tal vez no merezca la pena. Es similar al caso de abstrear por completo la base de datos «para poder trabajar con diferentes bases de datos» u ocultar el ORM detrás de un montón de interfaces «para poder cambiar de ORM». ¿Cuántos proyectos necesitan cambiar de ORM o de base de datos? Y en los que así es, ¿realmente es más rentable asumir toda complejidad adicional desde el principio que reescribir la parte que sea necesaria cuando realmente sea necesario?</p>
+<p>Donde sí es necesario prestar más atención a estos aspectos es cuando estamos desarrollando un conjunto de componentes cuyo uso escapará a nuestro a control. Si el usuario de nuestros componentes no va a poder modificar su código en el futuro, por ejemplo porque es una librería que vamos a liberar en forma binaria, hacer esa labor de abstracción y flexibilización prematura puede ser importante. Pero siempre buscando el equilibro para que el uso de nuestra librería no imponga una excesiva complejidad en sus clientes a la hora de construir los objetos con los que han de trabajar.</p>
+<h3>Conclusiones</h3>
+<p>No quiero convertir esto en un <em>rant</em> contra la inyección de dependencias, ni siquiera contra los contenedores de inversión de control. Lo que pretendo recalcar es que no es práctico utilizar la inyección de dependencias como técnica por defecto para todo. Actualmente parece que <code>new</code>, más que una palabra reservada, es una palabra prohibida, y sigue siendo una forma perfectamente válida de construir un objeto. No todo tiene que ser inyectado por contenedores mágicos.</p>
+<p>Cuando trabajo con lenguajes como Javascript, <a href="/2016/01/mis-tecnologias-del-2015/" target="_blank">excepto cuando todavía tengo que padecer AngularJS</a>, no utilizo inyección de dependencias. Al menos, en el sentido que se suele asociar con la inyección de dependencias en lenguajes como C#. No uso un contenedor y no empiezo diseñando cada módulo a partir de una función que recibe un puñado de dependencias.</p>
+<p>Puedes modularizar una aplicación en componentes de un tamaño razonable, cada uno de ellos lo más autocontenido posible, y utilizar referencias estáticas (<code>import</code>/<code>require</code>) entre ellos. Eso no impide inyectar comportamiento allí donde es necesario, ya sea pasando objetos o funciones a otros objetos o funciones, pero en lugar de ser <em>la norma</em>, es algo que utilizo cuando necesito. No porque sí.</p>
+<p>También tengo aplicaciones grandes en las que el uso de inyección de dependencias, con su contenedor de inversión de control, e incluso sus <em>header interfaces</em>, ofrece ventajas importantes. Puedo (y de hecho lo hago) separarlas en varios procesos o ejecutarlas en uno solo. Puedo reutilizar componentes en distintos escenarios, cambiando protocolos de serialización y comunicación de forma transparente. Puedo aprovechar el contenedor y <a href="/2011/12/aop-con-castle-windsor-iinterceptor/" target="_blank">aplicar AOP para determinadas cosas</a>. Aunque tengo que pagar el coste de una complejidad adicional, merece la pena.</p>
+<p>Tampoco es necesario que todo un sistema se rija por los mismos principios. Puede haber áreas en las que compense utilizar una técnica, y otras en la que no valga la pena. Podemos tener una aplicación que utiliza inyección de dependencias y un contenedor de inversión de control, pero que para un subsistema determinado emplea una clase que hace fachada y controla todo el subsistema de forma estática.</p>
+<p>Lo importante, como ya os podéis imaginar, es mantener la mente abierta y no caer en el error de pensar que <em>siempre</em> compensa hacer las cosas de la misma manera. Estamos muy acostumbrados a hablar sobre eso (balas de platas, martillos y clavos, la herramienta adecuada para cada cosa, etc.), pero a veces nos cuesta llevar esas palabras a la vida real.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/02/se-consciente-de-lo-que-sabes-y-de-lo-que-no/" rel="prev"><i class="icon-arrow-left"></i> Sé consciente de lo que sabes (y de lo que no)</a></div>		<div class="nav-next"><a href="/2016/02/material-charla-inside-out/" rel="next">Material charla Inside Out <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4721 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			19 comentarios en &ldquo;<span>Las ventajas de NO usar inyección de dependencias</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3800">
+		<article id="comment-3800" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3800"><time pubdate datetime="2016-02-15T08:32:38+01:00">
+					15 febrero 2016 de 08:32					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Por dar otro punto de vista voy a romper una lanza en favor de la sobreingenieria :-P , empezando por plantear la forma de analizar la aplicacion de cierta tecnologia en proyectos ya acabados.<br />
+A veces al revisar el proyecto le damos mas importancia al resultado final (que ya no cambia) que a las posibilidades de cambio y las incertidumbres iniciales, que, sin embargo, se pueden repetir en cada proyecto nuevo. A veces parece que nos fijamos en el dolor sordo de baja intensidad de haber elegido abstracciones no usadas en 10 proyectos que en la ausencia de un dolor mayor en uno de ellos por haberlas elegido (ya que en realidad NO lo hemos sufrido). Tambien a veces el no elegirlas provoca consecuencias (y dolores) de forma indirecta y no siempre pensamos «eh, si hubiera elegido no dejar implicitas y fijadas las dependencias globales ahora no estaria copiando y pegando a diestro y siniestro dos años despues»</p>
+<p>En mi caso suelo dejar un constructor abierto con las dependencias en interfaces y de uno a tres constructores mas sencillos con implementaciones por defecto. Segun la generalidad del modulo en cuestion, puede que en alguno solo este el constructor generico y en otros solo el implicito. Intento evitar el contenedor de dependecias para que el añadir una dependencia duela de forma exponencial, si es posible. Simplificar al modulo cliente las dependencias en exceso lleva a añadirlas de una forma mas alegre en el servidor.<br />
+No suelo hacer tests unitarios; en mi caso la razon que me lleva a hacer explicitas las dependencias es intentar evitarlas y conseguir una mayor componibilidad (argh, hasta la palabra es compleja) en los modulos mas abstractos y generales: la cuestion pasa a si necesitas ese nivel de generalidad, claro</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3806">
+		<article id="comment-3806" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/05335adb7939296162b021d8be77d042?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/05335adb7939296162b021d8be77d042?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Lucas Ontivero</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3806"><time pubdate datetime="2016-02-15T18:03:15+01:00">
+					15 febrero 2016 de 18:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma, no es posible estar más de acuerdo. No todo debe poder ser inyectado y aunque creo que nos resultó evidente a todos que lo estábamos haciendo mal, muchas veces nos facilitaba mucho las pruebas unitarias y pensamos en todo lo que haz expuesto en esta entrada.</p>
+<p>Por allá por el 2011 sufrí mucho este problema, y aún hoy cada proyecto que toco sufre de lo mismo, así que lo expuse en una entrada (muy mala por cierto y con un título provocador como de costumbre) en mi blog <a href="http://geeks.ms/lontivero/2011/04/15/lo-que-huele-mal-es-la-inyeccin-de-dependencias/" rel="nofollow ugc">http://geeks.ms/lontivero/2011/04/15/lo-que-huele-mal-es-la-inyeccin-de-dependencias/</a></p>
+<p>El punto básico es que si pudiésemos sobrecargar el &#8216;new&#8217; como en ruby, por ejemplo, nos podríamos olvidar de la inyección de dependencias y vivir en un mundo más feliz. </p>
+<p>Saludos</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3807">
+		<article id="comment-3807" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/60c0afbae5f7f3a7d2d5c0ff38c9e1a1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/60c0afbae5f7f3a7d2d5c0ff38c9e1a1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Olmo del corral</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3807"><time pubdate datetime="2016-02-16T00:40:17+01:00">
+					16 febrero 2016 de 00:40					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Me ha gustado el post. Yo nunca me he tragado lo de la inyección de dependencias. Tiendo a escribir código en métodos estáticos in clases estáticas. Si necesito algo de contexto lo paso explícitamente usando un objeto context o implícitamente usando ThreadLocal/ThreadStatic/CallContext. Y si necesitar puntos de extensión para mockear dependencias simplemente declaró una variable statica:</p>
+<p><code><br />
+static class ReportGenerator{<br />
+    static IPrinter Printer;</p>
+<p>    static void GenerateReport(ReportData data)<br />
+    {<br />
+         var pdf = ...<br />
+         printer.Print(pdf)<br />
+    }<br />
+}<br />
+</code></p>
+<p>Al fin y al cabo o estas corriendo los unit test o estas en producción, no necesitas distintas configuraciones para distintas instancias de ReportGenerator al mismo tiempo. </p>
+<p>Si aún queda algún fundamentalista de la orientación a objetos suelto se echara las manos a la cabeza, pero esto es básicamente de lo que van los lenguajes funcionales: métodos estáticos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3811">
+		<article id="comment-3811" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ede70cd795d1eb6be6e805cb85fa2732?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://code.jros.org" class="url" rel="ugc external nofollow">Javier Ros</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3811"><time pubdate datetime="2016-02-16T13:11:19+01:00">
+					16 febrero 2016 de 13:11					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Mi querido Juanma :D</p>
+<p>Que gran trabajo llevas a cabo en este blog, me gusta el enfoque «desmelenado» con el que abordas los diversos campos del desarrollo del software. Me gusta cuando leo un nuevo post y en medio me encuentro enlaces a otros post también tuyos donde se habla de algo relacionado o de lo mismo pero escritos por una versión anterior de ti mismo. Incluso en este segundo nivel también se encuentran enlaces a otros post (tercer nivel) donde se pueden ir viendo distintas versiones y enlaces a un cuarto nivel. No es ironía ni es esta una critica negativa, al contrario, la lectura de uno de tus post se puede convertir en algo apasionante digna de una novela del estilo «Elige tu propia aventura» donde puedes saltar a un post de un tema u otro e incluso a distintas versiones de un mismo tema.<br />
+Apasionante para el lector e impresionante el trabajo que lleva para el autor, creo que es el único blog que conozco que no encarcela a su autor. Y es que habitualmente tomamos decisiones, las escribimos y luego nos esclavizamos con nuestras palabras, hay gente que escribe un post en su blog sobre algo y luego escribe código pensando en el post, como si al haberlo hecho público fuera esclavo de sus propias doctrinas. Posiblemente esta sea una de las claves de este blog, escribir sobre experiencias vividas más que de como hay que hacer las cosas o como vas a hacerlas.</p>
+<p>Quería comentar lo anterior para darme pié al verdadero comentario sobre este post. Lo primero que aprendemos son las reglas, las normas, los patrones, el «másmolismo», leemos en internet artículos donde se habla de una tecnología y «a saber por que» lo tomamos como verdades absolutas, como doctrinas del buen camino. Bajo mi punto de vista, la clave siempre está en aislar nuestro código de lo que leemos, leer los artículos como un aporte a lo que ya sabemos (por supuesto siendo consciente de lo que sabes y de lo que no ;) jeje) y por último ser capaces de extraer que cosas de lo recientemente adquirido merece la pena incorporar en nuestro día a día. Y digo a nuestro «día a día» y no a nuestro «código» por que si bien el código importa, el contexto es más importante (como bien sabes). Como hemos comentado alguna vez mi problema no es escribir código, mi problema es que otros tienen que escribir código. Y nada como los patrones, las reglas y las normas para alinear el código de un equipo de desarrollo. Me resulta más fácil implantar un patrón existente que puede ser conocido por nuevas incorporaciones y que tiene detallado, cual «guía burros», los aspectos del mismo, que usar ciertas características de cada patrón creando así reglas propias.</p>
+<p>Aún así desde hace un año desarrollo software por mi cuenta, realizando algún proyecto por mi cuenta, y ahí sí, ahí si que voy incorporando cosas según las voy viendo interesantes, y cosas parciales de distintos patrones y «filosofías».<br />
+En cuanto a DI tengo mi visión particular del tema, no concibo DI sin IoC. Lo veo inútil, supongo que por que no hago tests unitarios. Igualmente al contrario, considero que usar IoC sin DI es tener ganas de joder a quien lea el código e incluso a ti mismo cuando leas tu código dentro de un año, en mi caso dos semanas. Hago uso de IoC en ocasiones muy contadas y cuando lo uso lo que intento es inyectar el DependencyResolver en dicha clase, para que al menos en el constructor de la clase se vea que se usa IoC.<br />
+La gran ventaja de usar DI para mi es que en un simple vistazo puedo ver las dependencias de una clase, dependencias que doy por hecho que va a inyectar el contenedor de IoC. Cierto es que no hago tests unitarios y creo que cada día estoy más lejos de implementarlos por sistema.<br />
+Yo a DI+IoC le veo ventajas por todos sitios, el código habla por si solo viendo los constructores de clase, no le veo ninguna desventaja, quizás me falte rodaje &#8230; Lo primero que hago cuando creo una aplicación nueva de ASP.NET MVC ó NancyFx es instalar StructureMap del NuGet, y no entiendo que problema hay con configurar el contenedor de IoC &#8230; «La inyección de dependencias por constructor tiene un componente viral» &#8230; eso me ha dejado tocado, pero claro luego veo «y tengamos que recurrir al uso de contenedores de inversión de control que lo hagan por nosotros» y claro &#8230; yo digo, como si no? hay gente que usa DI sin IoC ??? no lo concebía &#8230; pero parece que si. Me parece una locura.</p>
+<p>Bueno, por último (que este comentario ya da para un post en mi blog, jejeje), me gusta cuando aceptas actuar de abogado del diablo y contrarrestas opiniones favorables con opiniones negativas sobre ciertas tecnologías, lo que no me gusta es cuando dices de partir de una idea equivocada, es decir que partes de algo que está mal echo, para enumerar las cosas negativas. Bajo mi punto de vista, cuando critico algo debo de hacerlo desde los términos que ese algo define. Me refiero al párrafo «Parte de estos argumentos podrían considerarse motivados por un mal uso de la inyección de dependencias &#8230;» me chirría en la cabeza el echo de quejarme de lo poco que me ha durado la caja de cambios de mi coche cuando no uso correctamente el embrague &#8230; no? No se que pensar, pero no me termina de convencer el hecho argumentar cosas negativas de algo que puedan estar motivadas por un mal uso del mismo. Lo digo por que no es la primera vez que te lo veo, con AngularJs te pasa igual, partes de un mal uso o un mal enfoque para enumerar sus cosas negativas.</p>
+<p>Bueno, el sábado que viene en persona ;)<br />
+Un abrazo!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3812">
+		<article id="comment-3812" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/244f36fd6d82b4fe713cb81f941bc298?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/244f36fd6d82b4fe713cb81f941bc298?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Jose Alonso</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3812"><time pubdate datetime="2016-02-16T14:15:04+01:00">
+					16 febrero 2016 de 14:15					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Juanma,</p>
+<p>Aunque hace tiempo que vengo leyendo tus posts, nunca había comentado ninguno. Pero esta vez tengo que pararme a felicitarte por estos grandes aportes que haces. Le das a tus posts un toque filosófico que parece que no estás escribiendo sobre tecnología.<br />
+Da igual si alguien comparte o no tu visión de las cosas; llegas aquí, lees y acabas aprendiendo algo nuevo, siempre.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3813">
+		<article id="comment-3813" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.ingenieroperales.com/" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3813"><time pubdate datetime="2016-02-16T16:01:03+01:00">
+					16 febrero 2016 de 16:01					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Lo siento yo vengo de Java y aun estoy contento con Spring xD, pero es bueno ver el punto de vista y realmente prefiero tener @Resource que un new(&#8230;) con muchos parametros.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3816">
+		<article id="comment-3816" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3816"><time pubdate datetime="2016-02-18T10:29:42+01:00">
+					18 febrero 2016 de 10:29					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>@Olmo de Corral</p>
+<p>En mi forma de ver la programacion funcional, esta no tiene nada que ver con tener modulos con metodos «estaticos». De hecho la diferencia entre estatico e instancia no tiene sentido ya que los modulos en haskell, ml, etc no tienen estado ni son tipos en si mismos como en oop. En un lenguaje que no es oop puro (como java o c#) puedes simular los modulos sin datos encapsulados con clases y metodos estaticos</p>
+<p>Los lenguajes procedurales (pascal, c, etc) tambien solo tienen metodos «estaticos» y son imperativos puros, por lo que usarlos en un lenguaje oop manteniendo estado mutable (como las variables estaticas de la clase) es mas una vuelta a c y pascal que nada que tenga que ver con la programacion funcional</p>
+<p>@Javier Ros</p>
+<p>¿Por que es una locura usar di sin IoC? Yo he usado ambas y cada una tiene sus ventajas e inconvenientes (las ventajas evitarte todas las dependencias del IoC, tener las dependencias en codigo en lugar de en configuracion con lo que tienes disponibles las validaciones del compilador (incluidos parametros de tipos), posibilidad de afinar la inyeccion, rendimiento, etc, etc)<br />
+Las deventajas de no usar IoC creo que las tienes claras ;-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3817">
+		<article id="comment-3817" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3817"><time pubdate datetime="2016-02-18T10:52:13+01:00">
+					18 febrero 2016 de 10:52					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En favor de los argumentos del Sr. Ros, debo decir que en .NET hoy en día es raro utilizar un IoC con configuración externa. Casi siempre se hace la configuración por código (con convenciones o a mano), con lo que mantienes la seguridad de tipos. Tampoco el rendimiento suele ser problema e incluso hay contenedores que usan LCG para evitar reflection y penalizar aún menos.</p>
+<p>Para mi el mayor inconveniente del contenedor IoC (frente a hacer la inyección a mano) es algo que tu mencionabas en el primer comentario: oculta el dolor. </p>
+<p>Si uso un contenedor IoC, puedo añadir 20 dependencias a una clase y no notaré el problema, serán todas inyectadas por el contenedor. </p>
+<p>Puedo construir grafos de objetos hipercomplejos sin pararme a pensar si realmente tiene sentido partir las funcionalidades así, porque será el contenedor quien construya el grafo.</p>
+<p>También cuesta más ver el acoplamiento entre componentes a través de sus dependencias porque, al no construirlos a mano, no estás tan pendiente de qué acaba recibiendo cada uno.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3818">
+		<article id="comment-3818" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3818"><time pubdate datetime="2016-02-18T13:44:30+01:00">
+					18 febrero 2016 de 13:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Si en spring tambien se cambiaron (o añadieron) la configuracion mediante convencion (que tiene sus propios problemas) o con anotaciones o mezclando todo por que la genta acabo harta de xmls y demas.<br />
+No se como es en .net pero si yo tengo un objetos del tipo<br />
+<code><br />
+class Bean {<br />
+  T getValue()<br />
+}<br />
+class Bean2 {<br />
+   public Bean2(Bean bean1) {<br />
+      print(bean1.getValue()+1)<br />
+   }<br />
+}<br />
+</code></p>
+<p>no se si usando IoC para la inyeccion me chequea en tiempo de compilacion que le esta pasando un Bean o me dara un error en ejecucion si le paso un Bean</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3819">
+		<article id="comment-3819" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3819"><time pubdate datetime="2016-02-18T13:47:56+01:00">
+					18 febrero 2016 de 13:47					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>ooops, se me ha comido los parametros de tipo<br />
+aqui estaria el ejemplillo:<br />
+<a href="https://gist.github.com/jneira/0f685a58b6e156eddd3f" rel="nofollow ugc">https://gist.github.com/jneira/0f685a58b6e156eddd3f</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3820">
+		<article id="comment-3820" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3820"><time pubdate datetime="2016-02-18T13:49:15+01:00">
+					18 febrero 2016 de 13:49					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Los contenedores de .NET son bastante listos con eso (tal vez porque no se hace type erasure) y son capaces de asegurar que los argumentos de tipo (el T) son adecuados, e incluso trabajar con tipos genéricos abiertos y cerrados sin mucho problema.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3821">
+		<article id="comment-3821" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3821"><time pubdate datetime="2016-02-18T13:51:52+01:00">
+					18 febrero 2016 de 13:51					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hmmm, espera, dices en tiempo de compilación. </p>
+<p>Lo que ningún contenedor (que yo conozca) te garantiza, es que en tiempo de compilación todas las dependencias estén satisfechas. Yo puedo registrar un componente en el contenedor, no registrar una de sus dependencias, y obtendré un error en tiempo de ejecución cuando lo resuelva.</p>
+<p>Hay contenedores (como StructureMap) que tienen herramientas de diagnóstico bastante buenas para detectar eso con tests automatizados, pero en tiempo de compilación no creo que sea posible hacerlo.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3830">
+		<article id="comment-3830" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/dc19e4eb80f1f4a4923e910738ae13c8?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/dc19e4eb80f1f4a4923e910738ae13c8?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Jorge Rodríguez Galán</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-3830"><time pubdate datetime="2016-02-23T09:31:29+01:00">
+					23 febrero 2016 de 09:31					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola,</p>
+<p>Os dejo mi pequeña aportación al dilema:<br />
+&#8211; Reactive extensions: <a href="http://bartwullems.blogspot.com.es/2016/01/if-you-have-too-many-dependencies-its.html" rel="nofollow ugc">http://bartwullems.blogspot.com.es/2016/01/if-you-have-too-many-dependencies-its.html</a><br />
+&#8211; Simple mediator de toda la vida (Request/Response)<br />
+<a href="https://github.com/jbogard/MediatR" rel="nofollow ugc">https://github.com/jbogard/MediatR</a></p>
+<p>Saludos,</p>
+<p>Jorge</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4156">
+		<article id="comment-4156" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/292890fa407285fba9770f0afcf525ae?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/292890fa407285fba9770f0afcf525ae?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Lorenzo Jimenez</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-4156"><time pubdate datetime="2016-10-27T03:08:51+01:00">
+					27 octubre 2016 de 03:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Durante mis 20 años de programar he visto sin fin de modas, de frameworks, de innovaciones, que a la postre fracasaron pero dieron el camino a avances importantes como por ejemplo las anotaciones en java. Ahora la estoy pariendo con depurar aplicaciones hechas con Backbone y Reactjs pero seguro que dentro de algun tiempo alguien se cansará de lo manual y descubrirá algo que nos beneficie a todos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4386">
+		<article id="comment-4386" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/26ec6f65b6fb6d6a959c5537b3ea5a77?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/26ec6f65b6fb6d6a959c5537b3ea5a77?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Lorenzo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-4386"><time pubdate datetime="2017-02-14T19:02:48+01:00">
+					14 febrero 2017 de 19:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No digo que la inyección de dependencia sea un indicador de mala calidad, pero si las cosas se hacen bién no necesitamos la inyección de dependencia más que para integrar módulos.<br />
+He visto muchas veces que la creación toma mucho tiempo por la cantidad de parámetros que tiene el constructor y cosas así. Pensemos que el máximo de parámetros en el constructor sea 3 y solo casos muuuy especiales, igual probar funciones o constructores con 3 parámetros es un dolor de cabeza y los que tienen mas de 3 parámetros son imposibles de probar.<br />
+Pensemos que los objetos los crea un «factory» de acuerdo a algún parámetro que puede ser hasta dinámico.</p>
+<p>Bueno, personalmente pienso que no hay que usar todo como que no existieran alternativas.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4562">
+		<article id="comment-4562" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/177c0c05bcb4c57619f77060d4d766c8?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/177c0c05bcb4c57619f77060d4d766c8?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://lanalua.com" class="url" rel="ugc external nofollow">Bruno Grillo</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-4562"><time pubdate datetime="2017-04-27T10:08:07+01:00">
+					27 abril 2017 de 10:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy buen artículo. Me gusta la importancia que das al contexto, que muchas veces se pierde y se repiten una y otra vez las mismas soluciones a problemas muy distintos.</p>
+<p>Discrepo en el tema que los header interfaces sean un antipatrón per se. Creo que muchas veces es aconsejable crear interfaces aunque solo vayan a tener una implementación en nuestro código para facilitar las pruebas unitarias, aunque no uses IoC y hagas «inyección de dependencias para pobres».</p>
+<p>La arternativa a veces es mucho peor y mucho más compleja, al menos desde mi punto de vista: crear datos y luego borrarlos, crear un fichero para leerlo&#8230; He leído otro artículo en el que hablas de dar otro enfoque al código para poder evitar las dependencias, pero eso no siempre es posible, y no siempre hace el código más sencillo.</p>
+<p>Por lo demás, gran artículo! Te sigo :)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-4569">
+		<article id="comment-4569" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-4569"><time pubdate datetime="2017-04-28T10:13:02+01:00">
+					28 abril 2017 de 10:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Bruno,</p>
+<p>Me alegro de que te haya resultado útil.</p>
+<p>Sobre el tema de los header interfaces, como todo, es relativo. Para mi es un antipatrón cuando lo haces «por defecto», sin pensar en si lo vas a necesitar o no.</p>
+<p>A mi me resultan también útiles para separar el contrato público (el interface) de la propia clase. De esa forma, me despreocupe de hacer públicos métodos de la clase que, en principio, podrían ser privados, pero me interesa hacer públicos para testear. Los tests pueden testear el método, pero como los consumidores de la clase la ven a través del interface, a efectos prácticos es como si el método fuese privado y no mete ruido en el API.</p>
+<p>Saludos!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4827">
+		<article id="comment-4827" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f1473bbe2336eb10618a698c8af389a0?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f1473bbe2336eb10618a698c8af389a0?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Daniel</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-4827"><time pubdate datetime="2017-08-30T15:54:43+01:00">
+					30 agosto 2017 de 15:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>No he entendido ni la mitad de cosas que decís, así que respondo al título del post:</p>
+<p>La DI sólo para servicios que se reutilizan constantemente y que no dependan de contexto.</p>
+<p>Las suelo utilizar para servir datos estáticos y poco más. Sé que se podría hacer con alguna clase estática o singleton, pero me hace gracia hacerlo con DI.</p>
+<p>Hay un exceso de uso de DI</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-7131">
+		<article id="comment-7131" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/c730ba535997d44a9675c66c50bc6708?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/c730ba535997d44a9675c66c50bc6708?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">madopiuter</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/02/las-ventajas-de-no-usar-inyeccion-de-dependencias/#comment-7131"><time pubdate datetime="2019-09-05T16:02:25+01:00">
+					5 septiembre 2019 de 16:02					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola creo que te dispersas mucho, me he quedado en cuando empiezas a irte por las ramas con los test unitarios que poco o nada tienen que ver con el uso de la inyección de dependencias.  Hablas mucho para no decir nada, al final no se cua les la conclusión, nisiquiera leyendo el apartado conclusión.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>

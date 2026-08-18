@@ -1,0 +1,1062 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+	Los microservicios no son para mí | Koalite</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+
+	<link rel="shortcut icon" type="image/ico" href="/wp-content/uploads/favicon.png" />
+
+<!--[if lt IE 9]>
+	<script src="/wp-content/themes/koalite-albinomouse/js/html5.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-ie.css" type="text/css" media="screen" />
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/blog.koalite.com\/wp-includes\/js\/wp-emoji-release.min.js"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='style-css' href='/wp-content/themes/koalite-albinomouse/style.css' type='text/css' media='all' />
+<link rel='stylesheet' id='font-awesome-css' href='/wp-content/themes/koalite-albinomouse/font-awesome/css/font-awesome.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='Oxygen-css' href='https://fonts.googleapis.com/css?family=Oxygen%3A400%2C700%2C400italic%2C700italic' type='text/css' media='all' />
+<link rel='stylesheet' id='DroidSans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700' type='text/css' media='all' />
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp-includes/js/jquery/jquery-migrate.min.js" id="jquery-migrate-js"></script>
+<meta name="generator" content="WordPress 6.4.2" />
+<link rel="canonical" href="https://blog.koalite.com/2016/05/los-microservicios-no-son-para-mi/" />
+	
+	<style type="text/css">
+	/*--- Link and Footer Color ---*/
+	a,
+	a:visited,
+	.post-format-icon a:link,
+	#footer h4,
+	#footer h4 a,
+	.main-small-navigation li:before {
+		color: #ad001c;
+	}
+	button,
+	html input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.main-navigation li,
+	.main-navigation ul ul li,
+	h1.menu-toggle,
+	.nav-previous,
+	.nav-next,
+	.link-button,
+	.more-link,
+	#footer,
+	.comments-area .reply,
+	p.biglink {
+		background-color: #ad001c;
+	}
+	
+	/*--- General Background ---*/
+			
+	/*--- Typography ---*/
+		h1, h2, h3, h4, h5, h6 { font-family: 'Droid Sans', sans-serif; }
+	h1.entry-title {line-height: 1.15;} 	body, button, input, select, textarea {	font-family: 'Oxygen', sans-serif; } 	
+	</style>
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="32x32" />
+<link rel="icon" href="/wp-content/uploads/favicon.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="/wp-content/uploads/favicon.png" />
+<meta name="msapplication-TileImage" content="https://blog.koalite.com/wp-content/uploads/favicon.png" />
+
+<link rel="stylesheet" href="/wp-content/themes/koalite-albinomouse/style-koalite.css" type="text/css" media="screen" />
+</head>
+
+
+<body class="post-template-default single single-post postid-4833 single-format-standard sidebar-off footer-one">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header transparent-gray" role="banner">
+		<div class="container clear">
+			<hgroup class="title-group">
+									<h1 class="site-title title-half-width">
+						<a href="/" title="Koalite" rel="home">
+							Koalite				
+						</a>
+					</h1>
+									<h2 class="site-description">El código importa, pero el contexto más</h2>
+							</hgroup>		
+			
+			<hgroup class="nav-group">
+				<nav class="site-navigation main-navigation" role="navigation">
+					<h1 class="assistive-text">Menú</h1>
+					<div class="assistive-text skip-link"><a href="#content" title="Ir al contenido">Ir al contenido</a></div>
+											<ul id="menu-header" class="menu"><li id="menu-item-3494" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a title="Ir a inicio" href="/"><i class=""></i><i class="icon-home"></i> Inicio</a></li>
+<li id="menu-item-3493" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Ver todos los posts" href="/archive/"><i class=""></i><i class="icon-calendar"></i> Archivo</a></li>
+<li id="menu-item-3495" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"><a title="¿Quieres saber algo más sobre mi?" href="/about/"><i class=""></i><i class="icon-user"></i> Sobre mi</a>
+<ul class="sub-menu">
+	<li id="menu-item-3496" class="menu-item menu-item-type-post_type menu-item-object-page"><a title="Información sobre mi" href="/about/"><i class=""></i><i class="icon-info-sign"></i> Quién soy</a></li>
+	<li id="menu-item-3497" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Sígueme en Twitter" href="https://twitter.com/intent/user?screen_name=gulnor"><i class=""></i><i class="icon-twitter"></i> Twitter</a></li>
+	<li id="menu-item-3498" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mi código en GitHub" href="http://github.com/jmhdez"><i class=""></i><i class="icon-github"></i> Github</a></li>
+	<li id="menu-item-3499" class="menu-item menu-item-type-custom menu-item-object-custom"><a title="Mándame un correo" href="mailto:juan.hernandez.arroyo@gmail.com"><i class=""></i><i class="icon-envelope-alt"></i> Email</a></li>
+</ul>
+</li>
+</ul>					 
+				</nav>
+					
+			</hgroup>
+
+			
+		</div> <!-- end .container .clear -->
+	</header><!-- end #masthead .site-header -->
+
+	<div id="main" class="container clear">
+<div id="content" class="site-single-post" role="main">
+
+	
+		
+
+<article id="post-4833" class="post-4833 post type-post status-publish format-standard hentry category-dev tag-architecture tag-design-patterns tag-microservices">
+	<header class="entry-header">	
+						<span class="post-format-icon format-standard"></span>
+					<h1 class="entry-title">Los microservicios no son para mí</h1>
+
+		<p class="post-info">
+						<span class="release-date"><i class="icon-calendar"></i> 9 mayo 2016</span>
+			<span class="sep author-link"> | </span>
+			<span class="author-link"><i class="icon-user"></i> <a href="/" title="Visitar el sitio de Juan María Hernández" rel="author external">Juan María Hernández</a></span>
+			<span class="sep author-link"> | </span>
+						<span class="tag-links">
+				<i class="icon-tag"></i>
+				<a href="/tag/architecture/" rel="tag">architecture</a>, <a href="/tag/design-patterns/" rel="tag">design patterns</a>, <a href="/tag/microservices/" rel="tag">microservices</a>			</span>
+					</p><!-- End .post-info -->
+		
+	</header><!-- End .entry-header -->	
+	
+	<div class="entry-content">
+		<div class="clear">
+													<p>Una de las <em>buzzwords</em> del momento es, sin duda, microservicios. De hecho, ya hace tiempo que saltó de los círculos de <em>hyper-cool early adopters</em> al mundo marketiniano, y la cantidad de empresas que intentan venderte algo relacionado con microservicios no para de crecer. Cuando llega este punto, merece la pena pararse un rato a pensar sobre lo que realmente nos aporta una arquitectura basada en microservicios antes de lanzarnos a seguir la moda y utilizarla para desarrollar nuestro próximo proyecto.</p>
+<div class="image">
+<img decoding="async" src="/wp-content/uploads/paco-martinez-soria-la-ciudad-no-es-para-mi.jpg" alt="Los microservicios no son para mi" width="969" class="aligncenter size-full wp-image-4836" srcset="/wp-content/uploads/paco-martinez-soria-la-ciudad-no-es-para-mi.jpg 969w, /wp-content/uploads/paco-martinez-soria-la-ciudad-no-es-para-mi-300x123.jpg 300w" sizes="(max-width: 969px) 100vw, 969px" /><small>El gran Paco Martínez Soria en <a href="http://www.filmaffinity.com/es/film501473.html" target="_blank">La ciudad no es para mí</a> de 1966</small>
+</div>
+<p>
+<strong>OJO</strong>: Este post está escrito más desde el análisis que desde la experiencia. <strong>No he implementado y mantenido</strong> un sistema grande basado en microservicios, entre otras cosas porque su propuesta no me ha seducido lo suficente. Digo esto porque me encantaría recibir vuestras opiniones y discutir un rato sobre el tema.</p>
+<h3>Qué son los microservicios</h3>
+<p>Suele ser habitual que estos términos de moda se acaben «adaptando» a lo que cada uno quiera vender, por lo que antes de empezar a analizarlos se hace necesario establecer un punto de partida. En mi caso, me gusta bastante <a href="http://martinfowler.com/articles/microservices.html" target="_blank">la definición de Martin Fowler de una arquitectura basada en microservicios</a>.</p>
+<p>Un microservicio es <strong>un componente que puede ser desplegado, evolucionado y actualizado de forma independiente</strong>. Este componente encapsula la lógica necesaria para cubrir una funcionalidad completa, entendiendo por completa que incluye todas las capas necesarias para implementarla, desde el API hasta el acceso a la base de datos. En general, estas funcionalidades serán bastante pequeñas (de ahí lo de <em>micro</em>), y nuestra arquitectura se basará en tener un montón de componentes como éste comunicándose unos con otros mediante algún protocolo ligero. Lo más habitual es que la comunicación se realice mediante peticiones y respuestas HTTP, o algún bus de mensajes simple.</p>
+<p>Visto así, se parece bastante a lo que proponía <a href="https://en.wikipedia.org/wiki/Service-oriented_architecture" target="_blank">SOA</a> hace diez años, y lo cierto es que la idea es practicamente la misma, pero cambiando tecnologías (más JSON y menos SOAP) y el tamaño de los servicios.</p>
+<p>En ambos casos lo importante es particionar el sistema en componentes que se puedan desplegar de formam independiente, pero en lugar de hacerlo basándose en capas (<em>tiers</em>, no <em>layers</em>), hacerlo basándose en particiones verticales que incluyen todas las capas para implementar una funcionalidad:</p>
+<p><img decoding="async" src="/wp-content/uploads/ntier-vs-microservices.png" alt="ntier-vs-microservices" width="800" class="aligncenter size-full wp-image-4834" srcset="/wp-content/uploads/ntier-vs-microservices.png 800w, /wp-content/uploads/ntier-vs-microservices-300x123.png 300w" sizes="(max-width: 800px) 100vw, 800px" /></p>
+<p>Esta es una visión muy simplista de toda la arquitectura, pero nos sirve para empezar a ver pros y contras.</p>
+<h3>Lo que nos dan los microservicios</h3>
+<p>Una de las ventajas que más se citan a la hora de <em>vender</em> los microservicios es la <strong>escalabilidad</strong>. Personalmente, no creo que sea la ventaja principal, pero en los últimos años <em>escalabilidad</em> se ha convertido en una palabra muy buena para vender cosas, y a todo el mundo le gusta pensar que su sistema es muy especial y necesita escalar a millones de peticiones por segundo.</p>
+<p>En el caso de los microservicios, al poder distribuir nuestra aplicación en distintos procesos, es posible desplegarlos en máquinas diferentes, consiguiendo una escalabilidad horizontal bastante decente.</p>
+<p>Cada microservicio <strong>podemos desarrollarlo sobre una plataforma diferente</strong>, con un lenguaje diferente, y con las dependencias (por ejemplo, bases de datos) que creamos convenientes. Eso, además de al propio proceso de desarrollo, ayuda a la escalabilidad, porque podemos aprovechar las características de cada plataforma y exprimirlas al máximo en función del rol de cada microservicio.</p>
+<p>La independencia a la hora de desarrollarlos es lo que constituye la principal ventaja de los microservicios, al menos desde mi punto de vista.</p>
+<p>Por una parte, nos permite, como decíamos antes, elegir la tecnología más apropiada para implementar cada uno, por lo que (se supone) los costes de desarrollo serán menores y el resultado final será mejor.</p>
+<p>Además, nos obliga a definir claramente las responsabilidades de cada servicio y el API que expondrá hacia el mundo exterior. Esto ayuda a conseguir <a href="/2015/02/cohesion-y-acoplamiento/" target="_blank">una buena cohesión dentro de cada componente manteniendo un bajo acoplamiento en todo el sistema</a>.</p>
+<p>Al tratarse de componentes pequeños (recuerda, son <em>micro</em>servicios), deberían ser relativamente simples, por lo que es <strong>sencillo entenderlos para modificarlos y mantenerlos</strong>. Incluso podríamos reescribirlos sin demasiado esfuerzo si fuese necesario.</p>
+<p>Por último, es una arquitectura que facilita especialmente el <strong>desarrollo en paralelo</strong>. Son componentes independientes, por lo que una vez definidas la interfaces entre ellos, podemos tener distintos equipos trabajando en cada microservicio.</p>
+<h3>Lo que nos cuestan los microservicios</h3>
+<p>Acabamos de ver suficientes ventajas como para que los microservicios sean una arquitectura a considerar en tu próximo proyecto, pero antes de hacerlo hay que tener en cuenta algunos pequeños detalles.</p>
+<p>Todo esto de utilizar servicios autónomos que podemos desarrollar por separado está muy bien pero como ya hemos dicho alguna vez, <a href="/2015/10/desarrollar-es-solo-el-principio/" target="_blank">desarrollar es sólo el principio</a>, y vamos a necesitar tener una estrategia para el <strong>despliegue, versionado, actualización, monitorización,</strong> etc.</p>
+<p>Eso no es una tarea trivial, y más si tenemos en cuenta que una de las ventajas que veíamos antes es que podemos desarrollar cada microservicio con la plataforma y tecnología que más nos guste, por lo que podemos acabar teniendo que gestionar un buen número de elementos distintos a la hora de desplegar y mantener funcionando nuestro sistema.</p>
+<p>Para paliar estos problemas tenemos herramientas de automatización de despliegue, máquinas virtuales, contenedores y un montón de nuevas tecnologías que nos pueden ayudar (junto con un equipo de DevOps, otra <em>buzzword</em> que lleva unos años de moda), pero la realidad es que si en lugar de tener que desplegar 34 servicios cada uno con un <em>runtime</em> diferente, tuviésemos una única aplicación monolítica, probablemente no necesitaríamos todo eso y nuestra vida sería más sencilla (al menos en ese sentido).</p>
+<p>Este aumento de la complejidad estructural del sistema se refleja en otras áreas. Establecer una buena política de versionado es fundamental y aun así podemos encontrarnos con situaciones un poco incómodas. Cada microservicio puede ser muy simple, fácil de comprender y ser «obviamente» correcto, pero <strong>la interrelación entre ellos</strong> es mucho más complicada y testear que el funcionamiento es el adecuado entre distintas versiones de los servicios no es fácil.</p>
+<p>Es algo similar a <a href="/2016/02/como-testear-un-api-web/">lo que ocurre al testear otros sistemas</a>: los componentes son sencillos pero la interacción es compleja, por lo que necesitas aumentar la cantidad de pruebas de integración, que suelen ser las más complicadas de escribir y más costosas de ejecutar.</p>
+<p>Independientemente de que despleguemos en máquinas diferentes o no, cada microservicio se ejecuta en su propio proceso, por lo que nuestro sistema será un sistema distribuido. No sé si alguna vez os habéis parado a pensarlo, pero <strong>los sistemas distribuidos son complicados</strong>.</p>
+<p>Por ejemplo, está el pequeño detalle de la <strong>transaccionalidad</strong>. Cualquier operación que requiera coordinar varios microservicios para completarse está realizando una especie de transacción distribuida entre ellos, y eso no es nada sencillo de gestionar. Aquí empiezas a entrar en un mundo de consistencia eventual entre el estado de distintos microservicios y de acciones compensatorias que, sinceramente, si te lo puedes ahorrar, mejor.</p>
+<p>Operaciones que podrían ser dentro de un mismo proceso pasan a requerir una conexión con un proceso externo y además suelen hacerse de forma asíncrona para mantener la escalabilidad del sistema, pero ello implica una <strong>pérdida de rendimiento</strong> a la hora de atender peticiones indiduales, aparte de que hay momentos en que tratar con esa asincronía puede ser complicado.</p>
+<h3>Conclusión</h3>
+<p>Después de analizar lo que me ofrecen y lo que me cuestan los microservicios, mi conclusión es que, a día de hoy, <strong>los microservicios no son para mí</strong>. Y probablemente para ti tampoco.</p>
+<p>Están muy bien si estás trabajando en un proyecto muy grande donde le puedes sacar partido a la capacidad de que varios equipos desarrollen en paralelo muchos microservicios.</p>
+<p>Si tienes unos requisitos de escalabilidad enormes, o sea, si eres Netflix, o Twitter, o Facebook, una arquitectura de este tipo puede ser apropiada por las facilidades que ofrece para escalar horizontalmente.</p>
+<p>La realidad es que muchos de nosotros no trabajamos en equipos tan grandes ni tenemos unos requisitos de escalabilidad tan elevados como para que compense el precio que hay pagar por usar una arquitectura de moda.</p>
+<p>Reconozco que hay una parte que sí me gusta mucho de esta filosofía: lo mucho que favorece la cohesión al encapsular la funcionalidad en componentes bastante independientes. El buscar un particionado más vertical que horizontal me gusta, pero también es cierto que puedes aspirar a ello sin necesidad de utilizar microservicios. No hace falta desplegar en procesos separados para <a href="/2014/10/formas-de-organizar-el-codigo/" target="_blank">organizar una aplicación alrededor de funcionalidades</a>, y si tienes suficiente disciplina puedes conseguir buenos resultados con alternativas mucho más simples.</p>
+		</div><!-- .clear -->
+					</div><!-- .entry-content -->
+	
+	<footer class="entry-footer-meta clear">
+	
+		
+		<div class="social-buttons clear">
+			
+		</div><!-- end .social-buttons .clear -->	
+			
+			<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+		<h1 class="assistive-text">Navegación por publicaciones</h1>
+
+	
+		<div class="nav-previous"><a href="/2016/04/ficheros-y-carpetas-en-un-mundo-de-apis-web/" rel="prev"><i class="icon-arrow-left"></i> Ficheros y carpetas en un mundo de APIs Web</a></div>		<div class="nav-next"><a href="/2016/05/semantic-logging-entre-el-logging-y-la-analitica/" rel="next">Semantic logging: entre el logging y la analítica <i class="icon-arrow-right"></i></a></div>
+	
+	</nav><!-- #nav-below -->
+			
+	</footer><!-- End .entry-footer-meta .clear -->
+	
+</article><!-- #post-4833 -->
+	
+
+		
+
+	<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title symbol comment-icon">
+			30 comentarios en &ldquo;<span>Los microservicios no son para mí</span>&rdquo;		</h3>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1" id="li-comment-3894">
+		<article id="comment-3894" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/bf2f34374f03a3d5b492b3e9dcd40362?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/bf2f34374f03a3d5b492b3e9dcd40362?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Fran</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3894"><time pubdate datetime="2016-05-09T07:26:13+01:00">
+					9 mayo 2016 de 07:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Bastante clarificador, cuánto daño hacen las «modas»&#8230;<br />
+Como a ti, o eso he querido entender, a mí también me gusta la idea que hay detrás, pero me parece un poco, como decirlo, «excesivo» para lo que son nuestros proyectos en el día a día, y un gran punto al que no solemos darle mucha importancia al principio, el tema de las transacciones&#8230;</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3897">
+		<article id="comment-3897" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/16213c6eafa5426b47488474294cad0a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/16213c6eafa5426b47488474294cad0a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn">Elon</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3897"><time pubdate datetime="2016-05-09T09:42:03+01:00">
+					9 mayo 2016 de 09:42					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Esto de los microservicios me recuerda al debate «núcleo monolítico vs microkernel».</p>
+<p>Stallman comenzó GNU con un «microkernel» y terminó adoptando un núcleo monolítico (Linux) por las enormes dificultades que supone depurar un «microkernel». Sospecho que en este caso va a suceder algo muy parecido. Los desarrolladores tendrán grandes dificultades para identificar el flujo de la información y terminarán por abandonar la arquitectura basada en microservicios.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3898">
+		<article id="comment-3898" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/afe64359cc95ea547f8b3685297b34d0?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/afe64359cc95ea547f8b3685297b34d0?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' decoding='async'/>					<cite class="fn"><a href="http://jecaestevez.com" class="url" rel="ugc external nofollow">Jesus</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3898"><time pubdate datetime="2016-05-09T10:18:32+01:00">
+					9 mayo 2016 de 10:18					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Quizás estaria bien diseñar la arquitectura de la aplicación para que en en el caso que se necesite en algún momento una arquitectura así pues se podría crear los microservicios con solo trocearla facilmente la aplicación y desmontarla como los legos para cerar otra pieza en lugar de liarlo todo desde el comienzo sin saber si tu aplicacion aprovechará los beneficios de montarlo como microservicios.</p>
+<p>Como siempre me gusta leer este tipo de articulos que te hace reflexionar sobre «modas»  gracias por publicar estos artículo! sigue así ;-).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3899">
+		<article id="comment-3899" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/1a390e363e35537677d344ba41d5f08c?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/1a390e363e35537677d344ba41d5f08c?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Ricardog</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3899"><time pubdate datetime="2016-05-09T14:09:45+01:00">
+					9 mayo 2016 de 14:09					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Buenas:<br />
+Me interesa mucho todo lo positivo que has comentado sobre micro servicios. De hecho me parece que, dado el mundo de modernidad y vanguardia que supone en sí mismo el software, es bastante patético que la parte negativa sea que «no es nada sencillo de gestionar».<br />
+Creo que deberíais reflexionar todos sobre la necesidad de salir de la zona de confort y dejar de dar esta pésima imagen de nuestra profesión.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3900">
+		<article id="comment-3900" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3900"><time pubdate datetime="2016-05-09T15:04:31+01:00">
+					9 mayo 2016 de 15:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gracias por los comentarios, en general coincido bastante con vosotros. </p>
+<p>Jesús, sobre lo de dejar la aplicación preparada para trocearla, yo diría que es viable (hasta cierto punto). El mero hecho de tenerla preparada, aunque nunca llegues a dividirla, creo que ya aporta bastante ventajas de cara al diseño (alta cohesión, dependencias entre componentes limitadas, interfaces claros, etc.).</p>
+<p>Ricardog, no veo que tiene de vanguardista aumentar innecesariamente la complejidad de una solución.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3901">
+		<article id="comment-3901" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/d793bc205c30ce27df9815f9e10f2d4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://www.ingenieroperales.com" class="url" rel="ugc external nofollow">Jesús Perales</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3901"><time pubdate datetime="2016-05-09T15:35:12+01:00">
+					9 mayo 2016 de 15:35					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>En teoría la teoría y la practica son lo mismo, en la practica no xD, creo que los pros y los contras verdaderos los veremos unos años después cuando los desarrolladores nuevos entren y digan ¿ Qué rayos es esto ? , aun así la idea de los microservicios es buena, igual todo con medida, evite el exceso, si a google y a facebook les funciona por que no tomar algo de ellos y utilizarlo, ¿ Para que reinventar la ruda ?, el problema es cuanto puedo/debo reutilizar</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3902">
+		<article id="comment-3902" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3902"><time pubdate datetime="2016-05-09T18:05:18+01:00">
+					9 mayo 2016 de 18:05					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Yo ahora mismo estoy sufriendo la moda, y aun hay algo que añadir: Los microservicios tienen sus pros y sus contras, pero lo que la gente está haciendo ahora con la excusa de los microservicios, eso sí tiene delito.</p>
+<p>Como bien dices, definición de los microservicios de M. F. implica que los microservicios son autosuficientes e independientes, así que incluyen todas las capas.<br />
+Pero la gente lo está usando para cortar capas, un «microservicio» de persistencia por aquí, un «microservicio» para este proceso de agregación por allá&#8230; pero como son servicios separados y se comunican usando REST, entonces los llamamos microservicios y ya son guays, modernos y «mejores por definición».<br />
+Luego cogen y aplican las teorias de microservicios y eso de que tienen que ser independientes y autosuficientes a esas distintas capas, así que bienvenido el copy/paste a la enesima potencia, ya que «no se puede compartir nada entre servicios, han de ser independientes» etc. etc.</p>
+<p>En fin, la gente lo esta usando como en su día se uso CORBA, y se van obtener los mismos resultados&#8230; incluso peores.</p>
+<p>Y estoy de acuerdo contigo «no es nada fácil de gestionar» no tiene nada que ver con zonas de confort, modernidad ni florituras. Tiene que ver con que las aplicaciones han de ser faciles de mantener y actualizar y complicarse la vida innecesariamente no es ser moderno, es ser otra cosa no mencionable en público :).</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3903">
+		<article id="comment-3903" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/48e75ea6ee4fa81aab9c7fb23fdc0e44?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/48e75ea6ee4fa81aab9c7fb23fdc0e44?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Antonio</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3903"><time pubdate datetime="2016-05-09T21:44:46+01:00">
+					9 mayo 2016 de 21:44					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Es un tema que me intersa mucho, a parte del artículo de MF también me he leído el libro de Sam Newman (que recomiendo independientemente de si quieres o no implementar microservicios) en él se habla de todos los retos y complicaciones en las que te metes al montar la arquitectura.</p>
+<p>Se aconseja partir de un enfoque monolítico y extraer servicios. Uniendo el concepto de fronteras de DDD con los microservicios.</p>
+<p>Yo he hecho algunas pruebas de gaseosa usando RabbitMQ como comunicador entres servicios e incluso a pequeña escala se vuelve muy complejo de mantener y al final no puedes hacer deployments separados porque los conceptos se acoplan y no puedes separar bien los microservicios, que además son mucho más complicados de refactorizar para mover modelos o funciones de un servicio a otro.</p>
+<p>Sí que es muy interesante ir separando los proyectos en features que en un momento dado si el uso lo requiere y está justificado poder extraerlo, lo que yo veo más complicado es separar la BD.</p>
+<p>Como muchas otras cosas es ridículo pensar que algo por ser nuevo y que a otros les funcione, es lo que hay que usar. Rigor y pragmatismo que somos profesionales.</p>
+<p>Excelente post y como siempre didáctico y directo. Gracias.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3904">
+		<article id="comment-3904" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/74a0c15298cbd7dcae3c18917fe3ae4d?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">GreenEyed</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3904"><time pubdate datetime="2016-05-09T23:03:11+01:00">
+					9 mayo 2016 de 23:03					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>@Antonio, yo creo que parte del problema ahora mismo es la indefinición del concepto y que en muchos casos se está aplicando mal. IMHO, microservicios no implica dividir la BDD, que en sistemas que no sean de jueguete o totalmente independientes de partida, no se puede/debe separar.<br />
+Con esa misma excusa la gente esta «separando» las BDD en islas independientes, desnormalizando, pasando las reglas de consistencia a la lógica de la aplicación&#8230; barbaridades, si me preguntas a mí. Con la pura excusa de que es más moderno y guay, escalable blah sin pararse realmente a pensar.<br />
+La idea de los microservicios es, por ejemplo, poder tener un ciclo de vida independiente de servicios que realmente lo tengan, poder tener una escalabilidad diferente sin que sea un todo o nada. Así pués, si tenemos un sistema de informes que no se usa más que de pascuas a ramos y tenemos un sistema de consulta online que sufre mucha carga, podemos autoescalar el sistema de consulta online sin estar obligados a escalarlo todo, y podemos aplicar parches más rápidamente sin tener que alinearnos con la parte de informes, que a lo mejor necesita más CPU, por decir algo, pero menos memoria, y cuyos cambios a lo mejor pueden esperar a los siguientes informes mensuales/anuales.<br />
+Pero dividir por el placer de usar la tijera y decir que estamos haciendo servicios «micro» es de tontos. Si los «microservicios» son mantenidos a la vez, están tan relacionados que casi nunca actualizarás uno sin tocar el otro, los usuarios y requisitos son básicamente los mismos&#8230; simplemente son ganas de complicarse y poderse colgar la medallita de «usar microservicios», a costa de aumentar la complejidad, el «overhead», el uso de recursos&#8230;<br />
+Pero bueno, ya conocemos como es esto, el hype le da mil vueltas al espíritu crítico, que no vende libros, ni conferencias ni te hace quedar tan molón :X</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3905">
+		<article id="comment-3905" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/48e75ea6ee4fa81aab9c7fb23fdc0e44?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/48e75ea6ee4fa81aab9c7fb23fdc0e44?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">ANTONIO</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3905"><time pubdate datetime="2016-05-09T23:25:07+01:00">
+					9 mayo 2016 de 23:25					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muy de acuerdo contigo. </p>
+<p>Aquí os dejo un enlace con una historia sobre microservicios desde la experiencia y contextualizando equipo, proyecto, etc. </p>
+<p>A mi me parece muy interesante:<br />
+<a href="https://rclayton.silvrback.com/failing-at-microservices?utm_content=buffer93afc&#038;utm_medium=social&#038;utm_source=twitter.com&#038;utm_campaign=buffer" rel="nofollow ugc">https://rclayton.silvrback.com/failing-at-microservices?utm_content=buffer93afc&#038;utm_medium=social&#038;utm_source=twitter.com&#038;utm_campaign=buffer</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3906">
+		<article id="comment-3906" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f2846bffc8f33efc95e4e6c36ec5426b?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">luisxkimo</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3906"><time pubdate datetime="2016-05-09T23:43:48+01:00">
+					9 mayo 2016 de 23:43					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Buenas noches Juanma,</p>
+<p>Antes de nada, felicidades por el artículo. Otro más para los que nos gusta el debate sobre arquitecturas, modas, tendencias, etc, en el mundo del software.</p>
+<p>Sobre el tema del artículo, dejando aparte la tendencia de muchos de nosotros a implementar las últimas modas en nuestros proyectos web por simple postureo, existe otro amplio campo en el que los «micro-servicios» creo que juegan un papel bastante importante y tienen bastante sentido, y creo que en el artículo no se ha mencionado: </p>
+<p>la integración entre sistemas.</p>
+<p>Imaginemos que nuestra infraestructura se componen de múltiples «input system» los cuales emiten (y potencialmente reciben) información la cual debe ser procesada, analizada y tratada antes de enviarla a un sistema central de control, con el fin de tener disponible toda esta información de manera clara y útil para otros sistemas o personas que nada o poco tienen que ver con esos «input system». Pensemos además que quizás este sistema central de control esta fuera de nuestra intranet (porque queremos que tanto los trabajadores de nuestra empresa, como los trabajadores externos puedan comunicarse con este sistema), y que queremos filtrar de manera adecuada la información interna que sale de nuestra red.</p>
+<p>En este caso cada punto de entrada al sistema central puede ser «de su padre y de su madre». Se podrían dar casos en que nos llega información a través de: una web en SharePoint, un sistema de carpetas compartido, una web, un Rest API, una aplicación de escritorio, un directorio activo, etc. Y toda esta información debe ser procesada y llevada al sistema central para visualizarla de forma homogénea. Aquí tiene mucho sentido tener «micro-aplicaciones» encargadas de gestionar y analizar esa información de entrada. Además, efectivamente esta información debe ser coherente en el espacio y el tiempo, por tanto es necesario un sistema de comunicación entre sistema central y los «input/output systems» y entre ellos mismos (llamase RabbitMQ, Apache Kafka, whatever&#8230;).</p>
+<p>Por otra parte, cada sistema de entrada tiene unos requisitos de usuario muy distintos y muy dispares, por lo que se pueden atacar de forma más focalizada si tenemos micro-servicios enfocados a cada parte, sin que nuestros cambios afecten a los demás input systems. </p>
+<p>También si el día de mañana se decide eliminar funcionalidad o mergear varios input system y dejar otros, los microservicios nos permiten hacer esta union sin afectar a otros stakeholders que nada tienen que ver con ese cambio de funcionalidad.</p>
+<p>Y a todo lo anterior le podemos añadir lo ya comentado en el post sobre mejoras en escalabilidad de procesamiento al poder ir levantando instancias de nuestros microservicios según se vaya demandando más capacidad.</p>
+<p>No obstante, por supuesto que hay problemas en este tipo de arquitecturas, y el que comentas Juanma sobre el versionado y despliegue de cada micro-servicio es uno de ellos y bastante importante además, ya que muy probablemente la manera de desplegar de cada micro-servicio, aparte de ser completamente distinta, probablemente implique «down times» muy diferentes tanto en tiempo como en forma. Para ello nada mejor que dedicar varios sprints a desarrollar la parte de DevOps lo mejor posible y, por qué no, si la pasta te lo permite, tener a una persona dedicada al mantenimiento de toda esa infraestructura nunca esta demás :D</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3907">
+		<article id="comment-3907" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/33a44352230be7166bd4f23ec11bb756?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/33a44352230be7166bd4f23ec11bb756?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="https://juank.io" class="url" rel="ugc external nofollow">JuanKRuiz</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3907"><time pubdate datetime="2016-05-10T04:04:05+01:00">
+					10 mayo 2016 de 04:04					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Se esta perdiendo de vista el hecho de que con microservicios puedes escalar partes de una aplicación de una manera muy granular, y que hay muchas faclidades derivadas de las tecnologias de nube, todo el tema de contenedores y del costo de infraestructura en la nube es un gran facilitador. Fácilmente una aplicación puede construirse de forma tradicional y exponer solo como microservicios las partes que más requieran escalabilidad, logrando tener una muy Buena mejora en servicio y reduciendo a su vez los costos de producción. Normalmente por un par de Servicios de alta demanda se termina escalando toda la aplicación incurriendo en costos innecesarios. Otro tema importante es que para temas críticos hoy en día se pueden encontrar herramientas especializadas que no necesariamente correran el mismo fwk que el resto de la aplicación. El enfoque de microservicios tambien permite desacoplamiento tecnologico en Servicios donde la major solución puede estar en otro framework o lenguaje.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor even thread-even depth-1" id="li-comment-3908">
+		<article id="comment-3908" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3908"><time pubdate datetime="2016-05-10T07:20:30+01:00">
+					10 mayo 2016 de 07:20					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Luis, </p>
+<p>En un escenario como el que planteas, utilizar servicios/aplicaciones diferentes me parece lo más natural y una opción perfectamente válida. Que sean micro o macro es una cuestión diferente pero, en mi opinión, irrelevante.</p>
+<p>En el caso que describes, la necesidad de escalar, desplegar, mantener y evolucionar por separado cada componente es algo inherente al sistema, no es algo heredado de la arquitectura usada.</p>
+<p>Para mí esa es la diferencia clave: si la arquitectura se ajusta a la complejidad esencial del sistema, está bien elegida; si la arquitectura introduce complejidad accidental, la arquitectura sobra.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3909">
+		<article id="comment-3909" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://blog.odelvalle.com" class="url" rel="ugc external nofollow">omar</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3909"><time pubdate datetime="2016-05-10T09:13:18+01:00">
+					10 mayo 2016 de 09:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Gran artículo Juanma (no podía ser de otra forma viniendo de ti), sobre todo en la parte del artículo que detallas las ventas (esta va con indirectas) ;) </p>
+<p>Me voy a centrar más en las desventajas, porque con las ventajas, entre otras muchas más, estoy de acuerdo.</p>
+<p>1- Despliegue, Versionado y actualización: Es verdad que pasas de tener 1 despliegue en caso de una aplicación monolítica a tener muchos despliegues en caso de micro-servicios, pero cuando despliegas no lo haces de todos los micro-servicios a la vez, solo despliegas la pieza que necesitas evolucionar o corregir. Esto a la hora de la verdad, se convierte más en una ventaja que en una desventaja ya que no corres los riesgos que implica desplegar toda tu aplicación para corregir o evolucionar solo una  funcionalidad.</p>
+<p>El versionado es otra ventaja que va muy ligado a lo anterior. ¿Cuántas veces no hemos querido evolucionar algo o re-factorizar algo que implica una refactorización de varias tiers? En estos casos o re-factorizamos todo lo que toca o nos arriesgamos a mantener dentro de una misma aplicación funcionalidades que hacen lo mismo de distintas maneras (ummmm).</p>
+<p>En el caso de las actualización, podría sumar los dos párrafos anteriores y quedaría nuevamente convencido de que la separación es una buena solución :)</p>
+<p>Monitorización: Lo he separado porque es un error común a la hora de plantear una arquitectura de Micro-servicios, saltarnos el API Manager o API Gateway. Si se busca arquitectura de Micro-servicios en internet y vemos las imágenes, nos encontramos con muchas que explican la exposición directa de cada Micro-servicio y esto es un error. </p>
+<p>Esto pasa porque hacia fuera, esta pieza es invisible a los ojos (como todo lo bueno, según nos contó «El Principito» una vez). Aquí puedes gestionar todas las peticiones a tu arquitectura, registro, subscripciones, policy injections, logs, versionado, analytics, etc.</p>
+<p>WSO2, Mule de MuleSoft o el propio API Manager de Azure nos hace este trabajo muy simple. Incluso, si queremos que cada micro-servicio tenga su propio log (no lo veo necesario) y nos ponemos serios con la arquitectura, toda esta gestión la puede hacer un micro-servicio, por lo que simplificamos el análisis y la resolución de problemas. Visual Studio Application Insights es un ejemplo de esto.</p>
+<p>DevOps, es un elemento clave en todo esto. Hasta hace poco no era extraño ver a un IT diciendo «Es culpa del software» o a un desarrollador diciendo «No me puedo conectar a la BD, esto es cosa de IT». Aquí esto se acabó :) Somos un equipo! Yo pude estar en uno que después de algún tiempo intentándolo, finalmente se logró y el resultado es espectacular. </p>
+<p>Sobre la interrelación entre servicios, ¿qué decir? Nadie duda hoy en día que el Cloud es una solución para muchas empresas por lo que representa en ahorros de costes. En Azure por ejemplo, interactuamos con bases de datos SQL o NoSQL, Redys, Storages, Notificaciones, Visual Studio Application Insights, etc. ¿Tan complicado nos ha resultado? ¿Nos hemos preocupado por transaccionalidad más allá de la capa que nos ocupa? Azure está montado sobre una arquitectura de micro-servicios e interactuamos con ellos sin apenas darnos cuenta.</p>
+<p>Estoy de acuerdo que vender esta arquitectura por su escalabilidad, es un malísimo enfoque. Además, tu puedes escalar perfectamente una aplicación monolítica. Para mi, además de las ventajas que se han descrito aquí, la principal ventaja que veo en esta arquitectura es que puedo exponer una lógica de negocio y convertirlo en un negocio independiente, sin escribir 1 sola línea de código. La rapidez para este tipo de decisiones en un mundo que a día de hoy expone 100 soluciones para un mismo problema, es prioridad para cualquier negocio.</p>
+<p>Saludos (Al final excepto por el título, no has sido tan duro con la arquitectura) ;)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3910">
+		<article id="comment-3910" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://blog.odelvalle.com" class="url" rel="ugc external nofollow">omar</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3910"><time pubdate datetime="2016-05-10T09:32:41+01:00">
+					10 mayo 2016 de 09:32					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>y ahora que leo algunos comentarios, muy buen punto el de @JuanKRuiz </p>
+<p>Aunque es verdad que puedes escalar sin problemas una aplicación monolítica, el coste en Cloud no será igual al escalado en una arquitectura de micro-servicios. En el primer caso, se escala «toda» la aplicación, en el segundo, se escala solo el micro-servicio que demanda mayor uso y lo haces incluso, pudiendo decidir que no te interesa escalar más.</p>
+<p>Un ejemplo que me viene de cerca: En una pasarela de pago, ¿qué es lo que más te interesa? Pues que se pueda pagar ¿Verdad? Sin embargo una pasarela de pago tiene reporting, registros, etc. Yo puedo decidir que mi micro-servicio de pago escale siempre (hasta el infinito y más allá). Esa es la vida de mi negocio, lo que me da dinero. </p>
+<p>Sin embargo, ¿te interesa escalar de igual forma la parte de reporting?  Si quieres regular costes la respuesta es «No», escalo hasta X usuarios, la media por ejemplo, de ahí en adelante si da time-out, ya podrán obtener sus reportes en otro momento.. Quizás suena drástico e incluso se pueden incluir otras variables en la ecuación, pero si tienes una carga de pagos y una carga de reporting y no quieres que se te vaya la ganancia en pagar el escalado del reporting, te toca tomar una decisión</p>
+<p>Con Micro-servicios tenemos mayor control de cada parte de la aplicación, podemos decidir en caso de necesitar ahorrar, dónde puedo y dónde no&#8230; </p>
+<p>;)</p>
+<p>Saludos&#8230;</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3911">
+		<article id="comment-3911" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3911"><time pubdate datetime="2016-05-10T12:27:10+01:00">
+					10 mayo 2016 de 12:27					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muchas gracias por tus comentarios, Omar. Me han resultado muy útiles.</p>
+<p>Lo cierto es que como arquitectura ya digo que me parece atractiva y creo que tienes razón en que parte de lo que yo veo como desventajas pueden convertirse en ventajas. </p>
+<p>Al final, como siempre, todo depende del contexto que tengas. Por el tipo de aplicaciones que desarrollo actualmente, no me aporta mucho poder desplegar versiones de forma independiente, o escalar partes concretas de la aplicación, por eso digo que los microservicios no son <em>para mí</em>.</p>
+<p>Sobre la facilidad para gestionar 300 servicios en la nube, lo veo como un arma de doble filo. Está muy bien que sea fácil montar un Redis, un mongo, un sql server, un app insights y 40 cosas más, pero no sé si quiero que mi aplicación dependa de todas esas cosas. Bueno, sí lo sé, prefiero que no lo haga a menos que sea imprescindible.</p>
+<p>En cuanto a la parte de «convertir parte de la lógica en un negocio independiente», yo diría que lo complicado de un negocio no suele ser exponer la lógica sino todo lo que va alrededor (comercialización, marketing, fuerza comercial, canal de distribución, modelo de negocio). Comparado con eso, encapsular detrás de un API la lógica que tenías en una dll no me parece tan complejo. Si haces algo parecido a lo que comentaba @Jesús al principio, dejando la aplicacion «preparada» para partirla pero sin partirla, dar ese paso es fácil, y mientras te has ahorrado el resto de costes asociados a los servicios.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3912">
+		<article id="comment-3912" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/2306aeb5796330b580c369e4fdd3ef2c?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://blog.odelvalle.com" class="url" rel="ugc external nofollow">omar</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3912"><time pubdate datetime="2016-05-10T13:07:16+01:00">
+					10 mayo 2016 de 13:07					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>;)</p>
+<p>Estoy de acuerdo en que hay que contextualizar. Miraba el comentario que escribí en el post pasado donde dije «siempre utilizaría micro-servicios» y lo reconozco, me dejé llevar&#8230; :D</p>
+<p>Sobre las dependencias ¿Seguro que ya no dependes de otras aunque sean desarrolladas por ti? ¿Por qué no nos creamos nuestra propia BD en vez de usar SQL Server, Oracle, MySQL o Postgre? ¿Hacemos caché en nuestra aplicación monolítica para mejorar los tiempos de respuesta? ¿Tenemos implementado un sistema de Logs? para mi, las dependencias son las mismas e incluso, puede que más difícil de gestionar&#8230; </p>
+<p>El otro punto ya te digo, me gustaría verlo como lo vez tú o como lo ve @Jesús&#8230; pero de verdad, a mi al menos eso que llamáis «fácil» me parece complicado. </p>
+<p>Suponiendo que el resto de actores hace su trabajo: tienes marketing, tienes fuerza comercial y canal de distribución. No se trata de exponer una parte de tu código y listo. ¿Cómo gestionas las credenciales para las aplicaciones que quieran consumir tu API? ¿Cómo controlas que alguien se haya apoderado de un juego de credenciales y te quiera echar abajo tu API? ¿Cobrarás por petición o por volumen de peticiones? ¿Quién se encarga de controlar esto? ¿Cómo expones tu documentación? Mucho trabajo que hacer veo yo, incluso planteándose incluir un API Manager de terceros&#8230; </p>
+<p>Saludos..</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3913">
+		<article id="comment-3913" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3913"><time pubdate datetime="2016-05-10T13:41:12+01:00">
+					10 mayo 2016 de 13:41					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Sobre dependencias, no digo que no haya que usarlas, pero si puedo, prefiero minimizarlas, y si puedo controlarlas yo, mucho mejor. Si uso NHibernate (por poner un ejemplo de ORM), puedo copiarme la DLL y usarla infinitamente. Si uso Azure Service Expert Management Support Center For Insight Analytics y mañana lo descontinúan, tengo un problema más grave.</p>
+<p>Tienes razón en lo que dices sobre la complejidad técnica para exponer algo como un servicio. Pero creo que, precisamente, ese tipo de argumentos sirven también para evitar convertir algo en servicio hasta que no sea imprescindible. Por lo de YAGNI y cosas de esas ;-)</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3914">
+		<article id="comment-3914" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/f682647d43d87cdb3df26f753af7a62a?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/f682647d43d87cdb3df26f753af7a62a?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://gachonet.wordpress.com" class="url" rel="ugc external nofollow">Michael-Jorge Gómez</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3914"><time pubdate datetime="2016-05-10T14:57:06+01:00">
+					10 mayo 2016 de 14:57					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Tu tranqui, los microservicios déjamelos pa&#8217; mi :) que le inyecto unos WebForms y a generar microservicios a cholón.</p>
+<p>Quitando mis tonterias, la verdad que si que, a primera vista parecen una sobrearquitectura, pero qué no es una sobrearquitectura hoy en dia&#8230; Personalmente, el tema de los microservicios siempre me ha hecho gracia, pero no me acababa de convencee el <em>overhead</em> de interacción via servicios web, no porque lo vea dificil sino porque es una inversión de tiempo espeluznante para conseguir algo potable y que es muy poco práctico a nivel de mantenimiento, incluso con las mejores prácticas aplicadas. Como he leido en algunas partes, la diferencia entre microservicios y monolitos es el tamaño de la mierda y su dispersión.</p>
+<p>Pero con el tema de los microservicios, descubrí akka.cluster&#8230;. <b>¡¡¡¡¡Y TE HACES PAJAS# SÓLO DE VER LO QUE SE PUEDE HACER!!!!!</b>. Como ejemplo, el siguiente enlace: <a href="https://github.com/petabridge/akkadotnet-code-samples/tree/master/Cluster.WebCrawler" rel="nofollow">Cluster.WebCrawler</a>. Lo siento si te lo haces encima, ¡pero esto es digno de ver! I &lt;3 Akka!!!</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3915">
+		<article id="comment-3915" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b3a40fa12ef07566b613fd0b3ae282d8?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b3a40fa12ef07566b613fd0b3ae282d8?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">JRichardsz</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3915"><time pubdate datetime="2016-05-10T15:26:51+01:00">
+					10 mayo 2016 de 15:26					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Muchas Gracias Juan María Hernández.  Valiosísimo tu post. Estoy a puertas de implementar un proyecto con M.S. El punto de la transaccionalidad se nos paso a todos. Toca ajustar las tuercas.  Sin ser un evangelizador de M.S ya me olía todita la complejidad que expones, así que no estaba loco :s</p>
+<p>Yo viví en carne propia dos apps monolíticas elevadas a la 1000. Uno era un producto de ibm y otro un desarrollo en un lugar muy muy lejano. Ambas tenían un workspace de mas de 1gb, sin maven, tecnologia antiquisima, errores extraños, demoraba mas de 20 minutos el arranque, la app se chupaba toda la ra, de mi pc, el eclipse se colgaba y los developers se ahorcaban. No podias meter nada nuevo porque el mounstruo monolitico no lo permitia. Era el mismisimo infierno T_T.</p>
+<p>Por experiencia propia , entre una app monolitica y una basada en microservices sin caer en delitos como dijo GreenEyed, me quedo con los microservices.<br />
+Lo que si es delito es el comentario de «salir de la zona de confort».</p>
+<p>Aquí una interesante historia de como una monolitica se vuelve un mountruo:<br />
+<a href="http://microservices.io/patterns/monolithic.html" rel="nofollow ugc">http://microservices.io/patterns/monolithic.html</a></p>
+<p>Saludos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3917">
+		<article id="comment-3917" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/02c8ecc24181d171df85a26458b9cd5f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://twitter.com/jneira" class="url" rel="ugc external nofollow">jneira</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3917"><time pubdate datetime="2016-05-11T06:35:18+01:00">
+					11 mayo 2016 de 06:35					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Supongo que se da por supuesto pero a veces parece como que es una eleccion de todo o nada siendo que el tamaño y ambito de cada desplegable/proyecto puede ser ajustado segun varios criterios:<br />
+* Agrupar las funcionalidades de un conjunto de usuarios mas o menos homogeneo<br />
+* Separar las partes que cambian mas frecuentemente y que cambian juntas<br />
+* Ver el balance entre tener demasiadas dependencias estaticas con un grafo de dependencias complejo y tenerlas en tiempo de ejecucion (lo que rompe la transitividad de dependencias)<br />
+* Estudiar como afecta al coste mantener la correccion en un caso u en otro (herramientas de analisis estaticos, tipos, tests unitarios o de integracion, etc)<br />
+* Etc<br />
+O sea que no tiene que ser todo grande o pequeño siempre y tal vez deberiamos estar preparados para desarrollar y desplegar aplicaciones de varios tamaños.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3918">
+		<article id="comment-3918" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/b11337752ae3388020f74f54bb0c3fbe?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/b11337752ae3388020f74f54bb0c3fbe?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Alejandro Merchan</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3918"><time pubdate datetime="2016-05-11T14:32:35+01:00">
+					11 mayo 2016 de 14:32					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>El uso de un sistema basado en microservicios así como cualquier otra arquitectura esta relacionado directamente en las necesidades del negocio (pensemos en DDD). Pienso que es un error decir que es favorable si se trabaja en equipos grandes o proyectos grandes, llevo trabajando dos años con este tipo de arquitecturas y he llegado a desarrollar y administrar hasta mas de 20 microservicios todos correspondientes a la misma solución. No me confundan (No soy un fanático religioso de x tecnología o x arquitectura o x tendencia) pero esta arquitectura permite tener una gran libertad de diseño y de costos al momentos de implementar una soluciona a la vez que permite un acoplamiento mas fácil con otros sistemas no distribuidos o monolíticos. De nuevo aclaro, es una arquitectura para x necesidad de negocio, así como todas las tecnologías que utilizamos.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3924">
+		<article id="comment-3924" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/41e6f3879b4eb5d7a3f6173cc8dc7cf1?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/41e6f3879b4eb5d7a3f6173cc8dc7cf1?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://likewastoldtome.blogspot.com/" class="url" rel="ugc external nofollow">Igr Alexánder Fernández Saúco</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3924"><time pubdate datetime="2016-05-16T15:13:33+01:00">
+					16 mayo 2016 de 15:13					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Creo que su artículo presenta un punto de vista peculiar e interesante sobre como el mercado o la moda rigen en sobremanera las arquitecturas de los sistemas o peor los destinos tecnológicos. Se me ocurren ahora mismo par de tecnologías que no han resuelto ningún problema que no estuviera resuelto antes y de hecho traen otros problemas que ya estaban resueltos, pero se han impuesto exactamente por la moda. Sin embargo, otras que lucen más robustas, resultan ser menos populares.</p>
+<p>Donde si NO coincido es cuando asocia los temas de gestión de configuración (despliegue, versiones, actualizaciones, …), a las arquitecturas micro servicios + tamaño de los equipos. Según mi punto de vista, independientemente del tamaño equipo o la arquitectura la gestión de configuración es imprescindible.<br />
+Una cosa es que algunas tecnologías promuevan ambas cosas (micro servicios + gestión de configuración) y otra es que por método o principio deba SIEMPRE tenerse en cuenta. </p>
+<p>¿Dónde está dicho que una aplicación monolítica no deba versionarse correctamente o que un desarrollador individual no deba mantener su pipeline para la construcción y/o despliegue continuo para sus aplicaciones?</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-juanma bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-3927">
+		<article id="comment-3927" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/17ee36c1693265246787166f433cb378?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="/" class="url" rel="ugc">Juan María Hernández</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3927"><time pubdate datetime="2016-05-16T17:08:34+01:00">
+					16 mayo 2016 de 17:08					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hola Igr,</p>
+<p>Tal vez no me haya explicado bien. No creo que desplegar, versionar o monitorizar sean características exclusivas de arquitecturas basadas en microservicios o de equipos grandes, de hecho he escrito sobre ello, por ejemplo al hablar de <a href="/2013/05/servidor-de-integracion-continua-una-buena-inversion/" rel="nofollow">servidores de integración continua</a> o de <a href="/2015/10/desarrollar-es-solo-el-principio/" rel="nofollow">todo lo que hay que hacer <em>además</em> de desarrollar</a>.</p>
+<p>A lo que me refiero en el post es que todas esas cosas tienen un coste que no es despreciable, y en el caso de una arquitectura basada en microservicios, el coste se multiplica porque en tienes que desplegar, versionar y monitorizar más procesos separados que en el caso de una aplicación monolítica.</p>
+<p>El comentario sobre el tamaño de los equipos es porque una de las ventajas que le veo a los microservicios es que permiten dividir mejor el trabajo en distintos equipos y, obviamente, a eso le sacas más partido cuando mayor sea tu equipo. Por supuesto, si tu equipo tiene 2 personas, también es bueno poder dividir el trabajo, pero suele ser más fácil que cuando tiene 300.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3930">
+		<article id="comment-3930" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/3f97ce34ef7c39242700221f8de9c994?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/3f97ce34ef7c39242700221f8de9c994?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Juanma</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-3930"><time pubdate datetime="2016-05-16T20:05:09+01:00">
+					16 mayo 2016 de 20:05					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Buenas:<br />
+Como comentan esto ahorita es el «trending topic» del desarrollo, a lo que veo para poder desarrollar una buena arquitectura de microservicios se necesita conocer cosas como:<br />
+ Principios GRASP, Principios SOLID, DDD , Teorema de CAP, TDD, Message Brokers (RabbitMQ ,MSMQ, JMS), Herramientas de Monitoreo como New Relic (por mencionar alguna)  y ni hablar de CI (Continous Integration) y Continous Deployment,  para  que tu proyecto no sea un infierno, la verdad yo no me arriesgaría a invertir tanta bilis en ello, aparte para ser sinceros muy pocas empresas necesitan tanta «Escalabilidad», habrá sus excepciones. y como no mencionan el manejo de transacciones se dificulta de una gran manera  ya que cada servicio maneja sus propias transacciones. por lo que veo no es tan trivial implementar algo así en nuevos proyectos, al menos que se quiera correr el riesgo $$$$</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4060">
+		<article id="comment-4060" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/1454d4487cee5e7a165ba51d4961920f?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/1454d4487cee5e7a165ba51d4961920f?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://quipux.com" class="url" rel="ugc external nofollow">Salim Castellanos</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-4060"><time pubdate datetime="2016-09-02T00:55:35+01:00">
+					2 septiembre 2016 de 00:55					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Hace un tiempo leí un comentario muy acertado, un equipo de desarrollo bueno nunca necesito una buena arquitectura para hacer buen software, y no me quiero extender en la explicación y consecuencias de esto.</p>
+<p>Microservicios es la manera adecuada de abordar un problema perse, asi como se puede decir que separar un problema en partes más pequeñas es una buena practica siempre. Hay quienes diran, es que mi problema es muy pequeño y no necesito separarlo, y me ahorro la complegidad de los llamados y definición de las las partes, etc, :(, xD.</p>
+<p>Si desde el principio adoptas  este patron no habra problema si te encuentras con la eventalidad que no necesitabas separar, pero si pasa lo contrario, como al final siempre me ha pasaddo&#8230; </p>
+<p>Queria aportar esto, ya que de lo demás suficiente se ha hablado.</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4111">
+		<article id="comment-4111" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ac35a7d3127895f37b97d9560f6492de?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ac35a7d3127895f37b97d9560f6492de?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn"><a href="http://andyjo.tk" class="url" rel="ugc external nofollow">Andy Jo</a></cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-4111"><time pubdate datetime="2016-09-26T01:46:00+01:00">
+					26 septiembre 2016 de 01:46					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Microservicios esta orientado a cierta tipo de aplicaciones que no tengan muchos interface pero si un buen comsumo de recursos en realidad creo seria un poco complicado implementar microservicios pero si es una app pequeña y enfocada a solo alguna cosa estaria bien</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="https://daniccardenas.wordpress.com/2017/01/02/seis-ventajas-de-los-microservicios/" class="url" rel="ugc external nofollow">Seis ventajas de los microservicios &#8211; DaniCCardenas</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-4565">
+		<article id="comment-4565" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/8c6f76db5dbff0781f49035d2f093520?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/8c6f76db5dbff0781f49035d2f093520?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">Max</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-4565"><time pubdate datetime="2017-04-27T14:54:44+01:00">
+					27 abril 2017 de 14:54					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Yo llevo trabajando en con microservicios los últimos 5 años&#8230;. y me encantan!</p>
+<p>Tienen sus complicaciones, un buen equipo de DevOps es clave</p>
+<p>Si bien la escalabilidad horizontal es la reina de las ventajas, también hay otras: la posibilidad de desarrollar en paralelo sin código compartido entre equipos y que es una arquitectura que fuerza a que los componentes sean muy cohesionados y poco acoplados.</p>
+<p>He comenzado ahora a leer posts de microservicios en castellano, y este es uno de los mejores análisis de pros y contras que he encontrado.</p>
+<p>Saludos y enhorabuena!<br />
+Max<br />
+<a href="mailto:maxaldunate@gmail.com">maxaldunate@gmail.com</a></p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-5136">
+		<article id="comment-5136" class="comment">
+			<div class="comment-head">
+				<div class="comment-author vcard">
+					<img alt='' src='https://secure.gravatar.com/avatar/ac346e253dfb2712bde63865c25051e9?s=60&#038;d=retro&#038;r=g' srcset='https://secure.gravatar.com/avatar/ac346e253dfb2712bde63865c25051e9?s=120&#038;d=retro&#038;r=g 2x' class='avatar avatar-60 photo' height='60' width='60' loading='lazy' decoding='async'/>					<cite class="fn">javier</cite> <span class="says">dijo:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="/2016/05/los-microservicios-no-son-para-mi/#comment-5136"><time pubdate datetime="2018-02-02T15:19:37+01:00">
+					2 febrero 2018 de 15:19					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</div><!-- .comment-head -->
+
+			<div class="comment-content"><p>Tu opinion es la de asno,que no come carne y opina sobre su gusto.No rebuses mas</p>
+</div>
+
+			<div class="reply">
+							</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+			<p class="nocomments">Comentarios cerrados.</p>
+	
+	
+</div><!-- #comments .comments-area -->
+		
+	
+</div><!-- #content .site-single-post -->
+
+
+
+
+</div><!-- #main -->
+
+<footer id="footer" class="clear" role="contentinfo">
+	<div id="footer-widgets">
+		<div id="footer1">
+					</div>
+		<div id="footer2">
+					</div>
+		<div id="footer3">
+					</div>
+		<div id="footer4">
+					</div>
+	</div><!-- #footer-widgets -->
+	
+	<div id="footer-info" class="container center-text">
+				&copy;  Juan M. Hern&aacute;ndez | powered by <a href="https://wordpress.org/">WordPress</a> | Custom theme <a href="https://github.com/jmhdez/AlbinoMouse/tree/koalite">forked from Albino Mouse by pixelstrolch</a>
+<br />
+This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.
+<br />
+<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" /></a>
+			
+	</div><!-- #footer-info .container -->
+
+</footer><!-- #footer .clear -->
+
+</div><!-- #page .hfeed .site -->
+
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shCore.js" id="syntaxhighlighter-core-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushAS3.js" id="syntaxhighlighter-brush-as3-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushArduino.js" id="syntaxhighlighter-brush-arduino-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushBash.js" id="syntaxhighlighter-brush-bash-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushColdFusion.js" id="syntaxhighlighter-brush-coldfusion-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushClojure.js" id="syntaxhighlighter-brush-clojure-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCpp.js" id="syntaxhighlighter-brush-cpp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCSharp.js" id="syntaxhighlighter-brush-csharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushCss.js" id="syntaxhighlighter-brush-css-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDelphi.js" id="syntaxhighlighter-brush-delphi-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushDiff.js" id="syntaxhighlighter-brush-diff-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushErlang.js" id="syntaxhighlighter-brush-erlang-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushFSharp.js" id="syntaxhighlighter-brush-fsharp-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGo.js" id="syntaxhighlighter-brush-go-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushGroovy.js" id="syntaxhighlighter-brush-groovy-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushHaskell.js" id="syntaxhighlighter-brush-haskell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJava.js" id="syntaxhighlighter-brush-java-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJavaFX.js" id="syntaxhighlighter-brush-javafx-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushJScript.js" id="syntaxhighlighter-brush-jscript-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushLatex.js" id="syntaxhighlighter-brush-latex-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushMatlabKey.js" id="syntaxhighlighter-brush-matlabkey-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushObjC.js" id="syntaxhighlighter-brush-objc-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPerl.js" id="syntaxhighlighter-brush-perl-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPhp.js" id="syntaxhighlighter-brush-php-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPlain.js" id="syntaxhighlighter-brush-plain-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPowerShell.js" id="syntaxhighlighter-brush-powershell-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushPython.js" id="syntaxhighlighter-brush-python-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/third-party-brushes/shBrushR.js" id="syntaxhighlighter-brush-r-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushRuby.js" id="syntaxhighlighter-brush-ruby-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushScala.js" id="syntaxhighlighter-brush-scala-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSql.js" id="syntaxhighlighter-brush-sql-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushSwift.js" id="syntaxhighlighter-brush-swift-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushVb.js" id="syntaxhighlighter-brush-vb-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushXml.js" id="syntaxhighlighter-brush-xml-js"></script>
+<script type="text/javascript" src="/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/scripts/shBrushYaml.js" id="syntaxhighlighter-brush-yaml-js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.head.appendChild( corecss );
+		var themecssurl = "/wp-content/plugins/syntaxhighlighter/syntaxhighlighter3/styles/shThemeDefault.css";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.head.appendChild( themecss );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expandir código';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'No se encuentra el pincel para:';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'El pincel no está configurado para la opción html-script:';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+
+	// Infinite scroll support
+	if ( typeof( jQuery ) !== 'undefined' ) {
+		jQuery( function( $ ) {
+			$( document.body ).on( 'post-load', function() {
+				SyntaxHighlighter.highlight();
+			} );
+		} );
+	}
+</script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/small-menu.js" id="small-menu-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/socialite.min.js" id="socialite-js"></script>
+<script type="text/javascript" src="/wp-content/themes/koalite-albinomouse/js/social.js" id="social-js"></script>
+
+<script>
+(function($, window, document) {
+	$(function() {
+
+		var body = $('body');
+		var doc = $(document);
+
+		var updateHeader = function() {
+			var top = doc.scrollTop();
+			if (top > 130)
+				body.addClass('collapse-header');
+			else
+				body.removeClass('collapse-header');
+		};
+
+		// Necesario por si se refresca la página mientras hay scroll hecho
+		updateHeader();
+
+		$(window).on('scroll resize', updateHeader);
+	});
+})(jQuery, window, document);
+</script>
+
+</body>
+</html>
